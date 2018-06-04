@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>新規ユーザー登録は
+	<p>新規ユーザー登録
 		<a href='<s:url action="GoUserCreateAction"/>'>こちら</a>
 	</p>
 
