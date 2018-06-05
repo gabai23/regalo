@@ -131,14 +131,14 @@
 <!-- 宛先選択 -->
 	<!-- BuyItemConfirmAction -->
 	<action name="BuyItemConfirmAction" class="com.internousdev.regalo.action.BuyItemConfirmAction" method="execute">
-		<result name="success">BuyItemConfirm.jsp</result>
+		<result name="success">buyItemConfirm.jsp</result>
 	</action>
 
 <!-- 比嘉担当 -->
 <!-- 決済完了 -->
 	<!-- BuyItemCompleteAction -->
 	<action name="BuyItemCompleteAction" class="com.internousdev.regalo.action.BuyItemCompleteAction" method="execute">
-		<result name="success">BuyItemComplete.jsp</result>
+		<result name="success">buyItemComplete.jsp</result>
 	</action>
 
 <!-- 鴻崎担当 -->
