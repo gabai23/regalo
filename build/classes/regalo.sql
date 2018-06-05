@@ -1,4 +1,4 @@
-set names utf8
+set names utf8;
 set foreign_key_checks=0;
 
 drop database if exists Regalo;
@@ -41,7 +41,8 @@ price int comment "価格",
 image_file_path varchar(100) comment "画像ファイルパス",
 image_file_name varchar(50) comment "画像ファイル名",
 release_date datetime not null comment "発売年月",
-release_company varchar(50) comment "ステータス",
+release_company varchar(50) comment "発売会社",
+status tinyint not null default 0 comment "ステータス",
 regist_date datetime not null comment "登録日",
 update_date datetime comment "更新日",
 foreign key(category_id) references m_category(category_id)
@@ -103,15 +104,28 @@ update_date datetime not null comment "更新日"
 default charset=utf8
 comment="宛先情報テーブル";
 
-insert into destination info values
+insert into destination_info values
 (1,"guest","ゲスト","ユーザー","げすと","ゆーざー","guest@gmail.com","080-1234-5678","東京都千代田区三番町１ー１　ＫＹ三番町ビル１Ｆ",now(),"0000-00-00 00:00:00");
 
 
 create table m_category(
 id int primary key not null comment "ID",
 category_id int not null unique comment "カテゴリーID",
-
+category_name varchar(20) not null unique comment "カテゴリ名",
+category_description varchar(100) comment "カテゴリ詳細",
+insert_date datetime not null comment "登録日",
+update_date datetime comment "更新日"
 )
+
+default charset=utf8
+comment="カテゴリマスターテーブル";
+
+insert into m_category values
+(1,1,"全てのカテゴリー","食料品、雑貨、酒全てのカテゴリーが対象となります",now(),null),
+(2,2,"食料品","食料品に関するカテゴリーが対象となります",now(),null),
+(3,3,"雑貨","雑貨に関するカテゴリーが対象となります",now(),null),
+(4,4,"酒","酒に関するカテゴリーが対象となります",now(),null);
+
 
 
 
