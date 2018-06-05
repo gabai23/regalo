@@ -11,9 +11,9 @@ public class GoItemInsertAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 
-		String result = SUCCESS;
+		System.out.println("asd");
 
-		return result;
+		return SUCCESS;
 
 	}
 
