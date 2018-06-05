@@ -30,6 +30,7 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 		}else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
+
 		CartDtoList = CartDao.getCartDtoList(userId);
 		Iterator<CartDTO> iterator = CartDtoList.iterator();
 		if(!(iterator.hasNext())) {
