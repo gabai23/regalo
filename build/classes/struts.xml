@@ -183,8 +183,8 @@
 		<result name="success">itemUpdate.jsp</result>
 	</action>
 
-	<!-- ItemUpdteConfirmAction -->
-	<action name="ItemUpdteConfirmAction" class="com.internousdev.regalo.action.ItemUpdteConfirmAction" method="execute">
+	<!-- ItemUpdateConfirmAction -->
+	<action name="ItemUpdateConfirmAction" class="com.internousdev.regalo.action.ItemUpdateConfirmAction" method="execute">
 		<result name="success">itemUpdateConfirm.jsp</result>
 	</action>
 
@@ -199,8 +199,8 @@
 		<result name="success">itemDelete.jsp</result>
 	</action>
 
-	<!-- ItemDeleteConfirmAction -->
-	<action name="ItemDeleteConfirmAction" class="com.internousdev.regalo.action.ItemDeleteConfirmAction" method="execute">
+	<!-- ItemDeleteAction -->
+	<action name="ItemDeleteAction" class="com.internousdev.regalo.action.ItemDeleteAction" method="execute">
 		<result name="success">itemDeleteConfirm.jsp</result>
 	</action>
 
