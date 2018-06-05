@@ -26,8 +26,8 @@ default charset=utf8
 comment="会員情報テーブル";
 
 insert into user_info values
-(1,"admin","admin","管理","管理","かんり","かんり",0,"guest@gmail.com",0,0,now(),now()
-(2,"guest","guest","ゲスト","ゲスト","げすと","げすと",0,"guest@gmail.com",0,0,now(),now()
+(1,"guest","guest","ゲスト","ユーザー","げすと","ゆーざー",0,"guest@gmail.com",0,0,now(),now()
+(2,"admin","admin","管理","管理","かんり","かんり",0,"admin@gmail.com",0,0,now(),now()
 );
 
 create table product_info(
@@ -55,8 +55,63 @@ insert into product_info values
 
 
 
+create table cart_info(
+id int primary key not null auto_increment comment "ID",
+user_id varchar(16) not null comment "ユーザーID",
+temp_user_id varchar(16) comment "仮ユーザーID",
+product_id int not null comment "商品ID",
+product_count int not null comment "個数",
+price int not null comment "金額",
+regist_date datetime not null comment "登録日",
+update_date datetime comment "更新日"
+)
+
+default charset=utf8
+comment ="カート情報テーブル";
 
 
+create table purchase_history_info(
+id int primary key not null auto_increment comment "ID",
+user_id varchar(16) not null comment "ユーザーID",
+product_id int not null comment "商品ID",
+product_count int not null comment "個数",
+price int not null comment "金額",
+destination_id int not null comment "宛先情報ID",
+regist_date datetime not null comment "登録日",
+update_date datetime not null comment "更新日",
+foreign key(user_id) references user_info(user_id),
+foreign key(product_id) references product_info(product_id)
+)
+
+default charset=utf8
+comment="購入履歴情報テーブル";
+
+create table destination_info(
+id int primary key not null auto_increment comment "ID",
+user_id varchar(16) not null comment "ユーザーID",
+family_name varchar(32) not null comment "姓",
+first_name varchar(32) not null comment "名",
+family_name_kana varchar(32) not null comment "姓かな",
+first_name_kana varchar(32) not null comment "名かな",
+email varchar(32) not null comment "メールアドレス",
+tel_number varchar(13) not null comment "電話番号",
+user_address varchar(50) not null comment "住所",
+regist_date datetime not null comment "登録日",
+update_date datetime not null comment "更新日"
+)
+
+default charset=utf8
+comment="宛先情報テーブル";
+
+insert into destination info values
+(1,"guest","ゲスト","ユーザー","げすと","ゆーざー","guest@gmail.com","080-1234-5678","東京都千代田区三番町１ー１　ＫＹ三番町ビル１Ｆ",now(),"0000-00-00 00:00:00");
+
+
+create table m_category(
+id int primary key not null comment "ID",
+category_id int not null unique comment "カテゴリーID",
+
+)
 
 
 
