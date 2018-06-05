@@ -71,6 +71,7 @@ public class AddressInfoDAO {
 				AddressInfoDTO addressInfoDTO = new AddressInfoDTO();
 
 				//addressInfoDTOに格納した値をaddressInfoDTOListに格納
+
 				addressInfoDTO.setId(rs.getInt("id"));
 				addressInfoDTO.setFamilyNameKana(rs.getString("family_name"));
 				addressInfoDTO.setFirstName(rs.getString("first_name"));
