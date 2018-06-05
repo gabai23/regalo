@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>フッター</title>
-</head>
-<body>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" type="text/css" href="./css/includeFooter.css">
 
-</body>
+</head>
+<footer>
+© Regalo
+</footer>
 </html>

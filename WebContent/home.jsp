@@ -5,9 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" type="text/css" href="">
 <title>ホーム画面</title>
 </head>
 <body>
+
+	<!-- ヘッダー -->
+	<jsp:include page="includeHeader.jsp"/>
+
 	<form action="GoLoginAction">
 		<button type="submit">ログインへ</button>
 	</form>
@@ -30,6 +36,8 @@
 		<button type="submit">管理者画面へ</button>
 	</form>
 
+	<!-- ヘッダー -->
+	<jsp:include page="includeFooter.jsp"/>
 
 </body>
 </html>

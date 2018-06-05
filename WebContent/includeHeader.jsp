@@ -5,9 +5,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ヘッダー</title>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" type="text/css" href="./css/includeHeader.css">
 </head>
 <body>
+	<div id="header">
+		<div id="headerLogo">
+			Regolo
+		</div>
 
+		<div id="headerSearch">
+			<s:form action="ItemSearchAction" theme="simple">
+				<select>
+					<option>全てのカテゴリー</option>
+					<option>カテゴリー1</option>
+					<option>カテゴリー2</option>
+					<option>カテゴリー3</option>
+				</select>
+
+				<s:textfield/>
+				<button type="submit">検索</button>
+			</s:form>
+		</div>
+
+		<div id="headerLogin">
+			<s:form action="GoLoginAction">
+				<button type="submit">ログイン</button>
+			</s:form>
+		</div>
+		<div id="headerLogout">
+			<s:form action="LogoutAction">
+				<button type="submit">ログアウト</button>
+			</s:form>
+		</div>
+
+		<div id="headerCart">
+			<s:form action="GoCartAction">
+				<button type="submit">カート</button>
+			</s:form>
+		</div>
+
+		<div id="headerMypage">
+			<s:form action="GoMyPageAction">
+				<button type="submit">マイページ</button>
+			</s:form>
+		</div>
+	</div>
 </body>
 </html>
