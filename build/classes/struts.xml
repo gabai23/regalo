@@ -14,12 +14,14 @@
 	<!-- StartAction -->
 	<action name="StartAction" class="com.internousdev.regalo.action.StartAction" method="execute">
 		<result name="success">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- ホーム -->
 	<!-- GoHomeAction -->
 	<action name="GoHomeAction" class="com.internousdev.regalo.action.GoHomeAction" method="execute">
 		<result name="success">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 郡山担当 -->
@@ -27,16 +29,19 @@
 	<!-- GoUserCreateAction -->
 	<action name="GoUserCreateAction" class="com.internousdev.regalo.action.GoUserCreateAction" method="execute">
 		<result name="success">userCreate.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- UserCreateConfirmAction -->
 	<action name="UserCreateConfirmAction" class="com.internousdev.regalo.action.UserCreateConfirmAction" method="execute">
 		<result name="success">userCreateConfirm.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- UserCreateCompleteAction -->
 	<action name="UserCreateCompleteAction" class="com.internousdev.regalo.action.UserCreateCompleteAction" method="execute">
 		<result name="success">userCreateComplete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 小沼担当 -->
@@ -44,16 +49,19 @@
 	<!-- GoLoginAction -->
 	<action name="GoLoginAction" class="com.internousdev.regalo.action.GoLoginAction" method="execute">
 		<result name="success">login.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- LoginAction -->
 	<action name="LoginAction" class="com.internousdev.regalo.action.LoginAction" method="execute">
 		<result name="success">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- LogoutAction -->
 	<action name="LogoutAction" class="com.internousdev.regalo.action.LogoutAction" method="execute">
 		<result name="success">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 野口担当 -->
@@ -61,16 +69,19 @@
 	<!-- GoPasswordResetAction -->
 	<action name="GoPasswordResetAction" class="com.internousdev.regalo.action.GoPasswordResetAction" method="execute">
 		<result name="success">passwordReset.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- PasswordResetConfirmAction -->
 	<action name="PasswordResetConfirmAction" class="com.internousdev.regalo.action.PasswordResetConfirmAction" method="execute">
 		<result name="success">passwordResetConfirm.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- PasswordResetCompleteAction -->
 	<action name="PasswordResetCompleteAction" class="com.internousdev.regalo.action.PasswordResetCompleteAction" method="execute">
 		<result name="success">passwordResetComplete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 仲館担当 -->
@@ -78,12 +89,14 @@
 	<!-- GoItemListAction -->
 	<action name="GoItemListAction" class="com.internousdev.regalo.action.GoItemListAction" method="execute">
 		<result name="success">itemList.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 商品詳細 -->
 	<!-- GoItemDetailAction -->
 	<action name="GoItemDetailAction" class="com.internousdev.regalo.action.GoItemDetailAction" method="execute">
 		<result name="success">itemDetail.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 丹野担当 -->
@@ -91,6 +104,7 @@
 	<!-- ItemSearchAction -->
 	<action name="ItemSearchAction" class="com.internousdev.regalo.action.ItemSearchAction" method="execute">
 		<result name="success">itemDetail.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 鎌田担当 -->
@@ -98,16 +112,19 @@
 	<!-- GoCartAction -->
 	<action name="GoCartAction" class="com.internousdev.regalo.action.GoCartAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- CartInsertAction -->
 	<action name="CartInsertAction" class="com.internousdev.regalo.action.CartInsertAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- CartDeleteAction -->
 	<action name="CartDeleteAction" class="com.internousdev.regalo.action.CartDeleteAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 野口担当 -->
@@ -115,16 +132,19 @@
 	<!-- GoAddressCreateAction -->
 	<action name="GoAddressCreateAction" class="com.internousdev.regalo.action.GoAddressCreateAction" method="execute">
 		<result name="success">addressCreate.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- AddressCreateConfirmAction -->
 	<action name="AddressCreateConfirmAction" class="com.internousdev.regalo.action.AddressCreateConfirmAction" method="execute">
 		<result name="success">addressCreateConfirm.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- AddressCreateCompleteAction -->
 	<action name="AddressCreateCompleteAction" class="com.internousdev.regalo.action.AddressCreateCompleteAction" method="execute">
 		<result name="success">addressCreateComplete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 郡山担当 -->
@@ -132,6 +152,7 @@
 	<!-- BuyItemConfirmAction -->
 	<action name="BuyItemConfirmAction" class="com.internousdev.regalo.action.BuyItemConfirmAction" method="execute">
 		<result name="success">buyItemConfirm.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 比嘉担当 -->
@@ -139,6 +160,7 @@
 	<!-- BuyItemCompleteAction -->
 	<action name="BuyItemCompleteAction" class="com.internousdev.regalo.action.BuyItemCompleteAction" method="execute">
 		<result name="success">buyItemComplete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 鴻崎担当 -->
@@ -146,12 +168,14 @@
 	<!-- GoMyPageAction -->
 	<action name="GoMyPageAction" class="com.internousdev.regalo.action.GoMyPageAction" method="execute">
 		<result name="success">myPage.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 購入履歴 -->
 	<!-- GoBuyItemHistoryAction -->
 	<action name="GoBuyItemHistoryAction" class="com.internousdev.regalo.action.GoBuyItemHistoryAction" method="execute">
 		<result name="success">buyItemHistory.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 鎌田担当 -->
@@ -159,56 +183,58 @@
 	<!-- GoMasterAction -->
 	<action name="GoMasterAction" class="com.internousdev.regalo.action.GoMasterAction" method="execute">
 		<result name="success">master.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 商品追加 -->
 	<!-- GoItemInsertAction -->
 	<action name="GoItemInsertAction" class="com.internousdev.regalo.action.GoItemInsertAction" method="execute">
 		<result name="success">itemInsert.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- ItemInsertConfirmAction -->
 	<action name="ItemInsertConfirmAction" class="com.internousdev.regalo.action.ItemInsertConfirmAction" method="execute">
 		<result name="success">itemInsertConfirm.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- ItemInsertCompleteAction -->
 	<action name="ItemInsertCompleteAction" class="com.internousdev.regalo.action.ItemInsertCompleteAction" method="execute">
 		<result name="success">itemInsertComplete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 商品情報変更 -->
 	<!-- GoItemUpdateAction -->
 	<action name="GoItemUpdateAction" class="com.internousdev.regalo.action.GoItemUpdateAction" method="execute">
 		<result name="success">itemUpdate.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- ItemUpdateConfirmAction -->
 	<action name="ItemUpdateConfirmAction" class="com.internousdev.regalo.action.ItemUpdateConfirmAction" method="execute">
 		<result name="success">itemUpdateConfirm.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- ItemUpdateCompleteAction -->
 	<action name="ItemUpdateCompleteAction" class="com.internousdev.regalo.action.ItemUpdateCompleteAction" method="execute">
 		<result name="success">itemUpdateComplete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 商品削除 -->
 	<!-- GoItemDeleteAction -->
 	<action name="GoItemDeleteAction" class="com.internousdev.regalo.action.GoItemDeleteAction" method="execute">
 		<result name="success">itemDelete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- ItemDeleteAction -->
 	<action name="ItemDeleteAction" class="com.internousdev.regalo.action.ItemDeleteAction" method="execute">
 		<result name="success">itemDeleteComplete.jsp</result>
-	</action>
-
-<!-- 仲館担当 -->
-<!-- エラー -->
-	<!-- GoErrorAction -->
-	<action name="GoErrorAction" class="com.internousdev.regalo.action.GoErrorAction" method="execute">
-		<result name="success">error.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 </package>
