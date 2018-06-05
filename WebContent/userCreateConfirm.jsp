@@ -8,8 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- ヘッダー -->
+<jsp:include page="includeHeader.jsp"/>
+<!-- 決済画面へ -->
 <s:form action="UserCreateCompleteAction">
-<s:submit value="完了画面へ"/>
+<s:submit value="ユーザー登録完了画面へ"/>
 </s:form>
+<!-- フッター -->
+<jsp:include page="includeFooter.jsp"/>
+
 </body>
 </html>

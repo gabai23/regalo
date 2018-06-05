@@ -8,8 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<!-- ヘッダー -->
+<jsp:include page="includeHeader.jsp"/>
 <s:form action="GoHomeAction">
 <s:submit value="ホーム画面へ"/>
 </s:form>
+
+<!-- フッター -->
+<jsp:include page="includeFooter.jsp"/>
 </body>
 </html>

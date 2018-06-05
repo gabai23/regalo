@@ -8,8 +8,18 @@
 <title>buyItemConfirm画面</title>
 </head>
 <body>
+<!-- ヘッダー -->
+	<jsp:include page="includeHeader.jsp"/>
+<!-- 決済画面へ -->
 <s:form action="BuyItemCompleteAction">
 <s:submit value="決済画面"/>
 </s:form>
+<!-- 新規宛先登録画面へ -->
+<s:form action="GoAddressCreateAction">
+<s:submit value="新規宛先登録画面"/>
+</s:form>
+
+<!-- フッター -->
+	<jsp:include page="includeFooter.jsp"/>
 </body>
 </html>
