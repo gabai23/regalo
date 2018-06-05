@@ -12,7 +12,7 @@
 	<div id="header">
 		<!-- GoHomeActionつけろ -->
 		<div id="headerLogo">
-			Regolo
+			<a href='<s:url action="GoHomeAction"/>'>Regolo</a>
 		</div>
 
 		<div id="headerSearch">
