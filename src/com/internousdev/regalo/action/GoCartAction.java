@@ -41,7 +41,6 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 		session.put("totalPrice", totalPrice);
 		result = SUCCESS;
 
-
 		return result;
 
 	}
