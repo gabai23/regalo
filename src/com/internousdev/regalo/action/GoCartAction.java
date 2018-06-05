@@ -16,12 +16,9 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String keywords;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
 
 	public String execute() throws SQLException{
-
-		return SUCCESS;
 
 		String result = ERROR;
 		String userId = null;
@@ -44,11 +41,7 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 		session.put("totalPrice", totalPrice);
 		result = SUCCESS;
 
-		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
-		}
+
 		return result;
 
 	}
