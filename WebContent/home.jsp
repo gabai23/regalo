@@ -9,25 +9,25 @@
 </head>
 <body>
 	<form action="GoLoginAction">
-		<button type="button">ログインへ</button>
+		<button type="submit">ログインへ</button>
 	</form>
 
 	<form action="GoMypageAction">
-		<button type="button">マイページへ</button>
+		<button type="submit">マイページへ</button>
 	</form>
 
 
 	<form action="GoCartAction">
-		<button type="button">カートへ</button>
+		<button type="submit">カートへ</button>
 	</form>
 
 
 	<form action="GoItemListAction">
-		<button type="button">商品一覧へ</button>
+		<button type="submit">商品一覧へ</button>
 	</form>
 
 	<form action="GoMasterAction">
-		<button type="button">管理者画面へ</button>
+		<button type="submit">管理者画面へ</button>
 	</form>
 
 
