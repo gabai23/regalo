@@ -2,7 +2,7 @@ package com.internousdev.regalo.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ItemSearchAction extends ActionSupport  {
+public class ProductSearchAction extends ActionSupport  {
 
 
 
