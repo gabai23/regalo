@@ -12,7 +12,7 @@
 		<button type="submit">ログインへ</button>
 	</form>
 
-	<form action="GoMypageAction">
+	<form action="GoMyPageAction">
 		<button type="submit">マイページへ</button>
 	</form>
 
