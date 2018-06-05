@@ -17,7 +17,7 @@
 <p>BuyItemComplete</p>
 </div>
 <p>購入手続きが完了しました。</p>
-<a href='<s:url action="MyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span>
+<a href='<s:url action="GoMyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span>
 <p>Homeへ戻る場合はこちら<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 
 <%-- <s:form action="GoHomeAction"><s:submit value = "進む"/> --%>
