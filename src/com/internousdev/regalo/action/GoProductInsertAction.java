@@ -7,13 +7,13 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ItemUpdateAction extends ActionSupport implements SessionAware{
+public class GoProductInsertAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 
-		String result = SUCCESS;
+		System.out.println("asd");
 
-		return result;
+		return SUCCESS;
 
 	}
 

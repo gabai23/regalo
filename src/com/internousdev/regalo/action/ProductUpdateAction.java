@@ -7,7 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ItemInsertConfirmAction extends ActionSupport implements SessionAware{
+public class ProductUpdateAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 
