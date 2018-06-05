@@ -119,4 +119,3 @@ public class AddressInfoDTO {
 		this.updateDate = updateDate;
 	}
 }
-
