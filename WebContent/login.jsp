@@ -12,5 +12,19 @@
  <s:form action ="LoginAction">
 	<s:submit value ="ログインしてくれ！！！"/>
 </s:form>
+
+
+ <s:form action ="GoUserCreateAction">
+	<s:submit value ="ユーザー登録やな"/>
+</s:form>
+
+ <s:form action ="GoPasswordResetAction">
+	<s:submit value ="パスワード再設定なんよ"/>
+</s:form>
+
+
+
+
+
 </body>
 </html>
