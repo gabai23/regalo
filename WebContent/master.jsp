@@ -20,5 +20,9 @@
 		<a href='<s:url action="GoItemDeleteAction"/>'>商品削除</a>
 	</p>
 
+	<p>
+		<a href='<s:url action="GoHomeAction"/>'>ホームへ</a>
+	</p>
+
 </body>
 </html>
