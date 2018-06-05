@@ -9,7 +9,7 @@
 </head>
 <body>
 	<p>
-		<a href='<s:url action="ItemDeleteComplete"/>'>商品削除完了</a>
+		<a href='<s:url action="GoMasterAction"/>'>管理者ページへ</a>
 	</p>
 
 </body>
