@@ -19,7 +19,9 @@ public class StartAction extends ActionSupport implements SessionAware{
 		RandomStringUtils random = new RandomStringUtils();
 
 		try {
+
 			if(!(session.containsKey("tempUserId"))) {
+
 				//ログインフラグ生成
 				session.put("loginFlg", false);
 
@@ -39,11 +41,11 @@ public class StartAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	@Override
-	public void setSession(Map<String, Object> arg0) {
-
+	public Map<String, Object> getSession() {
+		return session;
 	}
 
-
-
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
 }
