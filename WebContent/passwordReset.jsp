@@ -9,7 +9,7 @@
 </head>
 <body>
 <s:form action="PasswordResetConfirmAction">
-                       <s:submit value="進む"/>
+                       <s:submit value="PasswordResetConfirmへ"/>
                 </s:form>
 </body>
 </html>

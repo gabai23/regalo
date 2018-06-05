@@ -9,7 +9,7 @@
 </head>
 <body>
  <s:form action="BuyItemConfirmAction">
-                       <s:submit value="進む"/>
+                       <s:submit value="BuyItemConfirmへ"/>
                 </s:form>
 </body>
 </html>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <s:form action="GoHomeAction">
-                       <s:submit value="進む"/>
+                       <s:submit value="GoHomeへ"/>
                 </s:form>
 </body>
 </html>

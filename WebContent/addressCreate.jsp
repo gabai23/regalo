@@ -9,7 +9,7 @@
 </head>
 <body>
  <s:form action="AddressCreateConfirmAction">
-                       <s:submit value="進む"/>
+                       <s:submit value="AddressCreateConfirmへ"/>
                 </s:form>
 </body>
 </html>
