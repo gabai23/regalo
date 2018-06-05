@@ -14,7 +14,6 @@
 	<!-- StartAction -->
 	<action name="StartAction" class="com.internousdev.regalo.action.StartAction" method="execute">
 		<result name="success">home.jsp</result>
-		<result name="error">error.jsp</result>
 	</action>
 
 <!-- ホーム -->

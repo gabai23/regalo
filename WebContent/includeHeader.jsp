@@ -10,6 +10,7 @@
 </head>
 <body>
 	<div id="header">
+		<!-- GoHomeActionつけろ -->
 		<div id="headerLogo">
 			Regolo
 		</div>
