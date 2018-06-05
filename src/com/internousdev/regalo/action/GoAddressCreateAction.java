@@ -8,3 +8,4 @@ public class GoAddressCreateAction extends ActionSupport {
 	}
 
 }
+
