@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class AddressInfoDTO {
 
-//	宛先情報
+     /* 宛先情報 */
 
 	private int id;
-	private String userId;
-	private String familyName;
-	private String firstName;
-	private String familyNameKana;
-	private String firstNameKana;
-	private String zip11;
-	private String addr11;
-	private String telNumber;
-	private String email;
-	private Date registDate;
-	private Date updateDate;
+	private String userId;           //ユーザーID
+	private String familyName;       //姓
+	private String firstName;        //名
+	private String familyNameKana;   //姓ふりがな
+	private String firstNameKana;    //名ふりがな
+	private String zip11;            //郵便番号
+	private String addr11;           //住所
+	private String telNumber;        //電話番号
+	private String email;            //メールアドレス
+	private Date registDate;         //登録日
+	private Date updateDate;         //アップデート日
 
 
 
@@ -119,3 +119,4 @@ public class AddressInfoDTO {
 		this.updateDate = updateDate;
 	}
 }
+
