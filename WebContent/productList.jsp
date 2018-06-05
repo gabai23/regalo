@@ -17,8 +17,8 @@
 		<div id="productList">
 			<s:iterator value="productInfoList">
 				<!-- 各商品のURL作成 -->
-				<s:url id="url" action="GoItemDetailAction">
-					<s:param name="id" value="%{productId}"/>
+				<s:url id="url" action="GoProductDetailAction">
+					<s:param name="productId" value="%{productId}"/>
 				</s:url>
 
 				<!-- 商品名 -->
@@ -31,13 +31,14 @@
 				<!-- 商品画像 -->
 				<img src='<s:property value="imageFilePath"/>'/>
 				</s:a>
+
 				<!-- 価格 -->
 				<s:property value="price"/>
 			</s:iterator>
 		</div>
 
 	</div>
-	<form action="GoItemDetailAction">
+	<form action="GoProductDetailAction">
 		<button type="button">商品詳細へ</button>
 	</form>
 

@@ -16,7 +16,7 @@
 		</div>
 
 		<div id="headerSearch">
-			<s:form action="ItemSearchAction" theme="simple">
+			<s:form action="ProductSearchAction" theme="simple">
 				<select>
 					<option>全てのカテゴリー</option>
 					<option>カテゴリー1</option>

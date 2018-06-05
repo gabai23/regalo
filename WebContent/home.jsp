@@ -28,7 +28,7 @@
 	</form>
 
 
-	<form action="GoItemListAction">
+	<form action="GoProductListAction">
 		<button type="submit">商品一覧へ</button>
 	</form>
 
