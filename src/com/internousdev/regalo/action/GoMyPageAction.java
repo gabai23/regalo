@@ -11,7 +11,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoMyPageAction extends ActionSupport implements SessionAware{
 
-
 		private String userId;
 
 		private Map<String, Object> session;
