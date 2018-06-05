@@ -14,8 +14,8 @@
 	<div id="main">
 
 		<!-- 商品一覧 -->
-		<div id="itemList">
-			<s:iterator value="itemInfoList">
+		<div id="productList">
+			<s:iterator value="productInfoList">
 				<!-- 各商品のURL作成 -->
 				<s:url id="url" action="GoItemDetailAction">
 					<s:param name="id" value="%{productId}"/>
