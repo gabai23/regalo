@@ -8,6 +8,35 @@
 <title>商品一覧</title>
 </head>
 <body>
+
+	<jsp:include page="includeHeader.jsp"/>
+
+	<div id="main">
+
+		<!-- 商品一覧 -->
+		<div id="itemList">
+			<s:iterator value="itemInfoList">
+				<!-- 各商品のURL作成 -->
+				<s:url id="url" action="GoItemDetailAction">
+					<s:param name="id" value="%{productId}"/>
+				</s:url>
+
+				<!-- 商品名 -->
+				<s:a href="%{url}">
+				<s:property value="productName"/>
+
+				<!-- 商品名かな -->
+				<s:property value="productNameKana"/>
+
+				<!-- 商品画像 -->
+				<img src='<s:property value="imageFilePath"/>'/>
+				</s:a>
+				<!-- 価格 -->
+				<s:property value="price"/>
+			</s:iterator>
+		</div>
+
+	</div>
 	<form action="GoItemDetailAction">
 		<button type="button">商品詳細へ</button>
 	</form>
