@@ -23,7 +23,6 @@ public class AddressInfoDAO {
 
 		//DBから取得した値をaddressInfoDTOの変数に格納
 
-
 		try {
 			con = db.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -41,6 +40,7 @@ public class AddressInfoDAO {
 
 		}catch(SQLException e) {
 			e.printStackTrace();
+
 		}finally {
 			con.close();
 		}
