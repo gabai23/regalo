@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>購入履歴</title>
+<title>buyProductHistory</title>
 </head>
 <body>
 
-
+<h3>商品履歴はありません。</h3>
 
 </body>
 </html>

@@ -21,9 +21,6 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 		private String message;
 
 
-
-
-
 	public String execute() {
 
 

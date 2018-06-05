@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="">
 <title>MyPage</title>
 
-
 </head>
 <body>
 <jsp:include page="includeHeader.jsp">

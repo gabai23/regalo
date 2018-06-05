@@ -45,6 +45,7 @@ public class MyPageDAO {
 				myPageDTO.setPassword(rs.getString("password"));
 
 
+
 				myPageList.add(myPageDTO);
 
 			}
