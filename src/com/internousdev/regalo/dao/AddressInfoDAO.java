@@ -21,7 +21,6 @@ public class AddressInfoDAO {
 
 		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code FROM destination_info WHERE user_id = ?";
 
-		//DBから取得した値をaddressInfoDTOの変数に格納
 
 		try {
 			con = db.getConnection();
@@ -70,7 +69,7 @@ public class AddressInfoDAO {
 
 				AddressInfoDTO addressInfoDTO = new AddressInfoDTO();
 
-				//addressInfoDTOに格納した値をaddressInfoDTOListに格納
+
 
 				addressInfoDTO.setId(rs.getInt("id"));
 				addressInfoDTO.setFamilyNameKana(rs.getString("family_name"));
