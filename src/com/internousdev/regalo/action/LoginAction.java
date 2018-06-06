@@ -1,68 +1,128 @@
 package com.internousdev.regalo.action;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.regalo.dao.LoginDAO;
+import com.internousdev.regalo.dto.LoginDTO;
+import com.internousdev.regalo.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction  extends ActionSupport implements SessionAware{
 	
-	private categoryId;
+	/*private categoryId;*/
 	private String loginId;
 	private String password;
-	private boolean savedLoginId;
+	private LoginDTO loginDTO;
+	private String errorMessage;
+	private List<String> errorMessageList = new ArrayList<>();
+	/*private boolean savedLoginId;*/
 	
-	private List<MCategoryDTO> mcategoryDtoList = new ArrayList<MCategoryDTO>();
+/*	private List<MCategoryDTO> mcategoryDtoList = new ArrayList<MCategoryDTO>();
 	private List<String> loginIdErrorMessageList= new ArrayList<String>;
-	private List<String> passwordErrorMesageList = new ArrayList<String>;
+	private List<String> passwordErrorMesageList = new ArrayList<String>;*/
 	
 	private Map<String,Object> session;
-	private Map<String,Object> session;
+	
 	
 	public String execute(){
 		
-		Stirng result = ERROR;
+		String result = ERROR;
+		//daoのインスタンス化
+		LoginDAO loginDAO = new LoginDAO();
+		//inputcheckerのインスタンス化
+		InputChecker checker = new InputChecker(); 
 		
-		if(savedLoginId == true){
-			session.put("savedLoginId",true);
-			session.put("loginId",loginId);
-		}else{
-			session.put("savedLoginId",false);
-			session.remove("loginId",loginId);
-		}
-		//ここはなかさんが作成済み。
-		InputChecker inputChecker = new InputChecker();
+		boolean flg = false;
 		
-		loginIdErrorMessageList = inputChecker.doCheck();//引数はあとで
-		passwordErrorMessageList = inoutChecker.doCheck();//引数はあとで
-		
-		//errorが１つでもあれば
-		if(loginIdErrorMessageList.size()!=0
-			&&passwordErrorMessageList.size()!=0){
-			session.put("loginIdErrorMessageList",loginErrorMessageList);
-			session.put("passowordErrorMessageList", passowordErrorMessageList);
-			session.put("logined",0);
-		}
-		
-		if(!session.containskey("mCategoryList")){
-			McategoryDAO mcDao = new McategoryDAO();
-			mCategoryDtoList = mcDao.getgetMcategoryList();
-			session.put("mCategoryDtoList",mCategoryDtoList);
-		}
-		//	zyunちゃんのインスタンス化→じゅんちゃんを待つ。
-		UserInfoDAO userInfoDao = new UserInfoDao();
-		if(userInfoDao.isExistsUserInfo(loginId,passoword)){
-			UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId,password);
-			session.put("loginId",userInfoDTO.getUserId());
+		if((!(loginId.equals(""))) && !(password.equals(""))) {
 			
-			int count = 0;
-			//かまっちゃんのクラスのインスタンス化
-			CartDAO cartDao = new CartDAO();
+			errorMessageList = checker.check("ID", loginId, 1, 8, true, false, false, false, true, false, false);
+			
+			try {
+				flg = loginDAO.existsUserId(loginId);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			if(flg){
+				loginDTO = loginDAO.userInfo(loginId);
+				
+				session.put("loginDTO", loginDTO);
+				session.put("loginFlg", true);
+				result = SUCCESS;
+				
+			} else {
+				errorMessage = "入力されたパスワードが異なります。";
+				
+				errorMessageList.add(errorMessage);
+				
+			}
 			
 			
+		} else if(loginId.equals("")){
+			String errorMessageId = "IDを入力してください。";
 			
+			errorMessageList.add(errorMessageId);
+			
+		} else if(password.equals("")){
+			String errorMessagePassword = "パスワードを入力してください。";
+			
+			errorMessageList.add(errorMessagePassword);
 		}
 		
+		
+		
+		
+		return result;
 		
 		
 	}
+
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+	public LoginDTO getLoginDTO() {
+		return loginDTO;
+	}
+
+
+	public void setLoginDTO(LoginDTO loginDTO) {
+		this.loginDTO = loginDTO;
+	}
+		
+		
 }
+

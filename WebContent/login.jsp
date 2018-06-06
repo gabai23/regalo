@@ -9,6 +9,9 @@
 </head>
 <body>
 
+<s:iterator value="errorMessageList">
+	<s:property />
+</s:iterator>
  <s:form action ="LoginAction">
  	<s:textfield name="loginId"/>
 	<s:password name="password"/>
@@ -19,7 +22,7 @@
 
  <s:form action ="GoUserCreateAction">
 	<s:submit value ="ユーザー登録やな"/>
-</s:form>
+</s:form>i
 
  <s:form action ="GoPasswordResetAction">
 	<s:submit value ="パスワード再設定なんよ"/>
