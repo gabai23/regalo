@@ -5,11 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.internousdev.regalo.dto.ProductInfoDTO;
 import com.internousdev.regalo.util.DBConnector;
 
 public class ProductInfoDAO {
+
+	private Map<String,Object> session;
 
 	private List<ProductInfoDTO> productInfoList = new ArrayList<>();
 
@@ -88,6 +91,20 @@ public class ProductInfoDAO {
 				dto.setRegistDate(rs.getDate("regist_date"));
 				dto.setUpdateDate(rs.getDate("update_date"));
 
+				session.put("productId",rs.getInt("product_id"));
+				session.put("productName",rs.getString("product_name"));
+				session.put("productNameKana",rs.getString("product_name_kana"));
+				session.put("productDescription",rs.getString("product_description"));
+				session.put("categoryId",rs.getInt("category_id"));
+				session.put("price",rs.getInt("price"));
+				session.put("imageFilePath",rs.getString("image_file_path"));
+				session.put("imageFileName",rs.getString("image_file_name"));
+				session.put("releaseDate",rs.getDate("release_date"));
+				session.put("releaseCompany",rs.getString("release_company"));
+				/*session.put("status",rs.getInt("status"));
+				session.put("registDate",rs.getDate("regist_date"));
+				session.put("updateDate",rs.getDate("update_date"));*/
+
 
 				productInfoList.add(dto);
 
@@ -96,6 +113,14 @@ public class ProductInfoDAO {
 			e.printStackTrace();
 		}
 		return productInfoList;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }
