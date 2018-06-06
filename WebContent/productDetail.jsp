@@ -8,6 +8,45 @@
 <title>商品詳細</title>
 </head>
 <body>
+	<!-- ヘッダー -->
+	<jsp:include page="includeHeader.jsp"/>
+
+	<div id="main">
+
+		<s:iterator value="productInfoList">
+
+		<!-- 商品名 -->
+		<s:property value="productName"/>
+
+		<!-- 商品名かな -->
+		<s:property value="productNameKana"/>
+
+		<!-- 商品画像 -->
+		<s:property value="imageFilePath"/>
+
+		<!-- 値段 -->
+		<s:property value="price"/>
+
+		<!-- 購入個数 -->
+		<select>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+
+		<!-- 発売会社名 -->
+		<s:property value="releaseCompany"/>
+
+		<!-- 発売年月日 -->
+		<s:property value="releaseDate"/>
+
+		<!-- 商品詳細情報 -->
+		<s:property value="productDescription"/>
+
+		</s:iterator>
+	</div>
 	<form action="GoCartAction">
 		<button type="button">カートへ</button>
 	</form>

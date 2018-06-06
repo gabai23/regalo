@@ -10,11 +10,13 @@ import com.internousdev.regalo.dao.ProductInfoDAO;
 import com.internousdev.regalo.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoProductListAction extends ActionSupport implements SessionAware{
+public class GoProductDetailAction extends ActionSupport implements SessionAware{
 
 	private Map<String,Object> session;
 
 	private List<ProductInfoDTO> productInfoList = new ArrayList<>();
+
+	private int productId;
 
 	public String execute() {
 
@@ -22,9 +24,7 @@ public class GoProductListAction extends ActionSupport implements SessionAware{
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 
-		productInfoList = productInfoDAO.getProductInfo();
-		
-		System.out.println();productInfoList.get(0).getProductName();
+		productInfoList = productInfoDAO.getProductInfoByProductId(productId);
 
 		return result;
 	}
@@ -45,6 +45,13 @@ public class GoProductListAction extends ActionSupport implements SessionAware{
 		this.productInfoList = productInfoList;
 	}
 
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 
 
 

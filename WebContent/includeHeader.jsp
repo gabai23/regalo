@@ -12,11 +12,11 @@
 	<div id="header">
 		<!-- GoHomeActionつけろ -->
 		<div id="headerLogo">
-			Regolo
+			<a href='<s:url action="GoHomeAction"/>'>Regolo</a>
 		</div>
 
 		<div id="headerSearch">
-			<s:form action="ItemSearchAction" theme="simple">
+			<s:form action="ProductSearchAction" theme="simple">
 				<select>
 					<option>全てのカテゴリー</option>
 					<option>カテゴリー1</option>
