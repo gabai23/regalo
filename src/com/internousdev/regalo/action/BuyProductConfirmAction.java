@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+
 import com.internousdev.regalo.dao.AddressInfoDAO;
 import com.internousdev.regalo.dto.AddressInfoDTO;
 import com.internousdev.regalo.dto.CartDTO;
@@ -21,18 +22,18 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 	private int settlement;
 	private List<CartDTO> cartList = new ArrayList<CartDTO>();
 	private ArrayList<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
-
+	String userId;
 
 
 
 //メソッド
 	public String execute() throws SQLException{
 		String result = ERROR;
-		String userId;
+
 		//ログインしていれば宛先情報を取得する
 		if((boolean) session.get("loginFlg")){
 			AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
-			addressInfoListDTO = addressInfoDAO.getAddressInfo(userId);
+			addressInfoListDTO = addressInfoDAO.getAddressInfo(session.get("login_user_id").toString());
 
 		//宛先情報があれば
 			if(addressInfoListDTO.size() > 0) {
@@ -56,8 +57,77 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 	     }
 
 //カート情報取得
-//６月５日現在これ以降未完成
+//６月６日現在これ以降未完成、、、メソッドとtotalPrice確認する
 		CartDAO dao = new CartDAO();
-		cartList = dao.
+		cartList = dao.//なんらかのメソッド(session.get("login_user_id").toString());
+				if(cartList.size() > 0) {
+					result = SUCCESS;
+				}
+
+				for(CartDTO dto: cartList) {
+					totalPrice += dto.getPrice() * dto.getProductCount();
+
+				}
+
+				return result;
+
     }
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+
+	public int getProductCount() {
+		return productCount;
+	}
+
+
+	public void setproductCount(int productCount) {
+		this.productCount = productCount;
+	}
+
+
+	public List<CartDTO> getCartList() {
+		return cartList;
+	}
+
+
+	public void setCartList(List<CartDTO> cartList) {
+		this.cartList = cartList;
+	}
+
+
+	public int getSettlement() {
+		return settlement;
+	}
+
+
+	public void setSettlement(int settlement) {
+		this.settlement = settlement;
+	}
+
+
+	public ArrayList<AddressInfoDTO> getAddressInfoListDTO() {
+		return addressInfoListDTO;
+	}
+
+
+	public void setAdressInfoListDTO(ArrayList<AddressInfoDTO> addressInfoListDTO) {
+		this.addressInfoListDTO = addressInfoListDTO;
+	}
 }
