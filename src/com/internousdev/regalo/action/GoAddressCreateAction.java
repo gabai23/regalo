@@ -2,8 +2,6 @@ package com.internousdev.regalo.action;
 
 import java.util.Map;
 
-//import java.util.Map;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoAddressCreateAction extends ActionSupport {

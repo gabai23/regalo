@@ -6,7 +6,7 @@ public class AddressInfoDTO {
 
      /* 宛先情報 */
 
-	private int id;
+	private int id;                  //ID
 	private String userId;           //ユーザーID
 	private String familyName;       //姓
 	private String firstName;        //名
@@ -21,6 +21,7 @@ public class AddressInfoDTO {
 
 
 
+    //ゲッターセッター
 
 	public int getId() {
 		return id;

@@ -8,8 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
- <s:form action="BuyItemConfirmAction">
-                       <s:submit value="BuyItemConfirmへ"/>
-                </s:form>
+	<!-- ヘッダー -->
+	<jsp:include page="includeHeader.jsp"/>
+
+	<h2>宛先情報が完了しました。</h2>
+
+	<!-- 送信ボタン -->
+ 	<s:form action="BuyItemConfirmAction">
+		<s:submit value="決済確認画面へ"/>
+	</s:form>
+
+	<!-- フッター -->
+	<jsp:include page="includeFooter.jsp"/>
 </body>
 </html>
