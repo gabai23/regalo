@@ -21,6 +21,8 @@ first_name_kana varchar(32) not null comment "名かな",
 sex tinyint not null default 0 comment "性別",
 email varchar(32) not null comment "メールアドレス",
 status tinyint not null default 0 comment "ステータス",
+total_price int comment "累計購入金額",
+rank int comment "会員ランク",
 logined tinyint not null default 0 comment "ログインフラグ",
 regist_date datetime not null comment "登録日",
 update_date datetime not null comment "更新日"
@@ -30,8 +32,8 @@ default charset=utf8
 comment="会員情報テーブル";
 
 insert into user_info values
-(1,"guest","guest","ゲスト","ユーザー","げすと","ゆーざー",0,"guest@gmail.com",0,0,now(),now()),
-(2,"admin","admin","管理","管理","かんり","かんり",0,"admin@gmail.com",0,0,now(),now());
+(1,"guest","guest","ゲスト","ユーザー","げすと","ゆーざー",0,"guest@gmail.com",0,0,0,0now(),now()),
+(2,"admin","admin","管理","管理","かんり","かんり",0,"admin@gmail.com",0,0,0,0,now(),now());
 
 
 
@@ -61,7 +63,9 @@ default charset=utf8
 comment="商品情報テーブル";
 
 insert into product_info values
-(1,1,"ギフト","ぎふと","ギフトの商品詳細",1,1000,50,"./images","neko.jpg",now(),"発売会社",0,now(),now());
+(1,1,"ギフト","ぎふと","ギフトの商品詳細",1,1000,50,"./images","neko.jpg",now(),"発売会社",0,now(),now()
+(2,2,"酒","さけ","酒の商品詳細",4,5000,15,"./images","neko1.jpg",now(),"発売会社",0,now(),now()
+);
 
 
 
@@ -133,6 +137,7 @@ comment="宛先情報テーブル";
 
 insert into destination_info values
 (1,"guest","ゲスト","ユーザー","げすと","ゆーざー","guest@gmail.com","080-1234-5678","東京都千代田区三番町１ー１　ＫＹ三番町ビル１Ｆ",now(),"0000-00-00 00:00:00");
+
 
 
 
