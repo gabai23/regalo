@@ -28,7 +28,7 @@
 		<s:property value="price"/>
 
 		<!-- 購入個数 -->
-		<select>
+		<select id="productCount">
 			<option>1</option>
 			<option>2</option>
 			<option>3</option>
