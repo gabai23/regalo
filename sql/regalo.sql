@@ -7,7 +7,6 @@ create database if not exists Regalo;
 use Regalo;
 
 
-
 /*-----------------会員情報-------------------*/
 
 create table user_info(
