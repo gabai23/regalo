@@ -26,6 +26,8 @@ public class GoProductDetailAction extends ActionSupport implements SessionAware
 
 		productInfoList = productInfoDAO.getProductInfoByProductId(productId);
 
+		System.out.println(productInfoList.size());
+
 		return result;
 	}
 

@@ -29,7 +29,7 @@
 	</div>
 </s:if>
 
-<s:if test="#session.cartInfoDtoList.size()>0">
+<s:if test="#session.CartDtoList.size()>0">
 <s:form id="form" action="SettlementConfirmAction">
 <table class="horizontal-list-table">
 <thead>
@@ -46,7 +46,7 @@
 </tr>
 </thead>
 <tbody>
-<s:iterator value="#session.cartInfoDtoList">
+<s:iterator value="#session.CartDtoList">
 <tr>
 	<td><s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
 	<s:hidden name="productId" value="%{productId}"/>

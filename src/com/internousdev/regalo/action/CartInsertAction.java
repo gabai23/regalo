@@ -20,7 +20,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 	private String imageFilePath;
 	private String imageFileName;
 	private int price;
-	private String productCount;
+	private int productCount;
 	private String releaseCompany;
 	private Date releaseDate;
 	private String productDescription;
@@ -31,7 +31,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 
 	public String execute() {
 
-
+		System.out.println("cartinsert");
 		String result=ERROR;
 		String userId = null;
 		String tempUserId = null;
@@ -100,12 +100,15 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 		this.price = price;
 	}
 
-	public String getProductCount() {
+
+	public int getProductCount() {
 		return productCount;
 	}
-	public void setProductCount(String productCount) {
+
+	public void setProductCount(int productCount) {
 		this.productCount = productCount;
 	}
+
 	public String getReleaseCompany() {
 		return releaseCompany;
 	}
