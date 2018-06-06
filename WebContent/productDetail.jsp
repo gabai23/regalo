@@ -47,7 +47,7 @@
 
 		</s:iterator>
 	</div>
-	<form action="GoCartAction">
+	<form action="CartInsertAction">
 		<button type="submit">カートへ</button>
 	</form>
 
