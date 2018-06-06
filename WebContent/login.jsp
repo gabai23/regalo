@@ -10,7 +10,10 @@
 <body>
 
  <s:form action ="LoginAction">
-	<s:submit value ="ログインしてくれ！！！"/>
+ 	<s:textfield name="loginId"/>
+	<s:password name="password"/>
+ 
+ <s:submit value ="ログインしてくれ！！！"/>
 </s:form>
 
 

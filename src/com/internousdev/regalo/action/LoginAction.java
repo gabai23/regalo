@@ -35,6 +35,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		loginIdErrorMessageList = inputChecker.doCheck();//引数はあとで
 		passwordErrorMessageList = inoutChecker.doCheck();//引数はあとで
 		
+		//errorが１つでもあれば
 		if(loginIdErrorMessageList.size()!=0
 			&&passwordErrorMessageList.size()!=0){
 			session.put("loginIdErrorMessageList",loginErrorMessageList);
