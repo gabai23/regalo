@@ -63,8 +63,8 @@ default charset=utf8
 comment="商品情報テーブル";
 
 insert into product_info values
-(1,1,"ギフト","ぎふと","ギフトの商品詳細",1,1000,50,"./images","neko.jpg",now(),"発売会社",0,now(),now()
-(2,2,"酒","さけ","酒の商品詳細",4,5000,15,"./images","neko1.jpg",now(),"発売会社",0,now(),now()
+(1,1,"猫ギフト","ねこぎふと","とってもかわいい猫です",1,1000,50,"./images","neko.jpg",now(),"発売会社",0,now(),now()
+(2,2,"猫酒","ねこさけ","こちらを見ている猫です",4,5000,15,"./images","neko1.jpg",now(),"発売会社",0,now(),now()
 );
 
 
