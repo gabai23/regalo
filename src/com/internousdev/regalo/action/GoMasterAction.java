@@ -18,9 +18,11 @@ public class GoMasterAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 		String result = ERROR;
-		ProductInfoDAO dao = new ProductInfoDAO();
-		productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
+
 		if (session.containsKey("masterId")) {
+			ProductInfoDAO dao = new ProductInfoDAO();
+			productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
+
 			result = SUCCESS;
 		} else {
 			result = ERROR;
