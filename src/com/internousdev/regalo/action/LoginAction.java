@@ -61,7 +61,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				
 				session.put("loginDTO", loginDTO);
 				session.put("loginFlg", true);
-				
+				session.put("userId", loginId);
 				session.put("saveLogin", loginId);
 				
 				System.out.println("loginFlg:"+session.get("loginFlg").toString());
