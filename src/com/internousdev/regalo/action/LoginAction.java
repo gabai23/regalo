@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.regalo.dao.CartDAO;
 import com.internousdev.regalo.dao.LoginDAO;
 import com.internousdev.regalo.dto.LoginDTO;
 import com.internousdev.regalo.util.InputChecker;
@@ -21,13 +22,10 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private String errorMessage;
 	private String errorMessageId;
 	private String errorMessagePassword;
+	//エラーメッセージをリストにドボン！↑の3つのerrorMessageたちをどんどんいれていく！
 	private List<String> errorMessageList = new ArrayList<>();
+	//ログインしているかの判定！
 	private boolean saveLogin;
-	/*private boolean savedLoginId;*/
-	
-/*	private List<MCategoryDTO> mcategoryDtoList = new ArrayList<MCategoryDTO>();
-	private List<String> loginIdErrorMessageList= new ArrayList<String>;
-	private List<String> passwordErrorMesageList = new ArrayList<String>;*/
 	
 	private Map<String,Object> session;
 	
@@ -43,10 +41,12 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		boolean flg = false;
 		
 		System.out.println("LoginAction-----");
-		//どちらも入力されているーー！！
+		//ID　passどっちも入力
 		if((!(loginId.equals(""))) && !(password.equals(""))) {
 			System.out.println("入力されてまーす");
-			//入力した情報のチェックを行っていくためのメソッドを行っていく。
+			
+			/*入力した情報のチェック(inputチェック)
+			Listにどんどんいれていく*/
 			errorMessageList = checker.check("ID", loginId, 1, 8, true, false, false, false, true, false, false);
 			errorMessageList = checker.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
 			
@@ -56,17 +56,22 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				e.printStackTrace();
 			}
 			//↑のflgにはtrue or falseが入ってるのよ！
+			
+			
 			if(flg){
-				loginDTO = loginDAO.userInfo(loginId);
+				loginDTO = loginDAO.userInfo(loginId);//入力したIDよん。ctrl + クリックでメソッドへ飛ぶ
 				
-				session.put("loginDTO", loginDTO);
-				session.put("loginFlg", true);
-				session.put("userId", loginId);
-				session.put("saveLogin", loginId);
+				session.put("loginDTO", loginDTO);//DTOの情報の格納
+				session.put("loginFlg", true);//ログインしているかの確認（二択）
+				session.put("userId", loginId);//userIdにloginIdの保持
+				session.put("saveLogin", loginId);//saveLoginの方が、データの指定がしやすいね。
 				
+				/*みんながログイン成功しているかどうかをコンソールで確認するための記入。
+				別になくてもいいが、やったほうが、みんながわかりやすい処置。圭一郎ならやるべきだね*/
 				System.out.println("loginFlg:"+session.get("loginFlg").toString());
 				System.out.println("ログイン成功！");
 				result = SUCCESS;
+				
 				
 			} else {
 				errorMessage = "入力されたパスワードが異なります。";
@@ -79,7 +84,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		} 
 		if(loginId.equals("")){
 			errorMessageId = "IDを入力してください。";
-			
+			//ここもコンソールに出すため→確認作業な
 			System.out.println(errorMessageId);
 			
 			errorMessageList.add(errorMessageId);
@@ -87,14 +92,21 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		} 
 		if(password.equals("")){
 			errorMessagePassword = "パスワードを入力してください。";
-			
+			//ここもコンソールに出すため→確認作業な
 			System.out.println(errorMessagePassword);
 			
 			errorMessageList.add(errorMessagePassword);
 		}
 		
-		
+		//ここは、ちゃんとこのファイルが実行しているかの確認のためのコード
 		System.out.println("-----LoginAction");
+		
+		CartDAO cartDAO = new CartDAO();
+		if(cartDAO.isExistsCart(session.get("tempUserId").toString())){
+			
+			cartDAO.linkToLoginId(session.get("tempUserId").toString(),loginId);
+			
+		}
 		
 		return result;
 		

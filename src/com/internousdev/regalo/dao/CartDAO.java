@@ -131,9 +131,34 @@ public class CartDAO {
 
 
 
-	public boolean isExistsCart() {
+	public boolean isExistsCart(String tempUserId) {
 
-		return false;
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		int count = 0;
+		boolean flg = false;
+		String sql = "COUNT(*) FROM cart_info where temp_user_id=?";
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, tempUserId);
+			count = preparedStatement.executeUpdate();
+			
+			if(count > 0){
+				flg = true;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flg;
+	
 	}
 
 	public int linkToLoginId(String tempUserId, String loginId) {

@@ -14,9 +14,10 @@
 </s:iterator>
  <s:form action ="LoginAction">
  	<span>ID:</span>
+ 	<!-- ↓ここのvalue値にsessionで保持されたIDをいれちまってる。次回からID入力せずにすむ -->
  	<s:textfield name="loginId" value="%{#session.saveLogin}" autofocus="autofocus"/>
  	
- 	<br>
+ 	<br><!-- ただの改行や圭一郎。 -->
  	
  	<span>パスワード:</span>
 	<s:password name="password"/>

@@ -15,23 +15,19 @@ public class LoginDAO {
 	public LoginDTO userInfo(String userId) {
 		
 		DBConnector db = new DBConnector();
-		
 		Connection con = db.getConnection();
-		
 		String sql = "select * from user_info where user_id = ?";
 		
 		try {
 		
 		PreparedStatement ps = con.prepareStatement(sql);
-		
 		ps.setString(1, userId);
-		
-		ResultSet rs = ps.executeQuery();
-		
+		ResultSet rs = ps.executeQuery();//結果表が送られてきました！
 		
 		
+		//行下にいって、列が存在したら→true
 		if(rs.next()) {
-			
+			//ユーザー登録に使う情報をdtoに格納(setterに情報が代入される）
 			dto.setId(rs.getInt("id"));
 			dto.setUserId(rs.getString("user_id"));
 			dto.setPassword(rs.getString("password"));
@@ -42,6 +38,7 @@ public class LoginDAO {
 			dto.setEmail(rs.getString("email"));
 			
 		}
+		
 		
 		} catch(Exception e) {
 			e.printStackTrace();
