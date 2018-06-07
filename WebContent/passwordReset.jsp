@@ -16,18 +16,27 @@
 	<tr>
 		<th>ログインID:</th>
 		<td><input type="text" name="userId" size="8"></td>
+		<s:if test="!(errorId.equals(''))">
+		<s:property value="errorId"/>
+		</s:if>
 	</tr>
 
 	<!-- パスワード -->
 	<tr>
 		<th>パスワード:</th>
 		<td><input type="text" name="password1" size="8"><td>
+		<s:if test="!(errorPass.equals(''))">
+		<s:property value="errorPass"/>
+		</s:if>
 	</tr>
 
 	<!-- 確認パスワード -->
 	<tr>
 		<th>確認パスワード:</th>
 		<td><input type="text" name="password2" size="8"><td>
+		<s:if test="!(errorRePass.equals(''))">
+		<s:property value="errorRePass"/>
+		</s:if>
 	</tr>
 	</table>
 
