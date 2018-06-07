@@ -95,6 +95,17 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				別になくてもいいが、やったほうが、みんながわかりやすい処置。圭一郎ならやるべきだね*/
 				System.out.println("loginFlg:"+session.get("loginFlg").toString());
 				System.out.println("ログイン成功！");
+
+				//管理者チェック
+				try {
+					if(loginDAO.masterCheck(loginId,password)){
+						session.put("masterId", "admin");
+						System.out.println("管理者ログインしました");
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
 				result = SUCCESS;
 
 
