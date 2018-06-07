@@ -28,8 +28,8 @@
 				<!-- 商品名かな -->
 				<s:property value="productNameKana"/>
 
-				<!-- 商品画像 -->
-				<img src='<s:property value="imageFilePath"/>'/>
+				<%-- <!-- 商品画像 -->
+				<img src='<s:property value="imageFilePath"/>'/> --%>
 				</s:a>
 
 				<!-- 価格 -->

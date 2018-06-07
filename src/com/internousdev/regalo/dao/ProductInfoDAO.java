@@ -77,33 +77,20 @@ public class ProductInfoDAO {
 
 				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductId(Integer.parseInt(rs.getString("product_id")));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
 				dto.setProductDescription(rs.getString("product_description"));
 				dto.setCategoryId(rs.getInt("category_id"));
 				dto.setPrice(rs.getInt("price"));
-				/*dto.setImageFilePath(rs.getString("image_file_path"));
+				dto.setImageFilePath((rs.getString("image_file_path"))+"/"+rs.getString("image_file_name"));
 				dto.setImageFileName(rs.getString("image_file_name"));
-*/				dto.setReleaseDate(rs.getDate("release_date"));
+				dto.setReleaseDate(rs.getDate("release_date"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setStatus(rs.getInt("status"));
 				dto.setRegistDate(rs.getDate("regist_date"));
 				dto.setUpdateDate(rs.getDate("update_date"));
 
-				/*session.put("productId",rs.getInt("product_id"));
-				session.put("productName",rs.getString("product_name"));
-				session.put("productNameKana",rs.getString("product_name_kana"));
-				session.put("productDescription",rs.getString("product_description"));
-				session.put("categoryId",rs.getInt("category_id"));
-				session.put("price",rs.getInt("price"));
-				session.put("imageFilePath",rs.getString("image_file_path"));
-				session.put("imageFileName",rs.getString("image_file_name"));
-				session.put("releaseDate",rs.getDate("release_date"));
-				session.put("releaseCompany",rs.getString("release_company"));*/
-				/*session.put("status",rs.getInt("status"));
-				session.put("registDate",rs.getDate("regist_date"));
-				session.put("updateDate",rs.getDate("update_date"));*/
 
 
 				productInfoList.add(dto);
