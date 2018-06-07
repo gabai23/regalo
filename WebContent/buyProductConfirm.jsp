@@ -12,13 +12,58 @@
 	<jsp:include page="includeHeader.jsp"/>
 <!-- 決済画面へ -->
 <s:form action="BuyItemCompleteAction">
-<s:submit value="決済画面"/>
+<s:submit value="購入"/>
 </s:form>
+<!-- 宛先情報 -->
+<!-- addressInfoList確認すること＞
+				<div class="addressContainer clearfix">
+				<s:iterator value="addressInfoListDTO">
+					<div class="box">
+						<div class="address_title">
+							<label>
+							<input type="radio" name="addressId" value="${id}"  checked="checked"/>
+							お届け先
+							</label>
+						</div>
+
+						<div class="address_box">
+							ふりがな:
+							<s:property value="familyNameKana"/>
+							<s:property value="firstNameKana"/>
+							<br>
+							名前:
+							<s:property value="familyName"/>
+							<s:property value="firstName"/>
+							<br>
+							住所:
+							<s:property value="userAddress"/>
+							<br>
+							電話番号:
+							<s:property value="telNumber"/>
+							<br>
+							メールアドレス:
+							<s:property value="email"/>
+							<br>
+						</div>
+					</div>
+
+				</s:iterator>
+　　　　　　　　</div>
+
+
+
+
+
+
+
 <!-- 新規宛先登録画面へ -->
 <s:form action="GoAddressCreateAction">
-<s:submit value="新規宛先登録画面"/>
+<s:submit value="新規宛先登録画面へ"/>
 </s:form>
-
+<!-- 宛先削除 -->
+<s:form action="AddressDeleteAction">
+<s:submit value="宛先削除"/>
+</s:form>
 <!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
 </body>

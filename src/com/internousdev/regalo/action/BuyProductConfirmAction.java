@@ -50,7 +50,7 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 		}else if(!(boolean)session.get("loginFlg")){
 
 				result = ERROR;
-				settlement = 1;
+				session.put("settlement", true);
 
 				return result;
 
