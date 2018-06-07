@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.regalo.dao.CartDAO;
 import com.internousdev.regalo.dto.CartDTO;
+import com.internousdev.regalo.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CartInsertAction extends ActionSupport implements SessionAware{
@@ -20,7 +21,9 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 	private String imageFilePath;
 	private String imageFileName;
 	private int price;
-	private int productCount;
+	private String productCount;
+
+//	private int productCount;
 	private String releaseCompany;
 	private Date releaseDate;
 	private String productDescription;
@@ -29,12 +32,14 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 
 	private Map<String, Object> session;
 
+	@SuppressWarnings("unchecked")
 	public String execute() {
 
-		System.out.println("cartinsert");
 		String result=ERROR;
 		String userId = null;
 		String tempUserId = null;
+
+		List<ProductInfoDTO> productInfoDTOList = new ArrayList<>();
 
 		if(session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
@@ -43,7 +48,20 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 			userId = String.valueOf(session.get("tempUserId"));
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
-		productCount = String.valueOf((productCount.split(" ,",0))[0]);
+//		productCount = String.valueOf((productCount.split(" ,",0))[0]);
+
+		productInfoDTOList = (List<ProductInfoDTO>)session.get("productInfoList");
+
+		productId = (productInfoDTOList.get(0)).getProductId();
+
+		price = (productInfoDTOList.get(0)).getPrice();
+
+
+		/*Iterator<ProductInfoDTO> it = productInfoDTO.iterator();
+		while(it.hasNext()) {
+			ProductInfoDTO e = it.next();
+
+		}*/
 
 		CartDAO CartDao = new CartDAO();
 		int count = CartDao.regist(userId,tempUserId,productId,productCount,price);
@@ -101,11 +119,11 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 	}
 
 
-	public int getProductCount() {
+	public String getProductCount() {
 		return productCount;
 	}
 
-	public void setProductCount(int productCount) {
+	public void setProductCount(String productCount) {
 		this.productCount = productCount;
 	}
 

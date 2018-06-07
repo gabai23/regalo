@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.regalo.dao.CartDAO;
+import com.internousdev.regalo.dao.CartDeleteDAO;
 import com.internousdev.regalo.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -42,6 +43,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 
 		String result=ERROR;
 		CartDAO CartDAO = new CartDAO();
+		CartDeleteDAO CartDeleteDAO = new CartDeleteDAO();
 		int count = 0;
 		List<String> checkListErrorMessageList = new ArrayList<String>();
 		if(checkList==null) {
@@ -52,7 +54,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 
 		for(String id:checkList) {
 			System.out.println(id);
-			count += CartDAO.delete(id);
+			count += CartDeleteDAO.delete(id);
 		}
 		if(count <= 0) {
 			checkListErrorMessageList.add("チェックされていません。");

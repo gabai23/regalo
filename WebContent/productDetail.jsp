@@ -10,7 +10,7 @@
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
-
+<form action="CartInsertAction">
 	<div id="main">
 
 		<s:iterator value="productInfoList">
@@ -47,7 +47,7 @@
 
 		</s:iterator>
 	</div>
-	<form action="CartInsertAction">
+
 		<button type="submit">カートへ</button>
 	</form>
 

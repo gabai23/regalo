@@ -19,7 +19,10 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private String password;
 	private LoginDTO loginDTO;
 	private String errorMessage;
+	private String errorMessageId;
+	private String errorMessagePassword;
 	private List<String> errorMessageList = new ArrayList<>();
+	private boolean saveLogin;
 	/*private boolean savedLoginId;*/
 	
 /*	private List<MCategoryDTO> mcategoryDtoList = new ArrayList<MCategoryDTO>();
@@ -36,24 +39,33 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		LoginDAO loginDAO = new LoginDAO();
 		//inputcheckerのインスタンス化
 		InputChecker checker = new InputChecker(); 
-		
+		//booleanで変数化
 		boolean flg = false;
 		
+		System.out.println("LoginAction-----");
+		//どちらも入力されているーー！！
 		if((!(loginId.equals(""))) && !(password.equals(""))) {
-			
+			System.out.println("入力されてまーす");
+			//入力した情報のチェックを行っていくためのメソッドを行っていく。
 			errorMessageList = checker.check("ID", loginId, 1, 8, true, false, false, false, true, false, false);
+			errorMessageList = checker.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
 			
-			try {
+			try {//loginIdがあるかないかの判断
 				flg = loginDAO.existsUserId(loginId);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			
+			//↑のflgにはtrue or falseが入ってるのよ！
 			if(flg){
 				loginDTO = loginDAO.userInfo(loginId);
 				
 				session.put("loginDTO", loginDTO);
 				session.put("loginFlg", true);
+				session.put("userId", loginId);
+				session.put("saveLogin", loginId);
+				
+				System.out.println("loginFlg:"+session.get("loginFlg").toString());
+				System.out.println("ログイン成功！");
 				result = SUCCESS;
 				
 			} else {
@@ -64,19 +76,25 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 			}
 			
 			
-		} else if(loginId.equals("")){
-			String errorMessageId = "IDを入力してください。";
+		} 
+		if(loginId.equals("")){
+			errorMessageId = "IDを入力してください。";
+			
+			System.out.println(errorMessageId);
 			
 			errorMessageList.add(errorMessageId);
 			
-		} else if(password.equals("")){
-			String errorMessagePassword = "パスワードを入力してください。";
+		} 
+		if(password.equals("")){
+			errorMessagePassword = "パスワードを入力してください。";
+			
+			System.out.println(errorMessagePassword);
 			
 			errorMessageList.add(errorMessagePassword);
 		}
 		
 		
-		
+		System.out.println("-----LoginAction");
 		
 		return result;
 		
@@ -121,6 +139,56 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	public void setLoginDTO(LoginDTO loginDTO) {
 		this.loginDTO = loginDTO;
+	}
+
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+
+	public List<String> getErrorMessageList() {
+		return errorMessageList;
+	}
+
+
+	public void setErrorMessageList(List<String> errorMessageList) {
+		this.errorMessageList = errorMessageList;
+	}
+
+
+	public String getErrorMessageId() {
+		return errorMessageId;
+	}
+
+
+	public void setErrorMessageId(String errorMessageId) {
+		this.errorMessageId = errorMessageId;
+	}
+
+
+	public String getErrorMessagePassword() {
+		return errorMessagePassword;
+	}
+
+
+	public void setErrorMessagePassword(String errorMessagePassword) {
+		this.errorMessagePassword = errorMessagePassword;
+	}
+
+
+	public boolean isSaveLogin() {
+		return saveLogin;
+	}
+
+
+	public void setSaveLogin(boolean saveLogin) {
+		this.saveLogin = saveLogin;
 	}
 		
 		

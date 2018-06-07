@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 	function goDeleteCartAction() {
-		document.getElementById("form").action='DeleteCartAction';
+		document.getElementById("form").action='CartDeleteAction';
 	}
 </script>
 </head>
@@ -80,7 +80,7 @@
 
 <div class="submit_btn_box">
 	<div id=".contents-btn-set">
-<s:submit value="削除" class="submit_btn" onclick="this.form.action='DeleteCartAction';"/>
+<s:submit value="削除" class="submit_btn" onclick="this.form.action='CartDeleteAction';"/>
 </div>
 </div>
 
