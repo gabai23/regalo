@@ -56,6 +56,7 @@
 
 
 
+
 <!-- 新規宛先登録画面へ -->
 <s:form action="GoAddressCreateAction">
 <s:submit value="新規宛先登録画面へ"/>
