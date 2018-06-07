@@ -21,7 +21,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 	private String keyword;
 
-	private String categoryId;
+	private int categoryId;
 
 	private ProductSearchDAO productSearchDAO = new ProductSearchDAO();
 
@@ -38,7 +38,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	//ソート
 	//商品種類数
 	private int productCount;
-//	//ページ番号777777777777777777777777777777777777.jspから取得
+//	ページ番号777777777777777777777777777777777777.jspから取得
 //	private int page =1;
 //
 //	private int pages = page -1;
@@ -90,18 +90,18 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		if(categoryId == 1 && space > 0){
 
-			List<ProductSearchDTO> notUniqueBuyProductDTOList = new ArrayList<ProductSearchList>();
+			List<ProductSearchDTO> notUniqueBuyProductDTOList = new ArrayList<ProductSearchDTO>();
 
 			String[] searchWords = keyword.replace("|","piyopiyo").replace("_", "|_").replace("　", " ").replace("~","～").replace("%", "|%").split("[\\s]+");
 
 			//検索ワードを作って重複ありのリストを作成
-			for(String str : searchWords){
-
-				notUniqueBuyProductDTOList = productSearchDAO.BySearchWord(str,
-//						pages, max_product_display
-						);
-
-			}
+//			for(String str : searchWords){
+//
+//				notUniqueBuyProductDTOList = productSearchDAO.BySearchWord(str
+//						,pages, maxProductDisplay
+//						);
+//
+//			}
 
 			//重複ありのIDリストを作成
 			List<Integer> idList = new ArrayList<Integer>();
@@ -112,8 +112,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 				idList.add(id);
 			}
 
-//			//jspで引っ張られるので削除
-//			notUniqueBuyProductDTOList.clear();
+			//jspで引っ張られるので削除
+			notUniqueBuyProductDTOList.clear();
 
 			//重複なしのリストを作成
 			List<Integer> uniqueIdList = new ArrayList<Integer>(new HashSet<>(idList));
@@ -139,12 +139,46 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			session.put("sq", sq);
 
 			//検索開始
-			productSearchDTOList = productSearchDAO.ByProductId(sq, pages, max_product_display);
+//			productSearchDTOList = productSearchDAO.ByProductId(sq, pages, maxProductDisplay);
+//
+//			System.out.println("複数検索カテゴリーなし");
+//			System.out.println(keyword);
+//
+//			ret = SUCCESS;
 
-			System.out.println("複数検索カテゴリーなし");
-			System.out.println(keyword);
 
-			ret = SUCCESS;
+
+			/*
+			 * 複数検索カテゴリーあり
+			 */
+		}else if(categoryId >=1 && space > 0){
+
+			List<ProductSearchDTO> notUniqueBuyProductDTOList = new ArrayList<ProductSearchDTO>();
+
+			String[] searchWords = keyword.replace("|","piyopiyo").replace("_", "|_").replace("　", " ").replace("~","～").replace("%", "|%").split("[\\s]+");
+
+			//検索ワードを作って重複ありのリストを作成
+//			for(String str : searchWords){
+//
+//				notUniqueBuyProductDTOList = productSearchDAO.BySearchWord(str,page, maxProductDisplay);
+//			}
+
+
+			//重複ありのIDリストを作成
+			List<Integer> idList = new ArrayList<Integer>();
+
+			for(int i =0; i< notUniqueBuyProductDTOList.size(); i++){
+
+				int id  =notUniqueBuyProductDTOList.get(i).getProduct_id();
+				idList.add(id);
+			}
+
+			//jspで引っ張られてしまうので削除
+			notUniqueBuyProductDTOList.clear();
+
+			//重複なしのリストを作成
+			List<Integer> uniqueIdList = new ArrayList<Integer>(new HashSet(idList));
+			session.put("uniqueIdList, uniqueIdList);
 
 
 		}
