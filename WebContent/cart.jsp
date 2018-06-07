@@ -8,11 +8,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <title>カート</title>
 
-<script type="text/javascript">
-	function goDeleteCartAction() {
-		document.getElementById("form").action='CartDeleteAction';
-	}
-</script>
+
 </head>
 <body>
 <jsp:include page="includeHeader.jsp" />
@@ -30,7 +26,7 @@
 </s:if>
 
 <s:if test="#session.CartDtoList.size()>0">
-<s:form id="form" action="SettlementConfirmAction">
+<s:form id="form">
 <table class="horizontal-list-table">
 <thead>
 <tr>
@@ -74,7 +70,7 @@
 <h2><s:label value="カート合計金額 :"/><s:property value="#session.totalPrice"/>円</h2><br>
 <div class="submit_btn_box">
 	<div id=".contents-btn-set">
-<s:submit value="決済" class="submit_btn"/>
+<s:submit value="決済" class="submit_btn" onclick="this.form.action='BuyProductConfirmAction';"/>
 </div>
 </div>
 
@@ -83,6 +79,7 @@
 <s:submit value="削除" class="submit_btn" onclick="this.form.action='CartDeleteAction';"/>
 </div>
 </div>
+
 
 </s:form>
 </s:if>
@@ -93,7 +90,7 @@
 </s:else>
 </div>
 <div id="footer">
-	<s:include value="footer.jsp"/>
+	<s:include value="includeFooter.jsp"/>
 </div>
 </body>
 </html>

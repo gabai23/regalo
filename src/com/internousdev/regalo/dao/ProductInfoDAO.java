@@ -39,7 +39,7 @@ public class ProductInfoDAO {
 				dto.setProductDescription(rs.getString("product_description"));
 				dto.setCategoryId(rs.getInt("category_id"));
 				dto.setPrice(rs.getInt("price"));
-				dto.setImageFilePath(rs.getString("image_file_path"));
+				dto.setImageFilePath((rs.getString("image_file_path"))+"/"+rs.getString("image_file_name"));
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setReleaseDate(rs.getDate("release_date"));
 				dto.setReleaseCompany(rs.getString("release_company"));

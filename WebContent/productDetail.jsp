@@ -22,7 +22,7 @@
 		<s:property value="productNameKana"/>
 
 		<!-- 商品画像 -->
-		<s:property value="imageFilePath"/>
+		<img id="image" src='<s:property value="imageFilePath"/>'/>
 
 		<!-- 値段 -->
 		<s:property value="price"/>
@@ -50,6 +50,9 @@
 
 		<button type="submit">カートへ</button>
 	</form>
+
+	<!-- フッター -->
+	<jsp:include page="includeFooter.jsp"/>
 
 
 </body>

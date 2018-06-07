@@ -36,7 +36,7 @@
 		<button type="submit">管理者画面へ</button>
 	</form>
 
-	<!-- ヘッダー -->
+	<!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
 
 </body>
