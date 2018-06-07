@@ -5,14 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>PasswordResetComplete画面</title>
 </head>
 <body>
-<!-- ヘッダー -->
-	<jsp:include page="includeHeader.jsp"/>
-<s:form action="GoHomeAction">
-                       <s:submit value="GoHomeへ"/>
-                </s:form>
+	<!-- ヘッダー -->
+		<jsp:include page="includeHeader.jsp"/>
+
+	<h3>パスワード変更が完了しました。</h3>
+
+	<!-- 送信ボタン -->
+	<s:form action="BuyProductConfirmAction">
+		<s:submit value="決済確認画面へ"/>
+	</s:form>
+
 <!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
 </body>
