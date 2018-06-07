@@ -6,15 +6,62 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="">
+<!-- <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+$(document).ready(function(){
+$('.abc').bxSlider({
+auto: true,
+mode: 'fade',
+speed: 1000,
+slideWidth: 500,
+pager:false,
+});
+
+});
+</script>
+
+
 <title>ホーム画面</title>
+
+<style type="text/css">
+
+body {
+ 	background-image:url("./images/haikei2.jpg");
+}
+
+.bx-wrapper{
+position:relative;
+ left:50px;
+ bottom:570px;
+ margin: none !important;
+ -moz-box-shadow: none !important;
+ -webkit-box-shadow: none !important;
+ box-shadow: none !important;
+ border: none !important;
+ background: none !important;
+ }
+
+</style>
 </head>
 <body>
-<div id="main">
-
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
-
+<div class="abc">
+ <div><img src="./images/haikei1.jpg"></div>
+ <div><img src="./images/haikei2.jpg"></div>
+ <div><img src="./images/haikei3.jpg"></div>
+ </div>
 	<form action="GoLoginAction">
 		<button type="submit">ログインへ</button>
 	</form>
@@ -37,10 +84,8 @@
 		<button type="submit">管理者画面へ</button>
 	</form>
 
-</div>
-
-<!-- フッター -->
-<jsp:include page="includeFooter.jsp"/>
+	<!-- ヘッダー -->
+<%-- 	<jsp:include page="includeFooter.jsp"/> --%>
 
 </body>
 </html>

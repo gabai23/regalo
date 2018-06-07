@@ -3,34 +3,64 @@
 * {
 	text-decoration:none;
 }
-
 #header {
 	weight:100%;
 	height:80px;
-
-	background:grey;
+	background-color:black;
 }
-
 #headerLogo {
-	float:left;
+	position: relative;
+	left: 60px;
+	top: 10px;
+	color:white;
+	font-size:40px;
+	font-weight:700px;
+	font-family: 'Cinzel', serif;
+font-family: 'Arizonia', cursive;
+/* font-family: 'Cormorant Garamond', serif; */
+/* font-family: 'PT Serif', serif; */
 }
 
 #headerSearch {
-	float:left;
+/* 	float:left; */
+position:relative;
+left:800px;
+bottom:10px;
 }
 
-#headerLogin {
-	float:left;
+.right-list{
+	position:relative;
+	bottom:50px;
+}
+ul {
+list-style: none;
 }
 
-#headerLogiout {
-	float:left;
+
+li {
+	float:right;
+	margin-right:15px;
+	font-size:15px;
 }
 
-#headerCart {
-	float:left;
+/* #headerLogin { */
+/* 	float:left; */
+/* 	position:relative; */
+/* left:270px; */
+/* bottom:20px; */
 }
 
-#headerMypage {
-	float:left;
-}
+/* #headerLogout { */
+/* 	float:left; */
+/* ; */
+/* } */
+
+/* #headerCart { */
+/* /* 	float:left; */ */
+
+/* } */
+
+/* #headerMypage { */
+/* /* 	float:left; */ */
+
+/* } */

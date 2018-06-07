@@ -7,12 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" type="text/css" href="./css/includeHeader.css">
+<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
 	<div id="header">
 		<!-- GoHomeActionつけろ -->
 		<div id="headerLogo">
-			<a href='<s:url action="GoHomeAction"/>'>Regolo</a>
+			<a href='<s:url action="GoHomeAction"/>'>Regalo</a>
 		</div>
 
 		<div id="headerSearch">
@@ -29,34 +30,30 @@
 			</s:form>
 		</div>
 
-		<s:if test="#session.loginFlg == false">
-		<div id="headerLogin">
+		<div class="right-list">
+		<ul>
+		<li><div id="headerLogin">
 			<s:form action="GoLoginAction">
 				<button type="submit">ログイン</button>
 			</s:form>
-		</div>
-		</s:if>
-
-		<s:if test="#session.loginFlg == true">
-		<div id="headerLogout">
+		</div></li>
+		<li><div id="headerLogout">
 			<s:form action="LogoutAction">
 				<button type="submit">ログアウト</button>
 			</s:form>
-		</div>
-		</s:if>
+		</div></li>
 
-
-		<div id="headerCart">
+		<li><div id="headerCart">
 			<s:form action="GoCartAction">
 				<button type="submit">カート</button>
 			</s:form>
-		</div>
+		</div></li>
 
-		<div id="headerMypage">
+		<li><div id="headerMypage">
 			<s:form action="GoMyPageAction">
 				<button type="submit">マイページ</button>
 			</s:form>
-		</div>
-	</div>
+		</div></li></ul>
+	</div></div>
 </body>
 </html>
