@@ -19,7 +19,7 @@ public class BuyProductCompleteDAO {
 	//カートの中身を購入履歴に登録する
 	public ArrayList<CartDTO> getCartList(String userId) throws SQLException {
 
-	String sql = "SELECT * FROM cart_info WEHRE user_id=?";
+	String sql = "SELECT * FROM cart_info WHERE user_id=?";
 	try {
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, userId);

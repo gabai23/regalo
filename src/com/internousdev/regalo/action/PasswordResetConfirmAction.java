@@ -16,9 +16,9 @@ public class PasswordResetConfirmAction extends ActionSupport {
 	private String passCon1;    //パスワードを*で暗号化（パスワード）
 	private String passCon2;    //パスワードを*で暗号化（確認パスワード）
 
-	private String errorId = "";            //IDエラー
-	private String errorPass = "";          //パスワードエラー
-	private String errorRePass = "";        //確認用パスワードエラー
+	private String errorId = "";        //IDエラー
+	private String errorPass = "";      //パスワードエラー
+	private String errorRePass = "";    //確認用パスワードエラー
 	private String errorMessage = "";   //エラーメッセージ
 
 	int i;
@@ -31,6 +31,8 @@ public class PasswordResetConfirmAction extends ActionSupport {
 
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
+
+		//フォームの入力内容をInputCheckerを使用しチェックする
 
 		ErrorUserIdList = inputChecker.check("ユーザーID",userId,1,8,true,false,false,true,false,false,false);
 		ErrorPasswordList1 = inputChecker.check("パスワード",password1,1,16,true,false,false,true,false,false,false);
@@ -77,11 +79,13 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		PasswordResetCompleteDAO dao = new PasswordResetCompleteDAO();
 		boolean check = dao.passwordConfirm(userId);
 
+		//ユーザーIDが正しくなかったらエラーメッセージを出す
 		if(!check) {
 			errorMessage += "ログインIDが異なります。";
 			result = ERROR;
 		}
 
+		//パスワードと確認パスワードが同じじゃなかったらエラーメッセージを出す
 		if(!(password1.equals("") && password2.equals(""))) {
 			if(!(password1.equals(password2))) {
 				errorMessage += "入力されたパスワードが異なります。";

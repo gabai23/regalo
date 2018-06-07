@@ -7,10 +7,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class PasswordResetCompleteAction extends ActionSupport {
 
-	private String userId;
-	private String password1;
-	private String password2;
-	private String errorMessage;
+	private String userId;        //ユーザーID
+	private String password1;     //パスワード
+	private String password2;     //確認パスワード
+	private String errorMessage;  //エラーメッセージ
 
 	public String execute() throws SQLException {
 

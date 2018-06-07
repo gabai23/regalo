@@ -16,7 +16,7 @@ public class AddressInfoDTO {
 	private String telNumber;        //電話番号
 	private String email;            //メールアドレス
 	private Date registDate;         //登録日
-	private Date updateDate;         //アップデート日
+	private Date updateDate;         //更新日
 
 
 
