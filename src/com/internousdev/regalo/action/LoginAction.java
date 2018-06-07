@@ -85,6 +85,8 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				CartDAO cartDAO = new CartDAO();
 				if(cartDAO.isExistsCart(session.get("tempUserId").toString())){
 
+					System.out.println("LoginAction.カート存在します");
+
 					cartDAO.linkToLoginId(session.get("tempUserId").toString(),loginId);
 
 				}

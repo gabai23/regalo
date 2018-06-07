@@ -47,7 +47,7 @@ import com.opensymphony.xwork2.ActionSupport;
 	 if (session.containsKey("userId")) {
 		 cartList = buyproductComplete.getCartList(session.get("userId").toString());
 
-		 System.out.println("cartList.size():"+cartList.size());
+		 System.out.println("BuyProductCompleteAction.cartList.size():"+cartList.size());
 		 /*---------------------------------------------------------
 			カート情報なしの場合
 		---------------------------------------------------------*/
