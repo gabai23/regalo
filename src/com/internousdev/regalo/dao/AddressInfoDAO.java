@@ -14,6 +14,7 @@ public class AddressInfoDAO {
 	DBConnector db = new DBConnector();
 	Connection con = null;
 
+	//宛先情報登録メソッド
 	public boolean registerAddress(AddressInfoDTO addressInfoDTO) throws SQLException {
 
 		int updateCount = 0;
