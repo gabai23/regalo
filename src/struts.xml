@@ -154,6 +154,7 @@
 	</action>
 
 <!-- 郡山担当 -->
+
 <!-- 宛先選択 -->
 	<!-- BuyProductConfirmAction -->
 	<action name="BuyProductConfirmAction" class="com.internousdev.regalo.action.BuyProductConfirmAction" method="execute">
