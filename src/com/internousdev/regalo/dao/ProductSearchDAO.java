@@ -21,7 +21,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info) FROM product_info LIMIT ?,? ";
+		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info) FROM product_info";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -65,7 +65,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *, (SELECT COUNT(*) FROM product_info WHERE " + sq + ") FROM product_info WHERE "  + sq  + "LIMIT ?,?";
+		String sql = "SELECT *, (SELECT COUNT(*) FROM product_info WHERE " + sq + ") FROM product_info WHERE "  + sq;
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -107,7 +107,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE "+ sq + "AND category_id = ?)FROM product_info WHERE " + sq + "AND category_id = ? LIMIT ?,?";
+		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE "+ sq + "AND category_id = ?)FROM product_info WHERE " + sq + "AND category_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -151,7 +151,7 @@ public class ProductSearchDAO {
 
 		Connection con  =db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name LIKE \'%" + search_word +"%\' OR product_name_kana LIKE \'%"+ search_word + "%\') FROM product_info WHERE  product_name LIKE \'%"+ search_word +"%\' OR product_name_kana LIKE \'%"+ search_word +"%\' LIMIT ?,?";
+		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name LIKE \'%" + search_word +"%\' OR product_name_kana LIKE \'%"+ search_word + "%\') FROM product_info WHERE  product_name LIKE \'%"+ search_word +"%\' OR product_name_kana LIKE \'%"+ search_word +"%\'";
 
 		try{
 			PreparedStatement ps =con.prepareStatement(sql);
@@ -191,7 +191,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE category_id = ?) FROM prduct_info WHERE category_id = ? LIMIT ?, ?";
+		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE category_id = ?) FROM prduct_info WHERE category_id = ?";
 
 		try{
 			PreparedStatement ps =con.prepareStatement(sql);
@@ -233,7 +233,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name LIKE \'%"+ search_word +"%\' AND category_id = ?) FROM product_info WHERE product_name LIKE \'%"+ search_word + "%\' AND category_id = ? LIMIT ?,?";
+		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name LIKE \'%"+ search_word +"%\' AND category_id = ?) FROM product_info WHERE product_name LIKE \'%"+ search_word + "%\' AND category_id = ?";
 
 
 	try {
@@ -277,7 +277,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name_kana LIKE \'%" + search_word +"%\') FROM product_info WHERE product_name_kana LIKE \'%"+ search_word +"%\' LIMIT ?,?";
+		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name_kana LIKE \'%" + search_word +"%\') FROM product_info WHERE product_name_kana LIKE \'%"+ search_word +"%\' ";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -320,7 +320,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name_kana LIKE \'%" + search_word + "%\' AND category_id =?) FROM product_info WHERE product_name_kana LIKE \'%" + search_word + "%\' AND category_id = ? LIMIT ?, ?";
+		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name_kana LIKE \'%" + search_word + "%\' AND category_id =?) FROM product_info WHERE product_name_kana LIKE \'%" + search_word + "%\' AND category_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

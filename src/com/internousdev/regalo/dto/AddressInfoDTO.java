@@ -12,8 +12,7 @@ public class AddressInfoDTO {
 	private String firstName;        //名
 	private String familyNameKana;   //姓ふりがな
 	private String firstNameKana;    //名ふりがな
-	private String zip11;            //郵便番号
-	private String addr11;           //住所
+	private String userAddress;      //住所
 	private String telNumber;        //電話番号
 	private String email;            //メールアドレス
 	private Date registDate;         //登録日
@@ -71,20 +70,12 @@ public class AddressInfoDTO {
 		this.firstNameKana = firstNameKana;
 	}
 
-	public String getZip11() {
-		return zip11;
-	}
-
-	public void setZip11(String zip11) {
-		this.zip11 = zip11;
-	}
-
 	public String getAddr11() {
-		return addr11;
+		return userAddress;
 	}
 
-	public void setAddr11(String addr11) {
-		this.addr11 = addr11;
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	public String getTelNumber() {
@@ -105,6 +96,10 @@ public class AddressInfoDTO {
 
 	public Date getRegistDate() {
 		return registDate;
+	}
+
+	public String getUserAddress() {
+		return userAddress;
 	}
 
 	public void setRegistDate(Date registDate) {
