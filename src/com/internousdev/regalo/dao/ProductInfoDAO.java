@@ -29,7 +29,7 @@ public class ProductInfoDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
-			if(rs.next()) {
+			while(rs.next()) {
 
 				ProductInfoDTO dto = new ProductInfoDTO();
 

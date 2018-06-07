@@ -34,6 +34,7 @@
 
 				<!-- 価格 -->
 				<s:property value="price"/>
+				<br>
 			</s:iterator>
 		</div>
 
