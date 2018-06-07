@@ -30,7 +30,7 @@
 </s:if>
 
 <s:if test="#session.CartDtoList.size()>0">
-<s:form id="form" action="SettlementConfirmAction">
+<s:form id="form">
 <table class="horizontal-list-table">
 <thead>
 <tr>
