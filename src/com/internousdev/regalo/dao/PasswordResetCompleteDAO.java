@@ -11,6 +11,8 @@ import com.internousdev.regalo.util.DateUtil;
 
 public class PasswordResetCompleteDAO {
 
+	//パスワード再設定メソッド
+
 	public int PasswordReset(String password, String userId) throws SQLException {
 
 		DBConnector dbConnector = new DBConnector();
