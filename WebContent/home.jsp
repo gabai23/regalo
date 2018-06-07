@@ -6,10 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
-<link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 <title>ホーム画面</title>
 </head>
 <body>
+<div id="main">
 
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
@@ -36,8 +37,10 @@
 		<button type="submit">管理者画面へ</button>
 	</form>
 
-	<!-- フッター -->
-	<jsp:include page="includeFooter.jsp"/>
+</div>
+
+<!-- フッター -->
+<jsp:include page="includeFooter.jsp"/>
 
 </body>
 </html>
