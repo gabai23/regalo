@@ -8,8 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- ヘッダー -->
+	<jsp:include page="includeHeader.jsp"/>
 <s:form action="PasswordResetConfirmAction">
                        <s:submit value="PasswordResetConfirmへ"/>
                 </s:form>
+<!-- フッター -->
+	<jsp:include page="includeFooter.jsp"/>
 </body>
 </html>

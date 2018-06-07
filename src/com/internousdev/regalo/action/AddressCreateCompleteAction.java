@@ -15,8 +15,7 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String zip11;
-	private String addr11;
+	private String userAddress;
 	private String telNumber;
 	private String email;
 
@@ -33,8 +32,7 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 		addressInfoDTO.setFirstName(firstName);
 		addressInfoDTO.setFamilyNameKana(familyNameKana);
 		addressInfoDTO.setFirstNameKana(firstNameKana);
-		addressInfoDTO.setZip11(zip11);
-		addressInfoDTO.setAddr11(addr11);
+		addressInfoDTO.setUserAddress(userAddress);
 		addressInfoDTO.setTelNumber(telNumber);
 		addressInfoDTO.setEmail(email);
 
@@ -80,20 +78,12 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 		this.firstNameKana = firstNameKana;
 	}
 
-	public String getZip11() {
-		return zip11;
+	public String getUserAddress() {
+		return userAddress;
 	}
 
-	public void setZip11(String zip11) {
-		this.zip11 = zip11;
-	}
-
-	public String getAddr11() {
-		return addr11;
-	}
-
-	public void setAddr11(String addr11) {
-		this.addr11 = addr11;
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	public String getTelNumber() {

@@ -30,10 +30,9 @@ public class AddressInfoDAO {
 			ps.setString(3, addressInfoDTO.getFirstName());
 			ps.setString(4, addressInfoDTO.getFamilyNameKana());
 			ps.setString(5, addressInfoDTO.getFirstNameKana());
-			ps.setString(6, addressInfoDTO.getAddr11());
+			ps.setString(6, addressInfoDTO.getUserAddress());
 			ps.setString(7, addressInfoDTO.getTelNumber());
 			ps.setString(8, addressInfoDTO.getEmail());
-			ps.setString(9, addressInfoDTO.getZip11());
 
 			updateCount = ps.executeUpdate();
 
@@ -55,7 +54,7 @@ public class AddressInfoDAO {
 		ArrayList<AddressInfoDTO> addressInfoList = new ArrayList<AddressInfoDTO>();
 
 
-		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, pastel_code FROM destination_info WHERE user_id = ?";
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = ?";
 
 
 		try {
@@ -78,8 +77,7 @@ public class AddressInfoDAO {
 				addressInfoDTO.setFirstNameKana(rs.getString("first_name"));
 				addressInfoDTO.setEmail(rs.getString("email"));
 				addressInfoDTO.setTelNumber(rs.getString("tel_number"));
-				addressInfoDTO.setZip11(rs.getString("pastal_code"));
-				addressInfoDTO.setAddr11(rs.getString("user_address"));
+				addressInfoDTO.setUserAddress(rs.getString("user_address"));
 				addressInfoList.add(addressInfoDTO);
 
 			}

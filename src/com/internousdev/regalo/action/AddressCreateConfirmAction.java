@@ -24,8 +24,7 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 	private String defaultSexValue = MALE;
 	private String email;
 	private String telNumber;
-	private String zip11;
-	private String addr11;
+	private String userAddress;
 
 
 	private List<String> familyNameErrorMessageList = new ArrayList<String>();
@@ -34,8 +33,7 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 	private List<String> firstNameKanaErrorMessageList = new ArrayList<String>();
 	private List<String> emailErrorMessageList = new ArrayList<String>();
 	private List<String> telNumberErrorMessageList = new ArrayList<String>();
-	private List<String> zip11ErrorMessageList = new ArrayList<String>();
-	private List<String> addr11ErrorMessageList = new ArrayList<String>();
+	private List<String> userAddressErrorMessageList = new ArrayList<String>();
 
 	private String categoryId;
 	private Map<String,Object> session;
@@ -51,8 +49,7 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 		firstNameErrorMessageList = inputChecker.check("名",firstName,1,16,true,true,true,false,false,false,true);
 		familyNameKanaErrorMessageList = inputChecker.check("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false,false);
 		firstNameKanaErrorMessageList = inputChecker.check("名ふりがな",firstNameKana,1,16,false,false,true,false,false,false,false);
-		zip11ErrorMessageList = inputChecker.check("郵便番号",zip11,7,7,false,false,false,false,true,false,false);
-		addr11ErrorMessageList = inputChecker.check("住所",addr11,15,50,false,true,true,true,true,true,true);
+		userAddressErrorMessageList = inputChecker.check("住所",userAddress,15,50,false,true,true,true,true,true,true);
 		telNumberErrorMessageList = inputChecker.check("電話番号",telNumber,10,13,false,false,false,true,false,false,false);
 		emailErrorMessageList = inputChecker.check("メールアドレス",email,18,32,true,false,false,false,true,false,false);
 
@@ -62,8 +59,7 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 		&& firstNameKanaErrorMessageList.size()==0
 		&& emailErrorMessageList.size()==0
 		&& telNumberErrorMessageList.size()==0
-		&& zip11ErrorMessageList.size()==0
-		&& addr11ErrorMessageList.size()==0){
+		&& userAddressErrorMessageList.size()==0){
 
 		result = SUCCESS;
 
@@ -74,8 +70,7 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 			session.put("firstNameKanaErrorMessageList",firstNameKanaErrorMessageList);
 			session.put("emailErrorMessageList",emailErrorMessageList);
 			session.put("telNumberErrorMessageList",telNumberErrorMessageList);
-			session.put("zip11ErrorMessageList",zip11ErrorMessageList);
-			session.put("addr11ErrorMessageList",addr11ErrorMessageList);
+			session.put("userAddressErrorMessageList",userAddressErrorMessageList);
 
 			result = ERROR;
 		}
@@ -166,20 +161,12 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 		this.telNumber = telNumber;
 	}
 
-	public String  getZip11() {
-		return zip11;
+	public String getUserAddress() {
+		return userAddress;
 	}
 
-	public void setZip11(String zip11) {
-		this.zip11 = zip11;
-	}
-
-	public String getAddr11() {
-		return addr11;
-	}
-
-	public void setAddr11(String addr11) {
-		this.addr11 = addr11;
+	public void setAddr11(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	public List<String> getFamilyNameErrorMessageList() {
@@ -230,20 +217,12 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 		this.telNumberErrorMessageList = telNumberErrorMessageList;
 	}
 
-	public List<String> getZip11ErrorMessageList() {
-		return zip11ErrorMessageList;
+	public List<String> getUserAddressErrorMessageList() {
+		return userAddressErrorMessageList;
 	}
 
-	public void setZip11ErrorMessageList(List<String> zip11ErrorMessageList) {
-		this.zip11ErrorMessageList = zip11ErrorMessageList;
-	}
-
-	public List<String> getAddr11ErrorMessageList() {
-		return addr11ErrorMessageList;
-	}
-
-	public void setAddr11ErrorMessageList(List<String> addr11ErrorMessageList) {
-		this.addr11ErrorMessageList = addr11ErrorMessageList;
+	public void setUserAddressErrorMessageList(List<String> userAddressErrorMessageList) {
+		this.userAddressErrorMessageList = userAddressErrorMessageList;
 	}
 
 	public Map<String,Object> getSession() {

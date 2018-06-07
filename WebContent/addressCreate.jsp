@@ -80,18 +80,6 @@
 				</div>
 			</td>
 		</tr>
-
-		<tr>
-			<td>
-				<span class="member_form_title">郵便番号</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="zip11" value="%{zip11}"/>
-				</div>
-			</td>
-		</tr>
 		<tr>
 			<td>
 				<span class="member_form_title">住所</span>
@@ -99,7 +87,7 @@
 			</td>
 			<td>
 				<div class="member_form_text">
-				<s:textfield name="addr11" value="%{addr11}"/>
+				<s:textfield name="userAddress" value="%{userAddress}"/>
 				</div>
 			</td>
 		</tr>
