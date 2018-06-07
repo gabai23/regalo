@@ -11,7 +11,7 @@
 <!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 <!-- 決済画面へ -->
-<s:form action="BuyItemCompleteAction">
+<s:form action="BuyProductCompleteAction">
 <s:submit value="購入"/>
 </s:form>
 <!-- 宛先情報 -->
