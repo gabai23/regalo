@@ -1,26 +1,49 @@
 package com.internousdev.regalo.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.regalo.dao.ProductInfoDAO;
+import com.internousdev.regalo.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoMasterAction extends ActionSupport implements SessionAware{
+public class GoMasterAction extends ActionSupport implements SessionAware {
 
-	public String execute() throws SQLException{
+	private ArrayList<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 
-		String result = SUCCESS;
+	Map<String, Object> session;
 
+	public String execute() throws SQLException {
+		String result = ERROR;
+		ProductInfoDAO dao = new ProductInfoDAO();
+		productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
+		if (session.containsKey("masterId")) {
+			result = SUCCESS;
+		} else {
+			result = ERROR;
+		}
 		return result;
-
 	}
 
-	@Override
-	public void setSession(Map<String, Object> arg0) {
-		// TODO 自動生成されたメソッド・スタブ
 
+
+	public ArrayList<ProductInfoDTO> getProductInfoDTOList() {
+		return productInfoDTOList;
+	}
+
+	public void setProductInfoDTOList(ArrayList<ProductInfoDTO> ProductInfoDTOList) {
+		this.productInfoDTOList = ProductInfoDTOList;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }
