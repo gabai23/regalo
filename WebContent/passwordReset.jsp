@@ -15,7 +15,7 @@
 	<table>
 	<tr>
 		<th>ログインID:</th>
-		<td><s:property value="userId" escape="false" /></td>
+		<td><input type="text" name="userId" size="8"></td>
 	</tr>
 
 	<!-- パスワード -->
@@ -26,7 +26,7 @@
 
 	<!-- 確認パスワード -->
 	<tr>
-		<td>確認パスワード:</td>
+		<th>確認パスワード:</th>
 		<td><input type="text" name="password2" size="8"><td>
 	</tr>
 	</table>
@@ -35,6 +35,7 @@
 	<s:form action="PasswordResetConfirmAction">
 		<s:submit value="パスワード再設定画面へ"/>
 	</s:form>
+
 	<!-- フッター -->
 		<jsp:include page="includeFooter.jsp"/>
 
