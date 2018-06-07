@@ -5,63 +5,56 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css"/>
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta http-equiv="imagetoolbar" content="no" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" type="text/css" href="">
 <!-- <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-
+<script type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="js/jquery.bgswitcher.js"></script>
 <script>
-$(document).ready(function(){
-$('.abc').bxSlider({
-auto: true,
-mode: 'fade',
-speed: 1000,
-slideWidth: 500,
-pager:false,
-});
-
+jQuery(function($) {
+    $('.bg-slider').bgSwitcher({
+        images: ['haikei.jpg','haikei2.jpg','haikei3.jpg'], // 切り替える背景画像を指定
+    });
 });
 </script>
-
 
 <title>ホーム画面</title>
 
 <style type="text/css">
 
-body {
- 	background-image:url("./images/haikei2.jpg");
+  body {
+   	background-image:url("./images/haikei2.jpg");
+   	background-size:cover;
+  }
+.bg-slider {
+	width: 100vw;
+	height: 100vh;
+	background-position:center center;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-
-.bx-wrapper{
-position:relative;
- left:50px;
- bottom:570px;
- margin: none !important;
- -moz-box-shadow: none !important;
- -webkit-box-shadow: none !important;
- box-shadow: none !important;
- border: none !important;
- background: none !important;
- }
-
+.bg-slider__title{
+	color: #fff;
+	font-size: 48px;
+	line-height: 1.5;
+	font-weight: bold;
+	text-align:center;
+	text-shadow: 1px 1px 1px #000;
+}
 </style>
 </head>
 <body>
+
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
-<div class="abc">
- <div><img src="./images/haikei1.jpg"></div>
- <div><img src="./images/haikei2.jpg"></div>
- <div><img src="./images/haikei3.jpg"></div>
- </div>
+<div class="bg-slider">
+  <h1 class="bg-slider__title">BGSWITCHER DEMO PAGE</h1>
+</div>
 	<form action="GoLoginAction">
 		<button type="submit">ログインへ</button>
 	</form>

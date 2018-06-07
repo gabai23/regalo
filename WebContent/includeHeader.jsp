@@ -32,6 +32,7 @@
 
 		<div class="right-list">
 		<ul>
+<%-- 		<li><a href='<s:url action="GoLoginAction"/>'></a>LOGIN</li> --%>
 		<li><div id="headerLogin">
 			<s:form action="GoLoginAction">
 				<button type="submit">ログイン</button>

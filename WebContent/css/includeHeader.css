@@ -13,7 +13,7 @@
 	left: 60px;
 	top: 10px;
 	color:white;
-	font-size:40px;
+	font-size:50px;
 	font-weight:700px;
 	font-family: 'Cinzel', serif;
 font-family: 'Arizonia', cursive;
@@ -25,12 +25,12 @@ font-family: 'Arizonia', cursive;
 /* 	float:left; */
 position:relative;
 left:800px;
-bottom:10px;
+bottom:20px;
 }
 
 .right-list{
 	position:relative;
-	bottom:50px;
+	bottom:63px;
 }
 ul {
 list-style: none;
