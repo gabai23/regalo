@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-
 import com.internousdev.regalo.dao.AddressInfoDAO;
+import com.internousdev.regalo.dao.CartDAO;
 import com.internousdev.regalo.dto.AddressInfoDTO;
 import com.internousdev.regalo.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -59,7 +59,8 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 //カート情報取得
 //６月６日現在これ以降未完成、、、メソッドとtotalPrice確認する
 		CartDAO dao = new CartDAO();
-		cartList = dao.//なんらかのメソッド(session.get("login_user_id").toString());
+		cartList = dao. getCartDtoList(session.get("login_user_id").toString());
+		System.out.println(cartList.size());
 				if(cartList.size() > 0) {
 					result = SUCCESS;
 				}
