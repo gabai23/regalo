@@ -9,6 +9,7 @@ public class ProductSearchDTO {
 	private int product_id;
 
 	//商品名
+
 	private String product_name;
 
 	//商品名かな

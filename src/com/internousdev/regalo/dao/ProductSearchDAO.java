@@ -15,7 +15,9 @@ public class ProductSearchDAO {
 
 	//☆★全ての商品を表示★☆
 
-	public ArrayList<ProductSearchDTO> AllProductInfo(int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> AllProductInfo(
+//			int pages, int max_product_display
+			){
 
 		DBConnector db = new DBConnector();
 
@@ -25,8 +27,8 @@ public class ProductSearchDAO {
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, pages);
-			ps.setInt(2, max_product_display);
+//			ps.setInt(1, pages);
+//			ps.setInt(2, max_product_display);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
@@ -59,7 +61,9 @@ public class ProductSearchDAO {
 
 	//☆★複数検索カテゴリーなし★☆
 
-	public ArrayList<ProductSearchDTO> ByProductId(String sq, int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> ByProductId(String sq
+//			, int pages, int max_product_display
+			){
 
 		DBConnector db = new DBConnector();
 
@@ -69,8 +73,8 @@ public class ProductSearchDAO {
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, pages);
-			ps.setInt(2, max_product_display);
+//			ps.setInt(1, pages);
+//			ps.setInt(2, max_product_display);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
@@ -101,7 +105,9 @@ public class ProductSearchDAO {
 
 	//☆★商品IDとカテゴリーIDで検索★☆
 
-	public ArrayList<ProductSearchDTO> ByProductIdAndCategory(String sq,int category_id, int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> ByProductIdAndCategory(String sq,int category_id
+//			, int pages, int max_product_display
+			){
 
 		DBConnector db = new DBConnector();
 
@@ -113,8 +119,8 @@ public class ProductSearchDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, category_id);
 			ps.setInt(2, category_id);
-			ps.setInt(3, pages);
-			ps.setInt(4, max_product_display);
+//			ps.setInt(3, pages);
+//			ps.setInt(4, max_product_display);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
@@ -145,7 +151,9 @@ public class ProductSearchDAO {
 
 
 	//☆★検索ワードのみで検索★☆
-	public ArrayList<ProductSearchDTO> BySearchWord(String search_word,int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> BySearchWord(String search_word
+//			,int pages, int max_product_display
+			){
 
 		DBConnector db = new DBConnector();
 
@@ -155,8 +163,8 @@ public class ProductSearchDAO {
 
 		try{
 			PreparedStatement ps =con.prepareStatement(sql);
-			ps.setInt(1, pages);
-			ps.setInt(2, max_product_display);
+//			ps.setInt(1, pages);
+//			ps.setInt(2, max_product_display);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
@@ -185,7 +193,9 @@ public class ProductSearchDAO {
 
 
 	//☆★カテゴリのみで検索★☆
-	public ArrayList<ProductSearchDTO> ByProductCategory(int category_id, int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> ByProductCategory(int category_id
+//			, int pages, int max_product_display
+			){
 
 		DBConnector db = new DBConnector();
 
@@ -197,8 +207,8 @@ public class ProductSearchDAO {
 			PreparedStatement ps =con.prepareStatement(sql);
 			ps.setInt(1, category_id);
 			ps.setInt(2, category_id);
-			ps.setInt(3, pages);
-			ps.setInt(4, max_product_display);
+//			ps.setInt(3, pages);
+//			ps.setInt(4, max_product_display);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
@@ -227,7 +237,9 @@ public class ProductSearchDAO {
 	}
 
 	//☆★カテゴリあり、検索値あり★☆
-	public ArrayList<ProductSearchDTO> ByCategoryAndSearchWord(String search_word, int category_id, int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> ByCategoryAndSearchWord(String search_word, int category_id
+//			, int pages, int max_product_display
+			){
 
 		DBConnector db =new DBConnector();
 
@@ -240,8 +252,8 @@ public class ProductSearchDAO {
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, category_id);
 		ps.setInt(2, category_id);
-		ps.setInt(3, pages);
-		ps.setInt(4, max_product_display);
+//		ps.setInt(3, pages);
+//		ps.setInt(4, max_product_display);
 		ResultSet rs = ps.executeQuery();
 
 		while(rs.next()){
@@ -271,7 +283,9 @@ public class ProductSearchDAO {
 
 
 	//☆★ひらがな、カタカナ検索★☆
-	public ArrayList<ProductSearchDTO> BySearchWordKana(String search_word, int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> BySearchWordKana(String search_word
+//			, int pages, int max_product_display
+			){
 
 		DBConnector db =new DBConnector();
 
@@ -281,8 +295,8 @@ public class ProductSearchDAO {
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, pages);
-			ps.setInt(2, max_product_display);
+//			ps.setInt(1, pages);
+//			ps.setInt(2, max_product_display);
 			ResultSet rs = ps.executeQuery();
 
 
@@ -314,7 +328,9 @@ public class ProductSearchDAO {
 
 
 	//☆★カテゴリーとかなで検索★☆
-	public ArrayList<ProductSearchDTO> ByCategoryAndSearchWordKana(int category_id, String search_word, int pages, int max_product_display){
+	public ArrayList<ProductSearchDTO> ByCategoryAndSearchWordKana(int category_id, String search_word
+//			, int pages, int max_product_display
+			){
 
 		DBConnector db = new DBConnector();
 
@@ -326,8 +342,8 @@ public class ProductSearchDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, category_id);
 			ps.setInt(2, category_id);
-			ps.setInt(3, pages);
-			ps.setInt(4, max_product_display);
+//			ps.setInt(3, pages);
+//			ps.setInt(4, max_product_display);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
