@@ -29,16 +29,22 @@
 			</s:form>
 		</div>
 
+		<s:if test="#session.loginFlg == false">
 		<div id="headerLogin">
 			<s:form action="GoLoginAction">
 				<button type="submit">ログイン</button>
 			</s:form>
 		</div>
+		</s:if>
+
+		<s:if test="#session.loginFlg == true">
 		<div id="headerLogout">
 			<s:form action="LogoutAction">
 				<button type="submit">ログアウト</button>
 			</s:form>
 		</div>
+		</s:if>
+
 
 		<div id="headerCart">
 			<s:form action="GoCartAction">
