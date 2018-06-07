@@ -32,6 +32,9 @@ import com.opensymphony.xwork2.ActionSupport;
 	// カートの合計金額
 	private int totalPrice = 0;
 
+	//宛先ID
+	private int destinationId;
+
     public String execute() throws SQLException  {
 	 String result = ERROR;
 	 /*---------------------------------------------------------
@@ -40,11 +43,13 @@ import com.opensymphony.xwork2.ActionSupport;
 	 BuyProductCompleteDAO buyproductComplete = new  BuyProductCompleteDAO();
 	 if (session.containsKey("userId")) {
 		 cartList = buyproductComplete.getCartList(session.get("userId").toString());
+
+		 System.out.println("cartList.size():"+cartList.size());
 		 /*---------------------------------------------------------
 			カート情報なしの場合
 		---------------------------------------------------------*/
 		if (cartList.size() == 0) {
-			return "other";
+			return ERROR;
 		}
 		/* コンソールに処理を表示------------------------------- */
 		System.out.println("----BuyItemCompleteAction:execute");
@@ -58,8 +63,8 @@ import com.opensymphony.xwork2.ActionSupport;
 		/*---------------------------------------------------------
 			2.購入履歴に登録
 		---------------------------------------------------------*/
-        int i = buyproductComplete.setProductHistory(cartList);
-        System.out.println(cartList);
+        int i = buyproductComplete.setProductHistory(cartList, destinationId);
+        System.out.println(i);
         /*---------------------------------------------------------
 		カート情報ありの場合(listの数と処理件数と同じ場合)
 	---------------------------------------------------------*/
@@ -121,5 +126,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 	public void setTotalprice(int totalprice) {
 		this.totalPrice = totalprice;
+	}
+
+	public int getDestinationId() {
+		return destinationId;
+	}
+
+	public void setDestinationId(int destinationId) {
+		this.destinationId = destinationId;
 	}
     }
