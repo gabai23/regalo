@@ -7,8 +7,10 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.regalo.dao.AddressInfoDAO;
 import com.internousdev.regalo.dao.CartDAO;
 import com.internousdev.regalo.dao.LoginDAO;
+import com.internousdev.regalo.dto.AddressInfoDTO;
 import com.internousdev.regalo.dto.LoginDTO;
 import com.internousdev.regalo.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -29,6 +31,8 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private boolean saveLogin;
 
 	private Map<String,Object> session;
+
+	private ArrayList<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
 
 
 	public String execute(){
@@ -66,6 +70,16 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				session.put("loginFlg", true);//ログインしているかの確認（二択）
 				session.put("userId", loginId);//userIdにloginIdの保持
 				session.put("saveLogin", loginId);//saveLoginの方が、データの指定がしやすいね。
+
+				//宛先情報取得 sessionに格納
+				AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
+				try {
+					addressInfoListDTO = addressInfoDAO.getAddressInfo(session.get("userId").toString());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				session.put("addressInfoListDTO",addressInfoListDTO);
+				System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
 				/*みんながログイン成功しているかどうかをコンソールで確認するための記入。
 				別になくてもいいが、やったほうが、みんながわかりやすい処置。圭一郎ならやるべきだね*/

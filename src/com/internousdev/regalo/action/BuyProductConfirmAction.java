@@ -31,9 +31,11 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 		String result = ERROR;
 
 		//ログインしていれば宛先情報を取得する
-		if((boolean) session.get("loginFlg")){
+		if((Boolean) session.get("loginFlg")){
 			AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
 			addressInfoListDTO = addressInfoDAO.getAddressInfo(session.get("userId").toString());
+			session.put("addressInfoListDTO",addressInfoListDTO);
+			System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
 		//宛先情報があれば
 			if(addressInfoListDTO.size() > 0) {
@@ -48,6 +50,7 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 
 		//ログインしていなければ
 		}else if(!(boolean)session.get("loginFlg")){
+
 
 				result = ERROR;
 				session.put("settlement", true);

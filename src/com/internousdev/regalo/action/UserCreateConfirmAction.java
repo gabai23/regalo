@@ -33,7 +33,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		UserCreateConfirmDAO dao = new UserCreateConfirmDAO();
 
 		InputChecker i = new InputChecker();
-		i.check(String propertyName, String value, int minLength, int maxLength, boolean halfAlphabet, boolean kanji, boolean hiragana, boolean katakana, boolean halfNumber, boolean halfSymbol, boolean fullSymbol);
+		i.check(propertyName,value,minLength,maxLength,halfAlphabet,kanji,hiragana,katakana,halfNumber,halfSymbol,fullSymbol);
 
 
 

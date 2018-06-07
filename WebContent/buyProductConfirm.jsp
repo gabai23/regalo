@@ -15,13 +15,14 @@
 <s:submit value="購入"/>
 </s:form>
 <!-- 宛先情報 -->
-<!-- addressInfoList確認すること＞
+
 				<div class="addressContainer clearfix">
-				<s:iterator value="addressInfoListDTO">
+				<%-- <s:iterator value="addressInfoListDTO"> --%>
+				<s:iterator value="#session.addressInfoListDTO">
 					<div class="box">
 						<div class="address_title">
 							<label>
-							<input type="radio" name="addressId" value="${id}"  checked="checked"/>
+							<input type="radio" name="destinationId" value="${id}"  checked="checked"/>
 							お届け先
 							</label>
 						</div>
