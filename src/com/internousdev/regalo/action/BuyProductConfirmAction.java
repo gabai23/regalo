@@ -52,6 +52,7 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 				result = ERROR;
 				session.put("settlement", true);
 
+
 				return result;
 
 	     }

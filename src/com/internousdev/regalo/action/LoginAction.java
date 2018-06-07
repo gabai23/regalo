@@ -113,7 +113,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 			result = SETTLEMENT;
 
-			session.remove("settlement");
+			session.put("settlement",false);
 		}
 
 		return result;
