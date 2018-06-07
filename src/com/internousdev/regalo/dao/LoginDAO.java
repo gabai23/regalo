@@ -18,7 +18,7 @@ public class LoginDAO {
 		
 		Connection con = db.getConnection();
 		
-		String sql = "select * from where user_id = ?";
+		String sql = "select * from user_info where user_id = ?";
 		
 		try {
 		
@@ -54,24 +54,25 @@ public class LoginDAO {
 	public boolean existsUserId(String userId) throws SQLException {
 		
 		boolean result = false;
-		
+		//Connectionの取得
 		DBConnector db = new DBConnector();
 		
 		Connection con = db.getConnection();
-		
-		String sql = "select * from where user_id = ?";
+		//user_idカラムからの情報の取得
+		String sql = "select * from user_info where user_id = ?";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ps.setString(1, userId);
-		
+		//送信かつ、結果表の取得→この場合は１列の結果表しか取得していない。
 		ResultSet rs = ps.executeQuery();
-		
+		//だからifを使う→複数行あったら、whileを使う。
 		if(rs.next()) {
-			
+			//DTOのインスタンス化な。スコープ判定は100％ある。
 			LoginDTO dto = new LoginDTO();
-			
-			dto.setId(rs.getInt("id"));
+				/*dtoのsetメソッドを使用。→setterな。
+				LOginDTOで書いてあるsetterメソッドの実行、値の更新（代入）*/
+			dto.setId(rs.getInt("id"));//結果表から。データのgetを行っているだけな。
 			dto.setUserId(rs.getString("user_id"));
 			dto.setPassword(rs.getString("password"));
 			dto.setFamilyName(rs.getString("family_name"));
@@ -80,6 +81,8 @@ public class LoginDAO {
 			dto.setFirstNameKana(rs.getString("first_name_kana"));
 			dto.setEmail(rs.getString("email"));
 			
+			
+			//結果表のuser_idカラムからgetしてきたデータが入ってたら、の条件分岐
 			if(!(rs.getString("user_id").equals(null))) {
 				result = true;
 			}

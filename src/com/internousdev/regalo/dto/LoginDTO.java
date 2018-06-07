@@ -5,7 +5,7 @@ import java.util.Date;
 public class LoginDTO {
 	
 	//圭一郎　2018/06/05　ログイン認証DTO→DAOに行く前にdistractして格納
-	
+	//ユーザー登録で使う、テーブル定義書に書いてあるとおりに、カプセル化。
 	private int id;
 	private String userId;
 	private String password;

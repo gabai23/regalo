@@ -13,8 +13,18 @@
 	<s:property />
 </s:iterator>
  <s:form action ="LoginAction">
- 	<s:textfield name="loginId"/>
+ 	<span>ID:</span>
+ 	<s:textfield name="loginId" value="%{#session.saveLogin}" autofocus="autofocus"/>
+ 	
+ 	<br>
+ 	
+ 	<span>パスワード:</span>
 	<s:password name="password"/>
+	
+	<div id="saveId">
+		<span>次回からIDの入力を省略</span>
+		<s:checkbox name="saveLogin"/>
+	</div>
  
  <s:submit value ="ログインしてくれ！！！"/>
 </s:form>
@@ -22,7 +32,7 @@
 
  <s:form action ="GoUserCreateAction">
 	<s:submit value ="ユーザー登録やな"/>
-</s:form>i
+</s:form>
 
  <s:form action ="GoPasswordResetAction">
 	<s:submit value ="パスワード再設定なんよ"/>
