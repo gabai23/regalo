@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" type="text/css" href="./css/productList.css">
 <title>商品一覧</title>
 </head>
 <body>
@@ -16,32 +18,34 @@
 		<!-- 商品一覧 -->
 		<div id="productList">
 			<s:iterator value="productInfoList">
-				<!-- 各商品のURL作成 -->
-				<s:url id="url" action="GoProductDetailAction">
-					<s:param name="productId" value="%{productId}"/>
-				</s:url>
+				<div id="products">
+					<!-- 各商品のURL作成 -->
+					<s:url id="url" action="GoProductDetailAction">
+						<s:param name="productId" value="%{productId}"/>
+					</s:url>
 
-				<!-- 商品名 -->
-				<s:a href="%{url}">
-				<s:property value="productName"/>
+					<!-- 商品名 -->
+					<s:a href="%{url}">
+					<s:property value="productName"/>
 
-				<!-- 商品名かな -->
-				<s:property value="productNameKana"/>
+					<!-- 商品名かな -->
+					<s:property value="productNameKana"/>
 
-				<%-- <!-- 商品画像 -->
-				<img src='<s:property value="imageFilePath"/>'/> --%>
-				</s:a>
+					<!-- 商品画像 -->
+					<img id="image" src='<s:property value="imageFilePath"/>'/>
+					</s:a>
 
-				<!-- 価格 -->
-				<s:property value="price"/>
+					<!-- 価格 -->
+					<s:property value="price"/>
+				</div>
 				<br>
 			</s:iterator>
 		</div>
 
 	</div>
-	<form action="GoProductDetailAction">
-		<button type="button">商品詳細へ</button>
-	</form>
+
+	<!-- フッター -->
+	<jsp:include page="includeFooter.jsp"/>
 
 </body>
 </html>
