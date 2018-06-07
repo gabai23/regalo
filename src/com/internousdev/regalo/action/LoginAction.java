@@ -81,6 +81,14 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				session.put("addressInfoListDTO",addressInfoListDTO);
 				System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
+				//カートのユーザー情報を書き換える
+				CartDAO cartDAO = new CartDAO();
+				if(cartDAO.isExistsCart(session.get("tempUserId").toString())){
+
+					cartDAO.linkToLoginId(session.get("tempUserId").toString(),loginId);
+
+				}
+
 				/*みんながログイン成功しているかどうかをコンソールで確認するための記入。
 				別になくてもいいが、やったほうが、みんながわかりやすい処置。圭一郎ならやるべきだね*/
 				System.out.println("loginFlg:"+session.get("loginFlg").toString());
@@ -116,18 +124,19 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		//ここは、ちゃんとこのファイルが実行しているかの確認のためのコード
 		System.out.println("-----LoginAction");
 
-		CartDAO cartDAO = new CartDAO();
-		if(cartDAO.isExistsCart(session.get("tempUserId").toString())){
 
-			cartDAO.linkToLoginId(session.get("tempUserId").toString(),loginId);
 
-		}
+		if(session.containsKey("settlement")){
 
-		if((boolean)session.get("settlement")){
 
-			result = SETTLEMENT;
+			if((boolean)session.get("settlement")){
 
-			session.put("settlement",false);
+				result = SETTLEMENT;
+
+				session.put("settlement",false);
+			}
+		} else {
+
 		}
 
 		return result;

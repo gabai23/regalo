@@ -41,6 +41,9 @@ import com.opensymphony.xwork2.ActionSupport;
 		1.カート情報取得（List型で受け取る）
 	---------------------------------------------------------*/
 	 BuyProductCompleteDAO buyproductComplete = new  BuyProductCompleteDAO();
+
+	 System.out.println("BuyProductCompleteAction.userId:"+session.get("userId").toString());
+
 	 if (session.containsKey("userId")) {
 		 cartList = buyproductComplete.getCartList(session.get("userId").toString());
 
