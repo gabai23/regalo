@@ -8,11 +8,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <title>カート</title>
 
-<script type="text/javascript">
-	function goDeleteCartAction() {
-		document.getElementById("form").action='CartDeleteAction';
-	}
-</script>
+
 </head>
 <body>
 <jsp:include page="includeHeader.jsp" />
