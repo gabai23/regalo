@@ -14,15 +14,13 @@
 	<!-- ログインID -->
 	<table>
 	<tr>
-		<td>ログインID:</td>
-		<td><input type="text" name="userID" size="8"></td>
-<%-- 		<s:if test="!(errorId.equals(''))"> --%>
-<%-- 		<td><span class="error">エラー　 --%>
+		<th>ログインID:</th>
+		<td><s:property value="userId" escape="false" /></td>
 	</tr>
 
 	<!-- パスワード -->
 	<tr>
-		<td>パスワード:</td>
+		<th>パスワード:</th>
 		<td><input type="text" name="password1" size="8"><td>
 	</tr>
 

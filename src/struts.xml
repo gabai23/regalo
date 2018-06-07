@@ -146,8 +146,8 @@
 		<result name="error">error.jsp</result>
 	</action>
 
-	<!-- AddressCreateDeleteAction -->
-	<action name="AddressCreateDeleteAction" class="com.internousdev.regalo.action.AddressCreateDeleteAction" method="execute">
+	<!-- AddressDeleteAction -->
+	<action name="AddressDeleteAction" class="com.internousdev.regalo.action.AddressDeleteAction" method="execute">
 		<result name="success">buyProductConfirm.jsp</result>
 		<result name="address">addressCreate.jsp</result>
 		<result name="error">error.jsp</result>
