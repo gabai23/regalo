@@ -11,31 +11,44 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoMyPageAction extends ActionSupport implements SessionAware{
 
+//		ユーザーID格納
 		private String userId;
 
+//		ログイン情報を格納
 		private Map<String, Object> session;
 
+//		マイページ情報格納DTO
 		private ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 
+//		エラーメッセジ
 		private String message;
 
 
 	public String execute() {
-
-
-		if (!(session.containsKey("user_id"))) {
-
-			setMessage("ログインしてください");
-
-		}
+		System.out.println();
 		String result = ERROR;
 
-		if ( session.containsKey("user_Id")) {
-			userId = session.get("user_Id").toString();
+/*---------------セッション情報取得---------------------*/
+		if (!(session.containsKey("userId"))) {
+
+			/*setMessage("ログインしてください");*/
+			result = ERROR;
+
+		}
+
+
+
+
+/*----------------ユーザー情報取得----------------------*/
+		if ( session.containsKey("userId")) {
+			userId = session.get("userId").toString();
 
 			MyPageDAO dao = new MyPageDAO();
 
-
+/*---------------------------------------------------------
+    ユーザー情報をリストで受け取り
+    リストにデータが入っていたらSUCCESS
+---------------------------------------------------------- */
 			myPageList = dao.getUserInfo(userId);
 
 			if (myPageList.size() > 0) {
