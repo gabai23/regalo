@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.regalo.dao.BuyProductCompleteDAO;
+import com.internousdev.regalo.dao.CartDeleteDAO;
 import com.internousdev.regalo.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -67,7 +68,7 @@ import com.opensymphony.xwork2.ActionSupport;
 		    3.カートテーブル情報を削除
 		---------------------------------------------------------*/
 		CartDeleteDAO delete = new CartDeleteDAO();
-		delete.deleteCartInfo(session.get("userId").toString());
+		delete.deleteAll(session.get("userId").toString());
 		result = SUCCESS;
 	}
 }
