@@ -15,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction  extends ActionSupport implements SessionAware{
 
+	private static final String SETTLEMENT = "settlement";
 	/*private categoryId;*/
 	private String loginId;
 	private String password;
@@ -110,7 +111,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 		if((boolean)session.get("settlement")){
 
-			result = "SETTLEMENT";
+			result = SETTLEMENT;
 
 			session.remove("settlement");
 		}
