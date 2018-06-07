@@ -24,15 +24,11 @@ public class MyPageDTO {
 /*
  *  性別
  *  メールアドレス
- *  ステータス
- *  ログインフラグ
  *  登録日
  *  更新日
  */
 	private boolean sex;
 	private String email;
-// 	private String status;
-// 	private String loginFlg;
  	private String regist_date;
  	private String update_date;
 
@@ -92,20 +88,6 @@ public class MyPageDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-//
-//	public String getStatus() {
-//		return status;
-//	}
-//	public void setStatus(String status) {
-//		this.status = status;
-//	}
-//
-//	public String getLoginFlg() {
-//		return loginFlg;
-//	}
-//	public void setLoginFlg(String loginFlg) {
-//		this.loginFlg = loginFlg;
-//	}
 
 	public String getRegist_date() {
 		return regist_date;

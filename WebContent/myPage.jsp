@@ -4,20 +4,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css"/>
-<link rel="stylesheet" type="text/css" href="">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<link rel="stylesheet" type="text/css" href="">
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="imagetoolbar" content="no"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
 <title>MyPage</title>
 
 
 </head>
 <body>
-<jsp:include page="includeHeader.jsp">
-
-<h3>会員登録情報</h3>
-
+	<jsp:include page="includeHeader.jsp"/>
+<div class="main">
 	<s:iterator value="myPageList">
 
+	<table>
 		<tr>
 			<th>氏名</th>
 			<td>
@@ -61,6 +64,8 @@
 			</td>
 		</tr>
 
+	</table>
+
 
 	</s:iterator>
 
@@ -69,10 +74,9 @@
 		<s:submit value="購入履歴" />
 	</s:form>
 
+</div>
 
 	<jsp:include page="includeFooter.jsp"/>
-
-
 
 </body>
 </html>

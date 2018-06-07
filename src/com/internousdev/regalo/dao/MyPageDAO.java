@@ -18,10 +18,11 @@ public class MyPageDAO {
 	/*ユーザー情報取得*/
 
 	public ArrayList<MyPageDTO> getUserInfo(String userId) {
+		System.out.println();
 		MyPageDTO myPageDTO = new MyPageDTO();
 		ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 
-		String sql = "SELECT * FROM user_info user_id = ?";
+		String sql = "SELECT * FROM user_info where user_id = ?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -29,7 +30,7 @@ public class MyPageDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				myPageDTO.setUserId(rs.getString("user_id"));
+
 
 				myPageDTO.setFamilyName(rs.getString("family_name"));
 
@@ -42,6 +43,8 @@ public class MyPageDAO {
 				myPageDTO.setSex(rs.getBoolean("sex"));
 
 				myPageDTO.setEmail(rs.getString("email"));
+
+				myPageDTO.setUserId(rs.getString("user_id"));
 
 				myPageDTO.setPassword(rs.getString("password"));
 
