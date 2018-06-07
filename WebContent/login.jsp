@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix ="s" uri="/struts-tags" %> 
+   <%@ taglib prefix ="s" uri="/struts-tags" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -16,17 +16,18 @@
  	<span>ID:</span>
  	<!-- ↓ここのvalue値にsessionで保持されたIDをいれちまってる。次回からID入力せずにすむ -->
  	<s:textfield name="loginId" value="%{#session.saveLogin}" autofocus="autofocus"/>
- 	
+
  	<br><!-- ただの改行や圭一郎。 -->
- 	
+
  	<span>パスワード:</span>
 	<s:password name="password"/>
-	
+
 	<div id="saveId">
 		<span>次回からIDの入力を省略</span>
 		<s:checkbox name="saveLogin"/>
+
 	</div>
- 
+
  <s:submit value ="ログインしてくれ！！！"/>
 </s:form>
 

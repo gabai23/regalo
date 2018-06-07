@@ -14,7 +14,7 @@ import com.internousdev.regalo.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction  extends ActionSupport implements SessionAware{
-	
+
 	/*private categoryId;*/
 	private String loginId;
 	private String password;
@@ -26,91 +26,98 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private List<String> errorMessageList = new ArrayList<>();
 	//ログインしているかの判定！
 	private boolean saveLogin;
-	
+
 	private Map<String,Object> session;
-	
-	
+
+
 	public String execute(){
-		
+
 		String result = ERROR;
 		//daoのインスタンス化
 		LoginDAO loginDAO = new LoginDAO();
 		//inputcheckerのインスタンス化
-		InputChecker checker = new InputChecker(); 
+		InputChecker checker = new InputChecker();
 		//booleanで変数化
 		boolean flg = false;
-		
+
 		System.out.println("LoginAction-----");
 		//ID　passどっちも入力
 		if((!(loginId.equals(""))) && !(password.equals(""))) {
 			System.out.println("入力されてまーす");
-			
+
 			/*入力した情報のチェック(inputチェック)
 			Listにどんどんいれていく*/
 			errorMessageList = checker.check("ID", loginId, 1, 8, true, false, false, false, true, false, false);
 			errorMessageList = checker.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
-			
+
 			try {//loginIdがあるかないかの判断
 				flg = loginDAO.existsUserId(loginId);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			//↑のflgにはtrue or falseが入ってるのよ！
-			
-			
+
+
 			if(flg){
 				loginDTO = loginDAO.userInfo(loginId);//入力したIDよん。ctrl + クリックでメソッドへ飛ぶ
-				
+
 				session.put("loginDTO", loginDTO);//DTOの情報の格納
 				session.put("loginFlg", true);//ログインしているかの確認（二択）
 				session.put("userId", loginId);//userIdにloginIdの保持
 				session.put("saveLogin", loginId);//saveLoginの方が、データの指定がしやすいね。
-				
+
 				/*みんながログイン成功しているかどうかをコンソールで確認するための記入。
 				別になくてもいいが、やったほうが、みんながわかりやすい処置。圭一郎ならやるべきだね*/
 				System.out.println("loginFlg:"+session.get("loginFlg").toString());
 				System.out.println("ログイン成功！");
 				result = SUCCESS;
-				
-				
+
+
 			} else {
 				errorMessage = "入力されたパスワードが異なります。";
-				
+
 				errorMessageList.add(errorMessage);
-				
+
 			}
-			
-			
-		} 
+
+
+		}
 		if(loginId.equals("")){
 			errorMessageId = "IDを入力してください。";
 			//ここもコンソールに出すため→確認作業な
 			System.out.println(errorMessageId);
-			
+
 			errorMessageList.add(errorMessageId);
-			
-		} 
+
+		}
 		if(password.equals("")){
 			errorMessagePassword = "パスワードを入力してください。";
 			//ここもコンソールに出すため→確認作業な
 			System.out.println(errorMessagePassword);
-			
+
 			errorMessageList.add(errorMessagePassword);
 		}
-		
+
 		//ここは、ちゃんとこのファイルが実行しているかの確認のためのコード
 		System.out.println("-----LoginAction");
-		
+
 		CartDAO cartDAO = new CartDAO();
 		if(cartDAO.isExistsCart(session.get("tempUserId").toString())){
-			
+
 			cartDAO.linkToLoginId(session.get("tempUserId").toString(),loginId);
-			
+
 		}
-		
+
+		if((boolean)session.get("settlement")){
+
+			result = "SETTLEMENT";
+
+			session.remove("settlement");
+		}
+
 		return result;
-		
-		
+
+
 	}
 
 
@@ -202,7 +209,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	public void setSaveLogin(boolean saveLogin) {
 		this.saveLogin = saveLogin;
 	}
-		
-		
+
+
 }
 
