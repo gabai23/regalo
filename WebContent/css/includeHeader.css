@@ -17,8 +17,10 @@ body {
 /*  	width:100%; */
 	height:auto;
 	weight:100%;
-/* 	background-size: cover; */
  	background-image:url("../images/header4.gif");
+ 	filter: alpha(opacity=50);
+ 	-moz-opacity:0.8;
+ 	opacity:0.8;
 	margin-bottom: 100px;
     padding-bottom:15px;
 }
