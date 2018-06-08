@@ -44,6 +44,7 @@ public class InputChecker {
 		//入力文字数をチェック
 		else if(value.length() < minLength || value.length() > maxLength) {
 			stringList.add(propertyName + "は" + minLength + "文字以上" + maxLength + "文字以下で入力してください");
+		}
 
 
 
@@ -137,7 +138,7 @@ public class InputChecker {
 					stringList.add(propertyName + "は" + characterType + "で入力してください");
 				}
 			}
-		}
+
 		return stringList;
 
 	}
