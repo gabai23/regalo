@@ -11,87 +11,129 @@
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 
-	<!-- 姓 -->
+	<!-- 姓エラー -->
+
+	<s:if test="#session.familyNameErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.familyNameErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
+
+	<!-- 名エラー -->
+
+	<s:if test="#session.firstNameErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
+
+
+	<!-- 姓ふりがなエラー -->
+
+	<s:if test="#session.familyNameKanaErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.familyNameKanaErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
+
+
+	<!-- 名ふりがなエラー -->
+
+	<s:if test="#session.firstNameKanaErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.firstNameKanaErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
+
+
+	<!-- メールアドレスエラー -->
+
+	<s:if test="#session.emailErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.emailErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
+
+
+	<!-- 電話番号エラー -->
+
+	<s:if test="#session.telNumberErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.telNumberErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
+
+	<!-- 住所エラー -->
+
+	<s:if test="#session.userAddressErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.userAddressErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
 
 	<table>
+
+	<!-- 姓 -->
 		<tr>
-			<td>
-				<span class="member_form_title">姓</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="familyName" value="%{familyName}"/>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="member_form_title">名</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="firstName" value="%{firstName}"/>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="member_form_title">姓ふりがな</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="familyNameKana" value="%{familyNameKana}"/>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="member_form_title">名ふりがな</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="firstNameKana" value="%{firstNameKana}"/>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="member_form_title">メールアドレス</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="email" value="%{email}"/>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="member_form_title">電話番号</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="telNumber" value="%{telNumber}"/>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="member_form_title">住所</span>
-				<span class="mandatory">必須</span>
-			</td>
-			<td>
-				<div class="member_form_text">
-				<s:textfield name="userAddress" value="%{userAddress}"/>
-				</div>
-			</td>
+			<th scope="row"><s:label value="姓"/></th>
+			<td><s:textfield name="familyName" class="txt" /></td>
 		</tr>
 
+	<!-- 名 -->
+		<tr>
+			<th scope="row"><s:label value="名"/></th>
+			<td><s:textfield name="firstName" class="txt" /></td>
+		</tr>
+
+	<!-- 姓ふりがな -->
+		<tr>
+			<th scope="row"><s:label value="姓ふりがな"/></th>
+			<td><s:textfield name="familyNameKana" class="txt" /></td>
+		</tr>
+
+	<!-- 名ふりがな -->
+		<tr>
+			<th scope="row"><s:label value="名ふりがな"/></th>
+			<td><s:textfield name="firstNameKana" class="txt" /></td>
+		</tr>
+
+	<!-- 性別 -->
+		<tr>
+			<th scope="row"><s:label value="性別"/></th>
+			<td><s:textfield name="sexList" class="txt" /></td>
+		</tr>
+
+	<!-- 住所 -->
+		<tr>
+			<th scope="row"><s:label value="住所"/></th>
+			<td><s:textfield name="userAddress" class="txt" /></td>
+		</tr>
+
+	<!-- 電話番号 -->
+		<tr>
+			<th scope="row"><s:label value="電話番号"/></th>
+			<td><s:textfield name="telNumber" class="txt" /></td>
+		</tr>
+
+	<!-- メールアドレス -->
+		<tr>
+			<th scope="row"><s:label value="メールアドレス"/></th>
+			<td><s:textfield name="email" class="txt" /></td>
+		</tr>
 	</table>
 
 	<!-- 送信ボタン -->
