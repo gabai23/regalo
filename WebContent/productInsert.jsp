@@ -184,11 +184,15 @@
 </tr>
 <tr>
 	<th scope="row">価格</th>
-	<td><s:radio name="sex" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/></td>
+	<td><s:textfield name="price" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/></td>
 </tr>
 <tr>
 	<th scope="row">画像ファイル名</th>
 	<td><s:textfield name="imageFileName" value="%{#session.imageFileName}" label="画像ファイル名" placeholder="画像ファイル名" class="txt" /></td>
+</tr>
+<tr>
+	<th scope="row">画像</th>
+	<td><input type="file" accept='image/*' name="imageFilePath" id="file"  required/><td>
 </tr>
 <tr>
 	<th scope="row">販売会社</th>

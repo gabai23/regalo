@@ -73,6 +73,7 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 		session.put("productDescription", productDescription);
 		session.put("price", price);
 		session.put("imageFileName", imageFileName);
+		session.put("imageFilePath", imageFilePath);
 		session.put("releaseCompany", releaseCompany);
 
 
