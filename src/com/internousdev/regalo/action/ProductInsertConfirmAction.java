@@ -76,11 +76,12 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 		session.put("releaseCompany", releaseCompany);
 
 
-		productIdErrorMessageList = inputChecker.check("商品ID", productId, 1, 4, false, false, false, false, true, false, false);
+
+		productIdErrorMessageList = inputChecker.check("商品ID", session.get("productId").toString(), 1, 3, false, false, false, false, true, false, false);
 		productNameErrorMessageList = inputChecker.check("商品名", productName, 1, 16, true, true, true, true, true, true, true);
 		productNameKanaErrorMessageList = inputChecker.check("商品名かな", productNameKana, 1, 16, false, false, true, false, false, false, false);
 		productDescriptionErrorMessageList = inputChecker.check("商品詳細", productDescription, 14, 32, true, true, true, true, true, true, true);
-		priceErrorMessageList = inputChecker.check("価格", price, 1, 8, false, false, false, false, true, false, false);
+		priceErrorMessageList = inputChecker.check("価格", session.get("price").toString(), 1, 8, false, false, false, false, true, false, false);
 		imageFileNameErrorMessageList = inputChecker.check("画像ファイル名", imageFileName, 1, 16, true, true, true, true, true, true, true);
 		releaseCompanyErrorMessageList = inputChecker.check("販売会社", releaseCompany, 1, 16, true, true, true, true, true, true, true);
 
