@@ -16,6 +16,8 @@ public class BuyProductCompleteDAO {
 
 	public ArrayList<CartDTO> cartList = new ArrayList<CartDTO>();
 
+
+
 	//カートの中身を購入履歴に登録する
 	public ArrayList<CartDTO> getCartList(String userId) throws SQLException {
 
@@ -35,6 +37,60 @@ public class BuyProductCompleteDAO {
 			dto.setPrice(rs.getInt("price"));
 			dto.setUpdateDate(rs.getDate("update_date"));
 			dto.setRegistDate(rs.getDate("regist_date"));
+
+
+			/*
+			 * ランクアップ機能
+			 */
+
+			//ユーザー累計金額更新
+			int productCount = dto.getProductCount();
+			int price = dto.getPrice();
+
+			int totalPrice = productCount * price;
+
+			boolean flg = false;
+
+			flg = setTotalPrice(totalPrice, userId);
+
+			if(flg ){
+				System.out.println("BuyProductCompleteDAO-----");
+				System.out.println("ユーザー累計購入金額更新しました");
+				System.out.println("userId:"+userId+"  totalPrice:"+totalPrice);
+				System.out.println("-----BuyProductCompleteDAO");
+			}
+
+			//ユーザーランク確認
+			int rank;
+			rank = getRank(userId);
+
+			//ユーザー累計金額確認
+			int totalCountFromUserInfo;
+			totalCountFromUserInfo = getTotalPrice(userId);
+
+			//シルバーランクにランクアップ
+			if(rank == 0 && totalCountFromUserInfo >= 750000 && totalCountFromUserInfo < 2000000){
+				flg = setRank(1,userId);
+
+				if(flg) {
+					System.out.println("BuyProductCompleteDAO-----");
+					System.out.println("会員ランク更新しました");
+					System.out.println("userId:"+userId+"  rank:シルバー");
+					System.out.println("-----BuyProductCompleteDAO");
+				}
+			}
+
+			//ゴールドランクにランクアップ
+			if(rank == 1 && totalCountFromUserInfo >= 2000000){
+				flg = setRank(2,userId);
+
+				if(flg) {
+					System.out.println("BuyProductCompleteDAO-----");
+					System.out.println("会員ランク更新しました");
+					System.out.println("userId:"+userId+"  rank:シルバー");
+					System.out.println("-----BuyProductCompleteDAO");
+				}
+			}
 
 			cartList.add(dto);
 
@@ -85,6 +141,138 @@ public int setProductHistory(List<CartDTO> cartList, int destinationId) throws S
 
 	}
 	return ret;
+}
+
+//ユーザー累計購入金額確認
+public int getTotalPrice(String userId) throws SQLException {
+
+	DBConnector db = new DBConnector();
+
+	Connection con = db.getConnection();
+
+	int totalCountFromUserInfo = 0;
+
+	String sql = "SELECT total_price FROM user_info WHERE user_id = ?";
+
+	try {
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setString(1, userId);
+
+		ResultSet rs = ps.executeQuery();
+
+		if(rs.next()){
+			totalCountFromUserInfo = rs.getInt("total_price");
+		}
+
+
+	} catch(Exception e) {
+		e.printStackTrace();
+
+	} finally {
+		con.close();
+	}
+
+	return totalCountFromUserInfo;
+}
+
+//ユーザー累計購入金額更新
+public boolean setTotalPrice(int totalPrice, String userId) throws SQLException {
+
+	DBConnector db = new DBConnector();
+
+	Connection con = db.getConnection();
+
+	boolean flg = false;
+
+	String sql = "UPDATE user_info SET total_price = total_price + ? WHERE user_id = ?";
+
+	try {
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setInt(1, totalPrice);
+		ps.setString(2, userId);
+
+		int i = ps.executeUpdate();
+
+		if(i > 0){
+			flg = true;
+		}
+
+	} catch(Exception e) {
+		e.printStackTrace();
+
+	} finally {
+		con.close();
+	}
+
+	return flg;
+}
+
+//会員ランク確認
+public int getRank(String userId) throws SQLException {
+
+	DBConnector db = new DBConnector();
+
+	Connection con = db.getConnection();
+
+	int rank = 0;
+
+	String sql = "SELECT rank FROM user_info WHERE user_id = ?";
+
+	try {
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setString(1, userId);
+
+		ResultSet rs = ps.executeQuery();
+
+		if(rs.next()){
+			rank = rs.getInt("rank");
+		}
+
+
+	} catch(Exception e) {
+		e.printStackTrace();
+
+	} finally {
+		con.close();
+	}
+
+	return rank;
+}
+
+//会員ランク更新
+public boolean setRank(int rank, String userId) throws SQLException {
+
+	DBConnector db = new DBConnector();
+
+	Connection con = db.getConnection();
+
+	boolean flg = false;
+
+	String sql = "UPDATE user_info SET rank = ? WHERE user_id = ?";
+
+	try {
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setInt(1, rank);
+		ps.setString(2, userId);
+
+		int i = ps.executeUpdate();
+
+		if(i > 0){
+			flg = true;
+		}
+
+	} catch(Exception e) {
+		e.printStackTrace();
+
+	} finally {
+		con.close();
+	}
+
+	return flg;
 }
 
 }
