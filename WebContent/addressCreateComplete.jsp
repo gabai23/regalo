@@ -11,10 +11,11 @@
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 
+ 	<s:form action="BuyItemConfirmAction">
+
 	<h2>宛先情報が完了しました。</h2>
 
 	<!-- 送信ボタン -->
- 	<s:form action="BuyItemConfirmAction">
 		<s:submit value="決済確認画面へ"/>
 	</s:form>
 

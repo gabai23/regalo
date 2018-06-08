@@ -21,6 +21,9 @@
 		<s:if test="!(errorId.equals(''))">
 		<s:property value="errorId"/>
 		</s:if>
+		<s:if test="!check">
+		<s:property value="errorMessage"/>
+		</s:if>
 	</tr>
 
 	<!-- パスワード -->
@@ -38,7 +41,9 @@
 		<td><input type="text" name="password2" size="8"><td>
 		<s:if test="!(errorRePass.equals(''))">
 		<s:property value="errorRePass"/>
-<%-- 		<s:if test="!(password1.equals(password2))"> --%>
+		</s:if>
+		<s:if test="!(password1.equals(password2))">
+		<s:property value="errorMessage"/>
 		</s:if>
 	</tr>
 	</table>

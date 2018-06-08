@@ -95,6 +95,7 @@
 			<td><s:textfield name="familyName" class="txt" /></td>
 		</tr>
 
+
 	<!-- 名 -->
 		<tr>
 			<th scope="row"><s:label value="名"/></th>

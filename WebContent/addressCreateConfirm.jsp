@@ -6,10 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AddressCreateConfirm画面</title>
+
+<script>
+function gogoGoPasswordResetAction(){
+	document.getElementById("form").action="GoAddressCreateAction";
+}
+
+function goPasswordResetCompleteAction(){
+	document.getElementById("form").action="AddressCreateCompleteAction";
+}
+
+</script>
 </head>
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
+
+	<s:form action="GoAddressCreateAction" id="form">
 
 	<h2>以下の内容で登録します</h2>
 
@@ -72,16 +85,14 @@
 
 	</table>
 
-	<!-- 送信ボタン -->
 
-	<s:form action="AddressCreateCompleteAction">
-		<s:submit value="送信"/>
-	</s:form>
+		<div id="button">
+			<s:submit value="訂正" onclick="goGoAddressCreateAction();"/>
 
-	<!-- 戻るボタン -->
+			<s:submit value="送信"  onclick="goAddressCreateCompleteAction();"/>
+		</div>
 
-	<s:form action="GoAddressCreateAction">
-		<s:submit value="戻る"/>
+
 	</s:form>
 
 	<!-- フッター -->

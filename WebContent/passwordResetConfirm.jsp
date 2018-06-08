@@ -22,7 +22,8 @@ function goPasswordResetCompleteAction(){
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
 
-	<h3>以下の内容でよろしいですか。</h3>
+	<div class="reset" align="center">以下の内容でよろしいですか。</div>
+	<br><br>
 	<s:form action="GoPasswordResetAction" id="form">
 	<table>
 		<tr>
