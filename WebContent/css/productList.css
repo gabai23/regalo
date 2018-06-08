@@ -1,16 +1,37 @@
 @CHARSET "UTF-8";
 
+/*ページ説明*/
+#top {
+	width:70%;
+	height:30px;
+	margin:0 auto;
+
+	line-height:30px;
+	text-align:center;
+
+	border:1px solid black;
+}
+
+
 /*全体を囲う*/
 #productList {
 	width:100%;
 	height:auto;
 
+	margin-top:30px;
 }
+
 
 #products {
 	width:30%;
-	height:150px;
+	height:auto;
+	box-sizing:border-box;
 	margin-left:2.5%;
+	padding:5px;
+
+	float:left;
+
+	border:1px solid black;
 }
 
 #image {

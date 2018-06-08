@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,6 +17,10 @@
 
 	<div id="main">
 
+		<div id="top">
+			<span>商品一覧</span>
+		</div>
+
 		<!-- 商品一覧 -->
 		<div id="productList">
 			<s:iterator value="productInfoList">
@@ -25,21 +30,26 @@
 						<s:param name="productId" value="%{productId}"/>
 					</s:url>
 
+					<!-- 商品画像 -->
+					<s:a class="imageContainer" href="%{url}">
+						<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/>
+					</s:a>
+
+					<br>
 					<!-- 商品名 -->
 					<s:a href="%{url}">
-					<s:property value="productName"/>
+						<s:property value="productName"/>
 
-					<!-- 商品名かな -->
-					<s:property value="productNameKana"/>
-
-					<!-- 商品画像 -->
-					<img id="image" src='<s:property value="imageFilePath"/>'/>
+						<br>
+						<!-- 商品名かな -->
+						<s:property value="productNameKana"/>
 					</s:a>
 
 					<!-- 価格 -->
-					<s:property value="price"/>
+					<span>&yen;</span>
+					<fmt:formatNumber value="${price}"/>
+					<%-- <s:property value="price"/> --%>
 				</div>
-				<br>
 			</s:iterator>
 		</div>
 
