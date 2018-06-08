@@ -31,10 +31,6 @@
 						</s:iterator>
 					</s:if>
 
-						<s:div>
-							<s:property />
-						</s:div>
-
 
 						<span class="member_form_title">姓</span>
 						<span class="hissu">必須</span>

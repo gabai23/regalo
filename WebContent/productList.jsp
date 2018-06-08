@@ -31,7 +31,7 @@
 					</s:url>
 
 					<!-- 商品画像 -->
-					<s:a class="imageContainer" href="%{url}">
+					<s:a id="imageContainer" href="%{url}">
 						<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/>
 					</s:a>
 

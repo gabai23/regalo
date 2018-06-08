@@ -1,3 +1,4 @@
+
 package com.internousdev.regalo.action;
 
 import java.sql.SQLException;
@@ -39,15 +40,15 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private ArrayList<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
 	private ArrayList<ProductInfoDTO> productInfoDTOList;
 
-	
-	//Believe in your possibilities!! 
+
+	//Believe in your possibilities!!
 	public String execute(){
 
 		String result = ERROR;
-		
+
 		LoginDAO loginDAO = new LoginDAO();
 		InputChecker checker = new InputChecker();
-		
+
 		boolean flg = false;
 
 		System.out.println("LoginAction-----");
@@ -59,8 +60,8 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 			Listにどんどんいれていく*/
 			errorMessageList = checker.check("ID", loginId, 1, 8, true, false, false, false, true, false, false);
 			errorMessageList = checker.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
-			
-			
+
+
 			//圭はtryに対して、重く見すぎや。
 			try {//loginIdがあるかないかの判断→ただそれだけな
 				flg = loginDAO.existsUserId(loginId);
@@ -69,7 +70,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 			}
 			//成功したら↓
 
-			
+
 			if(flg){
 				//dtoにユーザーの情報が入れられただけな。
 				loginDTO = loginDAO.userInfo(loginId);//入力したIDよん。
@@ -156,7 +157,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		//IDが空白の場合
 		if(loginId.equals("")){
 			errorMessageId = "IDを入力してください。";
-			
+
 			System.out.println(errorMessageId);
 
 			errorMessageList.add(errorMessageId);
@@ -165,7 +166,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		//パスが空白の場合
 		if(password.equals("")){
 			errorMessagePassword = "パスワードを入力してください。";
-			
+
 			System.out.println(errorMessagePassword);
 
 			errorMessageList.add(errorMessagePassword);
