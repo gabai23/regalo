@@ -24,7 +24,7 @@
 		<!-- 商品一覧 -->
 		<div id="productList">
 			<s:iterator value="productInfoList">
-				<div id="products">
+				<div id="products" class="ratio-1_1">
 					<!-- 各商品のURL作成 -->
 					<s:url id="url" action="GoProductDetailAction">
 						<s:param name="productId" value="%{productId}"/>
@@ -36,19 +36,21 @@
 					</s:a>
 
 					<br>
-					<!-- 商品名 -->
-					<s:a href="%{url}">
-						<s:property value="productName"/>
+					<div id="productDetail">
+						<!-- 商品名 -->
+						<s:a href="%{url}">
+							<s:property value="productName"/>
+
+							<br>
+							<!-- 商品名かな -->
+							<s:property value="productNameKana"/>
+						</s:a>
 
 						<br>
-						<!-- 商品名かな -->
-						<s:property value="productNameKana"/>
-					</s:a>
-
-					<!-- 価格 -->
-					<span>&yen;</span>
-					<fmt:formatNumber value="${price}"/>
-					<%-- <s:property value="price"/> --%>
+						<!-- 価格 -->
+						<span>&yen;</span>
+						<fmt:formatNumber value="${price}"/>
+					</div>
 				</div>
 			</s:iterator>
 		</div>

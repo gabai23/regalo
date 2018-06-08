@@ -60,9 +60,9 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		firstNameErorMessageList = i.check("名", firstName, 1, 16, true, true, true, false, false, false, false);
 		familyNameKanaErorMessageList= i.check("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false);
 		firstNameKanaErorMessageList= i.check("名ふりがな", firstNameKana, 1, 16, false, false, true, false, false, false, false);
-		userIdErorMessageList= i.check("ログインID", userId, 1, 8, true, false, false, false, false, false, false);
-		passwordErorMessageList= i.check("パスワード", password, 1, 16, true, false, false, false, false, false, false);
-		emailErorMessageList= i.check("メールアドレス", email, 14, 32, true, false, false, false, false, true, false);
+		userIdErorMessageList= i.check("ログインID", userId, 1, 8, true, false, false, false, true, false, false);
+		passwordErorMessageList= i.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
+		emailErorMessageList= i.check("メールアドレス", email, 14, 32, true, false, false, false, true, true, false);
 
 
 //		エラー確認

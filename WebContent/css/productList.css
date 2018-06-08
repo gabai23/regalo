@@ -28,41 +28,49 @@
 	height:auto;
 	box-sizing:border-box;
 	margin-left:2.5%;
+	margin-bottom:20px;
 	padding:5px;
 
 	float:left;
 
 	border:1px solid black;
+}
 
-	/* -webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%); */
+/*ボーダーの比率*/
+.ratio-1_1:before {
+	content: "";
+	display: block;
+	padding-top: 50%; /* ratio */
 }
 
 /*画像を囲う*/
 #imageContainer {
 	position:absolute;
+	top: 0;
+	left: 0;
 	width:100%;
-	height:100%;
+	height:80%;
 }
 
 /*画像*/
 #image {
 	position: absolute;
 
-	/* top:50%; */
+	top:50%;
 	left:50%;
 
-	max-width:150px;
-	max-height:150px;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
 
-	/* -webkit-transform: translate(-50%,-50%);
-			-moz-transform: translate(-50%,-50%);
-			-ms-transform: translate(-50%,-50%);
-			-o-transform: translate(-50%,-50%);
-			transform: translate(-50%,-50%); */
+	max-width:100%;
+	max-height:100%;
 
+}
 
+/*商品詳細*/
+#productDetail {
+	text-align:center;
 }
