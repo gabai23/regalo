@@ -20,7 +20,6 @@
 					</p>
 					<p>
 
-
 						<s:textfield class="field" name="productId" value="%{productId}"
 							placeholder="半角数字"
 							onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')"   required="" />
