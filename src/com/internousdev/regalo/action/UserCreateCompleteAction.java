@@ -49,6 +49,11 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		dto.setEmail(email);
 		dto.setUserId(userId);
 		dto.setPassword(password);
+		dto.setFamilyName(familyName);
+		dto.setFamilyNameKana(familyNameKana);
+		dto.setFirstName(firstName);
+		dto.setFirstNameKana(firstNameKana);
+
 
 		if (dao.registerUser(dto)) {
 			session.put("userId", userId);

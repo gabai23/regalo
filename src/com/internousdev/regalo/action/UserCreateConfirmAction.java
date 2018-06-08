@@ -43,14 +43,26 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		InputChecker i = new InputChecker();
 
+		/* 以下booleanは使いたい文字型をtrueにする
+		 * halfAlphabet：半角英字
+		 * kanji：漢字
+		 * hiragana：ひらがな
+		 * katakana：カタカナ
+		 * halfNumber：半角数字
+		 * halfSymbol：半角記号
+		 * fullSymbol：全角記号
+		*errorList（任意のList） = check(ユーザーID, userId, 1, 8, true, false, false, false, true, false, false);
+		*/
+
+		System.out.println(familyName);
 
 		familyNameErorMessageList = i.check("姓",familyName,1,16,true,true,true,false,false,false,false);
-		firstNameErorMessageList = i.check("名", firstName, 1, 16, true, false, false, false, true, false, false);
-		familyNameKanaErorMessageList= i.check("姓ふりがな", familyNameKana, 1, 16, true, false, false, false, true, false, false);
-		firstNameKanaErorMessageList= i.check("名ふりがな", firstNameKana, 1, 16, true, false, false, false, true, false, false);
+		firstNameErorMessageList = i.check("名", firstName, 1, 16, true, true, true, false, false, false, false);
+		familyNameKanaErorMessageList= i.check("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false);
+		firstNameKanaErorMessageList= i.check("名ふりがな", firstNameKana, 1, 16, false, false, true, false, false, false, false);
 		userIdErorMessageList= i.check("ログインID", userId, 1, 8, true, false, false, false, false, false, false);
-		passwordErorMessageList= i.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
-		emailErorMessageList= i.check("メールアドレス", email, 14, 32, true, false, false, false, true, false, false);
+		passwordErorMessageList= i.check("パスワード", password, 1, 16, true, false, false, false, false, false, false);
+		emailErorMessageList= i.check("メールアドレス", email, 14, 32, true, false, false, false, false, true, false);
 
 
 //		エラー確認

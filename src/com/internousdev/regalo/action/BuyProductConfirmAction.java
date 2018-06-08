@@ -16,7 +16,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 public class BuyProductConfirmAction extends ActionSupport implements SessionAware {
-//変数
+	//定数
+	private static final String DESTINATION = "destination";
+	//変数
 	private Map<String, Object> session;
 	private int totalPrice =0;
 	private int productCount;
@@ -44,7 +46,7 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 				//ログインしているが宛先情報がなければ
 			} else {
 
-				result ="DESTINATION";
+				result =DESTINATION;
 				return result;
 			}
 

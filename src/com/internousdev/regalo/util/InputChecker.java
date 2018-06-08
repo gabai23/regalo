@@ -126,6 +126,8 @@ public class InputChecker {
 				}
 			}
 
+			System.out.println(regularExpression);
+
 			if(error.equals("")){
 				if(value.matches(regularExpression)) {
 					stringList.add(propertyName + "は" + characterType + "で入力してください");
