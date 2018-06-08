@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>完了画面</title>
 </head>
 <body>
-
+ユーザー登録が完了しました。
 <!-- ヘッダー -->
 <jsp:include page="includeHeader.jsp"/>
 <s:form action="GoHomeAction">

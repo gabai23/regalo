@@ -2,10 +2,8 @@ package com.internousdev.regalo.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 import com.internousdev.regalo.dto.LoginDTO;
 import com.internousdev.regalo.util.DBConnector;
 
@@ -35,7 +33,7 @@ public class UserCreateCompleteDAO {
 			ps.setString(4, ｌoginDTO.getFirstName());
 			ps.setString(5, ｌoginDTO.getFamilyNameKana());
 			ps.setString(6, ｌoginDTO.getFirstNameKana());
-			ps.setBoolean(7,ｌoginDTO.isSex());
+			ps.setInt(7,ｌoginDTO.getSex());
 			ps.setString(8, ｌoginDTO.getEmail());
 
 			System.out.println(ｌoginDTO.getFirstName());

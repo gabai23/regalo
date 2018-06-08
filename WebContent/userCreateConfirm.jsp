@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>確認画面</title>
 </head>
 <body>
 <!-- ヘッダー -->
@@ -23,7 +23,7 @@
 				<div class="touroku" align="center">以下の内容で登録します</div>
 				<br>
 				<div class="member_form">
-					<s:form action="RegisterUserInfoAction" theme="simple">
+					<s:form action="UserCreateCompleteAction" theme="simple">
 						<div class="member-form-title">
 
 							<br>名前　　　　　　:　
@@ -95,10 +95,7 @@
 
 
 
-<!-- 決済画面へ -->
-<s:form action="UserCreateCompleteAction">
-<s:submit value="ユーザー登録完了画面へ"/>
-</s:form>
+
 
 
 

@@ -2,9 +2,11 @@ package com.internousdev.regalo.action;
 
 import java.sql.SQLException;
 import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
-import com.internousdev.regalo.dao.UserCreateCompleteDAO;
+
 import com.internousdev.regalo.dao.CartDAO;
+import com.internousdev.regalo.dao.UserCreateCompleteDAO;
 import com.internousdev.regalo.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,7 +29,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	/**
 	 * 0:男性、1:女性
 	 */
-	private String sex;
+	private int sex;
 	private String email;
 
 
@@ -37,12 +39,13 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		UserCreateCompleteDAO dao = new UserCreateCompleteDAO();
 		LoginDTO dto = new LoginDTO();
 
-		dto.setUserName(familyName, firstName, familyNameKana, firstNameKana);
-		if (sex.equals("0")) {
-			dto.setSex(false);
-		} else if (sex.equalsIgnoreCase("1")) {
-			dto.setSex(true);
-		}
+//		dto.userId(familyName, firstName, familyNameKana, firstNameKana);
+//		if (sex.equals("0")) {
+//			dto.setSex(false);
+//		} else if (sex.equalsIgnoreCase("1")) {
+//			dto.setSex(true);
+//		}
+		dto.setSex(sex);
 		dto.setEmail(email);
 		dto.setUserId(userId);
 		dto.setPassword(password);
@@ -52,7 +55,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 			session.put("loginFlg", true);
 			// カーとの情報を引き継ぐ
 			CartDAO cartDAO = new CartDAO();
-			cartDAO.changeUserId(session.get("tempUserId").toString(), session.get("userId").toString());
+			cartDAO.linkToLoginId(session.get("tempUserId").toString(), session.get("userId").toString());
 
 			return SUCCESS;
 
@@ -101,11 +104,13 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		this.firstNameKana = firstNameKana;
 	}
 
-	public String isSex() {
+
+
+	public int getSex() {
 		return sex;
 	}
 
-	public void setSex(String sex) {
+	public void setSex(int sex) {
 		this.sex = sex;
 	}
 

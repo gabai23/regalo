@@ -18,23 +18,35 @@
 		<div class="register_box">
 			<div class="member">
 				<div class="error" align="center">
-					<s:iterator value="errorMessageList">
-						<s:div>
-							<s:property />
-						</s:div>
-					</s:iterator>
-				</div>
+								</div>
 				<br>
 				<div class="member_form">
 
 					<s:form action="UserCreateConfirmAction" theme="simple"
 						id="userCreate">
 
+					<s:if test="familyNameErorMessageList.size()>0">
+						<s:iterator value="familyNameErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
+
+						<s:div>
+							<s:property />
+						</s:div>
+
+
 						<span class="member_form_title">姓</span>
 						<span class="hissu">必須</span>
 						<div class="member_form_text">
 							<s:textfield type="text" name="familyName" value="%{familyName}" />
 						</div>
+
+					<s:if test="firstNameErorMessageList.size()>0">
+						<s:iterator value="firstNameErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
 
 						<br>
 						<span class="member_form_title">名</span>
@@ -44,6 +56,11 @@
 							<br>
 						</div>
 
+					<s:if test="familyNameKanaErorMessageList.size()>0">
+						<s:iterator value="familyNameKanaErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
 						<br>
 						<span class="member_form_title">姓ふりがな</span>
 						<span class="hissu">必須</span>
@@ -52,6 +69,12 @@
 								value="%{familyNameKana}" />
 							<br>
 						</div>
+
+					<s:if test="firstNameKanaErorMessageList.size()>0">
+						<s:iterator value="firstNameKanaErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
 
 						<br>
 						<span class="member_form_title">名ふりがな</span>
@@ -62,6 +85,12 @@
 							<br>
 						</div>
 
+					<s:if test="userIdErorMessageList.size()>0">
+						<s:iterator value="userIdErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
+
 						<br>
 						<span class="member_form_title">regaloID</span>
 						<span class="hissu">必須</span>
@@ -71,6 +100,11 @@
 							<br>
 						</div>
 
+					<s:if test="passwordErorMessageList.size()>0">
+						<s:iterator value="passwordErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
 						<br>
 						<span class="member_form_title">パスワード</span>
 						<span class="hissu">必須</span>
@@ -87,6 +121,12 @@
 							<s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" />
 							<br>
 						</div>
+
+					<s:if test="emailErorMessageList.size()>0">
+						<s:iterator value="emailErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
 
 						<br>
 						<span class="member_form_title">メールアドレス</span>
@@ -107,9 +147,6 @@
 		</div>
 	</div>
 
-<%-- <s:form action="UserCreateConfirmAction"> --%>
-<%-- <s:submit value="確認画面へ"/> --%>
-<%-- </s:form> --%>
 
 <!-- フッター -->
 <jsp:include page="includeFooter.jsp"/>
