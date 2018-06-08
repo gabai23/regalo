@@ -30,9 +30,13 @@ public class BuyProductHistoryDTO {
 //	会社情報
 	private String releaseCompany;
 
+//	商品画像
 	private String imageFileName;
 
+//	商品名
 	private String productName;
+
+	private String insertDate;
 
 //	ゲッターセッター
 	public int getId() {
@@ -110,6 +114,13 @@ public class BuyProductHistoryDTO {
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+
+	public String getInsertDate() {
+		return insertDate;
+	}
+	public void setInsertDate(String insertDate) {
+		this.insertDate = insertDate;
 	}
 
 }
