@@ -1,3 +1,4 @@
+
 package com.internousdev.regalo.action;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -35,7 +36,6 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 			AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
 			addressInfoListDTO = addressInfoDAO.getAddressInfo(session.get("userId").toString());
 			session.put("addressInfoListDTO",addressInfoListDTO);
-			System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
 		//宛先情報があれば
 			if(addressInfoListDTO.size() > 0) {
@@ -64,7 +64,11 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 //６月６日現在これ以降未完成、、、メソッドとtotalPrice確認する
 		CartDAO dao = new CartDAO();
 		cartList = dao.getCartDtoList(session.get("userId").toString());
-		System.out.println(cartList.size());
+
+		System.out.println("BuyProductConfirmAction"+session.get("userId").toString());
+
+		System.out.println("BuyProductConfirmAction.cartList.size():"+cartList.size());
+
 				if(cartList.size() > 0) {
 					result = SUCCESS;
 				}

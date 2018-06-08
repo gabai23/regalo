@@ -43,7 +43,6 @@ public class CartDAO {
 		+ " group by product_id";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			System.out.println("Cartdao-getCartdtolist:"+loginId);
 			preparedStatement.setString(1, loginId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
