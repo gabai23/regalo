@@ -10,50 +10,42 @@
 <link rel="stylesheet" type="text/css" href="">
 <!-- <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-<script type="text/javascript"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="js/jquery.bgswitcher.js"></script>
-<script>
-jQuery(function($) {
-    $('.bg-slider').bgSwitcher({
-        images: ['haikei.jpg','haikei2.jpg','haikei3.jpg'], // 切り替える背景画像を指定
-    });
-});
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $('.bgslideshow img:gt(0)').hide();
+    setInterval(function() {
+      $('.bgslideshow :first-child').fadeOut(5000)
+        .next('img').fadeIn(5000)
+      .end().appendTo('.bgslideshow');
+    }, 4000);
+  });
 </script>
+
 
 <title>ホーム画面</title>
 
 <style type="text/css">
 
-  body {
-   	background-image:url("./images/haikei2.jpg");
-   	background-size:cover;
-  }
-.bg-slider {
-	width: 100vw;
-	height: 100vh;
-	background-position:center center;
-	background-size: cover;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.bg-slider__title{
-	color: #fff;
-	font-size: 48px;
-	line-height: 1.5;
-	font-weight: bold;
-	text-align:center;
-	text-shadow: 1px 1px 1px #000;
-}
+/*    body { */
+/*             background-image:url("./images/haikei2.jpg"); */
+/*     	background-size:cover; */
+/*     } */
+
+   .bgslideshow { position: fixed; left:0; top:0; z-index: -1; height: 100%; width: 100%; }
+   .bgslideshow img { position: absolute; min-height: 90%; min-width: 100%; width: 100%; height: auto;left:0; top:0; }
+
+
 </style>
 </head>
 <body>
 
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
-<div class="bg-slider">
-  <h1 class="bg-slider__title">BGSWITCHER DEMO PAGE</h1>
+<div class="bgslideshow">
+<img  src="./images/haikei2.jpg">
+<img  src="./images/sozai4.jpg" >
+<img  src="./images/sraido1.jpeg" >
 </div>
 	<form action="GoLoginAction">
 		<button type="submit">ログインへ</button>
