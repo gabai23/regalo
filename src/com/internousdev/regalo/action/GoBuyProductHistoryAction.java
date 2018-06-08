@@ -77,6 +77,7 @@ public class GoBuyProductHistoryAction extends ActionSupport implements SessionA
 			historyList = buyProductHistoryDAO.getProductHistory(userId);
 
 
+
 		}
 
 
