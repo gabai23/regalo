@@ -21,6 +21,7 @@
 	<action name="GoHomeAction" class="com.internousdev.regalo.action.GoHomeAction" method="execute">
 		<result name="success">home.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="master">master.jsp</result>
 	</action>
 
 <!-- 郡山担当 -->

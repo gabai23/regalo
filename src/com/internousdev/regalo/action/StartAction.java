@@ -36,6 +36,8 @@ public class StartAction extends ActionSupport implements SessionAware{
 
 				//ランク0からスタート
 				session.put("rank", 0);
+
+
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

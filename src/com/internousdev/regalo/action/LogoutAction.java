@@ -12,17 +12,24 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 
 	//Logoutはsessionに保存してあるuserのIdを消して、loginFlgの判定をfalseにするだけ。
 	//2018/06/07　圭一郎　完成間近。
-	
+
 	public String execute(){
+
+		System.out.println("-----LogoutAction");
+
 		//keyの指定してuserIdの削除。
 		session.remove("userId");
 		//loginしているかの判定はfalseの更新だけでよい。
 		session.put("loginFlg", false);
-		
+
+		if(session.containsKey("masterFlg")) {
+			session.put("masterFlg", false);
+		}
+
 		//home.jspに戻りまーす！
 		return SUCCESS;
 	}
-	
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
