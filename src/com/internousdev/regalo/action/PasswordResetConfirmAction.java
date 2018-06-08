@@ -57,7 +57,7 @@ public class PasswordResetConfirmAction extends ActionSupport {
 			}
 
 			for(i=0; i < ErrorReconfirmPassList.size(); i++) {
-				errorRePass = errorPass + ErrorReconfirmPassList.get(i);
+				errorRePass = errorRePass + ErrorReconfirmPassList.get(i);
 			}
 
 		}

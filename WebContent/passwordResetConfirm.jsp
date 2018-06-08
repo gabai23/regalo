@@ -6,13 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>PasswordResetConfirm画面</title>
+
+<script>
+function gogoGoPasswordResetAction(){
+	document.getElementById("form").action="GoPasswordResetAction";
+}
+
+function goPasswordResetCompleteAction(){
+	document.getElementById("form").action="PasswordResetCompleteAction";
+}
+</script>
+
 </head>
 <body>
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
 
 	<h3>以下の内容でよろしいですか。</h3>
-
+	<s:form action="GoPasswordResetAction" id="form">
 	<table>
 		<tr>
 			<th>ユーザーID:</th>
@@ -38,14 +49,12 @@
 
 	<s:else>
 		<div id="button">
-			<s:form action="GoPasswordResetAction">
-			<s:submit value="訂正"/>
-			</s:form>
-			<s:form action="PasswordResetCompleteAction">
-			<s:submit value="送信"/>
-			</s:form>
+			<s:submit value="訂正" onclick="goGoPasswordResetAction();"/>
+
+			<s:submit value="送信"  onclick="goPasswordResetCompleteAction();"/>
 		</div>
 	</s:else>
+	</s:form>
 
 	<!-- フッター -->
 		<jsp:include page="includeFooter.jsp"/>

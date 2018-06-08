@@ -11,6 +11,8 @@
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 
+	<s:form action="AddressCreateConfirmAction">
+
 	<!-- 姓エラー -->
 
 	<s:if test="#session.familyNameErrorMessageList.isEmpty()">
@@ -96,48 +98,47 @@
 	<!-- 名 -->
 		<tr>
 			<th scope="row"><s:label value="名"/></th>
-			<td><s:textfield name="firstName" class="txt" /></td>
+			<td><s:textfield name="firstName" class="txt" /><br></td>
 		</tr>
 
 	<!-- 姓ふりがな -->
 		<tr>
 			<th scope="row"><s:label value="姓ふりがな"/></th>
-			<td><s:textfield name="familyNameKana" class="txt" /></td>
+			<td><s:textfield name="familyNameKana" class="txt" /><br></td>
 		</tr>
 
 	<!-- 名ふりがな -->
 		<tr>
 			<th scope="row"><s:label value="名ふりがな"/></th>
-			<td><s:textfield name="firstNameKana" class="txt" /></td>
+			<td><s:textfield name="firstNameKana" class="txt" /><br></td>
 		</tr>
 
 	<!-- 性別 -->
 		<tr>
 			<th scope="row"><s:label value="性別"/></th>
-			<td><s:textfield name="sexList" class="txt" /></td>
+			<td><s:textfield name="sexList" class="txt" /><br></td>
 		</tr>
 
 	<!-- 住所 -->
 		<tr>
 			<th scope="row"><s:label value="住所"/></th>
-			<td><s:textfield name="userAddress" class="txt" /></td>
+			<td><s:textfield name="userAddress" class="txt" /><br></td>
 		</tr>
 
 	<!-- 電話番号 -->
 		<tr>
 			<th scope="row"><s:label value="電話番号"/></th>
-			<td><s:textfield name="telNumber" class="txt" /></td>
+			<td><s:textfield name="telNumber" class="txt" /><br></td>
 		</tr>
 
 	<!-- メールアドレス -->
 		<tr>
 			<th scope="row"><s:label value="メールアドレス"/></th>
-			<td><s:textfield name="email" class="txt" /></td>
+			<td><s:textfield name="email" class="txt" /><br></td>
 		</tr>
 	</table>
 
 	<!-- 送信ボタン -->
-	<s:form action="AddressCreateConfirmAction">
 		<s:submit value="確認画面へ"/>
 	</s:form>
 

@@ -10,14 +10,14 @@
 <body>
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
-		
+
 	<s:form action="PasswordResetConfirmAction">
-	
+
 	<!-- ログインID -->
 	<table>
 	<tr>
 		<th>ログインID:</th>
-		<td>><input type="text" name="userId" size="8"></td>
+		<td><input type="text" name="userId" size="8"></td>
 		<s:if test="!(errorId.equals(''))">
 		<s:property value="errorId"/>
 		</s:if>
@@ -38,6 +38,7 @@
 		<td><input type="text" name="password2" size="8"><td>
 		<s:if test="!(errorRePass.equals(''))">
 		<s:property value="errorRePass"/>
+<%-- 		<s:if test="!(password1.equals(password2))"> --%>
 		</s:if>
 	</tr>
 	</table>

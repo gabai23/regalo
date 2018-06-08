@@ -8,13 +8,14 @@
 <title>PasswordResetComplete画面</title>
 </head>
 <body>
+	<s:form action="BuyProductConfirmAction">
+
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
 
 	<h3>パスワード変更が完了しました。</h3>
 
 	<!-- 送信ボタン -->
-	<s:form action="BuyProductConfirmAction">
 		<s:submit value="決済確認画面へ"/>
 	</s:form>
 
