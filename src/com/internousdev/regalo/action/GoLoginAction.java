@@ -16,7 +16,7 @@ public class GoLoginAction extends ActionSupport implements SessionAware{
 	private boolean loginFlg;
 	//ログインページにレッツゴー！
 	public String execute(){
-		//エラーでhome遷移
+		//エラーでhome
 		String result = ERROR;
 		
 		if(session.containsKey("loginFlg")){

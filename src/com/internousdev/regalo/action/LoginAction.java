@@ -39,37 +39,40 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private ArrayList<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
 	private ArrayList<ProductInfoDTO> productInfoDTOList;
 
-
+	
+	//Believe in your possibilities!! 
 	public String execute(){
 
 		String result = ERROR;
-		//daoのインスタンス化
+		
 		LoginDAO loginDAO = new LoginDAO();
-		//inputcheckerのインスタンス化
 		InputChecker checker = new InputChecker();
-		//booleanで変数化
+		
 		boolean flg = false;
 
 		System.out.println("LoginAction-----");
-		//ID　passどっちも入力
+		//どっちも入力
 		if((!(loginId.equals(""))) && !(password.equals(""))) {
 			System.out.println("入力されてまーす");
 
-			/*入力した情報のチェック(inputチェック)
+			/*入力した情報のチェック(inputチェック)2箇所しかないから2個の代入な。
 			Listにどんどんいれていく*/
 			errorMessageList = checker.check("ID", loginId, 1, 8, true, false, false, false, true, false, false);
 			errorMessageList = checker.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
-
-			try {//loginIdがあるかないかの判断
+			
+			
+			//圭はtryに対して、重く見すぎや。
+			try {//loginIdがあるかないかの判断→ただそれだけな
 				flg = loginDAO.existsUserId(loginId);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			//↑のflgにはtrue or falseが入ってるのよ！
+			//成功したら↓
 
-
+			
 			if(flg){
-				loginDTO = loginDAO.userInfo(loginId);//入力したIDよん。ctrl + クリックでメソッドへ飛ぶ
+				//dtoにユーザーの情報が入れられただけな。
+				loginDTO = loginDAO.userInfo(loginId);//入力したIDよん。
 
 				session.put("loginDTO", loginDTO);//DTOの情報の格納
 				session.put("loginFlg", true);//ログインしているかの確認（二択）
@@ -118,18 +121,18 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				}
 
 				/*みんながログイン成功しているかどうかをコンソールで確認するための記入。
-				別になくてもいいが、やったほうが、みんながわかりやすい処置。圭一郎ならやるべきだね*/
+				*/
 				System.out.println("loginFlg:"+session.get("loginFlg").toString());
 				System.out.println("ログイン成功！");
 
 				//管理者チェック
 				try {
 					if(loginDAO.masterCheck(loginId,password)){
+						//カートの情報を入れている。
 						ProductInfoDAO dao = new ProductInfoDAO();
-						setProductInfoDTOList((ArrayList<ProductInfoDTO>) dao.getProductInfo());
+						productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
 
 						session.put("masterId", "admin");
-						session.put("masterFlg", true);
 						System.out.println("管理者ログインしました");
 						result = MASTER;
 						return result;
@@ -150,17 +153,19 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 
 		}
+		//IDが空白の場合
 		if(loginId.equals("")){
 			errorMessageId = "IDを入力してください。";
-			//ここもコンソールに出すため→確認作業な
+			
 			System.out.println(errorMessageId);
 
 			errorMessageList.add(errorMessageId);
 
 		}
+		//パスが空白の場合
 		if(password.equals("")){
 			errorMessagePassword = "パスワードを入力してください。";
-			//ここもコンソールに出すため→確認作業な
+			
 			System.out.println(errorMessagePassword);
 
 			errorMessageList.add(errorMessagePassword);
@@ -277,16 +282,6 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	public void setSaveLogin(boolean saveLogin) {
 		this.saveLogin = saveLogin;
-	}
-
-
-	public ArrayList<ProductInfoDTO> getProductInfoDTOList() {
-		return productInfoDTOList;
-	}
-
-
-	public void setProductInfoDTOList(ArrayList<ProductInfoDTO> productInfoDTOList) {
-		this.productInfoDTOList = productInfoDTOList;
 	}
 
 

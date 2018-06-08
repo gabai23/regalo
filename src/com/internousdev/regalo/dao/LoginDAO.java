@@ -80,11 +80,11 @@ public class LoginDAO {
 	public boolean existsUserId(String userId) throws SQLException {
 
 		boolean result = false;
-		//Connectionの取得
+		
 		DBConnector db = new DBConnector();
 
 		Connection con = db.getConnection();
-		//user_idカラムからの情報の取得
+		
 		String sql = "select * from user_info where user_id = ?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -92,12 +92,12 @@ public class LoginDAO {
 		ps.setString(1, userId);
 		//送信かつ、結果表の取得→この場合は１列の結果表しか取得していない。
 		ResultSet rs = ps.executeQuery();
-		//だからifを使う→複数行あったら、whileを使う。
+		
 		if(rs.next()) {
-			//DTOのインスタンス化な。スコープ判定は100％ある。
+			//DTOのインスタンス化な。スコープ判定あり
 			LoginDTO dto = new LoginDTO();
 				/*dtoのsetメソッドを使用。→setterな。
-				LOginDTOで書いてあるsetterメソッドの実行、値の更新（代入）*/
+				LoginDTOで書いてあるsetterメソッドの実行、値の更新（代入）*/
 			dto.setId(rs.getInt("id"));//結果表から。データのgetを行っているだけな。
 			dto.setUserId(rs.getString("user_id"));
 			dto.setPassword(rs.getString("password"));

@@ -192,9 +192,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 				String s;
 				if(i == (uniqueIdList.size() - 1)){
-					s = "produce_id = " + uniqueId + " ";
+					s = "product_id = " + uniqueId + " ";
 				}else{
-					s = "produce_id = " + uniqueId + " or ";
+					s = "product_id = " + uniqueId + " or ";
 				}
 				sb.append(s);
 			}
@@ -216,20 +216,22 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			 * 全件検索、カテゴリ、検索値なし
 			 */
 
-//		}else if(categoryId) >= 1 && keyword.isEmpty()){
+		}else if(categoryId == 1 && keyword.isEmpty()){
 
 			//全件をListに格納
-//			setProductSearchDTOList(productSearchDAO.AllProductInfo(pages, max_product_display));
-//
-//			System.out.println("全件検索、カテゴリ、検索値なし");
-//			System.out.println(keyword);
-//
-//			ret = SUCCESS;
-//
-//		}
+			setProductSearchDTOList(productSearchDAO.AllProductInfo(
+//					pages, max_product_display
+					));
 
+			System.out.println("全件検索、カテゴリ、検索値なし");
+			System.out.println(keyword);
+
+			ret = SUCCESS;
 
 		}
+
+
+
 
 		/*
 		 * ひらがな、カタカナ検索
@@ -238,7 +240,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			keyword = toHiragana.toZenkakuHiragana(keyword);
 
-//			setProductSearchDTOList(productSearchDAO.BySearchWordKana(keyword,pages,maxProductDisplay));
+			setProductSearchDTOList(productSearchDAO.BySearchWordKana(keyword
+//					,pages,maxProductDisplay
+					));
 
 			System.out.println("productSearchDTOList:"+productSearchDTOList.size());
 
@@ -252,7 +256,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			keyword = toHiragana.toZenkakuHiragana(keyword);
 
-//			setItemSearchDTOList(itemSearchDAO.ByCategoryAndSearchWordKana(categoryId, keyword, pages, maxItemDisplay));
+			setProductSearchDTOList(productSearchDAO.ByCategoryAndSearchWordKana(categoryId, keyword
+//					, pages, maxItemDisplay
+					));
 
 			System.out.println("カテゴリーあり、ひらがな、カタカナ検索");
 			System.out.println(keyword);
@@ -266,7 +272,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		 */
 		else if(categoryId > 1 && keyword.isEmpty()){
 
-//			setProductSearchDTOList(productSearchDAO.ByProductCategory(categoryId,pages,maxProductDisplay));
+			setProductSearchDTOList(productSearchDAO.ByProductCategory(categoryId
+//					,pages,maxProductDisplay
+					));
 
 			System.out.println("カテゴリあり、検索値なし");
 			System.out.println(keyword);
@@ -279,10 +287,12 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	 */
 	else if(categoryId == 1 && !(keyword.isEmpty())){
 
-//		setProductSearchDTOList(productSearchDAO.BySearchWord(keyword, pages, max_product_display));
-//
-//		System.out.println("カテゴリなし、検索値あり");
-//		System.out.println(keyword);
+		setProductSearchDTOList(productSearchDAO.BySearchWord(keyword
+//				, pages, max_product_display
+				));
+
+		System.out.println("カテゴリなし、検索値あり");
+		System.out.println(keyword);
 
 		ret = SUCCESS;
 
