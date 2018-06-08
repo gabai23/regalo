@@ -14,8 +14,6 @@ body {
 #header {
 	width:100%;
 	height:auto;
-	top:0;
-	left:0;
 	weight:100%;
 	background-color:black;
 	margin-bottom: 100px;
@@ -76,13 +74,13 @@ li {
 
 
 button.button1 {
-/* 文字サイズを1.4emに指定 */
+/* 文字サイズを1.emに指定 */
     font-size: 1em;
     /* 文字の太さをboldに指定 */
     /*font-weight: bold; */
     /* 縦方向に10px、
      * 横方向に30pxの余白を指定 */
-    padding: 10px 30px;
+    padding: 5px 30px;
     /* 文字色を白色に指定 */
     color: white;
     /* ボーダーをなくす */
@@ -93,8 +91,8 @@ button.button1 {
      * ぼかしを3px
      * 広がりを1px
      * 色を#666（グレー）に指定 */
-    box-shadow: 2px 2px 3px 1px #ffffff;
-    -moz-box-shadow: 2px 2px 3px 1px #ffffff;
+     box-shadow: 2px 2px 3px 1px #ffffff;
+     -moz-box-shadow: 2px 2px 3px 1px #ffffff;
     -webkit-box-shadow: 2px 2px 3px 1px #ffffff;
     /* テキストの影の指定
      * 影の横幅を1px
@@ -104,13 +102,11 @@ button.button1 {
     text-shadow: 1px 1px 2px #000;
      background-color: #000000;
    /* グラデーションの指定 */
-   /* background: -moz-linear-gradient(bottom, #36d, #248 50%, #36d);
-    background: -webkit-gradient(linear, left bottom, left top, from(#36d), color-stop(0.5, #248), to(#36d));*/
+     background: -moz-linear-gradient(bottom, #36d, #000000 50%, #36d);
+     background: -webkit-gradient(linear, left bottom, left top, from(#000), color-stop(0.5, #ffffff), to(#000));
 }
 
 button.button1:hover {
-    /* 透明度を20%に指定 */
-    /* 背景色を明るい青色に指定 */
     background-color: #000000;
     /* 文字色を白色に指定 */
     color: #fff;
