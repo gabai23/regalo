@@ -18,35 +18,49 @@
 <body>
 	<jsp:include page="includeHeader.jsp"/>
 <div class="main">
+
+	<div id = "top">
+			<p>マイページ</p>
+	</div>
+
 	<s:iterator value="myPageList">
 
 	<table>
 		<tr>
 			<th>氏名</th>
 			<td>
-				<p>
+
 					<s:property value="familyName"/>
 					<s:property value="firstName"/>
+			</td>
+		</tr>
+
+
+		<tr>
+
+		<th>ふりがな</th>
+			<td>
 					<s:property value="familyNameKana"/>
 					<s:property value="firstNameKana"/>
-				</p>
 			</td>
-		<tr>
+		</tr>
 
 		<tr>
 			<th>性別</th>
 			<td>
-				<p>
+
 					<s:if test="sex==0">男性</s:if>
 					<s:else>女性</s:else>
-				</p>
+
 			</td>
 		</tr>
 
 		<tr>
 			<th>メールアドレス</th>
 			<td>
+
 				<s:property value="email"/>
+
 			</td>
 		</tr>
 
@@ -73,6 +87,11 @@
 	<s:form action="GoBuyProductHistoryAction">
 		<s:submit value="購入履歴" />
 	</s:form>
+
+	<s:form action="GoHomeAction">
+		<s:submit value="ホーム画面へ"/>
+	</s:form>
+
 
 </div>
 

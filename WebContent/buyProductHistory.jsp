@@ -48,7 +48,7 @@
 				<!-- 個数 -->
 						<s:property value="productCount"/>点
 
-						購入日時　：<s:property value="insertDate"/>
+						購入日時　：<s:property value="registDate"/>
 						値　　段　：<s:property value="price" />
 						発売会社名：<s:property value="releaseCompany" />
 						発売年月日：<s:property value="releaseDate" />

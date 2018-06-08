@@ -36,7 +36,7 @@ public class BuyProductHistoryDTO {
 //	商品名
 	private String productName;
 
-	private String insertDate;
+
 
 //	ゲッターセッター
 	public int getId() {
@@ -116,11 +116,6 @@ public class BuyProductHistoryDTO {
 		this.productName = productName;
 	}
 
-	public String getInsertDate() {
-		return insertDate;
-	}
-	public void setInsertDate(String insertDate) {
-		this.insertDate = insertDate;
-	}
+
 
 }

@@ -20,18 +20,19 @@ public class BuyProductHistoryDAO {
 		ArrayList<BuyProductHistoryDTO> buyProductHistoryDTOList = new ArrayList<BuyProductHistoryDTO>();
 
 		String sql = "SELECT"
-				+ " pih.id,"
+				+ " phi.id,"
 				+ " pi.product_name,"
 				+ " pi.image_file_name, "
 				+ " pi.release_company,"
-				+ " pih.price,"
-				+ " pih.product_count,"
-				+ " pih.destination_id,"
-				+ " pih.insert_date"
+				+ " pi.price,"
+				+ " phi.product_count,"
+				+ " phi.destination_id, "
+				+ " phi.regist_date"
 				+ " FROM purchase_history_info phi"
-				+ " LEFT JOIN prosuct_info iit"
-				+ " ON pih.user_id = pi.product_id"
-				+ " WHERE pih.user_id = ? ORDER BY insert_date DESC";
+				+ " LEFT JOIN product_info pi"
+				+ " ON phi.user_id = pi.product_id"
+				+ " WHERE phi.user_id = ? "
+				+ " ORDER BY phi.regist_date DESC";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -50,7 +51,7 @@ public class BuyProductHistoryDAO {
 				dto.setPrice(rs.getInt("price"));
 				dto.setProductConut(rs.getInt("product_count"));
 				dto.setDestinationId(rs.getInt("destination_id"));
-				dto.setInsertDate(rs.getString("inawer_date"));
+				dto.setRegistDate(rs.getString("regist_date"));
 
 				buyProductHistoryDTOList.add(dto);
 			}
