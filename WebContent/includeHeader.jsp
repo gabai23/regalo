@@ -15,21 +15,21 @@
 		<div id="headerLogo">
 			<a href='<s:url action="GoHomeAction"/>'>Regalo</a>
 		</div>
+<br>
+<!-- 		<div id="headerSearch"> -->
+<%-- 			<s:form action="ProductSearchAction" theme="simple"> --%>
+<%-- 				<select> --%>
+<!-- 					<option>全てのカテゴリー</option> -->
+<!-- 					<option>カテゴリー1</option> -->
+<!-- 					<option>カテゴリー2</option> -->
+<!-- 					<option>カテゴリー3</option> -->
+<%-- 				</select> --%>
 
-		<div id="headerSearch">
-			<s:form action="ProductSearchAction" theme="simple">
-				<select>
-					<option>全てのカテゴリー</option>
-					<option>カテゴリー1</option>
-					<option>カテゴリー2</option>
-					<option>カテゴリー3</option>
-				</select>
-
-				<s:textfield/>
-				<button type="submit">検索</button>
-			</s:form>
-		</div>
-
+<%-- 				<s:textfield/> --%>
+<!-- 				<button type="submit">検索</button> -->
+<%-- 			</s:form> --%>
+<!-- 		</div> -->
+<br>
 		<div class="right-list">
 		<ul>
 <%-- 		<li><a href='<s:url action="GoLoginAction"/>'></a>LOGIN</li> --%>
