@@ -44,14 +44,22 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 		InputChecker inputChecker = new InputChecker();
 
 		//フォームの入力内容をInputCheckerを使用しチェックする
+		/* halfAlphabet：半角英字
+		 * kanji：漢字
+		 * hiragana：ひらがな
+		 * katakana：カタカナ
+		 * halfNumber：半角数字
+		 * halfSymbol：半角記号
+		 * fullSymbol：全角記号
+		 */
 
 		familyNameErrorMessageList = inputChecker.check("姓",familyName,1,16,true,true,true,false,false,false,true);
 		firstNameErrorMessageList = inputChecker.check("名",firstName,1,16,true,true,true,false,false,false,true);
 		familyNameKanaErrorMessageList = inputChecker.check("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false,false);
 		firstNameKanaErrorMessageList = inputChecker.check("名ふりがな",firstNameKana,1,16,false,false,true,false,false,false,false);
 		userAddressErrorMessageList = inputChecker.check("住所",userAddress,15,50,false,true,true,true,true,true,true);
-		telNumberErrorMessageList = inputChecker.check("電話番号",telNumber,10,13,false,false,false,true,false,false,false);
-		emailErrorMessageList = inputChecker.check("メールアドレス",email,18,32,true,false,false,false,true,false,false);
+		telNumberErrorMessageList = inputChecker.check("電話番号",telNumber,10,13,false,false,false,false,true,false,false);
+		emailErrorMessageList = inputChecker.check("メールアドレス",email,18,32,true,false,false,false,true,true,false);
 
 		if(familyNameErrorMessageList.size()==0
 		&& firstNameErrorMessageList.size()==0

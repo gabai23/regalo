@@ -11,11 +11,13 @@
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 
-	<s:form action="AddressCreateConfirmAction">
+	宛先登録
+
+	<s:form action="AddressCreateConfirmAction" theme="simple">
 
 	<!-- 姓エラー -->
 
-	<s:if test="#session.familyNameErrorMessageList.isEmpty()">
+	<s:if test="!(#session.familyNameErrorMessageList.isEmpty())">
 		<div class="error">
 			<div class="error-message">
 				<s:iterator value="#session.familyNameErrorMessageList"><s:property /><br></s:iterator>
@@ -25,7 +27,7 @@
 
 	<!-- 名エラー -->
 
-	<s:if test="#session.firstNameErrorMessageList.isEmpty()">
+	<s:if test="!(#session.firstNameErrorMessageList.isEmpty())">
 		<div class="error">
 			<div class="error-message">
 				<s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator>
@@ -36,7 +38,7 @@
 
 	<!-- 姓ふりがなエラー -->
 
-	<s:if test="#session.familyNameKanaErrorMessageList.isEmpty()">
+	<s:if test="!(#session.familyNameKanaErrorMessageList.isEmpty())">
 		<div class="error">
 			<div class="error-message">
 				<s:iterator value="#session.familyNameKanaErrorMessageList"><s:property /><br></s:iterator>
@@ -47,7 +49,7 @@
 
 	<!-- 名ふりがなエラー -->
 
-	<s:if test="#session.firstNameKanaErrorMessageList.isEmpty()">
+	<s:if test="!(#session.firstNameKanaErrorMessageList.isEmpty())">
 		<div class="error">
 			<div class="error-message">
 				<s:iterator value="#session.firstNameKanaErrorMessageList"><s:property /><br></s:iterator>
@@ -58,7 +60,7 @@
 
 	<!-- メールアドレスエラー -->
 
-	<s:if test="#session.emailErrorMessageList.isEmpty()">
+	<s:if test="!(#session.emailErrorMessageList.isEmpty())">
 		<div class="error">
 			<div class="error-message">
 				<s:iterator value="#session.emailErrorMessageList"><s:property /><br></s:iterator>
@@ -69,7 +71,7 @@
 
 	<!-- 電話番号エラー -->
 
-	<s:if test="#session.telNumberErrorMessageList.isEmpty()">
+	<s:if test="!(#session.telNumberErrorMessageList.isEmpty())">
 		<div class="error">
 			<div class="error-message">
 				<s:iterator value="#session.telNumberErrorMessageList"><s:property /><br></s:iterator>
@@ -79,7 +81,7 @@
 
 	<!-- 住所エラー -->
 
-	<s:if test="#session.userAddressErrorMessageList.isEmpty()">
+	<s:if test="!(#session.userAddressErrorMessageList.isEmpty())">
 		<div class="error">
 			<div class="error-message">
 				<s:iterator value="#session.userAddressErrorMessageList"><s:property /><br></s:iterator>
@@ -115,9 +117,16 @@
 		</tr>
 
 	<!-- 性別 -->
-		<tr>
+		<%-- <tr>
 			<th scope="row"><s:label value="性別"/></th>
 			<td><s:textfield name="sexList" class="txt" /><br></td>
+		</tr> --%>
+		<tr>
+		<th scope="row"><s:label value="性別"/></th>
+
+			<td><s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" /></td>
+
+
 		</tr>
 
 	<!-- 住所 -->
