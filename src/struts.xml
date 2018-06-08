@@ -247,6 +247,7 @@
 		<result name="error">productDelete.jsp</result>
 	</action>
 
+
 </package>
 </struts>
 
