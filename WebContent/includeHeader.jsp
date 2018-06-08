@@ -15,7 +15,7 @@
 		<div id="headerLogo">
 			<a href='<s:url action="GoHomeAction"/>'>Regalo</a>
 		</div>
-<br>
+<!-- <br> -->
 <!-- 		<div id="headerSearch"> -->
 <%-- 			<s:form action="ProductSearchAction" theme="simple"> --%>
 <%-- 				<select> --%>
@@ -29,9 +29,10 @@
 <!-- 				<button type="submit">検索</button> -->
 <%-- 			</s:form> --%>
 <!-- 		</div> -->
-<br>
+<!-- <br> -->
 		<div class="right-list">
-		<ul>
+		<ul >
+		<div id="liContainer" class="clearfix">
 		<li><div id="headerLogin">
 			<s:form action="GoLoginAction">
 				<button class="button1" type="submit">LOGIN</button>
@@ -53,7 +54,7 @@
 			<s:form action="GoMyPageAction">
 				<button class="button1" type="submit">MY PAGE</button>
 			</s:form>
-		</div></li></ul>
+		</div></li></div></ul>
 	</div></div>
 </body>
 </html>
