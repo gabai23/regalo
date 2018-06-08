@@ -85,7 +85,7 @@ public class PasswordResetConfirmAction extends ActionSupport {
 			result = ERROR;
 		}
 
-		//パスワードと確認パスワードが同じじゃなかったらエラーメッセージを出す
+		//パスワードと確認パスワードが入力されていて一致しなかったらエラーメッセージを出す
 		if(!(password1.equals("") && password2.equals(""))) {
 			if(!(password1.equals(password2))) {
 				errorMessage += "入力されたパスワードが異なります。";
