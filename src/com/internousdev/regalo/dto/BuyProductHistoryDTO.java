@@ -4,7 +4,6 @@ public class BuyProductHistoryDTO {
 
 
 
-
 //	ID
 
 	private int id;
