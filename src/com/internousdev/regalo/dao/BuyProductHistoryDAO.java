@@ -42,20 +42,25 @@ public class BuyProductHistoryDAO {
 			while(rs.next()) {
 
 				BuyProductHistoryDTO dto = new BuyProductHistoryDTO();
+
 				dto.setId(rs.getInt("id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setProductConut(rs.getInt("product_count"));
-				dto.setDestinationId(rs.getInt("sestination_id"));
+				dto.setDestinationId(rs.getInt("destination_id"));
+				dto.setInsertDate(rs.getString("inawer_date"));
 
 				buyProductHistoryDTOList.add(dto);
 			}
+
 		} catch(Exception e) {
 			e.printStackTrace();
+
 		} finally {
 			con.close();
+
 		}
 		return buyProductHistoryDTOList;
 	}
@@ -83,8 +88,10 @@ public class BuyProductHistoryDAO {
 
 		}catch(SQLException e) {
 			e.printStackTrace();
+
 		}finally {
 			con.close();
+
 		}
 		return result;
 
@@ -94,13 +101,13 @@ public class BuyProductHistoryDAO {
 
 //	購入履歴個別削除
 
-	public int deleteOneEach(String userId) throws SQLException {
+	public int deleteOneEach(int Id) throws SQLException {
 
 		DBConnector db = new DBConnector();
 
 		Connection con = db.getConnection();
 
-		String sql = "DELETE FROM purchase_history_info WHERE user_id = ?";
+		String sql = "DELETE FROM purchase_history_info WHERE id = ?";
 
 		PreparedStatement ps;
 
@@ -108,14 +115,14 @@ public class BuyProductHistoryDAO {
 
 		try{
 			ps = con.prepareStatement(sql);
-			ps.setString(1, userId);
+			ps.setInt(1, Id);
 
 			result2 = ps.executeUpdate();
 
+			con.close();
+
 		}catch(SQLException e) {
 			e.printStackTrace();
-		}finally {
-			con.close();
 		}
 		return result2;
 
