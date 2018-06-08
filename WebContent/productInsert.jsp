@@ -192,7 +192,7 @@
 </tr>
 <tr>
 	<th scope="row">画像</th>
-	<td><input type="file" accept='image/*' name="imageFilePath" id="file"  required/><td>
+	<td><input type="file" accept='image/*' name="imageFilePath" id="file" /><td>
 </tr>
 <tr>
 	<th scope="row">販売会社</th>
