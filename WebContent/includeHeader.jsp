@@ -32,27 +32,26 @@
 <br>
 		<div class="right-list">
 		<ul>
-<%-- 		<li><a href='<s:url action="GoLoginAction"/>'></a>LOGIN</li> --%>
 		<li><div id="headerLogin">
 			<s:form action="GoLoginAction">
-				<button type="submit">ログイン</button>
+				<button class="button1" type="submit">LOGIN</button>
 			</s:form>
 		</div></li>
 		<li><div id="headerLogout">
 			<s:form action="LogoutAction">
-				<button type="submit">ログアウト</button>
+				<button class="button1" type="submit">LOGOUT</button>
 			</s:form>
 		</div></li>
 
 		<li><div id="headerCart">
 			<s:form action="GoCartAction">
-				<button type="submit">カート</button>
+				<button class="button1" type="submit">CART</button>
 			</s:form>
 		</div></li>
 
 		<li><div id="headerMypage">
 			<s:form action="GoMyPageAction">
-				<button type="submit">マイページ</button>
+				<button class="button1" type="submit">MY PAGE</button>
 			</s:form>
 		</div></li></ul>
 	</div></div>
