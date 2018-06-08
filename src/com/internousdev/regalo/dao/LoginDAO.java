@@ -9,22 +9,22 @@ import com.internousdev.regalo.dto.LoginDTO;
 import com.internousdev.regalo.util.DBConnector;
 
 public class LoginDAO {
-	
+
 	private LoginDTO dto = new LoginDTO();
-	
+
 	public LoginDTO userInfo(String userId) {
-		
+
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		String sql = "select * from user_info where user_id = ?";
-		
+
 		try {
-		
+
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, userId);
 		ResultSet rs = ps.executeQuery();//結果表が送られてきました！
-		
-		
+
+
 		//行下にいって、列が存在したら→true
 		if(rs.next()) {
 			//ユーザー登録に使う情報をdtoに格納(setterに情報が代入される）
@@ -36,30 +36,61 @@ public class LoginDAO {
 			dto.setFirstName(rs.getString("first_name"));
 			dto.setFirstNameKana(rs.getString("first_name_kana"));
 			dto.setEmail(rs.getString("email"));
-			
+
 		}
-		
-		
+
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return dto;
-		
+
 	}
-	
+
+	public boolean masterCheck(String userId, String password) throws SQLException{
+
+		boolean result = false;
+
+		DBConnector db = new DBConnector();
+
+		Connection con = db.getConnection();
+
+		String sql = "select * from user_info where user_id = ? AND password = ?";
+
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setString(1, userId);
+		ps.setString(2, password);
+
+		ResultSet rs = ps.executeQuery();
+
+		if(rs.next()) {
+
+			if(rs.getString("user_id").equals("admin") && rs.getString("password").equals("admin")){
+				result = true;
+			}
+
+
+		}
+
+		return result;
+
+
+	}
+
 	public boolean existsUserId(String userId) throws SQLException {
-		
+
 		boolean result = false;
 		//Connectionの取得
 		DBConnector db = new DBConnector();
-		
+
 		Connection con = db.getConnection();
 		//user_idカラムからの情報の取得
 		String sql = "select * from user_info where user_id = ?";
-		
+
 		PreparedStatement ps = con.prepareStatement(sql);
-		
+
 		ps.setString(1, userId);
 		//送信かつ、結果表の取得→この場合は１列の結果表しか取得していない。
 		ResultSet rs = ps.executeQuery();
@@ -77,18 +108,18 @@ public class LoginDAO {
 			dto.setFirstName(rs.getString("first_name"));
 			dto.setFirstNameKana(rs.getString("first_name_kana"));
 			dto.setEmail(rs.getString("email"));
-			
-			
+
+
 			//結果表のuser_idカラムからgetしてきたデータが入ってたら、の条件分岐
 			if(!(rs.getString("user_id").equals(null))) {
 				result = true;
 			}
 		}
-		
+
 		return result;
-		
+
 	}
-	
-	
+
+
 
 }

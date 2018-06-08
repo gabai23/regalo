@@ -45,90 +45,68 @@
 			</div>
 
 			<!-- 商品一覧 -->
-			<s:iterator value="ProductInfoDTOList" status="st">
+			<s:iterator value="productInfoDTOList" status="st">
 				<div id="box">
-					<s:form action="MasterAction" method="post">
 
 
-						<s:hidden value="%{product_id}" name="product_id" />
-						<s:hidden value="%{product_name}" name="product_name" />
-						<s:hidden value="%{product_name_kana}" name="product_name_kana" />
-						<s:hidden value="%{id}" name="id" />
-						<s:hidden value="%{price}" name="price" />
-						<s:hidden value="%{image_file_name}" name="image_file_name" />
-						<s:hidden value="%{release_company}" name="release_company" />
-						<s:hidden value="%{product_description}"
-							name="product_description" />
+					<s:hidden value="%{product_id}" name="product_id" />
+					<s:hidden value="%{product_name}" name="product_name" />
+					<s:hidden value="%{product_name_kana}" name="product_name_kana" />
+					<s:hidden value="%{id}" name="id" />
+					<s:hidden value="%{price}" name="price" />
+					<s:hidden value="%{image_file_name}" name="image_file_name" />
+					<s:hidden value="%{release_company}" name="release_company" />
+					<s:hidden value="%{product_description}"
+						name="product_description" />
 
 
-						<p>
-							<span>商品番号:</span>
-							<s:property value="product_id" />
-						</p>
+					<p>
+						<span>商品番号:</span>
+						<s:property value="product_id" />
+					</p>
 
-						<p>
-							<img class="imageFileName"
-								src="<s:property value="image_file_path"/>" alt="Photo"
-								width="70%" height="170">
-						</p>
-
-
-
-						<h3>
-							<s:property value="product_name" />
-						</h3>
-
-						<h5>
-							<s:property value="product_name_kana" />
-						</h5>
-
-						<span>カテゴリー:</span>
-						<s:if test="category_id==1">
-							<span>車</span>
-						</s:if>
-						<s:elseif test="category_id==2">
-							<span>音楽・映画</span>
-						</s:elseif>
-						<s:elseif test="category_id==3">
-							<span>家電</span>
-						</s:elseif>
-
-						<p class="product">
-							在庫数:
-							<s:if test="product_stock==0">
-								<span>品切れ</span>
-							</s:if>
-							<s:elseif test="product_stock>0">
-
-								<span><s:property value="product_stock" /></span>
-
-							</s:elseif>
-
-							<p>&yen<s:property  value="price" /></p>
-						<div class="stock">
-							<p>
-								<select name="stock"><s:iterator status="st" begin="1"
-										end="100">
-										<option value='<s:property value="#st.count"/>' />
-										<s:property value="#st.count" />
-									</s:iterator></select> <span>
-									<button class="button" type='submit' name='stockFlg'>在庫変更</button>
-								</span>
-							</p>
-						</div>
-
-
-						<span>
-							<button class="button" type='submit' name='deleteFlg'
-								onclick='return confirm("削除してよろしいですか？")'>削除</button>
-						</span>
-						<span>
-							<button class="button" type='submit' name='changeFlg'>商品情報変更</button>
-						</span>
+					<p>
+						<img class="imageFileName"
+							src="<s:property value="image_file_path"/>" alt="Photo"
+							width="70%" height="170">
+					</p>
 
 
 
-					</s:form>
+					<h3>
+						<s:property value="product_name" />
+					</h3>
+
+					<h5>
+						<s:property value="product_name_kana" />
+					</h5>
+
+					<span>カテゴリー:</span>
+					<s:if test="category_id==1">
+						<span>車</span>
+					</s:if>
+					<s:elseif test="category_id==2">
+						<span>音楽・映画</span>
+					</s:elseif>
+					<s:elseif test="category_id==3">
+						<span>家電</span>
+					</s:elseif>
+
+
+					<p><s:property  value="price" />円</p>
+
+
+					<span>
+						<button class="button" type='submit' name='deleteFlg'
+							onclick="submitAction('GoProductDeleteAction')">削除</button>
+					</span>
+					<span>
+						<button class="button" type='submit' onclick="submitAction('GoProductUpdateAction')">商品情報変更</button>
+					</span>
+
+
+
+
 				</div>
 			</s:iterator>
 

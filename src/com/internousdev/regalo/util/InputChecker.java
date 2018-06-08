@@ -42,100 +42,100 @@ public class InputChecker {
 		}
 
 		//入力文字数をチェック
-		if(value.length() < minLength || value.length() > maxLength) {
+		else if(value.length() < minLength || value.length() > maxLength) {
 			stringList.add(propertyName + "は" + minLength + "文字以上" + maxLength + "文字以下で入力してください");
-		}
 
 
-		//入力文字から正規表現を確定する
-		String regularExpression = "";
-		String error = "";
 
-		if(halfAlphabet || kanji || hiragana || katakana || halfNumber || halfSymbol || fullSymbol) {
-			regularExpression = "[^";
-		}
+			//入力文字から正規表現を確定する
+			String regularExpression = "";
+			String error = "";
 
-		if(!(halfAlphabet) || !(kanji) || !(hiragana) || !(katakana) || !(halfNumber) || !(halfSymbol) || !(fullSymbol)) {
-			error = "[^";
-		}
+			if(halfAlphabet || kanji || hiragana || katakana || halfNumber || halfSymbol || fullSymbol) {
+				regularExpression = "[^";
+			}
 
-		if(halfAlphabet){
-			regularExpression += "a-zA-Z";
-			characterTypeList.add("半角英字");
-		} else {
-			error += "a-zA-Z";
-		}
+			if(!(halfAlphabet) || !(kanji) || !(hiragana) || !(katakana) || !(halfNumber) || !(halfSymbol) || !(fullSymbol)) {
+				error = "[^";
+			}
 
-		if(kanji){
-			regularExpression += "一-龯";
-			characterTypeList.add("漢字");
-		} else {
-			error += "一-龯";
-		}
-
-		if(hiragana){
-			regularExpression += "ぁ-ん";
-			characterTypeList.add("ひらがな");
-		} else {
-			error += "ぁ-ん";
-		}
-
-		if(halfNumber){
-			regularExpression += "0-9";
-			characterTypeList.add("半角数字");
-		} else {
-			error += "0-9";
-		}
-
-		if(halfSymbol){
-			regularExpression += "@.,;:!#$%&'*+-/=?^_`{|}~";
-			characterTypeList.add("半角記号");
-		} else {
-			error += "@.,;:!#$%&'*+-/=?^_`{|}~";
-		}
-
-		if(katakana){
-			regularExpression += "ァ-ヶ";
-			characterTypeList.add("カタカナ");
-		} else {
-			error += "ァ-ヶ";
-		}
-
-		if(fullSymbol){
-			regularExpression += "＠．，；：！＃＄％＆’＊＋―／＝？＾＿｀｛｜｝～";
-			characterTypeList.add("全角記号");
-		} else {
-			error += "＠．，；：！＃＄％＆’＊＋―／＝？＾＿｀｛｜｝～";
-		}
-
-		if(!StringUtils.isEmpty(regularExpression)) {
-			regularExpression += "]+";
-		}
-		if(!StringUtils.isEmpty(error)) {
-			error += "]+";
-		}
-
-
-		//判別してエラーメッセージを返す
-		String characterType = "";
-		for(int i = 0; i < characterTypeList.size(); i++){
-			if(i == 0){
-				characterType += characterTypeList.get(i).toString();
+			if(halfAlphabet){
+				regularExpression += "a-zA-Z";
+				characterTypeList.add("半角英字");
 			} else {
-				characterType += "、" + characterTypeList.get(i).toString();
+				error += "a-zA-Z";
+			}
+
+			if(kanji){
+				regularExpression += "一-龯";
+				characterTypeList.add("漢字");
+			} else {
+				error += "一-龯";
+			}
+
+			if(hiragana){
+				regularExpression += "ぁ-ん";
+				characterTypeList.add("ひらがな");
+			} else {
+				error += "ぁ-ん";
+			}
+
+			if(halfNumber){
+				regularExpression += "0-9";
+				characterTypeList.add("半角数字");
+			} else {
+				error += "0-9";
+			}
+
+			if(halfSymbol){
+				regularExpression += "@.,;:!#$%&'*+-/=?^_`{|}~";
+				characterTypeList.add("半角記号");
+			} else {
+				error += "@.,;:!#$%&'*+-/=?^_`{|}~";
+			}
+
+			if(katakana){
+				regularExpression += "ァ-ヶ";
+				characterTypeList.add("カタカナ");
+			} else {
+				error += "ァ-ヶ";
+			}
+
+			if(fullSymbol){
+				regularExpression += "＠．，；：！＃＄％＆’＊＋―／＝？＾＿｀｛｜｝～";
+				characterTypeList.add("全角記号");
+			} else {
+				error += "＠．，；：！＃＄％＆’＊＋―／＝？＾＿｀｛｜｝～";
+			}
+
+			if(!StringUtils.isEmpty(regularExpression)) {
+				regularExpression += "]+";
+			}
+			if(!StringUtils.isEmpty(error)) {
+				error += "]+";
+			}
+
+
+			//判別してエラーメッセージを返す
+			String characterType = "";
+			for(int i = 0; i < characterTypeList.size(); i++){
+				if(i == 0){
+					characterType += characterTypeList.get(i).toString();
+				} else {
+					characterType += "、" + characterTypeList.get(i).toString();
+				}
+			}
+
+			if(error.equals("")){
+				if(value.matches(regularExpression)) {
+					stringList.add(propertyName + "は" + characterType + "で入力してください");
+				}
+			} else {
+				if(value.matches(regularExpression) || (!value.matches(error) && !value.equals(""))) {
+					stringList.add(propertyName + "は" + characterType + "で入力してください");
+				}
 			}
 		}
-
-		if(error.equals("")){
-			if(value.matches(regularExpression)) {
-				stringList.add(propertyName + "は" + characterType + "で入力してください");
-			}
-		} else {
-			if(value.matches(regularExpression) || (!value.matches(error) && !value.equals(""))) {
-				stringList.add(propertyName + "は" + characterType + "で入力してください");
-			}
-		}
-
 		return stringList;
 
 	}
