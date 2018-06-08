@@ -28,16 +28,16 @@
 
 	</div>
 
- <s:submit value ="ログインしてくれ！！！"/>
+ <s:submit value ="ログイン！"/>
 </s:form>
 
 
  <s:form action ="GoUserCreateAction">
-	<s:submit value ="ユーザー登録やな"/>
+	<s:submit value ="ユーザー登録"/>
 </s:form>
 
  <s:form action ="GoPasswordResetAction">
-	<s:submit value ="パスワード再設定なんよ"/>
+	<s:submit value ="パスワード再設定"/>
 </s:form>
 
 

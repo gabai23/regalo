@@ -129,6 +129,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 						setProductInfoDTOList((ArrayList<ProductInfoDTO>) dao.getProductInfo());
 
 						session.put("masterId", "admin");
+						session.put("masterFlg", true);
 						System.out.println("管理者ログインしました");
 						result = MASTER;
 						return result;

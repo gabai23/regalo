@@ -16,22 +16,21 @@ public class GoLoginAction extends ActionSupport implements SessionAware{
 	private boolean loginFlg;
 	//ログインページにレッツゴー！
 	public String execute(){
-		
+		//エラーでhome遷移
 		String result = ERROR;
 		
 		if(session.containsKey("loginFlg")){
-			
+			//loginFlgという変数にどっちかぶちこむ
 			loginFlg = (boolean) session.get("loginFlg");
 			//ログインしていなければ
 			if(loginFlg != true){
-				//ログイン画面に飛ぶ！
-				result= ERROR;
+				//ログイン画面遷移
+				result= SUCCESS;
 			
-			/*既にログイン済み↓
-			商品購入画面に飛ぶどー！*/
+		
 			}else{
 				
-				result = SUCCESS;
+				
 			}
 		}
 		

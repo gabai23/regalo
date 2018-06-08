@@ -15,7 +15,7 @@
 	<table>
 	<tr>
 		<th>ログインID:</th>
-		<td><input type="text" name="userId" size="8"></td>
+		<td>><input type="text" name="userId" size="8"></td>
 		<s:if test="!(errorId.equals(''))">
 		<s:property value="errorId"/>
 		</s:if>
