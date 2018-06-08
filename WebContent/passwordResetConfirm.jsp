@@ -39,11 +39,10 @@
 	<s:else>
 		<div id="button">
 			<s:form action="GoPasswordResetAction">
-				<s:submit value="訂正"/>
+			<s:submit value="訂正"/>
 			</s:form>
-
 			<s:form action="PasswordResetCompleteAction">
-				<s:submit value="送信"/>
+			<s:submit value="送信"/>
 			</s:form>
 		</div>
 	</s:else>

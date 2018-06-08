@@ -50,7 +50,7 @@ public class PasswordResetCompleteDAO {
 		Connection con = db.getConnection();
 
 		//ユーザーIDから検索
-		String sql = "SELECT  FROM user_info WHERE user_id = ?";
+		String sql = "SELECT count(user_id) as count FROM user_info WHERE user_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -58,7 +58,7 @@ public class PasswordResetCompleteDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
-				if(rs.getString("user_id").equals(userId)){
+				if(rs.getInt("count") > 0){
 					result = true;
 				}
 			}
@@ -67,6 +67,7 @@ public class PasswordResetCompleteDAO {
 		}
 		try {
 			con.close();
+
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -94,6 +95,7 @@ public class PasswordResetCompleteDAO {
 		}
 		try {
 			con.close();
+
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}

@@ -10,7 +10,9 @@
 <body>
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
-
+		
+	<s:form action="PasswordResetConfirmAction">
+	
 	<!-- ログインID -->
 	<table>
 	<tr>
@@ -41,7 +43,7 @@
 	</table>
 
 	<!-- 送信ボタン -->
-	<s:form action="PasswordResetConfirmAction">
+
 		<s:submit value="パスワード再設定画面へ"/>
 	</s:form>
 
