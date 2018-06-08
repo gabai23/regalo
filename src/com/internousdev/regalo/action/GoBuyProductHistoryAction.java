@@ -79,6 +79,7 @@ public class GoBuyProductHistoryAction extends ActionSupport implements SessionA
 
 		}
 
+
 		return result;
 	}
 

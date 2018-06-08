@@ -3,6 +3,7 @@ package com.internousdev.regalo.dto;
 public class BuyProductHistoryDTO {
 
 
+
 //	ID
 	private int id;
 
