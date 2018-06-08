@@ -2,7 +2,6 @@ package com.internousdev.regalo.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -57,12 +56,12 @@ public class GoBuyProductHistoryAction extends ActionSupport implements SessionA
 			//購入履歴表示
 			historyList = buyProductHistoryDAO.getProductHistory(userId);
 
-			Iterator<BuyProductHistoryDTO> iterator = historyList.iterator();
+			/*Iterator<BuyProductHistoryDTO> iterator = historyList.iterator();
 
 			if(!(iterator.hasNext())) {
 				historyList = null;
 
-			}
+			}*/
 
 		} else if(deleteFlg.equals("1")) {
 

@@ -22,7 +22,7 @@ function goPasswordResetCompleteAction(){
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 
-	<s:form action="GoAddressCreateAction" id="form">
+	<s:form action="AddressCreateCompleteAction" id="form">
 
 	<h2>以下の内容で登録します</h2>
 
@@ -96,9 +96,10 @@ function goPasswordResetCompleteAction(){
 
 
 		<div id="button">
-			<s:submit value="訂正" onclick="goGoAddressCreateAction();"/>
+			<%-- <s:submit value="訂正" onclick="GoAddressCreateAction();"/> --%>
 
-			<s:submit value="送信"  onclick="goAddressCreateCompleteAction();"/>
+			<%-- <s:submit value="送信"  onclick="AddressCreateCompleteAction();"/> --%>
+			<s:submit value="送信"/>
 		</div>
 
 

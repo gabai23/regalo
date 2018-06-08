@@ -11,7 +11,7 @@
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 
- 	<s:form action="BuyItemConfirmAction">
+ 	<s:form action="BuyProductConfirmAction">
 
 	<h2>宛先情報が完了しました。</h2>
 

@@ -36,8 +36,12 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 		//ログインしていれば宛先情報を取得する
 		if((Boolean) session.get("loginFlg")){
 			AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
+
+			System.out.println(session.get("userId").toString());
 			addressInfoListDTO = addressInfoDAO.getAddressInfo(session.get("userId").toString());
 			session.put("addressInfoListDTO",addressInfoListDTO);
+
+			System.out.println(addressInfoListDTO.size());
 
 		//宛先情報があれば
 			if(addressInfoListDTO.size() > 0) {
