@@ -17,8 +17,8 @@ body {
 /*  	width:100%; */
 	height:auto;
 	weight:100%;
-	background-size: cover;
- 	background-image:url("../images/header3.gif");
+/* 	background-size: cover; */
+ 	background-image:url("../images/header4.gif");
 	margin-bottom: 100px;
     padding-bottom:15px;
 }
