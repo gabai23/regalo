@@ -12,8 +12,8 @@
 <body>
 	<div id="header">
 		<!-- GoHomeActionつけろ -->
-		<div id="headerLogo">
-			<a href='<s:url action="GoHomeAction"/>'>Regalo</a>
+		<div id="headerLogo"><div class=aaa">
+			<a href='<s:url action="GoHomeAction"/>'>Regalo</a></div>
 		</div>
 <!-- <br> -->
 <!-- 		<div id="headerSearch"> -->
