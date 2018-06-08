@@ -53,9 +53,7 @@ public class LoginDAO {
 		boolean result = false;
 
 		DBConnector db = new DBConnector();
-
 		Connection con = db.getConnection();
-
 		String sql = "select * from user_info where user_id = ? AND password = ?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
