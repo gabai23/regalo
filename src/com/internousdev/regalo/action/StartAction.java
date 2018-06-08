@@ -33,6 +33,11 @@ public class StartAction extends ActionSupport implements SessionAware{
 				System.out.println("StartAction-----");
 				System.out.println("tempUserId:" + tempUserId);
 				System.out.println("-----StartAction");
+
+				//ランク0からスタート
+				session.put("rank", 0);
+
+
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

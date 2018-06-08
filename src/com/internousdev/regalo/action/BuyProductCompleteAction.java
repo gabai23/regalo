@@ -42,12 +42,8 @@ import com.opensymphony.xwork2.ActionSupport;
 	---------------------------------------------------------*/
 	 BuyProductCompleteDAO buyproductComplete = new  BuyProductCompleteDAO();
 
-	 System.out.println("BuyProductCompleteAction.userId:"+session.get("userId").toString());
-
 	 if (session.containsKey("userId")) {
 		 cartList = buyproductComplete.getCartList(session.get("userId").toString());
-
-		 System.out.println("BuyProductCompleteAction.cartList.size():"+cartList.size());
 		 /*---------------------------------------------------------
 			カート情報なしの場合
 		---------------------------------------------------------*/
@@ -55,19 +51,19 @@ import com.opensymphony.xwork2.ActionSupport;
 			return ERROR;
 		}
 		/* コンソールに処理を表示------------------------------- */
-		System.out.println("----BuyItemCompleteAction:execute");
-		System.out.println(cartList.get(0).getUserId());
-		System.out.println(cartList.get(0).getPrice());
-		System.out.println(cartList.get(0).getProductId());
-		System.out.println(cartList.get(0).getProductCount());
-		System.out.println("------------------------");
+		System.out.println("----BuyItemCompleteAction");
+		System.out.println("ユーザーID"+cartList.get(0).getUserId());
+		System.out.println("商品価格"+cartList.get(0).getPrice());
+		System.out.println("商品ID"+cartList.get(0).getProductId());
+		System.out.println("購入個数"+cartList.get(0).getProductCount());
+
 		/*------------------------------------------------------*/
 
 		/*---------------------------------------------------------
 			2.購入履歴に登録
 		---------------------------------------------------------*/
         int i = buyproductComplete.setProductHistory(cartList, destinationId);
-        System.out.println(i);
+
         /*---------------------------------------------------------
 		カート情報ありの場合(listの数と処理件数と同じ場合)
 	---------------------------------------------------------*/
@@ -113,9 +109,14 @@ import com.opensymphony.xwork2.ActionSupport;
 	 */
 	public int calcTotalPrice(ArrayList<CartDTO> cartList) {
 		int totalPrice = 0;
+
+		System.out.println("カート件数:"+cartList.size());
+
 		for (CartDTO dto : cartList) {
 			totalPrice += dto.getPrice() * dto.getProductCount();
+
 			System.out.println("合計" + totalPrice + "円");
+			System.out.println("------------------------");
 		}
 		return totalPrice;
 	}

@@ -13,53 +13,64 @@
 
 	<h2>以下の内容で登録します</h2>
 
+<table>
 	<!-- 姓 -->
 
-	<div class="form-text">姓</div>
-	<span><s:property value="familyName" escape="false" />
-		<input type=hidden name="familyName" value='<s:property value="familyName" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="姓"/></th>
+		<td><s:property value="familyName"/><s:hidden name="familyName" value="%{familyName}"/></td>
+	</tr>
 
 	<!-- 名 -->
 
-	<div class="form-text">名</div>
-	<span><s:property value="firstName" escape="false" />
-		<input type=hidden name="firstName" value='<s:property value="firstName" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="名"/></th>
+		<td><s:property value="firstName"/><s:hidden name="firstName" value="%{firstName}"/></td>
+	</tr>
 
 	<!-- 姓ふりがな -->
 
-	<div class="form-text">姓ふりがな</div>
-	<span><s:property value="familyNameKana" escape="false" />
-		<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="姓ふりがな"/></th>
+		<td><s:property value="familyNameKana"/><s:hidden name="familyNameKana" value="%{familyNameKana}"/></td>
+	</tr>
 
 	<!-- 名ふりがな -->
 
-	<div class="form-text">名ふりがな</div>
-	<span><s:property value="firstNameKana" escape="false" />
-		<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="名ふりがな"/></th>
+		<td><s:property value="firstNameKana"/><s:hidden name="firstNameKana" value="%{firstNameKana}"/></td>
+	</tr>
 
-	<!-- 郵便番号 -->
+	<!-- 性別 -->
 
-	<div class="form-text">郵便番号</div>
-	<span><s:property value="zip11" escape="false" />
-		<input type=hidden name="zip11" value='<s:property value="zip11" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="性別"/></th>
+		<td><s:property value="sex"/><s:hidden name="sex" value="%{sex}"/></td>
+	</tr>
 
 	<!-- 住所 -->
 
-	<div class="form-text">住所</div>
-	<span><s:property value="addr11" escape="false" />
-	<input type=hidden name="addr11" value='<s:property value="addr11" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="住所"/></th>
+		<td><s:property value="userAddress"/><s:hidden name="userAddress" value="%{userAddress}"/></td>
+	</tr>
 
 	<!-- 電話番号 -->
 
-	<div class="form-text">電話番号</div>
-	<span><s:property value="telNumber" escape="false" />
-	<input type=hidden name="telNumber" value='<s:property value="telNumber" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="電話番号"/></th>
+		<td><s:property value="telNumber"/><s:hidden name="telNumber" value="%{telNumber}"/></td>
+	</tr>
 
 	<!-- メールアドレス -->
 
-	<div class="form-text">メールアドレス</div>
-	<span><s:property value="email" escape="false" />
-	<input type=hidden name="email" value='<s:property value="email" />'/></span>
+	<tr>
+		<th scope="row"><s:label value="メールアドレス"/></th>
+		<td><s:property value="email"/><s:hidden name="email" value="%{email}"/></td>
+	</tr>
+
+	</table>
 
 	<!-- 送信ボタン -->
 

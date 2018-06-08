@@ -21,6 +21,7 @@
 	<action name="GoHomeAction" class="com.internousdev.regalo.action.GoHomeAction" method="execute">
 		<result name="success">home.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="master">master.jsp</result>
 	</action>
 
 <!-- 郡山担当 -->
@@ -34,7 +35,7 @@
 	<!-- UserCreateConfirmAction -->
 	<action name="UserCreateConfirmAction" class="com.internousdev.regalo.action.UserCreateConfirmAction" method="execute">
 		<result name="success">userCreateConfirm.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">userCreate.jsp</result>
 	</action>
 
 	<!-- UserCreateCompleteAction -->
@@ -48,7 +49,7 @@
 	<!-- GoLoginAction -->
 	<action name="GoLoginAction" class="com.internousdev.regalo.action.GoLoginAction" method="execute">
 		<result name="success">login.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">home.jsp</result>
 	</action>
 
 	<!-- LoginAction -->
@@ -77,7 +78,7 @@
 	<!-- PasswordResetConfirmAction -->
 	<action name="PasswordResetConfirmAction" class="com.internousdev.regalo.action.PasswordResetConfirmAction" method="execute">
 		<result name="success">passwordResetConfirm.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">passwordReset.jsp</result>
 	</action>
 
 	<!-- PasswordResetCompleteAction -->
@@ -91,7 +92,7 @@
 	<!-- GoProductListAction -->
 	<action name="GoProductListAction" class="com.internousdev.regalo.action.GoProductListAction" method="execute">
 		<result name="success">productList.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">home.jsp</result>
 	</action>
 
 <!-- 商品詳細 -->
@@ -106,7 +107,7 @@
 	<!-- ProductSearchAction -->
 	<action name="ProductSearchAction" class="com.internousdev.regalo.action.ProductSearchAction" method="execute">
 		<result name="success">productDetail.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">home.jsp</result>
 	</action>
 
 <!-- 鎌田担当 -->
@@ -140,7 +141,7 @@
 	<!-- AddressCreateConfirmAction -->
 	<action name="AddressCreateConfirmAction" class="com.internousdev.regalo.action.AddressCreateConfirmAction" method="execute">
 		<result name="success">addressCreateConfirm.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">addressCreate.jsp</result>
 	</action>
 
 	<!-- AddressCreateCompleteAction -->
@@ -178,14 +179,14 @@
 	<!-- GoMyPageAction -->
 	<action name="GoMyPageAction" class="com.internousdev.regalo.action.GoMyPageAction" method="execute">
 		<result name="success">myPage.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">login.jsp</result>
 	</action>
 
 <!-- 購入履歴 -->
 	<!-- GoBuyProductHistoryAction -->
 	<action name="GoBuyProductHistoryAction" class="com.internousdev.regalo.action.GoBuyProductHistoryAction" method="execute">
 		<result name="success">buyProductHistory.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">myPage.jsp</result>
 	</action>
 
 <!-- 鎌田担当 -->
@@ -206,7 +207,7 @@
 	<!-- ProductInsertConfirmAction -->
 	<action name="ProductInsertConfirmAction" class="com.internousdev.regalo.action.ProductInsertConfirmAction" method="execute">
 		<result name="success">productInsertConfirm.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">productInsert.jsp</result>
 	</action>
 
 	<!-- ProductInsertCompleteAction -->
@@ -225,7 +226,7 @@
 	<!-- ProductUpdateConfirmAction -->
 	<action name="ProductUpdateConfirmAction" class="com.internousdev.regalo.action.ProductUpdateConfirmAction" method="execute">
 		<result name="success">productUpdateConfirm.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">productUpdate.jsp</result>
 	</action>
 
 	<!-- ProductUpdateCompleteAction -->
@@ -244,8 +245,9 @@
 	<!-- ProductDeleteAction -->
 	<action name="ProductDeleteAction" class="com.internousdev.regalo.action.ProductDeleteAction" method="execute">
 		<result name="success">productDeleteComplete.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">productDelete.jsp</result>
 	</action>
+
 
 </package>
 </struts>

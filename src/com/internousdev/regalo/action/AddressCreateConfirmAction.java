@@ -81,6 +81,14 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 
 	}
 
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
 	public String getDefaultSexValue() {
 		return defaultSexValue;
 	}

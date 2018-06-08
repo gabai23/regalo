@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.regalo.dao.AddressInfoDAO;
+import com.internousdev.regalo.dao.BuyProductCompleteDAO;
 import com.internousdev.regalo.dao.CartDAO;
 import com.internousdev.regalo.dao.LoginDAO;
 import com.internousdev.regalo.dao.ProductInfoDAO;
@@ -75,6 +76,27 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				session.put("userId", loginId);//userIdにloginIdの保持
 				session.put("saveLogin", loginId);//saveLoginの方が、データの指定がしやすいね。
 
+				//会員ランクを確認、sessionに格納
+				BuyProductCompleteDAO buyProductCompleteDAO = new BuyProductCompleteDAO();
+				int rank = 0;
+				try {
+					rank = buyProductCompleteDAO.getRank(loginId);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				session.put("rank", rank);
+
+				if(rank == 0){
+					System.out.println("一般会員です");
+				}
+				if(rank == 1){
+					System.out.println("シルバー会員です");
+				}
+				if(rank == 2){
+					System.out.println("ゴールド会員です");
+				}
+
+
 				//宛先情報取得 sessionに格納
 				AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
 				try {
@@ -104,9 +126,10 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				try {
 					if(loginDAO.masterCheck(loginId,password)){
 						ProductInfoDAO dao = new ProductInfoDAO();
-						productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
+						setProductInfoDTOList((ArrayList<ProductInfoDTO>) dao.getProductInfo());
 
 						session.put("masterId", "admin");
+						session.put("masterFlg", true);
 						System.out.println("管理者ログインしました");
 						result = MASTER;
 						return result;
@@ -254,6 +277,16 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	public void setSaveLogin(boolean saveLogin) {
 		this.saveLogin = saveLogin;
+	}
+
+
+	public ArrayList<ProductInfoDTO> getProductInfoDTOList() {
+		return productInfoDTOList;
+	}
+
+
+	public void setProductInfoDTOList(ArrayList<ProductInfoDTO> productInfoDTOList) {
+		this.productInfoDTOList = productInfoDTOList;
 	}
 
 
