@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+/*全体を囲う*/
+#productList {
+	width:100%;
+	height:auto;
+
+}
+
+#products {
+	width:30%;
+	height:150px;
+	margin-left:2.5%;
+}
+
+#image {
+	max-width:150px;
+	max-height:150px;
+}

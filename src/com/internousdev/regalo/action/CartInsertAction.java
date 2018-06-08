@@ -47,6 +47,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 		if (!(session.containsKey("userId")) && session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 			tempUserId = String.valueOf(session.get("tempUserId"));
+
 		}
 //		productCount = String.valueOf((productCount.split(" ,",0))[0]);
 
