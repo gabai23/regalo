@@ -37,7 +37,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	private Map<String,Object> session;
 
-	private ArrayList<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
+	private List<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
 	private ArrayList<ProductInfoDTO> productInfoDTOList;
 
 
@@ -45,6 +45,11 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	public String execute(){
 
 		String result = ERROR;
+
+		//セッション切れに対応
+		if(!(session.containsKey("loginFlg"))){
+			return result;
+		}
 
 		LoginDAO loginDAO = new LoginDAO();
 		InputChecker checker = new InputChecker();

@@ -24,7 +24,7 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 	private int productCount;
 	private int settlement;
 	private List<CartDTO> cartList = new ArrayList<CartDTO>();
-	private ArrayList<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
+	private List<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
 	String userId;
 
 
@@ -131,14 +131,10 @@ public class BuyProductConfirmAction extends ActionSupport implements SessionAwa
 	public void setSettlement(int settlement) {
 		this.settlement = settlement;
 	}
-
-
-	public ArrayList<AddressInfoDTO> getAddressInfoListDTO() {
+	public List<AddressInfoDTO> getAddressInfoListDTO() {
 		return addressInfoListDTO;
 	}
-
-
-	public void setAdressInfoListDTO(ArrayList<AddressInfoDTO> addressInfoListDTO) {
+	public void setAddressInfoListDTO(List<AddressInfoDTO> addressInfoListDTO) {
 		this.addressInfoListDTO = addressInfoListDTO;
 	}
 }
