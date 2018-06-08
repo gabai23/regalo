@@ -126,7 +126,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				try {
 					if(loginDAO.masterCheck(loginId,password)){
 						ProductInfoDAO dao = new ProductInfoDAO();
-						productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
+						setProductInfoDTOList((ArrayList<ProductInfoDTO>) dao.getProductInfo());
 
 						session.put("masterId", "admin");
 						System.out.println("管理者ログインしました");
@@ -276,6 +276,16 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	public void setSaveLogin(boolean saveLogin) {
 		this.saveLogin = saveLogin;
+	}
+
+
+	public ArrayList<ProductInfoDTO> getProductInfoDTOList() {
+		return productInfoDTOList;
+	}
+
+
+	public void setProductInfoDTOList(ArrayList<ProductInfoDTO> productInfoDTOList) {
+		this.productInfoDTOList = productInfoDTOList;
 	}
 
 
