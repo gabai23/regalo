@@ -1,12 +1,12 @@
 package com.internousdev.regalo.action;
 
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.regalo.dao.AddressInfoDAO;
-import com.internousdev.regalo.dto.AddressInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AddressCreateCompleteAction extends ActionSupport implements SessionAware {
@@ -15,35 +15,24 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String userAddress;
-	private String telNumber;
+	private String sex;
+	private List<String> sexList = new ArrayList<String>();
 	private String email;
+	private String telNumber;
+	private String userAddress;
+	private String categoryId;
 
 	public Map<String,Object> session;
 
-	public String execute() throws SQLException {
+	public String execute() {
 
 		String result = ERROR;
-
-		AddressInfoDTO addressInfoDTO = new AddressInfoDTO();
-
-		addressInfoDTO.setUserId(session.get("userId").toString());
-		addressInfoDTO.setFamilyName(familyName);
-		addressInfoDTO.setFirstName(firstName);
-		addressInfoDTO.setFamilyNameKana(familyNameKana);
-		addressInfoDTO.setFirstNameKana(firstNameKana);
-		addressInfoDTO.setUserAddress(userAddress);
-		addressInfoDTO.setTelNumber(telNumber);
-		addressInfoDTO.setEmail(email);
-
-		AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
-		if(addressInfoDAO.registerAddress(addressInfoDTO)) {
-
+		AddressInfoDAO addressInfoDao = new AddressInfoDAO();
+		int count = addressInfoDao.insert(String.valueOf(session.get("loginId")),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
+		if(count>0){
 			result = SUCCESS;
 		}
-
 		return result;
-
 	}
 
 	public String getFamilyName() {
@@ -78,20 +67,20 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 		this.firstNameKana = firstNameKana;
 	}
 
-	public String getUserAddress() {
-		return userAddress;
+	public String getSex() {
+		return sex;
 	}
 
-	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
-	public String getTelNumber() {
-		return telNumber;
+	public List<String> getSexList() {
+		return sexList;
 	}
 
-	public void setTelNumber(String telNumber) {
-		this.telNumber = telNumber;
+	public void setSexList(List<String> sexList) {
+		this.sexList = sexList;
 	}
 
 	public String getEmail() {
@@ -102,6 +91,30 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 		this.email = email;
 	}
 
+	public String getTelNumber() {
+		return telNumber;
+	}
+
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
+	}
+
+	public String getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -109,5 +122,124 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	public String execute() throws SQLException {
+//
+//		String result = ERROR;
+//
+//		AddressInfoDTO addressInfoDTO = new AddressInfoDTO();
+//
+//		addressInfoDTO.setUserId(session.get("userId").toString());
+//		addressInfoDTO.setFamilyName(familyName);
+//		addressInfoDTO.setFirstName(firstName);
+//		addressInfoDTO.setFamilyNameKana(familyNameKana);
+//		addressInfoDTO.setFirstNameKana(firstNameKana);
+//		addressInfoDTO.setUserAddress(userAddress);
+//		addressInfoDTO.setTelNumber(telNumber);
+//		addressInfoDTO.setEmail(email);
+//
+//		AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
+//		if(addressInfoDAO.getAddressInfo(addressInfoDTO)) {
+//
+//			result = SUCCESS;
+//		}
+//
+//		return result;
+//
+//	}
+//
+//	public String getFamilyName() {
+//		return familyName;
+//	}
+//
+//	public void setFamilyName(String familyName) {
+//		this.familyName = familyName;
+//	}
+//
+//	public String getFirstName() {
+//		return firstName;
+//	}
+//
+//	public void setFirstName(String firstName) {
+//		this.firstName = firstName;
+//	}
+//
+//	public String getFamilyNameKana() {
+//		return familyNameKana;
+//	}
+//
+//	public void setFamilyNameKana(String familyNameKana) {
+//		this.familyNameKana = familyNameKana;
+//	}
+//
+//	public String getFirstNameKana() {
+//		return firstNameKana;
+//	}
+//
+//	public void setFirstNameKana(String firstNameKana) {
+//		this.firstNameKana = firstNameKana;
+//	}
+//
+//	public String getUserAddress() {
+//		return userAddress;
+//	}
+//
+//	public void setUserAddress(String userAddress) {
+//		this.userAddress = userAddress;
+//	}
+//
+//	public String getTelNumber() {
+//		return telNumber;
+//	}
+//
+//	public void setTelNumber(String telNumber) {
+//		this.telNumber = telNumber;
+//	}
+//
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
+//
+//	public Map<String, Object> getSession() {
+//		return session;
+//	}
+//
+//	public void setSession(Map<String, Object> session) {
+//		this.session = session;
+//	}
 
 }

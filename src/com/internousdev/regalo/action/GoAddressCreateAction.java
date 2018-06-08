@@ -21,8 +21,7 @@ public class GoAddressCreateAction extends ActionSupport {
 	private String secretAnswer;
 	private String email;
 	private String telNumber;
-	private String addr11;
-	private String zip11;
+	private String userAddress;
 	private Map<String,Object> session;
 
 
@@ -122,20 +121,12 @@ public class GoAddressCreateAction extends ActionSupport {
 		this.telNumber = telNumber;
 	}
 
-	public String getAddr11() {
-		return addr11;
+	public String getUserAddress() {
+		return userAddress;
 	}
 
-	public void setAddr11(String addr11) {
-		this.addr11 = addr11;
-	}
-
-	public String getZip11() {
-		return zip11;
-	}
-
-	public void setZip11(String zip11) {
-		this.zip11 = zip11;
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	public Map<String, Object> getSession() {

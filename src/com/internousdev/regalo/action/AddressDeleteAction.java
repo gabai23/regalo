@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AddressDeleteAction extends ActionSupport implements SessionAware {
 
 	private Map<String,Object> session;
-	private ArrayList<AddressInfoDTO> addressList = new ArrayList<AddressInfoDTO>();
+	private List<AddressInfoDTO> addressList = new ArrayList<AddressInfoDTO>();
 	private String message;    //削除メッセージ
 	private String deleteFlg;  //削除フラグ
 
@@ -141,12 +141,16 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
-	public ArrayList<AddressInfoDTO> getAddressList() {
+	public List<AddressInfoDTO> getAddressList() {
 		return addressList;
 	}
 
-	public void setAddressList(ArrayList<AddressInfoDTO> addressList) {
+	public void setAddressList(List<AddressInfoDTO> addressList) {
 		this.addressList = addressList;
+	}
+
+	public List<CartDTO> getCartDtoList() {
+		return CartDtoList;
 	}
 
 	public String getMessage() {
