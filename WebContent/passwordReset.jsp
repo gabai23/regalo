@@ -11,21 +11,26 @@
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
 
-	<s:form action="PasswordResetConfirmAction">
+	<s:form action="PasswordResetConfirmAction" theme="simple">
 
 	<!-- ログインID -->
 	<table>
 	<tr>
 		<th>ログインID:</th>
 		<td><s:textfield name="userId" size="8"/></td>
+		<td>
 		<s:if test="!(errorId.equals(''))">
-		<s:property value="errorId"/>
+			<s:property value="errorId"/>
 		</s:if>
+		<s:elseif test="!errorMessageId.isEmpty()">
+			<s:property value="errorMessageId"/>
+		</s:elseif>
 		<s:if test="ErrorUserIdList.length > 0">
 			<s:iterator value="ErrorUserIdList">
 				<s:property />
 			</s:iterator>
 		</s:if>
+		</td>
 	</tr>
 
 	<!-- パスワード -->
@@ -50,12 +55,10 @@
 <%-- 			<s:property value="errorRePass"/> --%>
 <%-- 		</s:if> --%>
 
-		<s:if test="!errorMessage.isEmpty()">
-			<s:property value="errorMessage"/>
-		</s:if>
+
 
 		<s:if test="!(password1.equals(password2))">
-		<s:property value="errorMessage"/>
+		<s:property value="errorMessagePassword"/>
 		</s:if>
 		<s:if test="ErrorReconfirmPassList.size()>0">
 			<s:iterator value="ErrorReconfirmPassList">

@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class PasswordResetConfirmAction extends ActionSupport {
 
-	private String userId;      //ユーザーID
+	private String userId = "";      //ユーザーID
 	private String password1;   //パスワード
 	private String password2;   //確認パスワード
 
@@ -19,7 +19,8 @@ public class PasswordResetConfirmAction extends ActionSupport {
 	private String errorId = "";        //IDエラー
 	private String errorPass = "";      //パスワードエラー
 	private String errorRePass = "";    //確認用パスワードエラー
-	private String errorMessage = "";   //エラーメッセージ
+	private String errorMessagePassword = "";   //エラーメッセージパスワード
+	private String errorMessageId = "";   //エラーメッセージID
 
 	int i;
 
@@ -28,6 +29,8 @@ public class PasswordResetConfirmAction extends ActionSupport {
 	public List<String> ErrorReconfirmPassList = new ArrayList<String>();
 
 	public String execute() {
+
+		System.out.println("userId"+userId);
 
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
@@ -80,20 +83,25 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		//パスワードと確認パスワードが入力されていて一致しなかったらエラーメッセージを出す
 
 		if(!(password1.equals(password2))) {
-			errorMessage += "入力されたパスワードが異なります。";
+			errorMessagePassword += "入力されたパスワードが異なります。";
 			result = ERROR;
 		}
 
 //		if(!(password1.equals("") && password2.equals(""))) {
 //		}
 
-		PasswordResetCompleteDAO dao = new PasswordResetCompleteDAO();
-		boolean check = dao.passwordConfirm(userId, password1);
 
-		//ユーザーIDが正しくなかったらエラーメッセージを出す
-		if(!check) {
-			errorMessage += "ログインIDが異なります。";
-			result = ERROR;
+		if((userId != "") && (password1 != "")){
+
+			PasswordResetCompleteDAO dao = new PasswordResetCompleteDAO();
+			boolean check = dao.passwordConfirm(userId, password1);
+
+
+			//ユーザーIDが正しくなかったらエラーメッセージを出す
+			if(!check) {
+				errorMessageId += "ログインIDが異なります。";
+				result = ERROR;
+			}
 		}
 
 		return result;
@@ -196,20 +204,20 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		ErrorReconfirmPassList = errorReconfirmPassList;
 	}
 
-	public String getErrorMessagePass() {
-		return errorMessage;
+	public String getErrorMessagePassword() {
+		return errorMessagePassword;
 	}
 
-	public void setErrorMessagePass(String errorMessagePass) {
-		this.errorMessage = errorMessagePass;
+	public void setErrorMessagePassword(String errorMessagePassword) {
+		this.errorMessagePassword = errorMessagePassword;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getErrorMessageId() {
+		return errorMessageId;
 	}
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public void setErrorMessageId(String errorMessageId) {
+		this.errorMessageId = errorMessageId;
 	}
 
 
