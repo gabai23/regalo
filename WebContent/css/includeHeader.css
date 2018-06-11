@@ -44,11 +44,11 @@ font-family: 'Arizonia', cursive;
 /*  */
 }
 
-/* #headerSearch { */
-/* position: relative; */
-/* bottom:150px; */
-/* left:900px; */
-/* } */
+#headerSearch {
+position: relative;
+width:450px;
+margin:0 auto;
+}
 
 .right-list{
 	font-family: 'Cinzel', serif;

@@ -1,8 +1,9 @@
 @CHARSET "UTF-8";
 
 /*ヘッダーとフッターの間に空間を作る*/
-#main {
-	min-height:800px;
 
+#main {
+/* 	min-height:800px; */
 	background-color:black;
+	color:white;
 }
