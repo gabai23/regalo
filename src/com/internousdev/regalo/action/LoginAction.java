@@ -38,7 +38,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private Map<String,Object> session;
 
 	private List<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
-	private ArrayList<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
+	private ArrayList<ProductInfoDTO> productInfoDTOList ;
 
 
 	//Believe in your possibilities!!

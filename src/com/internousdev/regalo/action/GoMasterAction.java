@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoMasterAction extends ActionSupport implements SessionAware {
 
-	private ArrayList<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
+	private ArrayList<ProductInfoDTO> productInfoDTOList;
 
 	Map<String, Object> session;
 
