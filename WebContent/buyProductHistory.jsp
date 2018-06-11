@@ -9,6 +9,8 @@
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<link rel="stylesheet" type="text/css" href="">
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<link rel="stylesheet" href="./css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
 <title>buyProductHistory</title>
 </head>

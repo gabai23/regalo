@@ -17,6 +17,9 @@ if(!(session.getAttribute("masterId") == "admin")){
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="./css/master.css">
+<link rel="stylesheet" href="./css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+
 <title>管理画面</title>
 <style type="text/css"></style>
 </head>

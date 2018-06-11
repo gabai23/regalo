@@ -9,6 +9,9 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/productList.css">
+<link rel="stylesheet" href="./css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+
 <title>商品一覧</title>
 </head>
 <body>

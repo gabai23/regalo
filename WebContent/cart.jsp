@@ -6,9 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+
+
 <title>カート</title>
+<style type="text/css">
 
 
+
+</style>
 </head>
 <body>
 <jsp:include page="includeHeader.jsp" />
