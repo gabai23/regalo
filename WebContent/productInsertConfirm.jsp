@@ -48,10 +48,7 @@ if(!(session.getAttribute("masterId") == "admin")){
 					<b>値段:</b><s:property value="session.price" />円<br>
 				</div>
 				<div class="character">
-					<b>発売日:</b><s:property value="session.releaseDate" /><br>
-				</div>
-				<div class="character">
-					<b>ステータス:</b><s:property value="session.StatusName" /><br>
+					<b>販売会社:</b><s:property value="session.releaseCompany" /><br>
 				</div>
 
 

@@ -3,6 +3,7 @@ package com.internousdev.regalo.action;
 
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -20,17 +21,44 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 	private ProductInsertCompleteDAO ProductInsertCompleteDAO = new ProductInsertCompleteDAO();
 
 
+	//商品ID
+	private int productId;
+
+	//商品名
 	private String productName;
-	private String productKanaName;
-	private String price;
-	private String productStock;
+
+	//商品名かな
+	private String productNameKana;
+
+	//商品詳細
+	private String productDescription;
+
+	//カテゴリID
+	private int categoryId;
+
+	//価格
+	private int price;
+
+	//画像ファイルパス
+	private String imageFilePath;
+
+	//画像ファイル名
 	private String imageFileName;
-	private String imageName;
-	private String company;
-	private String productId;
-	private String category;
-	private String description;
-	private String release;
+
+	//販売年月
+	private Date releaseDate;
+
+	//販売会社
+	private String releaseCompany;
+
+	//ステータス
+	private int status;
+
+	//登録日
+	private Date registDate;
+
+	//更新日
+	private Date updateDate;
 
 
 
@@ -39,40 +67,31 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 
 
 		ProductInsertCompleteDAO.buyProductInfo(
-				Integer.parseInt(productId.toString()),
+
+				productId,
 				productName,
-				productKanaName,
-				Integer.parseInt(price.toString()),
-				Integer.parseInt(productStock.toString()),
-				imageFileName,
-				imageName,
-				company,
-				description,
-				Integer.parseInt(category.toString())
+				productNameKana,
+				productDescription,
+				categoryId,
+				price,
+				imageFilePath,
+				imageFileName
+
+//				Integer.parseInt(productId.toString()),
+//				productName,
+//				productKanaName,
+//				Integer.parseInt(price.toString()),
+//				Integer.parseInt(productStock.toString()),
+//				imageFileName,
+//				imageName,
+//				company,
+//				description,
+//				Integer.parseInt(category.toString())
 				);
 		String result = SUCCESS;
 		return result;
 	}
 
-
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-	public String getRelease() {
-		return release;
-	}
-
-
-	public void setRelease(String release) {
-		this.release = release;
-	}
 
 
 	public Map<String, Object> getSession() {
@@ -80,29 +99,35 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 	}
 
 
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
 
-	public String getCategory() {
-		return category;
+
+	public ProductInsertCompleteDAO getProductInsertCompleteDAO() {
+		return ProductInsertCompleteDAO;
 	}
 
 
-	public void setCategory(String category) {
-		this.category = category;
+
+	public void setProductInsertCompleteDAO(ProductInsertCompleteDAO productInsertCompleteDAO) {
+		ProductInsertCompleteDAO = productInsertCompleteDAO;
 	}
 
 
-	public String getProductId() {
+
+	public int getProductId() {
 		return productId;
 	}
 
 
-	public void setProductId(String productId) {
+
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
+
 
 
 	public String getProductName() {
@@ -110,38 +135,69 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 	}
 
 
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
 
-	public String getProductKanaName() {
-		return productKanaName;
+
+	public String getProductNameKana() {
+		return productNameKana;
 	}
 
 
-	public void setProductKanaName(String productKanaName) {
-		this.productKanaName = productKanaName;
+
+	public void setProductNameKana(String productNameKana) {
+		this.productNameKana = productNameKana;
 	}
 
 
-	public String getPrice() {
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+
+
+	public int getPrice() {
 		return price;
 	}
 
 
-	public void setPrice(String price) {
+
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
 
-	public String getProductStock() {
-		return productStock;
+
+	public String getImageFilePath() {
+		return imageFilePath;
 	}
 
 
-	public void setProductStock(String productStock) {
-		this.productStock = productStock;
+
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
 	}
 
 
@@ -151,39 +207,72 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 	}
 
 
+
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}
 
 
-	public ProductInsertCompleteDAO getProductInsertCompleteDAO() {
-		return ProductInsertCompleteDAO;
+
+	public Date getReleaseDate() {
+		return releaseDate;
 	}
 
 
-	public void setProductInsertCompleteDAO(ProductInsertCompleteDAO ProductInsertCompleteDAO) {
-		this.ProductInsertCompleteDAO = ProductInsertCompleteDAO;
+
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 
-	public String getImageName() {
-		return imageName;
+
+	public String getReleaseCompany() {
+		return releaseCompany;
 	}
 
 
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+
+	public void setReleaseCompany(String releaseCompany) {
+		this.releaseCompany = releaseCompany;
 	}
 
 
-	public String getCompany() {
-		return company;
+
+	public int getStatus() {
+		return status;
 	}
 
 
-	public void setCompany(String company) {
-		this.company = company;
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
+
+
+
+	public Date getRegistDate() {
+		return registDate;
+	}
+
+
+
+	public void setRegistDate(Date registDate) {
+		this.registDate = registDate;
+	}
+
+
+
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+
 
 
 

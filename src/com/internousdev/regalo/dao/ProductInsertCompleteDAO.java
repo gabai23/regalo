@@ -11,8 +11,8 @@ public class ProductInsertCompleteDAO {
 	private DateUtil dateUtil = new DateUtil();
 	private String sql = "INSERT INTO product_info(product_id,product_name,product_name_kana,price,product_stock,image_file_path,image_file_name,release_company,product_description,category_id,release_date,insert_date)VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
-	public void buyProductInfo(int product_id,String product_name, String product_name_kana, int price,int product_stock, String imageFileName,
-			String image_file_name, String release_company,String product_description,int category_id) throws SQLException {
+	public void buyProductInfo(int productId, String productName, String productNameKana, String productDescription,
+			int categoryId, int price, String imageFilePath, String imageFileName) throws SQLException {
 
 		DBConnector dbConnector = new DBConnector();
 		 Connection connection = dbConnector.getConnection();
@@ -21,16 +21,16 @@ public class ProductInsertCompleteDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			String path = "./images/" + imageFileName;
 
-			preparedStatement.setInt(1,product_id);
-			preparedStatement.setString(2, product_name);
-			preparedStatement.setString(3, product_name_kana);
+			preparedStatement.setInt(1,productId);
+			preparedStatement.setString(2, productName);
+			preparedStatement.setString(3, productNameKana);
 			preparedStatement.setInt(4, price);
-			preparedStatement.setInt(5, product_stock);
-			preparedStatement.setString(6, path);
-			preparedStatement.setString(7, image_file_name);
-			preparedStatement.setString(8, release_company);
-			preparedStatement.setString(9,product_description);
-			preparedStatement.setInt(10,category_id);
+			preparedStatement.setInt(5, 50);
+			preparedStatement.setString(6, imageFilePath);
+			preparedStatement.setString(7, imageFileName);
+			preparedStatement.setString(8, "regalo");
+			preparedStatement.setString(9,productDescription);
+			preparedStatement.setInt(10,categoryId);
 			preparedStatement.setString(11,dateUtil.getDate());
 			preparedStatement.setString(12, dateUtil.getDate());
 			preparedStatement.execute();
@@ -40,6 +40,8 @@ public class ProductInsertCompleteDAO {
 			connection.close();
 		}
 	}
+
+
 
 
 
