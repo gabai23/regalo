@@ -13,6 +13,39 @@
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
 <title>buyProductHistory</title>
+
+
+  <style type="text/css">
+
+
+    #top{
+    		width:780px;
+    		margin:20px auto;
+/*      border:1px solid #333; */
+    		text-align:center;
+    		font-size:20px;
+    		font-weight: 500;
+
+    }
+
+
+
+    body{
+    		margin:0;
+    		padding:0;
+    		line-height:1.6;
+    		letter-spacing:1px;
+    		font-size:12px;
+    		color:#333;
+    }
+
+        #main{
+    		width:100%;
+    		height:500px;
+    		text-align: center;
+    }
+
+ </style>
 </head>
 <body>
 
