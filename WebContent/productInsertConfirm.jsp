@@ -42,7 +42,7 @@ if(!(session.getAttribute("masterId") == "admin")){
 					<b>商品詳細:</b><s:property value="session.productDescription" /><br>
 				</div>
 				<div class="character">
-					<b>カテゴリ:</b><s:property value="session.categoryName" /><br>
+					<b>商品カテゴリ:</b><s:property value="session.categoryId" /><br>
 				</div>
 				<div class="character">
 					<b>値段:</b><s:property value="session.price" />円<br>
