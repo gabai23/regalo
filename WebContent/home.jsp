@@ -33,7 +33,7 @@
 /*     } */
 
    .bgslideshow { position: fixed; left:0; top:0; z-index: -1; height: 100%; width: 100%; }
-   .bgslideshow img { position: absolute; min-height: 90%; min-width: 100%; width: 100%; height: auto;left:0; top:0; }
+   .bgslideshow img { position: absolute; min-height: 90%; min-width: 100%; width: 100%; height: 100%;left:0; top:0; }
 
 
 </style>
@@ -43,7 +43,7 @@
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 <div class="bgslideshow">
-<img  src="./images/haikei2.jpg">
+<img  src="./images/wine1.jpg">
 <img  src="./images/sozai4.jpg" >
 <img  src="./images/sraido1.jpeg" >
 </div>

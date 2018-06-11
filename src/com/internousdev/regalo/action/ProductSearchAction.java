@@ -55,6 +55,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		if (searchWord.length() > 16){
 
+
 			messageList.add("16文字以内で検索してください");
 			ret=SUCCESS;
 			return ret;
@@ -98,8 +99,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			for(String str : searchWords){
 
 			notUniqueBuyProductDTOList = productSearchDAO.BySearchWord(str);
-//
-//			}
+
+			}
 
 			//重複ありのIDリストを作成
 			List<Integer> idList = new ArrayList<Integer>();
@@ -153,7 +154,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			 * 複数検索カテゴリーあり
 			 */
 
-		}else if(categoryId >=1 && space > 0){
+		 else if(categoryId >=1 && space > 0){
 
 			List<ProductSearchDTO> notUniqueBuyProductDTOList = new ArrayList<ProductSearchDTO>();
 
@@ -182,7 +183,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			//重複なしのリストを作成
 			List<Integer> uniqueIdList = new ArrayList<Integer>(new HashSet<>(idList));
-//			session.put("uniqueIdList", uniqueIdList);
+			session.put("uniqueIdList", uniqueIdList);
 
 			//SQL文作成
 			StringBuilder sb = new StringBuilder();
