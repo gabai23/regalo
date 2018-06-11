@@ -17,12 +17,14 @@
 	<table>
 	<tr>
 		<th>ログインID:</th>
-		<td><input type="text" name="userId" size="8"></td>
+		<td><s:textfield name="userId" size="8"/></td>
 		<s:if test="!(errorId.equals(''))">
 		<s:property value="errorId"/>
 		</s:if>
-		<s:if test="!check">
-		<s:property value="errorMessage"/>
+		<s:if test="ErrorUserIdList.length > 0">
+			<s:iterator value="ErrorUserIdList">
+				<s:property />
+			</s:iterator>
 		</s:if>
 	</tr>
 
@@ -30,8 +32,13 @@
 	<tr>
 		<th>パスワード:</th>
 		<td><input type="text" name="password1" size="8"><td>
-		<s:if test="!(errorPass.equals(''))">
-		<s:property value="errorPass"/>
+<%-- 		<s:if test="!(errorPass.equals(''))"> --%>
+<%-- 		<s:property value="errorPass"/> --%>
+<%-- 		</s:if> --%>
+		<s:if test="!ErrorPasswordList1.isEmpty()">
+			<s:iterator value="ErrorPasswordList1">
+				<s:property />
+			</s:iterator>
 		</s:if>
 	</tr>
 
@@ -39,11 +46,21 @@
 	<tr>
 		<th>確認パスワード:</th>
 		<td><input type="text" name="password2" size="8"><td>
-		<s:if test="!(errorRePass.equals(''))">
-		<s:property value="errorRePass"/>
+<%-- 		<s:if test="!(errorRePass.equals(''))"> --%>
+<%-- 			<s:property value="errorRePass"/> --%>
+<%-- 		</s:if> --%>
+
+		<s:if test="!errorMessage.isEmpty()">
+			<s:property value="errorMessage"/>
 		</s:if>
+
 		<s:if test="!(password1.equals(password2))">
 		<s:property value="errorMessage"/>
+		</s:if>
+		<s:if test="ErrorReconfirmPassList.size()>0">
+			<s:iterator value="ErrorReconfirmPassList">
+				<s:property />
+			</s:iterator>
 		</s:if>
 	</tr>
 	</table>

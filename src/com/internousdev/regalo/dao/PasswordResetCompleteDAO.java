@@ -43,18 +43,19 @@ public class PasswordResetCompleteDAO {
 		return check;
 	}
 
-	public boolean passwordConfirm(String userId){
+	public boolean passwordConfirm(String userId, String password){
 		boolean result = false;
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
 		//ユーザーIDから検索
-		String sql = "SELECT count(user_id) as count FROM user_info WHERE user_id = ?";
+		String sql = "SELECT count(user_id) as count FROM user_info WHERE user_id = ? and password = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,userId);
+			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
