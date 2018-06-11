@@ -6,16 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.regalo.dto.ProductSearchDTO;
+import com.internousdev.regalo.dto.ProductInfoDTO;
 import com.internousdev.regalo.util.DBConnector;
 
 public class ProductSearchDAO {
 
-	private ArrayList<ProductSearchDTO> searchList = new ArrayList<ProductSearchDTO>();
+	private ArrayList<ProductInfoDTO> searchList = new ArrayList<ProductInfoDTO>();
 
 	//☆★全ての商品を表示★☆
 
-	public ArrayList<ProductSearchDTO> AllProductInfo(
+	public ArrayList<ProductInfoDTO> AllProductInfo(
 //			int pages, int max_product_display
 			){
 
@@ -23,7 +23,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info) FROM product_info";
+		String sql = "SELECT * FROM product_info";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -32,23 +32,22 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				ProductSearchDTO dto = new ProductSearchDTO();
+				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProduct_id(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setProduct_description(rs.getString("product_description"));
-				dto.setCategory_id(rs.getInt("category_id"));
-				dto.setProduct_price(rs.getInt("product_price"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
+				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-				dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info)"));
-				dto.setHow_product_search("AllProductInfo");
+				/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info)"));*/
+				dto.setHowProductSearch("AllProductInfo");
 
 				searchList.add(dto);
 
 			}
-			System.out.println("全件件数"+(searchList.get(0)).getProduct_type_count());
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -61,7 +60,7 @@ public class ProductSearchDAO {
 
 	//☆★複数検索カテゴリーなし★☆
 
-	public ArrayList<ProductSearchDTO> ByProductId(String sq
+	public ArrayList<ProductInfoDTO> ByProductId(String sq
 //			, int pages, int max_product_display
 			){
 
@@ -69,7 +68,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *, (SELECT COUNT(*) FROM product_info WHERE " + sq + ") FROM product_info WHERE "  + sq;
+		String sql = "SELECT * FROM product_info WHERE "  + sq;
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -78,18 +77,18 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				ProductSearchDTO dto = new ProductSearchDTO();
+				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProduct_id(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setProduct_description(rs.getString("product_description"));
-				dto.setCategory_id(rs.getInt("category_id"));
-				dto.setProduct_price(rs.getInt("product_price"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
+				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-				dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE "+ sq +")"));
-				dto.setHow_product_search("ByProductId");
+				/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE "+ sq +")"));*/
+				dto.setHowProductSearch("ByProductId");
 				searchList.add(dto);
 
 			}
@@ -105,7 +104,7 @@ public class ProductSearchDAO {
 
 	//☆★商品IDとカテゴリーIDで検索★☆
 
-	public ArrayList<ProductSearchDTO> ByProductIdAndCategory(String sq,int category_id
+	public ArrayList<ProductInfoDTO> ByProductIdAndCategory(String sq,int category_id
 //			, int pages, int max_product_display
 			){
 
@@ -113,7 +112,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE "+ sq + "AND category_id = ?)FROM product_info WHERE " + sq + "AND category_id = ?";
+		String sql = "SELECT * FROM product_info WHERE " + sq + "AND category_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -124,18 +123,18 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				ProductSearchDTO dto = new ProductSearchDTO();
+				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProduct_id(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setProduct_description(rs.getString("product_description"));
-				dto.setCategory_id(rs.getInt("category_id"));
-				dto.setProduct_price(rs.getInt("product_price"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
+				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-				dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE " + sq + "AND category_id = " + category_id + ")"));
-				dto.setHow_product_search("ByProductIdAndCategory");
+				/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE " + sq + "AND category_id = " + category_id + ")"));*/
+				dto.setHowProductSearch("ByProductIdAndCategory");
 				searchList.add(dto);
 
 			}
@@ -151,7 +150,7 @@ public class ProductSearchDAO {
 
 
 	//☆★検索ワードのみで検索★☆
-	public ArrayList<ProductSearchDTO> BySearchWord(String search_word
+	public ArrayList<ProductInfoDTO> BySearchWord(String search_word
 //			,int pages, int max_product_display
 			){
 
@@ -159,7 +158,7 @@ public class ProductSearchDAO {
 
 		Connection con  =db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name LIKE \'%" + search_word +"%\' OR product_name_kana LIKE \'%"+ search_word + "%\') FROM product_info WHERE  product_name LIKE \'%"+ search_word +"%\' OR product_name_kana LIKE \'%"+ search_word +"%\'";
+		String sql = "SELECT * FROM product_info WHERE  product_name LIKE \'%"+ search_word +"%\' OR product_name_kana LIKE \'%"+ search_word +"%\'";
 
 		try{
 			PreparedStatement ps =con.prepareStatement(sql);
@@ -168,18 +167,18 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				ProductSearchDTO dto = new ProductSearchDTO();
+				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProduct_id(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setProduct_description(rs.getString("product_description"));
-				dto.setCategory_id(rs.getInt("category_id"));
-				dto.setProduct_price(rs.getInt("product_price"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
+				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-				dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE product_name LIKE '%" + search_word +"%' OR product_name_kana LIKE '%"+ search_word +"%')"));
-				dto.setHow_product_search("BySearchWord");
+				/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE product_name LIKE '%" + search_word +"%' OR product_name_kana LIKE '%"+ search_word +"%')"));*/
+				dto.setHowProductSearch("BySearchWord");
 				searchList.add(dto);
 
 			}
@@ -193,7 +192,7 @@ public class ProductSearchDAO {
 
 
 	//☆★カテゴリのみで検索★☆
-	public ArrayList<ProductSearchDTO> ByProductCategory(int category_id
+	public ArrayList<ProductInfoDTO> ByProductCategory(int category_id
 //			, int pages, int max_product_display
 			){
 
@@ -201,7 +200,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE category_id = ?) FROM prduct_info WHERE category_id = ?";
+		String sql = "SELECT * FROM prduct_info WHERE category_id = ?";
 
 		try{
 			PreparedStatement ps =con.prepareStatement(sql);
@@ -212,22 +211,21 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				ProductSearchDTO dto = new ProductSearchDTO();
+				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProduct_id(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setProduct_description(rs.getString("product_description"));
-				dto.setCategory_id(rs.getInt("category_id"));
-				dto.setProduct_price(rs.getInt("product_price"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
+				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-				dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE  category_id = " + category_id + ")"));
-				dto.setHow_product_search("ByProductCategory");
+				/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE  category_id = " + category_id + ")"));*/
+				dto.setHowProductSearch("ByProductCategory");
 				searchList.add(dto);
 
 			}
-			System.out.println("カテゴリー検索件数"+(searchList.get(0)).getProduct_type_count());
 	}catch(SQLException e){
 		e.printStackTrace();
 	}catch(Exception e){
@@ -237,7 +235,7 @@ public class ProductSearchDAO {
 	}
 
 	//☆★カテゴリあり、検索値あり★☆
-	public ArrayList<ProductSearchDTO> ByCategoryAndSearchWord(String search_word, int category_id
+	public ArrayList<ProductInfoDTO> ByCategoryAndSearchWord(String search_word, int category_id
 //			, int pages, int max_product_display
 			){
 
@@ -245,7 +243,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name LIKE \'%"+ search_word +"%\' AND category_id = ?) FROM product_info WHERE product_name LIKE \'%"+ search_word + "%\' AND category_id = ?";
+		String sql = "SELECT * FROM product_info WHERE product_name LIKE \'%"+ search_word + "%\' AND category_id = ?";
 
 
 	try {
@@ -257,18 +255,18 @@ public class ProductSearchDAO {
 		ResultSet rs = ps.executeQuery();
 
 		while(rs.next()){
-			ProductSearchDTO dto = new ProductSearchDTO();
+			ProductInfoDTO dto = new ProductInfoDTO();
 
-			dto.setProduct_id(rs.getInt("product_id"));
-			dto.setProduct_name(rs.getString("product_name"));
-			dto.setProduct_name_kana(rs.getString("product_name_kana"));
-			dto.setProduct_description(rs.getString("product_description"));
-			dto.setCategory_id(rs.getInt("category_id"));
-			dto.setProduct_price(rs.getInt("product_price"));
-			dto.setImage_file_name(rs.getString("image_file_name"));
+			dto.setProductId(rs.getInt("product_id"));
+			dto.setProductName(rs.getString("product_name"));
+			dto.setProductNameKana(rs.getString("product_name_kana"));
+			dto.setProductDescription(rs.getString("product_description"));
+			dto.setCategoryId(rs.getInt("category_id"));
+			dto.setPrice(rs.getInt("price"));
+			dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-			dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE  product_name LIKE '%" + search_word +"%' AND category_id =" + category_id +")"));
-			dto.setHow_product_search("ByCategoryAndSearchWord");
+			/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT(*) FROM product_info WHERE  product_name LIKE '%" + search_word +"%' AND category_id =" + category_id +")"));*/
+			dto.setHowProductSearch("ByCategoryAndSearchWord");
 			searchList.add(dto);
 
 		}
@@ -283,7 +281,7 @@ public class ProductSearchDAO {
 
 
 	//☆★ひらがな、カタカナ検索★☆
-	public ArrayList<ProductSearchDTO> BySearchWordKana(String search_word
+	public ArrayList<ProductInfoDTO> BySearchWordKana(String search_word
 //			, int pages, int max_product_display
 			){
 
@@ -291,7 +289,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name_kana LIKE \'%" + search_word +"%\') FROM product_info WHERE product_name_kana LIKE \'%"+ search_word +"%\' ";
+		String sql = "SELECT * FROM product_info WHERE product_name_kana LIKE \'%"+ search_word +"%\' ";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -301,18 +299,18 @@ public class ProductSearchDAO {
 
 
 			while(rs.next()){
-				ProductSearchDTO dto = new ProductSearchDTO();
+				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProduct_id(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setProduct_description(rs.getString("product_description"));
-				dto.setCategory_id(rs.getInt("category_id"));
-				dto.setProduct_price(rs.getInt("product_price"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
+				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-				dto.setProduct_type_count(rs.getInt("(SELECT COUNT (*) FROM product_info WHERE product_name_kana LIKE '%" + search_word + "%')"));
-				dto.setHow_product_search("BySearchWordKana");
+				/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT (*) FROM product_info WHERE product_name_kana LIKE '%" + search_word + "%')"));*/
+				dto.setHowProductSearch("BySearchWordKana");
 				searchList.add(dto);
 
 			}
@@ -328,7 +326,7 @@ public class ProductSearchDAO {
 
 
 	//☆★カテゴリーとかなで検索★☆
-	public ArrayList<ProductSearchDTO> ByCategoryAndSearchWordKana(int category_id, String search_word
+	public ArrayList<ProductInfoDTO> ByCategoryAndSearchWordKana(int category_id, String search_word
 //			, int pages, int max_product_display
 			){
 
@@ -336,7 +334,7 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT *,(SELECT COUNT(*) FROM product_info WHERE product_name_kana LIKE \'%" + search_word + "%\' AND category_id =?) FROM product_info WHERE product_name_kana LIKE \'%" + search_word + "%\' AND category_id = ?";
+		String sql = "SELECT * FROM product_info WHERE product_name_kana LIKE \'%" + search_word + "%\' AND category_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -347,18 +345,18 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				ProductSearchDTO dto = new ProductSearchDTO();
+				ProductInfoDTO dto = new ProductInfoDTO();
 
-				dto.setProduct_id(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setProduct_description(rs.getString("product_description"));
-				dto.setCategory_id(rs.getInt("category_id"));
-				dto.setProduct_price(rs.getInt("product_price"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
+				dto.setProductId(rs.getInt("product_id"));
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" +rs.getString("image_file_name"));
 
-				dto.setProduct_type_count(rs.getInt("(SELECT COUNT (*) FROM product_info WHERE product_name_kana LIKE '%" + search_word + "%' AND category_id="+ category_id +")"));
-				dto.setHow_product_search("ByCategoryAndSearchWordKana");
+				/*dto.setProduct_type_count(rs.getInt("(SELECT COUNT (*) FROM product_info WHERE product_name_kana LIKE '%" + search_word + "%' AND category_id="+ category_id +")"));*/
+				dto.setHowProductSearch("ByCategoryAndSearchWordKana");
 				searchList.add(dto);
 
 			}

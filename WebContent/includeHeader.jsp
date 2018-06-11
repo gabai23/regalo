@@ -40,18 +40,18 @@
 			<s:form action="GoMyPageAction">
 				<button class="button1" type="submit">MY PAGE</button>
 			</s:form></div></li></div></ul>
-			</div><br>
+			</div></div>
 		<div id="headerSearch">
 			<s:form action="ProductSearchAction" theme="simple">
-				<select>
-					<option>ALL  ITEM</option>
-					<option>FOOD</option>
-					<option>WINE</option>
-					<option>ACCESSORIES</option>
-					<option>WATCH</option>
+				<select name="categoryId">
+					<option value=1>ALL  ITEM</option>
+					<option value=2>FOOD</option>
+					<option value=3>WINE</option>
+					<option value=4>ACCESSORIES</option>
+					<option value=5>WATCH</option>
 				</select>
-				<s:textfield/>
+				<s:textfield name="searchWord"/>
 				<button  class="button1" type="submit">SEARCH</button>
-			</s:form></div></div>
+			</s:form></div>
 </body>
 </html>

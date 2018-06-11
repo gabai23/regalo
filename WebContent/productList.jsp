@@ -21,6 +21,12 @@
 			<span>商品一覧</span>
 		</div>
 
+		<div id="error">
+			<s:iterator value="messageList">
+				<s:property/>
+			</s:iterator>
+		</div>
+
 		<!-- 商品一覧 -->
 		<div id="productList">
 			<s:iterator value="productInfoList">

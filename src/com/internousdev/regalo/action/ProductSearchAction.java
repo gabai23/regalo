@@ -10,7 +10,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com. internousdev.regalo.dao.ProductSearchDAO;
-import com.internousdev.regalo.dto.ProductSearchDTO;
+import com.internousdev.regalo.dto.ProductInfoDTO;
 import com.internousdev.regalo.util.ToHiragana;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,7 +25,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 	private ProductSearchDAO productSearchDAO = new ProductSearchDAO();
 
-	private List<ProductSearchDTO> productSearchDTOList = new ArrayList<ProductSearchDTO>();
+	private List<ProductInfoDTO> productInfoList = new ArrayList<ProductInfoDTO>();
 
 	private ToHiragana toHiragana =new ToHiragana();
 
@@ -91,7 +91,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		if(categoryId == 1 && space > 0){
 
-			List<ProductSearchDTO> notUniqueBuyProductDTOList = new ArrayList<ProductSearchDTO>();
+			List<ProductInfoDTO> notUniqueBuyProductDTOList = new ArrayList<ProductInfoDTO>();
 
 		String[] searchWords = keyword.replace("|","piyopiyo").replace("_", "|_").replace("　", " ").replace("~","～").replace("%", "|%").split("[\\s]+");
 
@@ -107,7 +107,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			for(int i=0; i< notUniqueBuyProductDTOList.size(); i++){
 
-				int id= notUniqueBuyProductDTOList.get(i).getProduct_id();
+				int id= notUniqueBuyProductDTOList.get(i).getProductId();
 				idList.add(id);
 			}
 
@@ -138,7 +138,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			session.put("sq", sq);
 
 			//検索開始
-			productSearchDTOList = productSearchDAO.ByProductId(sq
+			productInfoList = productSearchDAO.ByProductId(sq
 //					, pages, maxProductDisplay
 					);
 
@@ -156,7 +156,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		 else if(categoryId >=1 && space > 0){
 
-			List<ProductSearchDTO> notUniqueBuyProductDTOList = new ArrayList<ProductSearchDTO>();
+			List<ProductInfoDTO> notUniqueBuyProductDTOList = new ArrayList<ProductInfoDTO>();
 
 			String[] searchWords = keyword.replace("|","piyopiyo").replace("_", "|_").replace("　", " ").replace("~","～").replace("%", "|%").split("[\\s]+");
 
@@ -174,7 +174,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			for(int i =0; i< notUniqueBuyProductDTOList.size(); i++){
 
-				int id  =notUniqueBuyProductDTOList.get(i).getProduct_id();
+				int id  =notUniqueBuyProductDTOList.get(i).getProductId();
 				idList.add(id);
 			}
 
@@ -204,7 +204,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			session.put("sq", sq);
 
 			//検索開始
-			productSearchDTOList = productSearchDAO.ByProductId(sq
+			productInfoList = productSearchDAO.ByProductId(sq
 //					,pages ,maxProductDisplay
 					);
 
@@ -220,7 +220,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		}else if(categoryId == 1 && keyword.isEmpty()){
 
 			//全件をListに格納
-			setProductSearchDTOList(productSearchDAO.AllProductInfo(
+			setProductInfoList(productSearchDAO.AllProductInfo(
 //					pages, max_product_display
 					));
 
@@ -241,11 +241,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			keyword = toHiragana.toZenkakuHiragana(keyword);
 
-			setProductSearchDTOList(productSearchDAO.BySearchWordKana(keyword
+			setProductInfoList(productSearchDAO.BySearchWordKana(keyword
 //					,pages,maxProductDisplay
 					));
 
-			System.out.println("productSearchDTOList:"+productSearchDTOList.size());
+			System.out.println("productInfoList:"+productInfoList.size());
 
 			System.out.println("ひらがな、カタカナ検索");
 
@@ -257,7 +257,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			keyword = toHiragana.toZenkakuHiragana(keyword);
 
-			setProductSearchDTOList(productSearchDAO.ByCategoryAndSearchWordKana(categoryId, keyword
+			setProductInfoList(productSearchDAO.ByCategoryAndSearchWordKana(categoryId, keyword
 //					, pages, maxItemDisplay
 					));
 
@@ -273,7 +273,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		 */
 		else if(categoryId > 1 && keyword.isEmpty()){
 
-			setProductSearchDTOList(productSearchDAO.ByProductCategory(categoryId
+			setProductInfoList(productSearchDAO.ByProductCategory(categoryId
 //					,pages,maxProductDisplay
 					));
 
@@ -288,7 +288,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	 */
 	else if(categoryId == 1 && !(keyword.isEmpty())){
 
-		setProductSearchDTOList(productSearchDAO.BySearchWord(keyword
+		setProductInfoList(productSearchDAO.BySearchWord(keyword
 //				, pages, max_product_display
 				));
 
@@ -306,7 +306,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		 */
 	else{
 
-		setProductSearchDTOList(productSearchDAO.ByCategoryAndSearchWord(keyword,categoryId
+		setProductInfoList(productSearchDAO.ByCategoryAndSearchWord(keyword,categoryId
 //				,pages,maxProductDisplay
 						));
 
@@ -319,7 +319,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 //		//--------------------------ページング決定----------------------------//
 //				//商品種類数
-//				ProductCount = (productSearchDTOList.get(0)).getProductTypeCount();
+//				ProductCount = (productInfoList.get(0)).getProductTypeCount();
 //				/*itemCount = (itemSearchDTOList.size());*/
 //
 //				//最大ページ数
@@ -347,8 +347,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 //
 
 		//商品種類数
-//		productCount = (productSearchDTOList.get(0).getProduct_type_count();
-		/*productCount = (productSearchDTOList.size());*/
+//		productCount = (productInfoList.get(0).getProduct_type_count();
+		/*productCount = (productInfoList.size());*/
 
 		//最大ページ数
 //		int maxPages = productCount / maxProductDisplay;
@@ -375,7 +375,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		keyword = getSearchWord();
 		session.put("keyword", keyword);
-		session.put("productSearchDTOList", productSearchDTOList);
+		session.put("productInfoList", productInfoList);
 
 		return ret;
 
@@ -414,12 +414,12 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		this.productSearchDAO = productSearchDAO;
 	}
 
-	public List<ProductSearchDTO> getProductSearchDTOList() {
-		return productSearchDTOList;
+	public List<ProductInfoDTO> getProductInfoList() {
+		return productInfoList;
 	}
 
-	public void setProductSearchDTOList(List<ProductSearchDTO> productSearchDTOList) {
-		this.productSearchDTOList = productSearchDTOList;
+	public void setProductInfoList(List<ProductInfoDTO> productInfoList) {
+		this.productInfoList = productInfoList;
 	}
 
 	public ToHiragana getToHiragana() {

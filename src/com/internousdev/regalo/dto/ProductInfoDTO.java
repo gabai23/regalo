@@ -44,6 +44,9 @@ public class ProductInfoDTO {
 	//更新日
 	private Date updateDate;
 
+	//検索方法
+	private String howProductSearch;
+
 	public int getProductId() {
 		return productId;
 	}
@@ -146,6 +149,14 @@ public class ProductInfoDTO {
 
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+
+	public String getHowProductSearch() {
+		return howProductSearch;
+	}
+
+	public void setHowProductSearch(String howProductSearch) {
+		this.howProductSearch = howProductSearch;
 	}
 
 

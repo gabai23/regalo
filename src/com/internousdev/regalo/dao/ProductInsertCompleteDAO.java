@@ -9,7 +9,7 @@ import com.internousdev.regalo.util.DateUtil;
 
 public class ProductInsertCompleteDAO {
 	private DateUtil dateUtil = new DateUtil();
-	private String sql = "INSERT INTO product_info(product_id,product_name,product_name_kana,price,product_stock,image_file_path,image_file_name,release_company,product_description,category_id,release_date,insert_date)VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+	private String sql = "INSERT INTO product_info(product_id,product_name,product_name_kana,price,product_stock,image_file_path,image_file_name,release_company,product_description,category_id,release_date,regist_date)VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	public void buyProductInfo(int productId, String productName, String productNameKana, String productDescription,
 			int categoryId, int price, String imageFilePath, String imageFileName) throws SQLException {
