@@ -12,17 +12,20 @@ import com.internousdev.regalo.util.DBConnector;
 
 public class AddressInfoDAO {
 
-	public int insert(String userId,String familyName,String firstName,String familyNameKana,String firstNameKana,
-			String email,String telNumber,String userAddress) {
+	//宛先情報登録メソッド
+	public int insert(String userId, String familyName, String firstName, String familyNameKana, String firstNameKana,
+			String email, String telNumber, String userAddress) {
 
 		DBConnector dbConnector = new DBConnector();
 
 		Connection connection = dbConnector.getConnection();
+
 		int count = 0;
-		String sql = "insert into destination_info(user_id,family_name,first_name,family_name_Kana,first_name_kana,email,tel_number,user_address,regist_date,update_date)"
+
+		String sql = "insert into destination_info(user_id, family_name, first_name, family_name_Kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
 				+ "values (?,?,?,?,?,?,?,?,now(), '0000-01-01')";
 		try {
-			/*PreparedStatement preparedStatement = connection.prepareStatement(sql);*/
+
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1,userId);
 			preparedStatement.setString(2,familyName);
@@ -33,10 +36,13 @@ public class AddressInfoDAO {
 			preparedStatement.setString(7,telNumber);
 			preparedStatement.setString(8,userAddress);
 			count = preparedStatement.executeUpdate();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
+
 		} try {
-		connection.close();
+			connection.close();
+
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
@@ -47,7 +53,7 @@ public class AddressInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		List<AddressInfoDTO> addressInfoDtoList = new ArrayList<AddressInfoDTO>();
 
-		String sql = "SELECT id,family_name,first_name,family_name_kana,first_name_kana,user_address,tel_number,email FROM destination_info WHERE user_id = ?";
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = ?";
 
 		try {
 			connection = dbConnector.getConnection();
