@@ -11,9 +11,80 @@
 	<meta http-equiv="imagetoolbar" content="no"/>
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
-
+	<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <title>MyPage</title>
 
+  <style type="text/css">
+
+
+    #top{
+    		width:780px;
+    		margin:20px auto;
+/*      border:1px solid #333; */
+    		text-align:center;
+    		font-size:20px;
+
+    }
+
+
+
+    body{
+    		margin:0;
+    		padding:0;
+    		line-height:1.6;
+    		letter-spacing:1px;
+    		font-size:12px;
+    		color:#333;
+
+    }
+
+
+/* テーブル編集 */
+    table.myPage{
+    		text-align:center;
+    		margin:0 auto;
+/*         	background-color: rgba(41,51,61,0.1); */
+			border: double 3px black;
+    }
+
+		table.myPage th,td{
+			width: 150px;
+			height: 50px;
+		}
+
+			table.myPage th{
+				text-align:left;
+				font-weight: 200;
+			}
+
+
+    #main{
+    		width:100%;
+    		height:500px;
+    		text-align: center;
+    }
+
+
+
+
+/* ボタン編集 */
+	.submit_button{
+			text-align: center;
+	}
+
+    input#productHistory{
+
+   			dorder: ridge;
+
+    }
+
+    input#goHome{
+
+			dorder: ridge;
+    }
+
+
+</style>
 
 
 </head>
@@ -22,12 +93,12 @@
 <div class="main">
 
 	<div id = "top">
-			<p>マイページ</p>
+			<p>MyPage</p>
 	</div>
 
 	<s:iterator value="myPageList">
 
-	<table>
+	<table class="myPage">
 		<tr>
 			<th>氏名</th>
 			<td>
@@ -66,15 +137,16 @@
 			</td>
 		</tr>
 
+
 		<tr>
-			<td>ID</td>
+			<th>ID</th>
 			<td>
 				<s:property value="userId"/>
 			</td>
 		</tr>
 
 		<tr>
-			<td>パスワード</td>
+			<th>パスワード</th>
 			<td>
 				<s:property value="password"/>
 			</td>
@@ -86,13 +158,18 @@
 	</s:iterator>
 
 
-	<s:form action="GoBuyProductHistoryAction">
-		<s:submit value="購入履歴" />
-	</s:form>
 
-	<s:form action="GoHomeAction">
-		<s:submit value="ホーム画面へ"/>
-	</s:form>
+ <div class = "submit_button">
+			<p><s:form action="GoBuyProductHistoryAction">
+					<input id = "productHistory" type= "submit" name = "submit" value="商品履歴">
+			</s:form></p>
+
+
+
+			<p><s:form action="GoHomeAction">
+				<input id = "goHome" type= "submit" name = "submit" value="ホーム画面へ">
+			</s:form></p>
+ </div>
 
 
 </div>
