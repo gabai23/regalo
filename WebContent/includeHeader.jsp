@@ -26,8 +26,14 @@
 							<button class="button1" type="submit">MY PAGE</button>
 						</s:form>
 					</div>
-				</li>
-
+				</li><!-- 商品一覧 -->
+                 <li>
+                 <div id ="headerProductList">
+                 <s:form action="GoProductListAction">
+		<button class="button1" type="submit">GIFT ITEM</button>
+	</s:form>
+	</div>
+	</li>
 				<!-- カート -->
 				<li>
 					<div id="headerCart">

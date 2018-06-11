@@ -47,27 +47,7 @@
 <img  src="./images/sozai4.jpg" >
 <img  src="./images/sraido1.jpeg" >
 </div>
-	<form action="GoLoginAction">
-		<button type="submit">ログインへ</button>
-	</form>
 
-	<form action="GoMyPageAction">
-		<button type="submit">マイページへ</button>
-	</form>
-
-
-	<form action="GoCartAction">
-		<button type="submit">カートへ</button>
-	</form>
-
-
-	<form action="GoProductListAction">
-		<button type="submit">商品一覧へ</button>
-	</form>
-
-	<form action="GoMasterAction">
-		<button type="submit">管理者画面へ</button>
-	</form>
 
 	<!-- ヘッダー -->
 <%-- 	<jsp:include page="includeFooter.jsp"/> --%>
