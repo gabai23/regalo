@@ -117,7 +117,7 @@ public class ProductSearchDAO {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, category_id);
-			ps.setInt(2, category_id);
+			/*ps.setInt(2, category_id);*/
 //			ps.setInt(3, pages);
 //			ps.setInt(4, max_product_display);
 			ResultSet rs = ps.executeQuery();
@@ -200,12 +200,12 @@ public class ProductSearchDAO {
 
 		Connection con = db.getConnection();
 
-		String sql = "SELECT * FROM prduct_info WHERE category_id = ?";
+		String sql = "SELECT * FROM product_info WHERE category_id = ?";
 
 		try{
 			PreparedStatement ps =con.prepareStatement(sql);
 			ps.setInt(1, category_id);
-			ps.setInt(2, category_id);
+			/*ps.setInt(2, category_id);*/
 //			ps.setInt(3, pages);
 //			ps.setInt(4, max_product_display);
 			ResultSet rs = ps.executeQuery();
@@ -249,7 +249,7 @@ public class ProductSearchDAO {
 	try {
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, category_id);
-		ps.setInt(2, category_id);
+		/*ps.setInt(2, category_id);*/
 //		ps.setInt(3, pages);
 //		ps.setInt(4, max_product_display);
 		ResultSet rs = ps.executeQuery();
@@ -339,7 +339,7 @@ public class ProductSearchDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, category_id);
-			ps.setInt(2, category_id);
+			/*ps.setInt(2, category_id);*/
 //			ps.setInt(3, pages);
 //			ps.setInt(4, max_product_display);
 			ResultSet rs = ps.executeQuery();

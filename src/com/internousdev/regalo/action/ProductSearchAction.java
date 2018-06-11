@@ -219,17 +219,69 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		}else if(categoryId == 1 && keyword.isEmpty()){
 
+			System.out.println("全件検索、カテゴリ、検索値なし");
+			System.out.println(keyword);
+
 			//全件をListに格納
 			setProductInfoList(productSearchDAO.AllProductInfo(
 //					pages, max_product_display
 					));
 
-			System.out.println("全件検索、カテゴリ、検索値なし");
+
+
+			ret = SUCCESS;
+
+		}
+
+		/*
+		 * カテゴリあり、検索値なし
+		 */
+		else if(categoryId > 1 && keyword.isEmpty()){
+
+			setProductInfoList(productSearchDAO.ByProductCategory(categoryId
+//					,pages,maxProductDisplay
+					));
+
+			System.out.println("カテゴリあり、検索値なし");
+			System.out.println(keyword);
+
+			ret  = SUCCESS;
+		}
+
+		/*
+		 * カテゴリなし、検索値あり
+		 */
+		else if(categoryId == 1 && !(keyword.isEmpty())){
+
+			setProductInfoList(productSearchDAO.BySearchWord(keyword
+//					, pages, max_product_display
+					));
+
+			System.out.println("カテゴリなし、検索値あり");
 			System.out.println(keyword);
 
 			ret = SUCCESS;
 
 		}
+
+		/*
+		 * カテゴリあり、検索値あり
+		 */
+	else if(categoryId != 1 && !(keyword.isEmpty())){
+
+		System.out.println("カテゴリあり、検索値あり");
+		System.out.println(keyword);
+
+		setProductInfoList(productSearchDAO.ByCategoryAndSearchWord(keyword,categoryId
+//				,pages,maxProductDisplay
+						));
+
+
+
+		ret = SUCCESS;
+	}
+
+
 
 
 
@@ -266,55 +318,19 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			ret = SUCCESS;
 
+		} else {
+			ret = ERROR;
+			return ret;
 		}
 
-		/*
-		 * カテゴリあり、検索値なし
-		 */
-		else if(categoryId > 1 && keyword.isEmpty()){
-
-			setProductInfoList(productSearchDAO.ByProductCategory(categoryId
-//					,pages,maxProductDisplay
-					));
-
-			System.out.println("カテゴリあり、検索値なし");
-			System.out.println(keyword);
-
-			ret  = SUCCESS;
-		}
-
-	/*
-	 * カテゴリなし、検索値あり
-	 */
-	else if(categoryId == 1 && !(keyword.isEmpty())){
-
-		setProductInfoList(productSearchDAO.BySearchWord(keyword
-//				, pages, max_product_display
-				));
-
-		System.out.println("カテゴリなし、検索値あり");
-		System.out.println(keyword);
-
-		ret = SUCCESS;
-
-	}
 
 
 
-		/*
-		 * カテゴリあり、検索値あり
-		 */
-	else{
 
-		setProductInfoList(productSearchDAO.ByCategoryAndSearchWord(keyword,categoryId
-//				,pages,maxProductDisplay
-						));
 
-		System.out.println("カテゴリあり、検索値あり");
-		System.out.println(keyword);
 
-		ret = SUCCESS;
-	}
+
+
 
 
 //		//--------------------------ページング決定----------------------------//
