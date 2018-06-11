@@ -30,7 +30,7 @@ public class ProductDeleteAction extends ActionSupport implements SessionAware{
 
 
 	@SuppressWarnings("unused")
-	private String delete(String product_id) throws SQLException {
+	private String execute(String product_id) throws SQLException {
 
 		String result = SUCCESS;
 

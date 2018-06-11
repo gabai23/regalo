@@ -42,6 +42,10 @@ if(!(session.getAttribute("masterId") == "admin")){
 					<b><s:property value="productName" /></b><br>
 					<s:property value="productNameKana" /><br>
 					<s:property value="price" />円<br>
+				<s:form action="ProductDeleteAction">
+						<button class="button" type='submit'
+						onclick='return confirm("削除してよろしいですか？")'>削除</button>
+				</s:form>
 				</div>
 			</s:iterator>
 	</div>
