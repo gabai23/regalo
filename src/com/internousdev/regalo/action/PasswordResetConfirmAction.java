@@ -94,7 +94,7 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		if((userId != "") && (password1 != "")){
 
 			PasswordResetCompleteDAO dao = new PasswordResetCompleteDAO();
-			boolean check = dao.passwordConfirm(userId, password1);
+			boolean check = dao.passwordConfirm(userId);
 
 
 			//ユーザーIDが正しくなかったらエラーメッセージを出す

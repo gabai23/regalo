@@ -29,10 +29,10 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 	private int id;
 	String userId;
 
-	private List<CartDTO> CartDtoList = new ArrayList<CartDTO>();
+	private List<CartDTO> CartList = new ArrayList<CartDTO>();
 
 	public List<CartDTO> getCartList() {
-		return CartDtoList;
+		return CartList;
 	}
 
 	private ArrayList<AddressInfoDTO> addressInfoDTOList = new ArrayList<AddressInfoDTO>();
@@ -64,7 +64,7 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 
 		//ログインユーザーのカート情報を表示
 		CartDAO cartDAO = new CartDAO();
-		CartDtoList = cartDAO.getCartDtoList(userId);
+		CartList = cartDAO.getCartDtoList(userId);
 
 		if((boolean) session.get("loginFlg")) {
 			AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
@@ -74,16 +74,16 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 			return ERROR;
 		}
 
-		if(CartDtoList.size() == 0) {
+		if(CartList.size() == 0) {
 			return "other";
 		}
 
-		for(CartDTO dto : CartDtoList) {
+		for(CartDTO dto : CartList) {
 			setTotalPrice(getTotalPrice() + dto.getPrice());
 		}
 
-		for(int i=0; i<CartDtoList.size(); i++) {
-			finallyTotalPrice += CartDtoList.get(i).getSubtotal();
+		for(int i=0; i<CartList.size(); i++) {
+			finallyTotalPrice += CartList.get(i).getSubtotal();
 		}
 
 		if(addressInfoDTOList.size() > 0) {
@@ -147,10 +147,6 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 
 	public void setAddressList(List<AddressInfoDTO> addressList) {
 		this.addressList = addressList;
-	}
-
-	public List<CartDTO> getCartDtoList() {
-		return CartDtoList;
 	}
 
 	public String getMessage() {
@@ -233,8 +229,8 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 		this.dto = dto;
 	}
 
-	public void setCartDtoList(List<CartDTO> CartDtoList) {
-		this.CartDtoList = CartDtoList;
+	public void setCartDtoList(List<CartDTO> CartList) {
+		this.CartList = CartList;
 	}
 }
 

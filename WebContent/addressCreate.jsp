@@ -4,17 +4,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="description" content="">
+<meta name="keywords" content="" />
 <title>AddressCreate画面</title>
+<style type="text/css">
+
+body {
+	height:auto;
+	}
+
+.main{
+	height:auto;
+	}
+
+.button-layout{
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align:center;
+	}
+
+.box{
+	text-align: center;
+	}
+
+
+</style>
 </head>
+
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 
-	宛先登録
+	<div id="main">
+
+	<p class="titlefont">宛先登録</p>
 
 	<s:form action="AddressCreateConfirmAction" theme="simple">
 
@@ -92,12 +119,14 @@
 		</div>
 	</s:if>
 
+	<div class="box">
 	<table>
 
 	<!-- 姓 -->
 		<tr>
 			<th scope="row"><s:label value="姓"/></th>
 			<td><s:textfield name="familyName" class="txt" /></td>
+<!-- 			<div class="form-text">姓【半角英語、漢字、ひらがな】</div> -->
 		</tr>
 <%-- 		<s:if test="!(#session.familyNameErrorMessageList.isEmpty())"> --%>
 <!-- 		<div class="error"> -->
@@ -201,11 +230,15 @@
 <!-- 		</div> -->
 <%-- 		</s:if> --%>
 	</table>
+	</div>
 
 	<!-- 送信ボタン -->
-		<s:submit value="確認画面へ"/>
+	<div class="button-center">
+		<s:submit value="確認画面へ" class="button-layout"/>
+	</div>
 	</s:form>
 
+	</div>
 	<!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
 </body>
