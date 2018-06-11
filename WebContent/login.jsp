@@ -5,31 +5,78 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="">
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./css/login-style.css">
 <title>ログイン画面</title>
 </head>
 <body>
+<!-- ヘッダー -->
+<jsp:include page="includeHeader.jsp"/>
 
-<s:iterator value="errorMessageList">
-	<s:property />
-</s:iterator>
- <s:form action ="LoginAction">
- 	<span>ID:</span>
- 	<!-- ↓ここのvalue値にsessionで保持されたIDをいれちまってる。次回からID入力せずにすむ -->
- 	<s:textfield name="loginId" value="%{#session.saveLogin}" autofocus="autofocus"/>
 
- 	<br><!-- ただの改行や圭一郎。 -->
 
- 	<span>パスワード:</span>
-	<s:password name="password"/>
 
-	<div id="saveId">
-		<span>次回からIDの入力を省略</span>
-		<s:checkbox name="saveLogin"/>
+<!-- メイン -->
 
-	</div>
+<!-- ログイン -->
+<div id="main">
+<div id="top">
+	<p>ログイン</p>
+</div>
 
- <s:submit value ="ログイン！"/>
+
+
+<s:form action="LoginAction"  theme="simple">
+
+<div class="errorMessage">
+		<s:iterator value="errorMessageList">
+		<s:property /><br>
+		</s:iterator>
+</div>
+<br>
+<table>
+		<tr>
+				<td>
+					ID:
+				</td>
+				<td>
+					<s:textfield type="text" name="userId" value="%{#session.saveId}" autofocus="autofocus"/>
+				</td>
+		</tr>
+		<tr>
+				<td>
+					パスワード:
+				</td>
+				<td>
+					<s:password name="password"/>
+				</td>
+		</tr>
+</table>
+<br>
+<br>
+	<!-- SaveID -->
+		<div id="saveId">
+				<span>次回からIDの入力を省略</span>
+				<s:checkbox name="saveLogin"/>
+
+
+		</div>
+<br>
+<!-- パスワード再設定 -->
+		<div id="resetPassword">
+				<span>パスワード再設定</span>
+				<a href='<s:url action="GoPassWordResetAction"/>'>こちら</a>
+		</div>
+
+		<br>
+<!-- ログインボタン -->
+		<div id="submitButton">
+				<s:submit value="ログイン"/>
+		</div>
+
 </s:form>
+
 
 
  <s:form action ="GoUserCreateAction">
@@ -39,8 +86,10 @@
  <s:form action ="GoPasswordResetAction">
 	<s:submit value ="パスワード再設定"/>
 </s:form>
+</div>
 
-
+<!-- フッター -->
+<jsp:include page="includeFooter.jsp"/>
 
 
 
