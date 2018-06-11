@@ -9,10 +9,7 @@
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<link rel="stylesheet" type="text/css" href="">
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
-	<meta http-equiv="imagetoolbar" content="no"/>
-	<meta name="description" content=""/>
-	<meta name="keywords" content=""/>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <title>buyProductHistory</title>
 </head>
 <body>
@@ -46,7 +43,7 @@
 
 
 				<!-- 画像 -->
-						<img id = "image" src="<s:property value='imageFileName'/>"><br>
+						<img id = "image" src="<s:property value='imageFilePath'/>"><br>
 
 				<!-- 商品名 -->
 						<s:property value = "productName" /><br>
@@ -61,7 +58,7 @@
 						発売年月日：<s:property value="releaseDate" /><br>
 
 				<!-- 削除ボタン -->
-						<s:form action="GoBuyProductHistroyAction">
+						<s:form action="GoBuyProductHistoryAction">
 							<input type="hidden" name="deleteFlg" value="2">
 							<input type="hidden" name="id" value="${id}">
 							<s:submit id="deleteOneEach" value="削除" method="deleteOneEach"/>
@@ -75,7 +72,7 @@
 				</s:elseif>
 
 				<!-- 全件削除ボタン -->
-					<s:if test = "hisotryList.size() !=0">
+					<s:if test = "historyList.size() !=0">
 						<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
 							<input type="hidden" name="deleteFlg" value="1">
 							<s:submit id="delete" value="履歴全削除"/>
@@ -93,5 +90,23 @@
 
 
 <jsp:include page="includeFooter.jsp"/>
+
+<script>
+//全件削除確認
+function allDel(){
+
+
+
+	if(window.confirm('全件削除しますか？')){
+
+		return true;
+
+	} else {
+
+		return false;
+
+	}
+}
+</script>
 </body>
 </html>

@@ -23,14 +23,15 @@ public class BuyProductHistoryDAO {
 				+ " phi.id,"
 				+ " pi.product_name,"
 				+ " pi.image_file_name, "
+				+ " pi.image_file_path,"
 				+ " pi.release_company,"
+				+ " pi.release_date,"
 				+ " pi.price,"
 				+ " phi.product_count,"
-				+ " phi.destination_id, "
 				+ " phi.regist_date"
 				+ " FROM purchase_history_info phi"
 				+ " LEFT JOIN product_info pi"
-				+ " ON phi.user_id = pi.product_id"
+				+ " ON phi.product_id = pi.product_id"
 				+ " WHERE phi.user_id = ? "
 				+ " ORDER BY phi.regist_date DESC";
 
@@ -48,11 +49,11 @@ public class BuyProductHistoryDAO {
 
 				dto.setId(rs.getInt("id"));
 				dto.setProductName(rs.getString("product_name"));
-				dto.setImageFileName(rs.getString("image_file_name"));
+				dto.setImageFilePath(rs.getString("image_file_path") + "/" + rs.getString("image_file_name"));
 				dto.setReleaseCompany(rs.getString("release_company"));
+				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setProductConut(rs.getInt("product_count"));
-				dto.setDestinationId(rs.getInt("destination_id"));
 				dto.setRegistDate(rs.getString("regist_date"));
 
 				buyProductHistoryDTOList.add(dto);
@@ -121,6 +122,8 @@ public class BuyProductHistoryDAO {
 			ps.setInt(1, Id);
 
 			result2 = ps.executeUpdate();
+
+			System.out.println("購入履歴削除"+result2);
 
 			con.close();
 

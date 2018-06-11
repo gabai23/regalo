@@ -32,8 +32,14 @@ public class BuyProductHistoryDTO {
 //	会社情報
 	private String releaseCompany;
 
+	//販売日
+	private String releaseDate;
+
 //	商品画像
 	private String imageFileName;
+
+	//商品パス
+	private String imageFilePath;
 
 //	商品名
 	private String productName;
@@ -116,6 +122,18 @@ public class BuyProductHistoryDTO {
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+	public String getImageFilePath() {
+		return imageFilePath;
+	}
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
+	}
+	public String getReleaseDate() {
+		return releaseDate;
+	}
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 
