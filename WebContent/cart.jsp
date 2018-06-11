@@ -5,29 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<link rel="stylesheet" type="text/css" href="./css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-
-
+<link rel="stylesheet" href="./css/style.css">
 <title>カート</title>
-<style type="text/css">
 
 
-
-#contents {
-position: relative;
-  width:200px;
- margin:0  auto;
-
-}
-
-</style>
 </head>
 <body>
 <jsp:include page="includeHeader.jsp" />
 <div id="contents">
-<h2>CART</h2>
+<h1>カート画面</h1>
 
 <s:if test="#session.checkListErrorMessageList!=null">
 	<div class="error">
@@ -39,7 +25,7 @@ position: relative;
 	</div>
 </s:if>
 
-<s:if test="#session.CartDtoList.size()>0">
+<s:if test="CartDtoList.size() > 0">
 <s:form id="form">
 <table class="horizontal-list-table">
 <thead>
@@ -56,13 +42,14 @@ position: relative;
 </tr>
 </thead>
 <tbody>
-<s:iterator value="#session.CartDtoList">
+<s:iterator value="CartDtoList">
+
 <tr>
 	<td><s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
 	<s:hidden name="productId" value="%{productId}"/>
 	<td><s:property value="productName"/></td>
 	<td><s:property value="productNameKana"/></td>
-	<td><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="50px" height="50px" /></td>
+	<td><img src='<s:property value="imageFilePath"/>' width="50px" height="50px" /></td>
 	<td><s:property value="price"/>円</td>
 	<td><s:property value="releaseCompany"/></td>
 	<td><s:property value="releaseDate"/></td>
@@ -81,7 +68,8 @@ position: relative;
 </s:iterator>
 </tbody>
 </table>
-<h2><s:label value="カート合計金額 :"/><s:property value="#session.totalPrice"/>円</h2><br>
+<h2><s:label value="カート合計金額 :"/><s:property value="totalPrice"/>円</h2><br>
+
 <div class="submit_btn_box">
 	<div id=".contents-btn-set">
 <s:submit value="決済" class="submit_btn" onclick="this.form.action='BuyProductConfirmAction';"/>

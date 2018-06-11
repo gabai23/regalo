@@ -2,7 +2,6 @@ package com.internousdev.regalo.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -17,34 +16,58 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 	private String keywords;
 	private Map<String, Object> session;
+	private List<CartDTO> CartDtoList = new ArrayList<>();
+
+	private int totalPrice;
 
 	public String execute() throws SQLException{
 
 		String result = ERROR;
 		String userId = null;
 		CartDAO CartDao = new CartDAO();
-		List<CartDTO> CartDtoList = new ArrayList<CartDTO>();
-		if(session.containsKey("loginId")) {
-			userId = String.valueOf(session.get("loginId"));
+		/*List<CartDTO> CartDtoList = new ArrayList<CartDTO>();*/
+		if(session.containsKey("userId")) {
+			userId = String.valueOf(session.get("userId"));
 		}else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
 
+		System.out.println(userId);
+
 		CartDtoList = CartDao.getCartDtoList(userId);
-		Iterator<CartDTO> iterator = CartDtoList.iterator();
+
+		System.out.println("カートの件数:"+CartDtoList.size());
+
+		/*Iterator<CartDTO> iterator = CartDtoList.iterator();
 		if(!(iterator.hasNext())) {
 			CartDtoList = null;
-		}
-		session.put("CartDtoList", CartDtoList);
+		}*/
+		/*session.put("CartDtoList", CartDtoList);*/
 
-		int totalPrice = Integer.parseInt(String.valueOf(CartDao.getTotalPrice(userId)));
-		session.put("totalPrice", totalPrice);
+		/*int totalPrice = Integer.parseInt(String.valueOf(CartDao.getTotalPrice(userId)));
+		session.put("totalPrice", totalPrice);*/
+
+		totalPrice = calcTotalPrice(CartDtoList);
+
 		result = SUCCESS;
 
 
 		return result;
 
 	}
+
+	//合計金額計算
+		public int calcTotalPrice(List<CartDTO> CartDtoList) {
+
+			int totalPrice = 0;
+
+			for(CartDTO dto: CartDtoList) {
+
+				totalPrice += dto.getSubtotal() * dto.getProductCount();
+
+			}
+			return totalPrice;
+		}
 
 	public String getCategoryId() {
 		return categoryId;
@@ -68,6 +91,22 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public List<CartDTO> getCartDtoList() {
+		return CartDtoList;
+	}
+
+	public void setCartDtoList(List<CartDTO> cartDtoList) {
+		CartDtoList = cartDtoList;
+	}
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 }

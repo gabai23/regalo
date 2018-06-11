@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 	/*2018/06/08　午前　圭一郎*/
 
 public class GoLoginAction extends ActionSupport implements SessionAware{
-	
+
 	//session
 	private Map<String,Object> session;
 	//ログインしているかの判定
@@ -18,22 +18,24 @@ public class GoLoginAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		//エラーでhome
 		String result = ERROR;
-		
+
 		if(session.containsKey("loginFlg")){
 			//loginFlgという変数にどっちかぶちこむ
 			loginFlg = (boolean) session.get("loginFlg");
+
 			//ログインしていなければ
 			if(loginFlg != true){
 				//ログイン画面遷移
 				result= SUCCESS;
-			
-		
+
+
 			}else{
-				
-				
+
+
 			}
 		}
-		
+
+
 		return result;
 	}
 	public Map<String, Object> getSession() {
@@ -48,6 +50,6 @@ public class GoLoginAction extends ActionSupport implements SessionAware{
 	public void setLoginFlg(boolean loginFlg) {
 		this.loginFlg = loginFlg;
 	}
-	
-	
+
+
 }

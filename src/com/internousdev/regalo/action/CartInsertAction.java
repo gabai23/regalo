@@ -2,7 +2,6 @@ package com.internousdev.regalo.action;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +30,10 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 
 	private Map<String, Object> session;
+
+	private List<CartDTO> CartDtoList = new ArrayList<>();
+
+	private int totalPrice;
 
 	@SuppressWarnings("unchecked")
 	public String execute() {
@@ -69,18 +72,34 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 		if(count > 0) {
 			result=SUCCESS;
 		}
-		List<CartDTO> CartDtoList = new ArrayList<CartDTO>();
+		/*List<CartDTO> CartDtoList = new ArrayList<CartDTO>();*/
 		CartDtoList = CartDao.getCartDtoList(userId);
-		Iterator<CartDTO> iterator = CartDtoList.iterator();
+		/*Iterator<CartDTO> iterator = CartDtoList.iterator();
 		if(!(iterator.hasNext())) {
 			CartDtoList = null;
-		}
-		session.put("CartDtoList", CartDtoList);
-		int totalPrice = Integer.parseInt(String.valueOf(CartDao.getTotalPrice(userId)));
-		session.put("totalPrice", totalPrice);
+		}*/
+		/*session.put("CartDtoList", CartDtoList);*/
+		/*int totalPrice = Integer.parseInt(String.valueOf(CartDao.getTotalPrice(userId)));
+		session.put("totalPrice", totalPrice);*/
+
+		totalPrice = calcTotalPrice(CartDtoList);
 		return result;
 
 	}
+
+	//合計金額計算
+			public int calcTotalPrice(List<CartDTO> CartDtoList) {
+
+				int totalPrice = 0;
+
+				for(CartDTO dto: CartDtoList) {
+
+					totalPrice += dto.getSubtotal() * dto.getProductCount();
+
+				}
+				return totalPrice;
+			}
+
 
 	public int getProductId() {
 		return productId;
@@ -159,6 +178,22 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public List<CartDTO> getCartDtoList() {
+		return CartDtoList;
+	}
+
+	public void setCartDtoList(List<CartDTO> cartDtoList) {
+		CartDtoList = cartDtoList;
+	}
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 }

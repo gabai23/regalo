@@ -65,6 +65,7 @@ public class CartDAO {
 				CartDTO.setReleaseCompany(resultSet.getString("release_company"));
 				CartDTO.setStatus(resultSet.getString("status"));
 				CartDTO.setSubtotal(resultSet.getInt("subtotal"));
+
 				CartDtoList.add(CartDTO);
 			}
 		} catch (SQLException e) {

@@ -40,7 +40,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	private List<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
 	private ArrayList<ProductInfoDTO> productInfoDTOList ;
-	private List<CartDTO> CartDtoList = new ArrayList<>();
+	private List<CartDTO> CartDtoList = new ArrayList<CartDTO>();
 
 
 	//Believe in your possibilities!!
@@ -88,11 +88,12 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				session.put("userId", loginId);//userIdにloginIdの保持
 				session.put("saveLogin", loginId);//saveLoginの方が、データの指定がしやすいね。
 
-				//カート情報を格納
+				/*//カート情報を格納
 				CartDtoList = cartDAO.getCartDtoList(loginId);
 				System.out.println("カートの件数:"+CartDtoList.size());
 				session.put("CartDtoList", CartDtoList);
-				session.put("CartDtoListSize", CartDtoList.size());
+
+				session.put("CartDtoListSize", CartDtoList.size());*/
 
 
 				//会員ランクを確認、sessionに格納

@@ -2,7 +2,6 @@ package com.internousdev.regalo.action;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +35,10 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 	private String productCount;
 	private String subtotal;
 
+	private List<CartDTO> CartDtoList = new ArrayList<>();
+
+	private int totalPrice;
+
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -62,27 +65,42 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 			return ERROR;
 		}else {
 			String userId = null;
-			List<CartDTO> CartDtoList = new ArrayList<CartDTO>();
-			if(session.containsKey("loginId")) {
-				userId = String.valueOf(session.get("loginId"));
+			/*List<CartDTO> CartDtoList = new ArrayList<CartDTO>();*/
+			if(session.containsKey("userId")) {
+				userId = String.valueOf(session.get("userId"));
 			}else if (session.containsKey("tempUserId")) {
 				userId = String.valueOf(session.get("tempUserId"));
 			}
 			CartDtoList = CartDAO.getCartDtoList(userId);
-			Iterator<CartDTO> iterator = CartDtoList.iterator();
+			/*Iterator<CartDTO> iterator = CartDtoList.iterator();
 			if(!(iterator.hasNext())) {
 				CartDtoList = null;
 			}
 			session.put("CartDtoList", CartDtoList);
 
 			int totalPrice = Integer.parseInt(String.valueOf(CartDAO.getTotalPrice(userId)));
-			session.put("totalPrice", totalPrice);
+			session.put("totalPrice", totalPrice);*/
 
 			sexList.add(MALE);
 			sexList.add(FEMALE);
 			result=SUCCESS;
 		}
+
+		totalPrice = calcTotalPrice(CartDtoList);
 		return result;
+	}
+
+	//合計金額計算
+	public int calcTotalPrice(List<CartDTO> CartDtoList) {
+
+		int totalPrice = 0;
+
+		for(CartDTO dto: CartDtoList) {
+
+			totalPrice += dto.getSubtotal() * dto.getProductCount();
+
+		}
+		return totalPrice;
 	}
 
 
@@ -216,6 +234,22 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public List<CartDTO> getCartDtoList() {
+		return CartDtoList;
+	}
+
+	public void setCartDtoList(List<CartDTO> cartDtoList) {
+		CartDtoList = cartDtoList;
+	}
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 }
