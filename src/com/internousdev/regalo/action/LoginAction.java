@@ -38,7 +38,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private Map<String,Object> session;
 
 	private List<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
-	private ArrayList<ProductInfoDTO> productInfoDTOList;
+	private ArrayList<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 
 
 	//Believe in your possibilities!!
@@ -137,8 +137,9 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 						//カートの情報を入れている。
 						ProductInfoDAO dao = new ProductInfoDAO();
 						productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
-
+//						session.put("productInfoDTOList", productInfoDTOList);
 						session.put("masterId", "admin");
+						System.out.println("要素数 = " + productInfoDTOList.size());
 						System.out.println("管理者ログインしました");
 						result = MASTER;
 						return result;
@@ -288,6 +289,16 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	public void setSaveLogin(boolean saveLogin) {
 		this.saveLogin = saveLogin;
+	}
+
+
+	public ArrayList<ProductInfoDTO> getProductInfoDTOList() {
+		return productInfoDTOList;
+	}
+
+
+	public void setProductInfoDTOList(ArrayList<ProductInfoDTO> productInfoDTOList) {
+		this.productInfoDTOList = productInfoDTOList;
 	}
 
 
