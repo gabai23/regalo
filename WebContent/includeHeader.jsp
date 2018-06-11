@@ -40,7 +40,7 @@
 			<s:form action="GoMyPageAction">
 				<button class="button1" type="submit">MY PAGE</button>
 			</s:form></div></li></div></ul>
-			</div></div>
+			</div><br>
 		<div id="headerSearch">
 			<s:form action="ProductSearchAction" theme="simple">
 				<select name="categoryId">
@@ -52,6 +52,6 @@
 				</select>
 				<s:textfield name="searchWord"/>
 				<button  class="button1" type="submit">SEARCH</button>
-			</s:form></div>
+			</s:form></div></div>
 </body>
 </html>
