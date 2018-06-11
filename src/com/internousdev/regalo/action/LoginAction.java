@@ -169,6 +169,20 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 			}
 
+			if(session.containsKey("settlement")){
+
+
+				if((boolean)session.get("settlement")){
+
+					result = SETTLEMENT;
+
+					session.put("settlement",false);
+
+				}
+			} else {
+
+			}
+
 
 		}
 		//IDが空白の場合
@@ -194,18 +208,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 
 
-		if(session.containsKey("settlement")){
 
-
-			if((boolean)session.get("settlement")){
-
-				result = SETTLEMENT;
-
-				session.put("settlement",false);
-			}
-		} else {
-
-		}
 
 		return result;
 
