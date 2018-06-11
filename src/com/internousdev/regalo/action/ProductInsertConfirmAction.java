@@ -1,5 +1,6 @@
 package com.internousdev.regalo.action;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -61,8 +62,26 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 	private List<String> releaseCompanyErrorMessageList = new ArrayList<String>();
 
 	private Map<String, Object> session;
+	public String newImageFileName;
+
 
 	public String execute() {
+
+		String fileName = "";
+
+		if(imageFilePath.contains("image")){
+			 fileName = new File(imageFilePath).getName();
+			 newImageFileName = "/ecsite-nakadate/image/" + fileName;
+
+			System.out.println(newImageFileName);
+
+
+		} else {
+			newImageFileName = "/ecsite-nakadate/image/" + imageFileName;
+
+			System.out.println(newImageFileName);
+		}
+
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
 
@@ -72,8 +91,8 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 		session.put("productDescription", productDescription);
 		session.put("categoryId", categoryId);
 		session.put("price", price);
-		session.put("imageFileName", imageFileName);
 		session.put("imageFilePath", imageFilePath);
+		session.put("fileName", fileName);
 		session.put("releaseCompany", releaseCompany);
 
 
@@ -83,7 +102,6 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 		productNameKanaErrorMessageList = inputChecker.check("商品名かな", productNameKana, 1, 16, false, false, true, false, false, false, false);
 		productDescriptionErrorMessageList = inputChecker.check("商品詳細", productDescription, 14, 32, true, true, true, true, true, true, true);
 		priceErrorMessageList = inputChecker.check("価格", session.get("price").toString(), 1, 8, false, false, false, false, true, false, false);
-		imageFileNameErrorMessageList = inputChecker.check("画像ファイル名", imageFileName, 1, 16, true, true, true, true, true, true, true);
 		releaseCompanyErrorMessageList = inputChecker.check("販売会社", releaseCompany, 1, 16, true, true, true, true, true, true, true);
 
 		if(productIdErrorMessageList.size()==0
@@ -91,7 +109,6 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 		&& productNameKanaErrorMessageList.size()==0
 		&& productDescriptionErrorMessageList.size()==0
 		&& priceErrorMessageList.size()==0
-		&& imageFileNameErrorMessageList.size()==0
 		&& releaseCompanyErrorMessageList.size()==0) {
 			result = SUCCESS;
 		}else {
@@ -100,7 +117,6 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 			session.put("productNameKanaErrorMessageList", productNameKanaErrorMessageList);
 			session.put("productDescriptionErrorMessageList", productDescriptionErrorMessageList);
 			session.put("priceErrorMessageList", priceErrorMessageList);
-			session.put("imageFileNameErrorMessageList", imageFileNameErrorMessageList);
 			session.put("releaseCompanyErrorMessageList", releaseCompanyErrorMessageList);
 			result = ERROR;
 		}
@@ -181,17 +197,6 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 
 
 
-	public String getImageFilePath() {
-		return imageFilePath;
-	}
-
-
-
-	public void setImageFilePath(String imageFilePath) {
-		this.imageFilePath = imageFilePath;
-	}
-
-
 
 	public String getImageFileName() {
 		return imageFileName;
@@ -201,6 +206,18 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
+	}
+
+
+
+	public String getImageFilePath() {
+		return imageFilePath;
+	}
+
+
+
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
 	}
 
 

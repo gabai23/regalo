@@ -68,14 +68,14 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 
 		ProductInsertCompleteDAO.buyProductInfo(
 
-				productId,
-				productName,
-				productNameKana,
-				productDescription,
-				categoryId,
-				price,
-				imageFilePath,
-				imageFileName
+				Integer.parseInt(session.get("productId").toString()),
+				session.get("productName").toString(),
+				session.get("productNameKana").toString(),
+				session.get("productDescription").toString(),
+				Integer.parseInt(session.get("categoryId").toString()),
+				Integer.parseInt(session.get("price").toString()),
+				session.get("imageFilePath").toString(),
+				session.get("fileName").toString()
 
 //				Integer.parseInt(productId.toString()),
 //				productName,
