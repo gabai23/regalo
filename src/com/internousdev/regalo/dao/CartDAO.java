@@ -59,7 +59,7 @@ public class CartDAO {
 				CartDTO.setProductNameKana(resultSet.getString("product_name_kana"));
 				CartDTO.setProductDescription(resultSet.getString("product_description"));
 				CartDTO.setCategoryId(resultSet.getInt("category_id"));
-				CartDTO.setImageFilePath(resultSet.getString("image_file_path"));
+				CartDTO.setImageFilePath(resultSet.getString("image_file_path") + "/" + resultSet.getString("image_file_name"));
 				CartDTO.setImageFileName(resultSet.getString("image_file_name"));
 				CartDTO.setReleaseDate(resultSet.getDate("release_date"));
 				CartDTO.setReleaseCompany(resultSet.getString("release_company"));
