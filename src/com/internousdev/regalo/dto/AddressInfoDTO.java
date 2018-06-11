@@ -70,7 +70,7 @@ public class AddressInfoDTO {
 		this.firstNameKana = firstNameKana;
 	}
 
-	public String getAddr11() {
+	public String getUserAddress() {
 		return userAddress;
 	}
 
@@ -96,10 +96,6 @@ public class AddressInfoDTO {
 
 	public Date getRegistDate() {
 		return registDate;
-	}
-
-	public String getUserAddress() {
-		return userAddress;
 	}
 
 	public void setRegistDate(Date registDate) {

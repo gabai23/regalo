@@ -22,13 +22,13 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 	private String userAddress;
 	private String categoryId;
 
-	public Map<String,Object> session;
+	private Map<String,Object> session;
 
 	public String execute() {
 
 		String result = ERROR;
 		AddressInfoDAO addressInfoDao = new AddressInfoDAO();
-		int count = addressInfoDao.insert(String.valueOf(session.get("userId").toString()),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
+		int count = addressInfoDao.insert(String.valueOf(session.get("loginId")),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
 		if(count>0){
 			result = SUCCESS;
 		}

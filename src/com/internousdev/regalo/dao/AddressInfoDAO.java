@@ -73,8 +73,10 @@ public class AddressInfoDAO {
 				addressInfoDTO.setTelNumber(rs.getString("tel_number"));
 				addressInfoDtoList.add(addressInfoDTO);
 			}
+
 		} catch(SQLException e) {
 			e.printStackTrace();
+
 		}finally{
 			connection.close();
 		}
