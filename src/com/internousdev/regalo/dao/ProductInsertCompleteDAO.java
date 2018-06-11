@@ -34,7 +34,6 @@ public class ProductInsertCompleteDAO {
 			preparedStatement.setString(11,dateUtil.getDate());
 			preparedStatement.setString(12, dateUtil.getDate());
 			preparedStatement.execute();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
