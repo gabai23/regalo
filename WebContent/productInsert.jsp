@@ -185,7 +185,7 @@
 <tr>
 	<th scope="row">商品カテゴリー</th>
 	<td>
-		<select name="category">
+		<select name="categoryId">
 			<option value="1" selected="selected">車</option>
 			<option value="2">音楽・映画</option>
 			<option value="3">家電</option>
