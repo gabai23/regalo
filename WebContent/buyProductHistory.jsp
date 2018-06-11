@@ -26,36 +26,42 @@
 					<p>購入履歴</p>
 				</div>
 
+
+
+			<!--購入がない場合 -->
 				<s:if test = "historyList.size() == 0">
 					<h2>購入情報はありません</h2>
 				</s:if>
 
-				<s:elseif test = "historyList !=null && historList.size() !=0">
+
+
+			<!-- 購入履歴がある場合 -->
+				<s:elseif test = "historyList !=null && historyList.size() !=0">
 
 				<div>
-					<s:form action="BuyProductHistoryAction">
+					<s:form action="GoBuyProductHistoryAction">
 					</s:form>
 
 					<s:iterator value = "historyList">
 
 
 				<!-- 画像 -->
-						<img id = "image" src="<s:property value='imageFileName'/>">
+						<img id = "image" src="<s:property value='imageFileName'/>"><br>
 
 				<!-- 商品名 -->
-						<s:property value = "productName" />
+						<s:property value = "productName" /><br>
 
 
 				<!-- 個数 -->
-						<s:property value="productCount"/>点
+						<s:property value="productCount"/>点<br>
 
-						購入日時　：<s:property value="registDate"/>
-						値　　段　：<s:property value="price" />
-						発売会社名：<s:property value="releaseCompany" />
-						発売年月日：<s:property value="releaseDate" />
+						購入日時　：<s:property value="registDate"/><br>
+						値　　段　：<s:property value="price" /><br>
+						発売会社名：<s:property value="releaseCompany" /><br>
+						発売年月日：<s:property value="releaseDate" /><br>
 
 				<!-- 削除ボタン -->
-						<s:form action="BuyProductHistroyAction">
+						<s:form action="GoBuyProductHistroyAction">
 							<input type="hidden" name="deleteFlg" value="2">
 							<input type="hidden" name="id" value="${id}">
 							<s:submit id="deleteOneEach" value="削除" method="deleteOneEach"/>
@@ -70,9 +76,9 @@
 
 				<!-- 全件削除ボタン -->
 					<s:if test = "hisotryList.size() !=0">
-						<s:form action="BuyProductHistoryAction" onSubmit="return allDel()">
+						<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
 							<input type="hidden" name="deleteFlg" value="1">
-							<s:submit id="all_delete" value="履歴全削除"/>
+							<s:submit id="delete" value="履歴全削除"/>
 						</s:form>
 					</s:if>
 
