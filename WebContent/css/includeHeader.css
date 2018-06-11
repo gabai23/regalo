@@ -44,32 +44,32 @@ font-family: 'Arizonia', cursive;
 /*  */
 }
 
-#headerSearch {
-position: relative;
-bottom:50px;
-left:900px;
-}
+/* #headerSearch { */
+/* position: relative; */
+/* bottom:150px; */
+/* left:900px; */
+/* } */
 
 .right-list{
 	font-family: 'Cinzel', serif;
-font-family: 'Arizonia', cursive;
+	font-family: 'Arizonia', cursive;
 /* 	position:relative; */
 /* 	right:630px; */
 /* 	bottom:55px; */
-margin:0 auto;
+	margin:0 auto;
 }
 
 ul {
 	width:100%;
-list-style: none;
-height:35px;
-
-padding:0;
-
-margin:0;
-
+	list-style: none;
+	height:35px;
+	padding:0;
+	/* 中央寄せにする */
+	display: flex;
+	justify-content: center;
 }
 
+/*liを囲む*/
 #liContainer {
 	width:500px;
 	height:auto;

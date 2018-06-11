@@ -17,30 +17,56 @@
 		</div>
 
 		<div class="right-list">
-		<ul >
-		<div id="liContainer" class="clearfix">
-		<li><div id="headerLogin">
-			<s:form action="GoLoginAction">
-				<button class="button1" type="submit">LOGIN</button>
-			</s:form>
-		</div></li>
-		<li><div id="headerLogout">
-			<s:form action="LogoutAction">
-				<button class="button1" type="submit">LOGOUT</button>
-			</s:form>
-		</div></li>
+			<ul>
 
-		<li><div id="headerCart">
-			<s:form action="GoCartAction">
-				<button class="button1" type="submit">CART</button>
-			</s:form>
-		</div></li>
+				<!-- マイページ -->
+				<li>
+					<div id="headerMypage">
+						<s:form action="GoMyPageAction">
+							<button class="button1" type="submit">MY PAGE</button>
+						</s:form>
+					</div>
+				</li>
 
-		<li><div id="headerMypage">
-			<s:form action="GoMyPageAction">
-				<button class="button1" type="submit">MY PAGE</button>
-			</s:form></div></li></div></ul>
-			</div><br>
+				<!-- カート -->
+				<li>
+					<div id="headerCart">
+						<s:form action="GoCartAction">
+							<button class="button1" type="submit">CART</button>
+						</s:form>
+					</div>
+				</li>
+
+				<!-- ゲストユーザーのとき -->
+				<s:if test="session.loginFlg == false || session.loginFlg == null">
+
+					<li>
+						<div id="headerLogin">
+							<s:form action="GoLoginAction">
+								<button class="button1" type="submit">LOGIN</button>
+							</s:form>
+						</div>
+					</li>
+
+				</s:if>
+
+				<!-- ログインユーザーのとき -->
+				<s:if test="session.loginFlg == true && session.masterFlg != true">
+
+				<li>
+					<div id="headerLogout">
+						<s:form action="LogoutAction">
+							<button class="button1" type="submit">LOGOUT</button>
+						</s:form>
+					</div>
+				</li>
+
+				</s:if>
+
+
+			</ul>
+		</div>
+	</div>
 		<div id="headerSearch">
 			<s:form action="ProductSearchAction" theme="simple">
 				<select name="categoryId">
@@ -52,6 +78,6 @@
 				</select>
 				<s:textfield name="searchWord"/>
 				<button  class="button1" type="submit">SEARCH</button>
-			</s:form></div></div>
+			</s:form></div>
 </body>
 </html>

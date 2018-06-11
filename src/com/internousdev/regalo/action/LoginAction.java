@@ -14,6 +14,7 @@ import com.internousdev.regalo.dao.CartDAO;
 import com.internousdev.regalo.dao.LoginDAO;
 import com.internousdev.regalo.dao.ProductInfoDAO;
 import com.internousdev.regalo.dto.AddressInfoDTO;
+import com.internousdev.regalo.dto.CartDTO;
 import com.internousdev.regalo.dto.LoginDTO;
 import com.internousdev.regalo.dto.ProductInfoDTO;
 import com.internousdev.regalo.util.InputChecker;
@@ -39,6 +40,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	private List<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
 	private ArrayList<ProductInfoDTO> productInfoDTOList ;
+	private List<CartDTO> CartDtoList = new ArrayList<>();
 
 
 	//Believe in your possibilities!!
@@ -52,6 +54,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 		}
 
 		LoginDAO loginDAO = new LoginDAO();
+		CartDAO cartDAO = new CartDAO();
 		InputChecker checker = new InputChecker();
 
 		boolean flg = false;
@@ -85,6 +88,13 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				session.put("userId", loginId);//userIdにloginIdの保持
 				session.put("saveLogin", loginId);//saveLoginの方が、データの指定がしやすいね。
 
+				//カート情報を格納
+				CartDtoList = cartDAO.getCartDtoList(loginId);
+				System.out.println("カートの件数:"+CartDtoList.size());
+				session.put("CartDtoList", CartDtoList);
+				session.put("CartDtoListSize", CartDtoList.size());
+
+
 				//会員ランクを確認、sessionに格納
 				BuyProductCompleteDAO buyProductCompleteDAO = new BuyProductCompleteDAO();
 				int rank = 0;
@@ -117,7 +127,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
 				//カートのユーザー情報を書き換える
-				CartDAO cartDAO = new CartDAO();
+
 				if(cartDAO.isExistsCart(session.get("tempUserId").toString())){
 
 					System.out.println("LoginAction.カート存在します");
@@ -299,6 +309,16 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 	public void setProductInfoDTOList(ArrayList<ProductInfoDTO> productInfoDTOList) {
 		this.productInfoDTOList = productInfoDTOList;
+	}
+
+
+	public List<CartDTO> getCartDtoList() {
+		return CartDtoList;
+	}
+
+
+	public void setCartDtoList(List<CartDTO> cartDtoList) {
+		CartDtoList = cartDtoList;
 	}
 
 
