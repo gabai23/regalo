@@ -25,7 +25,7 @@ body {
     padding-bottom:15px;
 }
 
-a {
+.headerA {
 	color:white;
 }
 
@@ -45,10 +45,9 @@ font-family: 'Arizonia', cursive;
 }
 
 #headerSearch {
-/* 	float:left; */
-position:relative;
-left:600px;
-bottom:10px;
+position: relative;
+bottom:150px;
+left:900px;
 }
 
 .right-list{

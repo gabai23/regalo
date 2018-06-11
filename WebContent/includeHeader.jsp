@@ -13,23 +13,9 @@
 	<div id="header">
 		<!-- GoHomeActionつけろ -->
 		<div id="headerLogo"><div class=aaa">
-			<a href='<s:url action="GoHomeAction"/>'>Regalo</a></div>
+			<a class="headerA" href='<s:url action="GoHomeAction"/>'>Regalo</a></div>
 		</div>
-<!-- <br> -->
-<!-- 		<div id="headerSearch"> -->
-<%-- 			<s:form action="ProductSearchAction" theme="simple"> --%>
-<%-- 				<select> --%>
-<!-- 					<option>全てのカテゴリー</option> -->
-<!-- 					<option>カテゴリー1</option> -->
-<!-- 					<option>カテゴリー2</option> -->
-<!-- 					<option>カテゴリー3</option> -->
-<%-- 				</select> --%>
 
-<%-- 				<s:textfield/> --%>
-<!-- 				<button type="submit">検索</button> -->
-<%-- 			</s:form> --%>
-<!-- 		</div> -->
-<!-- <br> -->
 		<div class="right-list">
 		<ul >
 		<div id="liContainer" class="clearfix">
@@ -53,8 +39,19 @@
 		<li><div id="headerMypage">
 			<s:form action="GoMyPageAction">
 				<button class="button1" type="submit">MY PAGE</button>
-			</s:form>
-		</div></li></div></ul>
-	</div></div>
+			</s:form></div></li></div></ul>
+			</div></div>
+		<div id="headerSearch">
+			<s:form action="ProductSearchAction" theme="simple">
+				<select>
+					<option>ALL  ITEM</option>
+					<option>FOOD</option>
+					<option>WINE</option>
+					<option>ACCESSORIES</option>
+					<option>WATCH</option>
+				</select>
+				<s:textfield/>
+				<button  class="button1" type="submit">SEARCH</button>
+			</s:form></div>
 </body>
 </html>
