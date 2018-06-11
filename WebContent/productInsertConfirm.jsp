@@ -29,8 +29,8 @@ if(!(session.getAttribute("masterId") == "admin")){
 		<div class="inner">
 			<div class="product_info">
 				<div class="character">
-					<b>ファイル名：</b><s:property value="session.imagefilename"/><br/>
-					<img src="<s:property value="session.imagefilepath"/>" width="100" height="100"/><br>
+					<b>画像ファイル名：</b><s:property value="session.imageFileName"/><br/>
+					<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/><br>
 				</div>
 				<div class="character">
 					<b>商品名:</b><s:property value="session.productName" /><br>
@@ -53,6 +53,20 @@ if(!(session.getAttribute("masterId") == "admin")){
 				<div class="character">
 					<b>ステータス:</b><s:property value="session.StatusName" /><br>
 				</div>
+
+
+				<input type="hidden" name="id" value="<s:property value="id"/>" />
+				<input type="hidden" name="category" value="<s:property value="category"/>" />
+				<input type="hidden" name="description" value="<s:property value="description"/>" />
+				<input type="hidden" name="productId" value="<s:property value="productId" />" />
+				<input type="hidden" name="productName" value="<s:property value="productName"/>" />
+				<input type="hidden" name="productKanaName" value="<s:property value="productKanaName"/>" />
+				<input type="hidden" name="productStock" value="<s:property value="productStock"/>" />
+				<input type="hidden" name="price" value="<s:property value="price"/>" />
+				<input type="hidden" name="imageName"value="<s:property value="imageName"/>" />
+				<input type="hidden" name="imageFileName"value="<s:property value="imageFileName"/>" />
+				<input type="hidden" name="company"value="<s:property value="company"/>" />
+
 			</div>
 			<div class="button">
 			<input type="button"

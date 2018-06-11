@@ -183,6 +183,16 @@
 	<td><s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /></td>
 </tr>
 <tr>
+	<th scope="row">商品カテゴリー</th>
+	<td>
+		<select name="category">
+			<option value="1" selected="selected">車</option>
+			<option value="2">音楽・映画</option>
+			<option value="3">家電</option>
+		</select>
+	</td>
+</tr>
+<tr>
 	<th scope="row">価格</th>
 	<td><s:textfield name="price" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/></td>
 </tr>

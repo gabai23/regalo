@@ -60,7 +60,6 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 	private List<String> imageFileNameErrorMessageList = new ArrayList<String>();
 	private List<String> releaseCompanyErrorMessageList = new ArrayList<String>();
 
-//	private List<String> sexList = new ArrayList<String>();
 	private Map<String, Object> session;
 
 	public String execute() {
