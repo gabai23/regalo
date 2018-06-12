@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+
+	/* ========TAG LAYOUT======== */
+
+		* {
+			font-family:'Hiragino Kaku Gothic Pro W3','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
+			text-decoration:none;
+		}
+
+		body {
+			text-align:center;
+			margin:0 auto;
+			padding:0;
+			line-height:1.6;
+			letter-spacing:1px;
+			font-family:Verdana,Helvetica,sans-serif;
+			font-size:12px;
+			color:#333;
+			backgroud:#fff;
+		}
+
+		table {
+			text-align:center;
+			margin:0 auto;
+		}
+
+		/* h3 {
+			margin-top:0;
+		} */
+
+
+	/* ========ID LAYOUT======== */
+		#top {
+			width:780px;
+			margin:30px auto;
+			border:1px solid #333;
+		}
+
+		#main {
+			width:100%;
+			height:auto;
+			text-align:center;
+		}
+
+		.member_form_title {
+
+			float:left;
+		}
+
+
+		.personal {
+			border:1px solid #a3a3a3;
+			height:100px;
+			overflow-y: scroll;
+		}
+
+		.personal p {
+			line-height:0;
+			margin-top:0;
+			margin-bottom:0;
+		}
+		.mandatory {
+			color:red;
+
+
+			float:right;
+		}
+
+
