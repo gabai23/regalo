@@ -117,51 +117,67 @@
 
 
 		<!-- 宛先情報 -->
-		<s:form action="AddressDeleteAction">
-		<s:iterator value="addressInfoListDTO">
-			<div class="box">
-				<div class="destination_title">
-					<label>
-						<input type="radio" name="id" checked="checked"/>
-						お届け先住所
-					</label>
+		<%-- <s:form action="AddressDeleteAction"> --%>
+			<s:iterator value="addressInfoListDTO">
+				<div class="box">
+					<div class="destination_title">
+						<label>
+							<input type="radio" name="id" checked="checked"/>
+							お届け先住所
+						</label>
+					</div>
+					<div class="destination_box">
+						ふりがな:
+						<s:property value="familyNameKana"/>
+						<s:property value="firstNameKana"/>
+						<br>
+						名前:
+						<s:property value="familyName"/>
+						<s:property value="firstName"/>
+						<br>
+						住所:
+						<s:property value="userAddress"/>
+						<br>
+						電話番号:
+						<s:property value="telNumber"/>
+						<br>
+						メールアドレス:
+						<s:property value="email"/>
+						<br>
+					</div>
 				</div>
-				<div class="destination_box">
-					ふりがな:
-					<s:property value="familyNameKana"/>
-					<s:property value="firstNameKana"/>
-					<br>
-					名前:
-					<s:property value="familyName"/>
-					<s:property value="firstName"/>
-					<br>
-					住所:
-					<s:property value="userAddress"/>
-					<br>
-					電話番号:
-					<s:property value="telNumber"/>
-					<br>
-					メールアドレス:
-					<s:property value="email"/>
-					<br>
+
+
+
+			<!-- 宛先選択削除 -->
+			<div id="form_user_button">
+			<%-- <button type="submit" name="deleteFlg" value="1">宛先の選択削除button</button>
+			<input type="button" value="宛先の選択削除1"
+				onclick="location.href='<s:url action="AddressDeleteAction" />'">
+			<input type="submit" value="宛先選択削除"> --%>
+
+			<s:form action="AddressDeleteAction">
+				<s:submit value="宛先選択削除" method="execute"/>
+				<%-- <s:submit value="宛先選択削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/> --%>
+				<input type="hidden" name="deleteFlg" value="2"/>
+				<input type="hidden" name="id" value="${id}"/>
 				</div>
-			</div>
+			</s:form>
+	<%-- 		</s:form> --%>
+			<!-- 宛先全削除 -->
+			<div id="form_user_button">
+	<%-- 		<s:form action="AddressDeleteAction"> --%>
+			<s:form action="AddressDeleteAction">
+			<s:submit value="宛先全件削除" method="execute"/>
+				<%-- <s:submit value="宛先選択削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/> --%>
+				<input type="hidden" name="deleteFlg" value="1"/>
+				<input type="hidden" name="id" value="${id}"/>
+			</s:form>
+			<%-- <input type="hidden" name="deleteFlg" value="1"/>
+			<s:submit value="宛先全削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/> --%>
+		<%-- </s:form> --%>
+		</div>
 		</s:iterator>
-
-
-		<!-- 宛先選択削除 -->
-		<div id="form_user_button">
-		<s:submit value="宛先選択削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/>
-		<input type="hidden" name="deleteFlg" value="2"/>
-		</div>
-<%-- 		</s:form> --%>
-		<!-- 宛先全削除 -->
-		<div id="form_user_button">
-<%-- 		<s:form action="AddressDeleteAction"> --%>
-		<input type="hidden" name="deleteFlg" value="1"/>
-		<s:submit value="宛先全削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/>
-		</s:form>
-		</div>
 
 
 		<div class="box_2">

@@ -28,9 +28,10 @@ public class AddressCreateCompleteAction extends ActionSupport implements Sessio
 
 		String result = ERROR;
 		AddressInfoDAO addressInfoDao = new AddressInfoDAO();
-		int count = addressInfoDao.insert(String.valueOf(session.get("loginId")),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
+		int count = addressInfoDao.insert(String.valueOf(session.get("userId")),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
 		if(count>0){
 			result = SUCCESS;
+			System.out.println("AddressCreateCompleteAction成功");
 		}
 		return result;
 	}

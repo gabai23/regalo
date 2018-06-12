@@ -25,6 +25,8 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 	private AddressDeleteDAO dao = new AddressDeleteDAO();
 	private AddressInfoDAO addressInfoDAO = new AddressInfoDAO();
 
+	private List<AddressInfoDTO> addressInfoListDTO = new ArrayList<AddressInfoDTO>();
+
 	private int finallyTotalPrice;
 	private int id;
 	String userId;
@@ -51,6 +53,10 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 	public ProductInfoDTO dto = new ProductInfoDTO();
 
 	public String execute() throws SQLException {
+
+		System.out.println("AddressDeleteAction:deleteFlg"+deleteFlg);
+		System.out.println("AddressDeleteAction:id"+id);
+
 
 		userId = (String)session.get("userId");
 		String result = SUCCESS;
@@ -99,6 +105,7 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 	public String deleteAll() throws SQLException {
 
 		String user_id = session.get("userId").toString();
+		System.out.println("全件削除");
 
 		int res = dao.deleteAllAddress(user_id);
 		String result = ERROR;
@@ -106,30 +113,32 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 		if(res > 0) {
 			result = "address";
 			addressList = null;
-			setMessage("注文履歴を全て削除しました");
+			System.out.println(res + "件削除しました");
 
 		}else if(res == 0) {
-			setMessage("履歴の削除に失敗しました");
-			return result;
+			System.out.println("削除できませんでした");
+
 		}
+		addressInfoListDTO = addressInfoDAO.getAddressInfo(session.get("userId").toString());
 		return result;
 	}
 
 	//選択削除メソッド
 	public String deletePart() throws SQLException {
+		System.out.println("選択削除");
 		int res = dao.deletePartAddress(id);
 		addressList = addressInfoDAO.getAddressInfo(userId);
 
 		String result = SUCCESS;
 
 		if(res > 0) {
-			setMessage(res + "件削除しました");
-			return result;
+			System.out.println(res + "件削除しました");
+
 		}else if(res == 0) {
-			setMessage("削除できませんでした");
+			System.out.println("削除できませんでした");
 			result = ERROR;
 		}
-
+		addressInfoListDTO = addressInfoDAO.getAddressInfo(session.get("userId").toString());
 		return result;
 	}
 
@@ -231,6 +240,14 @@ public class AddressDeleteAction extends ActionSupport implements SessionAware {
 
 	public void setCartDtoList(List<CartDTO> CartList) {
 		this.CartList = CartList;
+	}
+
+	public List<AddressInfoDTO> getAddressInfoListDTO() {
+		return addressInfoListDTO;
+	}
+
+	public void setAddressInfoListDTO(List<AddressInfoDTO> addressInfoListDTO) {
+		this.addressInfoListDTO = addressInfoListDTO;
 	}
 }
 
