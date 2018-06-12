@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -41,6 +41,10 @@ body {
  	margin-top: 30px;
 	}
 
+.register {
+	text-align: center;
+	}
+
 </style>
 </head>
 
@@ -52,86 +56,16 @@ body {
 
 	<p class="titlefont">宛先登録</p>
 
+	<div id="container"></div>
+
 	<s:form action="AddressCreateConfirmAction" theme="simple">
 
-	<!-- 姓エラー -->
 
-<%-- 	<s:if test="!#session.familyNameErrorMessageList.isEmpty()"> --%>
-<!-- 		<div class="error"> -->
-<!-- 			<div class="error-message"> -->
-<%-- 				<s:iterator value="#session.familyNameErrorMessageList"><s:property /><br></s:iterator> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 	</s:if> --%>
+	<div class="input">
 
-	<!-- 名エラー -->
-
-<%-- 	<s:if test="!#session.firstNameErrorMessageList.isEmpty()"> --%>
-<!-- 		<div class="error"> -->
-<!-- 			<div class="error-message"> -->
-<%-- 				<s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 	</s:if> --%>
-
-
-	<!-- 姓ふりがなエラー -->
-
-<%-- 	<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()"> --%>
-<!-- 		<div class="error"> -->
-<!-- 			<div class="error-message"> -->
-<%-- 				<s:iterator value="#session.familyNameKanaErrorMessageList"><s:property /><br></s:iterator> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 	</s:if> --%>
-
-
-	<!-- 名ふりがなエラー -->
-
-<%-- 	<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()"> --%>
-<!-- 		<div class="error"> -->
-<!-- 			<div class="error-message"> -->
-<%-- 				<s:iterator value="#session.firstNameKanaErrorMessageList"><s:property /><br></s:iterator> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 	</s:if> --%>
-
-
-	<!-- メールアドレスエラー -->
-
-<%-- 	<s:if test="!#session.emailErrorMessageList.isEmpty()"> --%>
-<!-- 		<div class="error"> -->
-<!-- 			<div class="error-message"> -->
-<%-- 				<s:iterator value="#session.emailErrorMessageList"><s:property /><br></s:iterator> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 	</s:if> --%>
-
-
-	<!-- 電話番号エラー -->
-
-<%-- 	<s:if test="!#session.telNumberErrorMessageList.isEmpty()"> --%>
-<!-- 		<div class="error"> -->
-<!-- 			<div class="error-message"> -->
-<%-- 				<s:iterator value="#session.telNumberErrorMessageList"><s:property /><br></s:iterator> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 	</s:if> --%>
-
-	<!-- 住所エラー -->
-
-<%-- 	<s:if test="!#session.userAddressErrorMessageList.isEmpty()"> --%>
-<!-- 		<div class="error"> -->
-<!-- 			<div class="error-message"> -->
-<%-- 				<s:iterator value="#session.userAddressErrorMessageList"><s:property /><br></s:iterator> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 	</s:if> --%>
-
-	<div class="box">
-	<table>
 
 	<!-- 姓 -->
+	<div class="register">
 		<s:if test="!#session.familyNameErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -140,13 +74,15 @@ body {
 		</div>
 		</s:if>
 
-		<tr>
-			<th scope="row"><s:label value="姓"/></th>
-			<td><s:textfield name="familyName" class="txt" /></td>
-<!-- 			<div class="form-text">姓【半角英語、漢字、ひらがな】</div> -->
-		</tr>
+
+		<div class="name"><s:label value="姓"/></div>
+		<div class="box"><s:textfield name="familyName" class="txt" /></div>
+	</div>
+
+
 
 	<!-- 名 -->
+	<div class="register">
 		<s:if test="!#session.firstNameErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -154,12 +90,14 @@ body {
 			</div>
 		</div>
 		</s:if>
-		<tr>
-			<th scope="row"><s:label value="名"/></th>
-			<td><s:textfield name="firstName" class="txt" /><br></td>
-		</tr>
+
+			<s:label value="名"/>
+			<s:textfield name="firstName" class="txt" /><br>
+
+	</div>
 
 	<!-- 姓ふりがな -->
+	<div class="register">
 		<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -167,12 +105,14 @@ body {
 			</div>
 		</div>
 		</s:if>
-		<tr>
-			<th scope="row"><s:label value="姓ふりがな"/></th>
-			<td><s:textfield name="familyNameKana" class="txt" /><br></td>
-		</tr>
+
+			<s:label value="姓ふりがな"/>
+			<s:textfield name="familyNameKana" class="txt" /><br>
+
+	</div>
 
 	<!-- 名ふりがな -->
+	<div class="register">
 		<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -180,25 +120,25 @@ body {
 			</div>
 		</div>
 		</s:if>
-		<tr>
-			<th scope="row"><s:label value="名ふりがな"/></th>
-			<td><s:textfield name="firstNameKana" class="txt" /><br></td>
-		</tr>
+
+			<s:label value="名ふりがな"/>
+			<s:textfield name="firstNameKana" class="txt" /><br>
+
+	</div>
 
 	<!-- 性別 -->
-		<%-- <tr>
-			<th scope="row"><s:label value="性別"/></th>
-			<td><s:textfield name="sexList" class="txt" /><br></td>
-		</tr> --%>
-		<tr>
-		<th scope="row"><s:label value="性別"/></th>
+	<div class="register">
 
-			<td><s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" /></td>
+		<s:label value="性別"/>
+
+		<s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" />
 
 
-		</tr>
+
+	</div>
 
 	<!-- 住所 -->
+	<div class="register">
 		<s:if test="!#session.userAddressErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -207,12 +147,14 @@ body {
 		</div>
 		</s:if>
 
-		<tr>
-			<th scope="row"><s:label value="住所"/></th>
-			<td><s:textfield name="userAddress" class="txt" /><br></td>
-		</tr>
+
+			<s:label value="住所"/>
+			<s:textfield name="userAddress" class="txt" /><br>
+
+	</div>
 
 	<!-- 電話番号 -->
+	<div class="register">
 		<s:if test="!#session.telNumberErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -220,13 +162,15 @@ body {
 			</div>
 		</div>
 		</s:if>
-		<tr>
-			<th scope="row"><s:label value="電話番号"/></th>
-			<td><s:textfield name="telNumber" class="txt" /><br></td>
-		</tr>
+
+			<s:label value="電話番号"/>
+			<s:textfield name="telNumber" class="txt" /><br>
+
+	</div>
 
 
 	<!-- メールアドレス -->
+	<div class="register">
 		<s:if test="!#session.emailErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -234,12 +178,13 @@ body {
 			</div>
 		</div>
 		</s:if>
-		<tr>
-			<th scope="row"><s:label value="メールアドレス"/></th>
-			<td><s:textfield name="email" class="txt" /><br></td>
-		</tr>
 
-	</table>
+			<s:label value="メールアドレス"/>
+			<s:textfield name="email" class="txt" placeholder="半角英数字" /><br>
+
+	</div>
+
+
 	</div>
 
 	<!-- 送信ボタン -->

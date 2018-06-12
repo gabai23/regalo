@@ -43,12 +43,15 @@ public class AddressInfoDAO {
 		} try {
 			connection.close();
 
-	} catch (SQLException e) {
+		} catch (SQLException e) {
 		e.printStackTrace();
-	}
-	return count;
+		}
+
+		return count;
 }
+
 	public List<AddressInfoDTO> getAddressInfo(String loginId) throws SQLException {
+
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		List<AddressInfoDTO> addressInfoDtoList = new ArrayList<AddressInfoDTO>();
@@ -83,126 +86,4 @@ public class AddressInfoDAO {
 		return addressInfoDtoList;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//	DBConnector db = new DBConnector();
-//	Connection con = null;
-//
-//	//宛先情報登録メソッド
-//	public boolean registerAddress(AddressInfoDTO addressInfoDTO) throws SQLException {
-//
-//		int updateCount = 0;
-//		boolean result = false;
-//
-//		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code FROM destination_info WHERE user_id = ?";
-//
-//
-//		try {
-//			con = db.getConnection();
-//			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1, addressInfoDTO.getUserId());
-//			ps.setString(2, addressInfoDTO.getFamilyName());
-//			ps.setString(3, addressInfoDTO.getFirstName());
-//			ps.setString(4, addressInfoDTO.getFamilyNameKana());
-//			ps.setString(5, addressInfoDTO.getFirstNameKana());
-//			ps.setString(6, addressInfoDTO.getUserAddress());
-//			ps.setString(7, addressInfoDTO.getTelNumber());
-//			ps.setString(8, addressInfoDTO.getEmail());
-//
-//			updateCount = ps.executeUpdate();
-//
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//
-//		}finally {
-//			con.close();
-//		}
-//
-//		if(updateCount == 1) {
-//			result = true;
-//		}
-//		return result;
-//	}
-//
-//	public ArrayList<AddressInfoDTO> getAddressInfo(String userId) throws SQLException {
-//
-//		ArrayList<AddressInfoDTO> addressInfoList = new ArrayList<AddressInfoDTO>();
-//
-//
-//		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = ?";
-//
-//
-//		try {
-//			con = db.getConnection();
-//			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1,userId);
-//			ResultSet rs = ps.executeQuery();
-//
-//			while(rs.next()) {
-//
-//
-//				AddressInfoDTO addressInfoDTO = new AddressInfoDTO();
-//
-//
-//
-//				addressInfoDTO.setId(rs.getInt("id"));
-//				addressInfoDTO.setFamilyNameKana(rs.getString("family_name"));
-//				addressInfoDTO.setFirstName(rs.getString("first_name"));
-//				addressInfoDTO.setFamilyNameKana(rs.getString("family_name_kana"));
-//				addressInfoDTO.setFirstNameKana(rs.getString("first_name"));
-//				addressInfoDTO.setEmail(rs.getString("email"));
-//				addressInfoDTO.setTelNumber(rs.getString("tel_number"));
-//				addressInfoDTO.setUserAddress(rs.getString("user_address"));
-//				addressInfoList.add(addressInfoDTO);
-//
-//			}
-//		} catch(SQLException e) {
-//			e.printStackTrace();
-//
-//		} finally {
-//			con.close();
-//		}
-//		return addressInfoList;
-//
-//
-//	}
-
-
-
 
