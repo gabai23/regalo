@@ -39,7 +39,7 @@
 </style>
 </head>
 <body>
-	<s:form action="GoHomeAction">
+
 
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
@@ -47,6 +47,7 @@
 	<h3>パスワード変更が完了しました。</h3>
 
 	<!-- 送信ボタン -->
+	<s:form action="GoHomeAction">
 	<div class="button">
 		<s:submit value="ホーム画面へ" />
 		</div>
