@@ -30,13 +30,17 @@ $(function(){
 			<ul>
 
 				<!-- マイページ -->
+				<s:if test="session.loginFlg == true && session.masterFlg != true">
 				<li>
 					<div id="headerMypage">
 						<s:form action="GoMyPageAction">
 							<button class="button1" type="submit">MY PAGE</button>
 						</s:form>
 					</div>
-				</li><!-- 商品一覧 -->
+				</li>
+				</s:if>
+
+				<!-- 商品一覧 -->
                  <li>
                  <div id ="headerProductList">
                  <s:form action="GoProductListAction">
