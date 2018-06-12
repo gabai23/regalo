@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import com.internousdev.regalo.dto.LoginDTO;
 import com.internousdev.regalo.util.DBConnector;
 
+
+	//いいか圭一郎。DAOはDB関連だけのクラスというのを忘れるな！
 public class LoginDAO {
 
 	private LoginDTO dto = new LoginDTO();

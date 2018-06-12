@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/userCreate-style.css">
+<link rel="stylesheet" href="./css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <title>新規登録画面</title>
 </head>
 <body>
@@ -39,14 +41,14 @@
 							<s:textfield type="text" name="familyName" value="%{familyName}"
 							placeholder="姓"/>
 						</div>
-
-					<s:if test="firstNameErorMessageList.size()>0">
-						<span class="mandatory"><s:iterator value="firstNameErorMessageList">
+					<span class="mandatory">
+					<s:if test="familyNameErorMessageList.size()>0">
+						<span class="mandatory"><s:iterator value="familyNameErorMessageList">
 							<s:property />
 						</s:iterator>
 						</span>
 					</s:if>
-
+					</span>
 						<br>
 						<span class="member_form_title">名</span>
 						<div class="member_form_text">
@@ -54,13 +56,14 @@
 							placeholder="名"/>
 							<br>
 						</div>
-
-					<s:if test="familyNameKanaErorMessageList.size()>0">
-						<span class="mandatory"><s:iterator value="familyNameKanaErorMessageList">
+					<span class="mandatory">
+					<s:if test="firstNameErorMessageList.size()>0">
+						<s:iterator value="firstNameErorMessageList">
 							<s:property />
 						</s:iterator>
-						</span>
+
 					</s:if>
+					</span>
 						<br>
 						<span class="member_form_title">姓ふりがな</span>
 						<div class="member_form_text">
@@ -70,8 +73,8 @@
 							<br>
 						</div>
 
-					<span class="mandatory"><s:if test="firstNameKanaErorMessageList.size()>0">
-						<s:iterator value="firstNameKanaErorMessageList">
+					<span class="mandatory"><s:if test="familyNameKanaErorMessageList.size()>0">
+						<s:iterator value="familyNameKanaErorMessageList">
 							<s:property />
 						</s:iterator>
 					</s:if>
@@ -84,13 +87,13 @@
 								placeholder="名ふりがな"/>
 							<br>
 						</div>
-<span class="mandatory">
+					<span class="mandatory">
 					<s:if test="firstNameKanaErorMessageList.size()>0">
 						<s:iterator value="firstNameKanaErorMessageList">
 							<s:property />
 						</s:iterator>
 					</s:if>
-</span>
+					</span>
 						<br>
 						<span class="member_form_title">regaloID</span>
 						<div class="member_form_text">
@@ -98,6 +101,13 @@
 								placeholder="半角英数字" />
 							<br>
 						</div>
+					<span class="mandatory">
+					<s:if test="userIdErorMessageList.size()>0">
+											<s:iterator value="userIdErorMessageList">
+							<s:property />
+						</s:iterator>
+					</s:if>
+					</span>
 
 						<br>
 						<span class="member_form_title">パスワード</span>
@@ -106,7 +116,8 @@
 								placeholder="半角英数字" />
 							<br>
 						</div>
-<span class="mandatory"><s:if test="passwordErorMessageList.size()>0">
+					<span class="mandatory">
+					<s:if test="passwordErorMessageList.size()>0">
 						<s:iterator value="passwordErorMessageList">
 							<s:property />
 						</s:iterator>
@@ -129,27 +140,13 @@
 							<br>
 						</div>
 
-						<span class="mandatory"><s:if test="emailErorMessageList.size()>0">
+					<span class="mandatory"><s:if test="emailErorMessageList.size()>0">
 						<s:iterator value="emailErorMessageList">
 							<s:property />
 						</s:iterator>
 					</s:if>
 					</span>
-										<td>
-											<span class="member_form_title">利用規約および<br>個人情報保護方針</span>
-											<span class="mandatory">必須</span>
-										</td>
-										<td>
-											<div class="personal">
-														<h3>利用規約</h3>
-														<p>利用規約です</p><br><p>利用規約です</p><br><p>利用規約です</p>
-														<h3>個人情報保護方針</h3>
-														<p>個人情報を守ります</p><br><p>個人情報を守ります</p><br><p>個人情報を守ります</p><br>
-											</div>
-										</td>
-						<s:checkbox name="personal" value="true"/>
-								上記の利用規約および個人情報保護方針に同意する
-								<br>
+
 						<div class="member_btn">
 							<button type="submit" class="">登 録 情 報 を 確 認</button>
 						</div>

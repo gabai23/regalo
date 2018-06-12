@@ -6,26 +6,25 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-	/*2018/06/08　午前　圭一郎*/
 
 public class GoLoginAction extends ActionSupport implements SessionAware{
 
 	//session
 	private Map<String,Object> session;
-	//ログインしているかの判定
+	
 	private boolean loginFlg;
-	//ログインページにレッツゴー！
+	
 	public String execute(){
-		//エラーでhome
+		//エラー→home サクセス→ログイン画面
 		String result = ERROR;
 
 		if(session.containsKey("loginFlg")){
-			//loginFlgという変数にどっちかぶちこむ
+			
 			loginFlg = (boolean) session.get("loginFlg");
 
 			//ログインしていなければ
 			if(loginFlg != true){
-				//ログイン画面遷移
+				
 				result= SUCCESS;
 
 
