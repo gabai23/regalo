@@ -122,7 +122,7 @@
 				<div class="box">
 					<div class="destination_title">
 						<label>
-							<input type="radio" name="id" checked="checked"/>
+							<!-- <input type="radio" name="id" checked="checked"/> -->
 							お届け先住所
 						</label>
 					</div>
@@ -164,20 +164,23 @@
 				</div>
 			</s:form>
 	<%-- 		</s:form> --%>
-			<!-- 宛先全削除 -->
+
+		</s:iterator>
+
+		<br>
+
+		<!-- 宛先全削除 -->
 			<div id="form_user_button">
 	<%-- 		<s:form action="AddressDeleteAction"> --%>
 			<s:form action="AddressDeleteAction">
 			<s:submit value="宛先全件削除" method="execute"/>
 				<%-- <s:submit value="宛先選択削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/> --%>
 				<input type="hidden" name="deleteFlg" value="1"/>
-				<input type="hidden" name="id" value="${id}"/>
 			</s:form>
 			<%-- <input type="hidden" name="deleteFlg" value="1"/>
 			<s:submit value="宛先全削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/> --%>
 		<%-- </s:form> --%>
 		</div>
-		</s:iterator>
 
 
 		<div class="box_2">
