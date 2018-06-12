@@ -20,6 +20,7 @@
       .end().appendTo('.bgslideshow');
     }, 4000);
   });
+
 </script>
 
 

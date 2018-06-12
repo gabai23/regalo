@@ -7,13 +7,57 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <title>カート</title>
+<style type="text/css">
+
+ #contents {
+ position:relative;
+ width:700px;
+ margin:0 auto;
+
+ }
+
+.submit_btn {
+/* 文字サイズを1.emに指定 */
+    font-size: 1em;
+    /* 文字の太さをboldに指定 */
+    /*font-weight: bold; */
+    /* 縦方向に10px、
+     * 横方向に30pxの余白を指定 */
+    padding: 5px 30px;
+    /* 文字色を白色に指定 */
+    color: white;
+    /* ボーダーをなくす */
+    border-style: none;
+    /* ボタンの影の指定
+     * 影の横幅を2px
+     * 縦長を2px
+     * ぼかしを3px
+     * 広がりを1px
+     * 色を#666（グレー）に指定 */
+     box-shadow: 2px 2px 3px 1px #ffffff;
+     -moz-box-shadow: 2px 2px 3px 1px #ffffff;
+    -webkit-box-shadow: 2px 2px 3px 1px #ffffff;
+    /* テキストの影の指定
+     * 影の横幅を1px
+     * 縦長を1px
+     * ぼかしを2px
+     * 色を#000（黒）に指定 */
+    text-shadow: 1px 1px 2px #000;
+     background-color: #000000;
+   /* グラデーションの指定 */
+     background: -moz-linear-gradient(bottom, #36d, #000000 50%, #36d);
+/*      background: -webkit-gradient(linear, left bottom, left top, from(#000), color-stop(0.5, #ffffff), to(#000)); */
+     font-family: 'Cinzel', serif;
+
+}
 
 
+</style>
 </head>
 <body>
 <jsp:include page="includeHeader.jsp" />
 <div id="contents">
-<h1>カート画面</h1>
+<h3>カート画面</h3>
 
 <s:if test="#session.checkListErrorMessageList!=null">
 	<div class="error">
@@ -70,19 +114,22 @@
 </table>
 <h2><s:label value="カート合計金額 :"/><s:property value="totalPrice"/>円</h2><br>
 
+<div class="btn">
+<ul>
+<li>
 <div class="submit_btn_box">
 	<div id=".contents-btn-set">
 <s:submit value="決済" class="submit_btn" onclick="this.form.action='BuyProductConfirmAction';"/>
 </div>
-</div>
+</div></li>
 
-<div class="submit_btn_box">
+<li><div class="submit_btn_box">
 	<div id=".contents-btn-set">
 <s:submit value="削除" class="submit_btn" onclick="this.form.action='CartDeleteAction';"/>
 </div>
+</div></li>
+</ul>
 </div>
-
-
 </s:form>
 </s:if>
 <s:else>
