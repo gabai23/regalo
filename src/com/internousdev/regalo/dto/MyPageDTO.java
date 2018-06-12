@@ -29,8 +29,8 @@ public class MyPageDTO {
  */
 	private boolean sex;
 	private String email;
- 	private String regist_date;
- 	private String update_date;
+// 	private String regist_date;
+// 	private String update_date;
 
 
 	public String getUserId() {
@@ -89,18 +89,18 @@ public class MyPageDTO {
 		this.email = email;
 	}
 
-	public String getRegist_date() {
-		return regist_date;
-	}
-	public void setRegist_date(String regist_date) {
-		this.regist_date = regist_date;
-	}
-
-	public String getUpdate_date() {
-		return update_date;
-	}
-	public void setUpdate_date(String update_date) {
-		this.update_date = update_date;
-	}
+//	public String getRegist_date() {
+//		return regist_date;
+//	}
+//	public void setRegist_date(String regist_date) {
+//		this.regist_date = regist_date;
+//	}
+//
+//	public String getUpdate_date() {
+//		return update_date;
+//	}
+//	public void setUpdate_date(String update_date) {
+//		this.update_date = update_date;
+//	}
 
 }

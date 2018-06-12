@@ -6,16 +6,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
-	<link rel="stylesheet" type="text/css" href="">
+
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 	<meta http-equiv="imagetoolbar" content="no"/>
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
+	<link rel="stylesheet" type="text/css" href="">
 	<link rel="stylesheet" href="./css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-
-
-
 <title>MyPage</title>
 
   <style type="text/css">
@@ -142,19 +140,19 @@
 		</tr>
 
 
-		<tr>
-			<th>ID</th>
-			<td>
-				<s:property value="userId"/>
-			</td>
-		</tr>
+<!-- 		<tr> -->
+<!-- 			<th>ID</th> -->
+<!-- 			<td> -->
+<%-- 				<s:property value="userId"/> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
 
-		<tr>
-			<th>パスワード</th>
-			<td>
-				<s:property value="password"/>
-			</td>
-		</tr>
+<!-- 		<tr> -->
+<!-- 			<th>パスワード</th> -->
+<!-- 			<td> -->
+<%-- 				<s:property value="password"/> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
 
 	</table>
 

@@ -28,6 +28,10 @@
 
     }
 
+     .clear{
+     		clear: both;
+     }
+
 
 
     body{
@@ -36,14 +40,10 @@
     		line-height:1.6;
     		letter-spacing:1px;
     		font-size:12px;
-    		color:#FFF;
+    		color:black;
 
     }
 
-/*     #image{ */
-/*     		float: left; */
-
-/*     } */
 
     #main{
     		width:100%;
@@ -51,91 +51,145 @@
     		text-align: center;
     }
 
-    .all delete{
-    		font-size: 35px;
-    }
+
+    	.productHistory{
+    			width: 500px;
+    			height: 150px;
+/*      			border: 1px solid black; */
+     			margin-left: 300px;
+     	}
+
+
+    			 #image{
+    			 		float: left;
+     					width: 200px;
+    					height: 150px;
+/*     					padding-left: 150px */
+
+     			}
+
+
+
+   				 .all delete{
+    					font-size: 35px;
+    			}
 
  </style>
 </head>
 <body>
 
 
+
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 			<div id="main">
 
-				<div id ="top">
-					<span>購入履歴</span>
-				</div>
+
+
+				<div id="container">
+
+						<div id ="top">
+								<span>BuyProductHistory</span>
+						</div>
 
 
 
-			<!--購入がない場合 -->
-				<s:if test = "historyList.size() == 0">
-					<h2>購入情報はありません</h2>
-				</s:if>
+					<!--購入がない場合 -->
+						<div class = "nullerror">
+								<s:if test = "historyList.size() == 0">
+										<h2>購入情報はありません</h2>
+								</s:if>
+						</div>
 
 
 
-		<!-- 購入履歴がある場合 -->
+					<!-- 購入履歴がある場合 -->
 
-				<s:elseif test = "historyList !=null && historyList.size() !=0">
+						<s:elseif test = "historyList !=null && historyList.size() !=0">
 
-				<div class=" ">
-					<s:form action="GoBuyProductHistoryAction">
-					</s:form>
+							<div class="productHistory">
+									<s:form action="GoBuyProductHistoryAction">
+									</s:form>
 
-					<s:iterator value = "historyList">
-
-
-				<!-- 画像 -->
-						<img id = "image" src="<s:property value='imageFilePath'/>"><br>
-
-				<!-- 商品名 -->
-						<s:property value = "productName" /><br>
-
-						個数：<s:property value="productCount"/>点<br>
-
-						値　　段　：<s:property value="price" /><br>
-
-						発売会社名：<s:property value="releaseCompany" /><br>
-
-						購入日時　：<s:property value="registDate"/><br>
-
-						発売年月日：<s:property value="releaseDate" /><br>
-
-				<!-- 削除ボタン -->
-						<s:form action="GoBuyProductHistoryAction">
-							<input type="hidden" name="deleteFlg" value="2">
-							<input type="hidden" name="id" value="${id}">
-<%-- 							<s:submit id="deleteOneEach" value="削除" method="deleteOneEach"/> --%>
-							<input id = "onedelete" type= "submit" name = "submit" value="削除">
-						</s:form>
+									<s:iterator value = "historyList">
 
 
-					</s:iterator>
+											<!-- 画像 -->
+											<div class = "image">
+													<img id = "image" src="<s:property value='imageFilePath'/>"><br>
+											</div>
 
-				</div>
+<!-- 											<div class = "clear"></div> -->
 
-				</s:elseif>
+											<!-- 商品名 -->
+											<div class = "productName">
+													<s:property value = "productName" /><br>
+											</div>
 
-				<!-- 全件削除ボタン -->
-					<s:if test = "historyList.size() !=0">
-						<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
-							<input type="hidden" name="deleteFlg" value="1">
-							<div class = "alldelete">
-							<s:submit id="alldelete" value="履歴全削除"/>
+											<div class = "productCount">
+													個数：<s:property value="productCount"/>点<br>
+											</div>
+
+											<div class = "proce">
+													値　　段　：<s:property value="price" /><br>
+											</div>
+
+											<div class = "releaseCompany">
+													発売会社名：<s:property value="releaseCompany" /><br>
+											</div>
+
+											<div class = "regisDate">
+													購入日時　：<s:property value="registDate"/><br>
+											</div>
+
+											<div class = "releaseDate">
+													発売年月日：<s:property value="releaseDate" /><br>
+											</div>
+
+
+
+<!-- 											削除ボタン -->
+<!-- 											<div class = "onedelete"> -->
+<%-- 												<s:form action="GoBuyProductHistoryAction"> --%>
+<!-- 														<input type="hidden" name="deleteFlg" value="2"> -->
+<%-- 														<input type="hidden" name="id" value="${id}"> --%>
+<%-- 													<s:submit id="deleteOneEach" value="削除" method="deleteOneEach"/> -->
+<!-- 														<input id = "onedelete" type= "submit" name = "submit" value="削除"> -->
+<%-- 												</s:form> --%>
+<!-- 											</div> -->
+
+
+									</s:iterator>
+
 							</div>
-<!-- 							<input id = "allDel" type= "submit" name = "submit" value="全削除"> -->
+
+						</s:elseif>
+
+
+<div class = "clear"></div>
+
+<br>
+
+					<!-- 全件削除ボタン -->
+						<s:if test = "historyList.size() !=0">
+								<div class = "alldelete">
+										<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
+											<input type="hidden" name="deleteFlg" value="1">
+											<s:submit id="alldelete" value="履歴全削除"/>
+<!-- 										<input id = "allDel" type= "submit" name = "submit" value="全削除"> -->
+										</s:form>
+								</div>
+						</s:if>
+
+
+					<!-- マイページに戻る -->
+						<s:form action="GoMyPageAction" class="button">
+<%-- 							<s:submit value="マイページに戻る"/> --%>
+								<input id = "returnMyPage" type= "submit" name = "submit" value="マイページへ戻る">
 						</s:form>
-					</s:if>
 
 
-				<!-- マイページに戻る -->
-					<s:form action="GoMyPageAction" class="button">
-<%-- 						<s:submit value="マイページに戻る"/> --%>
-							<input id = "returnMyPage" type= "submit" name = "submit" value="マイページへ戻る">
-					</s:form>
+			</div>
 
 
 			</div>
