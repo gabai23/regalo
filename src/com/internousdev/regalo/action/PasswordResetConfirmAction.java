@@ -38,8 +38,8 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		//フォームの入力内容をInputCheckerを使用しチェックする
 
 		ErrorUserIdList = inputChecker.check("ユーザーID",userId,1,8,true,false,false,true,false,false,false);
-		ErrorPasswordList1 = inputChecker.check("パスワード",password1,1,16,true,false,false,false,false,false,false);
-		ErrorReconfirmPassList = inputChecker.check("確認用パスワード",password2,1,16,true,false,false,false,false,false,false);
+		ErrorPasswordList1 = inputChecker.check("パスワード",password1,1,16,true,false,false,false,true,false,false);
+		ErrorReconfirmPassList = inputChecker.check("確認用パスワード",password2,1,16,true,false,false,false,true,false,false);
 
 		if(
 				ErrorUserIdList.size() == 0 &&
