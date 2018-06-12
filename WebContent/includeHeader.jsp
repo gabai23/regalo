@@ -8,11 +8,21 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" type="text/css" href="./css/includeHeader.css">
 <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+
+<script type="text/javascript">
+$(function(){
+  $("right-list").click(function(){
+	  $("").css("color","pink");
+  });
+  });
+</script>
+
+
 </head>
 <body>
 	<div id="header">
 		<!-- GoHomeActionつけろ -->
-		<div id="headerLogo"><div class=aaa">
+		<div id="headerLogo"><div class="aaa">
 			<a class="headerA" href='<s:url action="GoHomeAction"/>'>Regalo</a></div>
 		</div>
 

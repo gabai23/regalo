@@ -6,30 +6,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-<title>Insert title here</title>
+<title>buyproductcomplete</title>
+<style type="text/css">
+
+.bbbb {
+position:relative;
+ width:700px;
+ margin:0 auto;
+}
+
+</style>
 </head>
 <body>
-<div id ="header"><div id ="pr">
-</div>
-</div>
 <div id="main">
-<div id="top">
-<p>BuyItemComplete</p>
+<div id="top"><!-- ヘッダー -->
+	<jsp:include page="includeHeader.jsp"/>
+<%-- <span>BuyItemComplete</span> --%>
 </div>
-<p>購入手続きが完了しました。</p>
-<a href='<s:url action="GoMyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span>
-<p>Homeへ戻る場合はこちら<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
+<div class ="bbbb">
+<span>購入手続きが完了しました。</span><br>
+<a href='<s:url action="GoMyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span><br>
+<span>Homeへ戻る場合はこちら<a href='<s:url action="GoHomeAction"/>'>こちら</a></span>
 
 <%-- <s:form action="GoHomeAction"><s:submit value = "進む"/> --%>
 <%-- </s:form> --%>
+</div></div>
 
+<!-- ヘッダー -->
+	<jsp:include page="includeFooter.jsp"/>
 
-</div>
-<div id="footer">
 <div id="pr">
-</div>
+
 </div>
 </body>
 </html>
