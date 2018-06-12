@@ -63,3 +63,4 @@ public class PasswordResetCompleteAction extends ActionSupport {
 	}
 
 }
+

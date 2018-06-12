@@ -64,3 +64,4 @@ function goPasswordResetCompleteAction(){
 		<jsp:include page="includeFooter.jsp"/>
 </body>
 </html>
+
