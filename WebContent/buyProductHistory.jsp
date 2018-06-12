@@ -40,13 +40,18 @@
 
     }
 
+/*     #image{ */
+/*     		float: left; */
+
+/*     } */
+
     #main{
     		width:100%;
     		height:auto;
     		text-align: center;
     }
 
-    input#deleteOneEach{
+    .all delete{
     		font-size: 35px;
     }
 
@@ -60,7 +65,7 @@
 			<div id="main">
 
 				<div id ="top">
-					<p>購入履歴</p>
+					<span>購入履歴</span>
 				</div>
 
 
@@ -76,7 +81,7 @@
 
 				<s:elseif test = "historyList !=null && historyList.size() !=0">
 
-				<div>
+				<div class=" ">
 					<s:form action="GoBuyProductHistoryAction">
 					</s:form>
 
@@ -89,13 +94,14 @@
 				<!-- 商品名 -->
 						<s:property value = "productName" /><br>
 
+						個数：<s:property value="productCount"/>点<br>
 
-				<!-- 個数 -->
-						<s:property value="productCount"/>点<br>
+						値　　段　：<s:property value="price" /><br>
+
+						発売会社名：<s:property value="releaseCompany" /><br>
 
 						購入日時　：<s:property value="registDate"/><br>
-						値　　段　：<s:property value="price" /><br>
-						発売会社名：<s:property value="releaseCompany" /><br>
+
 						発売年月日：<s:property value="releaseDate" /><br>
 
 				<!-- 削除ボタン -->
@@ -117,8 +123,10 @@
 					<s:if test = "historyList.size() !=0">
 						<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
 							<input type="hidden" name="deleteFlg" value="1">
-<%-- 							<s:submit id="delete" value="履歴全削除"/> --%>
-							<input id = "allDel" type= "submit" name = "submit" value="全削除">
+							<div class = "alldelete">
+							<s:submit id="alldelete" value="履歴全削除"/>
+							</div>
+<!-- 							<input id = "allDel" type= "submit" name = "submit" value="全削除"> -->
 						</s:form>
 					</s:if>
 
