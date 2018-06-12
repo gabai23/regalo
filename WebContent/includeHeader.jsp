@@ -28,10 +28,13 @@
 
 		<div class="right-list">
 
+
+
+
 			<ul>
 
 				<!-- マイページ -->
-				<s:if test="#session.loginFlg == false || #session.loginFlg == null">
+				<s:if test = "#session.loginFlg == true">
 					<li>
 						<div id="headerMypage">
 							<s:form action="GoMyPageAction">
@@ -40,6 +43,7 @@
 						</div>
 					</li>
 				</s:if>
+
 				<!-- 商品一覧 -->
                  <li>
                  <div id ="headerProductList">

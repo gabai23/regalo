@@ -24,7 +24,6 @@ public class StartAction extends ActionSupport implements SessionAware{
 
 				//ログインフラグ生成
 				session.put("loginFlg", false);
-				System.out.println(session.get("loginFlg").toString());
 
 				//ゲストユーザー用IDを生成
 				@SuppressWarnings("static-access")
@@ -32,6 +31,7 @@ public class StartAction extends ActionSupport implements SessionAware{
 				session.put("tempUserId", tempUserId);
 
 				System.out.println("StartAction-----");
+				System.out.println(session.get("loginFlg").toString());
 				System.out.println("tempUserId:" + tempUserId);
 				System.out.println("-----StartAction");
 
