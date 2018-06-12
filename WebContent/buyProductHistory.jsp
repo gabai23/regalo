@@ -36,13 +36,18 @@
     		line-height:1.6;
     		letter-spacing:1px;
     		font-size:12px;
-    		color:#333;
+    		color:#FFF;
+
     }
 
-        #main{
+    #main{
     		width:100%;
-    		height:500px;
+    		height:auto;
     		text-align: center;
+    }
+
+    input#deleteOneEach{
+    		font-size: 35px;
     }
 
  </style>
@@ -67,7 +72,8 @@
 
 
 
-			<!-- 購入履歴がある場合 -->
+		<!-- 購入履歴がある場合 -->
+
 				<s:elseif test = "historyList !=null && historyList.size() !=0">
 
 				<div>
@@ -96,7 +102,8 @@
 						<s:form action="GoBuyProductHistoryAction">
 							<input type="hidden" name="deleteFlg" value="2">
 							<input type="hidden" name="id" value="${id}">
-							<s:submit id="deleteOneEach" value="削除" method="deleteOneEach"/>
+<%-- 							<s:submit id="deleteOneEach" value="削除" method="deleteOneEach"/> --%>
+							<input id = "onedelete" type= "submit" name = "submit" value="削除">
 						</s:form>
 
 
@@ -110,14 +117,16 @@
 					<s:if test = "historyList.size() !=0">
 						<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
 							<input type="hidden" name="deleteFlg" value="1">
-							<s:submit id="delete" value="履歴全削除"/>
+<%-- 							<s:submit id="delete" value="履歴全削除"/> --%>
+							<input id = "allDel" type= "submit" name = "submit" value="全削除">
 						</s:form>
 					</s:if>
 
 
 				<!-- マイページに戻る -->
 					<s:form action="GoMyPageAction" class="button">
-						<s:submit value="マイページに戻る"/>
+<%-- 						<s:submit value="マイページに戻る"/> --%>
+							<input id = "returnMyPage" type= "submit" name = "submit" value="マイページへ戻る">
 					</s:form>
 
 
