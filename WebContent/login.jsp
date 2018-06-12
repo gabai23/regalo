@@ -66,7 +66,7 @@
 <!-- パスワード再設定 -->
 		<div id="resetPassword">
 				<span>パスワード再設定</span>
-				<a href='<s:url action="GoPassWordResetAction"/>'>こちら</a>
+				<a href='<s:url action="GoPasswordResetAction"/>'>こちら</a>
 		</div>
 
 		<br>
