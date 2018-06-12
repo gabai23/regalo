@@ -75,7 +75,7 @@ body {
 	<s:hidden name="password1" />
 	<s:hidden name="password2" />
 
-	<s:if test="userId.equals('null')">エラー<a href="<s:url action="HomeAction"/>">ホームに戻る</a>
+	<s:if test="userId==null">エラー<a href="<s:url action="HomeAction"/>">ホームに戻る</a>
 	</s:if>
 
 	<s:else>
