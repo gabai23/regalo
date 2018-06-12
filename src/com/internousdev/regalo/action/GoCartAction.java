@@ -38,18 +38,13 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 
 		System.out.println("カートの件数:"+CartDtoList.size());
 
-		/*Iterator<CartDTO> iterator = CartDtoList.iterator();
-		if(!(iterator.hasNext())) {
-			CartDtoList = null;
-		}*/
-		/*session.put("CartDtoList", CartDtoList);*/
-
-		/*int totalPrice = Integer.parseInt(String.valueOf(CartDao.getTotalPrice(userId)));
-		session.put("totalPrice", totalPrice);*/
-
 		totalPrice = calcTotalPrice(CartDtoList);
 
 		result = SUCCESS;
+
+		//カートのエラーメッセージを除去
+	    session.remove("checkListErrorMessageList");
+	    System.out.println("カートのエラーメッセージを削除しました");
 
 
 		return result;

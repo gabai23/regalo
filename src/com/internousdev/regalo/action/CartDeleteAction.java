@@ -1,7 +1,6 @@
 package com.internousdev.regalo.action;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -15,15 +14,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CartDeleteAction extends ActionSupport implements SessionAware{
 
 
-	private Collection<String> checkList;
+	/*private Collection<String> checkList;*/
+	private List<String> checkList;
 	private String categoryId;
 	private String productId;
 
 	private String sex;
 	private List<String> sexList = new ArrayList<String>();
-	private static final String MALE = "男性";
+/*	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
-	private String defaultSexValue = MALE;
+	private String defaultSexValue = MALE;*/
 
 	private String productName;
 	private String productNameKana;
@@ -49,44 +49,64 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 		CartDeleteDAO CartDeleteDAO = new CartDeleteDAO();
 		int count = 0;
 		List<String> checkListErrorMessageList = new ArrayList<String>();
-		if(checkList==null) {
+
+		//チェックボックスが空なら
+		if(!(checkList.isEmpty())){
 			checkListErrorMessageList.add("チェックされていません。");
 			session.put("checkListErrorMessageList", checkListErrorMessageList);
-			return ERROR;
-		}
 
-		for(String id:checkList) {
-			System.out.println(id);
-			count += CartDeleteDAO.delete(id);
+			result = ERROR;
 		}
-		if(count <= 0) {
+		/*if(checkList==null) {
 			checkListErrorMessageList.add("チェックされていません。");
 			session.put("checkListErrorMessageList", checkListErrorMessageList);
-			return ERROR;
-		}else {
-			String userId = null;
-			/*List<CartDTO> CartDtoList = new ArrayList<CartDTO>();*/
-			if(session.containsKey("userId")) {
-				userId = String.valueOf(session.get("userId"));
-			}else if (session.containsKey("tempUserId")) {
-				userId = String.valueOf(session.get("tempUserId"));
-			}
-			CartDtoList = CartDAO.getCartDtoList(userId);
-			/*Iterator<CartDTO> iterator = CartDtoList.iterator();
-			if(!(iterator.hasNext())) {
-				CartDtoList = null;
-			}
-			session.put("CartDtoList", CartDtoList);
 
-			int totalPrice = Integer.parseInt(String.valueOf(CartDAO.getTotalPrice(userId)));
-			session.put("totalPrice", totalPrice);*/
+			result = ERROR;
+		}*/
 
-			sexList.add(MALE);
-			sexList.add(FEMALE);
-			result=SUCCESS;
+		//チェックボックスあり
+		else {
+
+			//カート情報削除
+			for(String id:checkList) {
+				count += CartDeleteDAO.delete(id);
+			}
+
+			if(count > 0) {
+				System.out.println("カート情報削除成功");
+				result=SUCCESS;
+
+			} else {
+				System.out.println("カート情報削除失敗");
+			}
+
+
+			/*if(count <= 0) {
+				checkListErrorMessageList.add("チェックされていません。");
+				session.put("checkListErrorMessageList", checkListErrorMessageList);
+				return ERROR;
+
+			}else */
+
+				/*sexList.add(MALE);
+				sexList.add(FEMALE);*/
 		}
 
+		//カート情報取得
+		String userId = null;
+
+		if(session.containsKey("userId")) {
+			userId = String.valueOf(session.get("userId"));
+
+		}else if (session.containsKey("tempUserId")) {
+			userId = String.valueOf(session.get("tempUserId"));
+		}
+
+		CartDtoList = CartDAO.getCartDtoList(userId);
+
+		//合計金額
 		totalPrice = calcTotalPrice(CartDtoList);
+
 		return result;
 	}
 
@@ -122,24 +142,34 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 		this.sexList = sexList;
 	}
 
-	public String getDefaultSexValue() {
+/*	public String getDefaultSexValue() {
 		return defaultSexValue;
 	}
 
 	public void setDefaultSexValue(String defaultSexValue) {
 		this.defaultSexValue = defaultSexValue;
-	}
+	}*/
 
-	public Collection<String> getCheckList() {
+	/*public Collection<String> getCheckList() {
 		return checkList;
 	}
 
 	public void setCheckList(Collection<String> checkList) {
 		this.checkList = checkList;
-	}
+	}*/
+
+
 
 	public String getProductId() {
 		return productId;
+	}
+
+	public List<String> getCheckList() {
+		return checkList;
+	}
+
+	public void setCheckList(List<String> checkList) {
+		this.checkList = checkList;
 	}
 
 	public void setProductId(String productId) {

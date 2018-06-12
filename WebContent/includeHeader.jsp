@@ -27,10 +27,11 @@
 		</div>
 
 		<div class="right-list">
+
 			<ul>
 
 				<!-- マイページ -->
-				<s:if test="#session.loginFlg == false || session.loginFlg == null">
+				<s:if test="#session.loginFlg == false || #session.loginFlg == null">
 					<li>
 						<div id="headerMypage">
 							<s:form action="GoMyPageAction">
@@ -57,7 +58,7 @@
 				</li>
 
 				<!-- ゲストユーザーのとき -->
-				<s:if test="#session.loginFlg == false || session.loginFlg == null">
+				<s:if test="#session.loginFlg == false || #session.loginFlg == null">
 
 					<li>
 						<div id="headerLogin">
@@ -65,6 +66,7 @@
 								<button class="button1" type="submit">LOGIN</button>
 							</s:form>
 						</div>
+
 					</li>
 
 				</s:if>

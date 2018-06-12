@@ -77,6 +77,7 @@ import com.opensymphony.xwork2.ActionSupport;
 	}
 }
        totalPrice = calcTotalPrice(cartList);
+
        return result;
        }
 

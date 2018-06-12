@@ -83,6 +83,11 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 		session.put("totalPrice", totalPrice);*/
 
 		totalPrice = calcTotalPrice(CartDtoList);
+
+		//カートのエラーメッセージを除去
+	    session.remove("checkListErrorMessageList");
+	    System.out.println("カートのエラーメッセージを削除しました");
+
 		return result;
 
 	}
