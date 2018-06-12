@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -49,7 +49,7 @@ body {
 
 .button {
 	text-align: center;
-	margin-top: 120px;
+	margin-top: 70px;
 	}
 
 table {
@@ -73,9 +73,11 @@ table {
 	<!-- ユーザーID -->
 
 		<div class="box">
-		<div class="form-text">ユーザーID</div>
-		<s:textfield name="userId" size="8"  placeholder="半角英数字"/><br><br>
+		<div class="form-text">ユーザーID</div><br>
+		<s:textfield name="userId" size="20%"  placeholder="半角英数字"/><br><br>
 		<s:if test="!(errorId.equals(''))">
+<%-- 		<s:if test="userId==null"> --%>
+
 			<s:property value="errorId"/>
 		</s:if>
 		<s:elseif test="!errorMessageId.isEmpty()">
@@ -91,11 +93,9 @@ table {
 	<!-- パスワード -->
 
 		<div class="box">
-		<div class="form-text">パスワード</div>
-		<s:textfield name="password1" size="8" placeholder="半角英数字"/><br><br>
-<%-- 		<s:if test="!(errorPass.equals(''))"> --%>
-<%-- 		<s:property value="errorPass"/> --%>
-<%-- 		</s:if> --%>
+		<div class="form-text">パスワード</div><br>
+		<s:textfield name="password1" size="20%" placeholder="半角英数字"/><br><br>
+
 		<s:if test="!ErrorPasswordList1.isEmpty()">
 			<s:iterator value="ErrorPasswordList1">
 				<s:property />
@@ -106,13 +106,8 @@ table {
 	<!-- 確認パスワード -->
 
 		<div class="box">
-		<div class="form-text">確認パスワード</div>
-		<s:textfield name="password2" size="8" placeholder="半角英数字"/><br><br>
-<%-- 		<s:if test="!(errorRePass.equals(''))"> --%>
-<%-- 			<s:property value="errorRePass"/> --%>
-<%-- 		</s:if> --%>
-
-
+		<div class="form-text">確認パスワード</div><br>
+		<s:textfield name="password2" size="20%" placeholder="半角英数字"/><br><br>
 
 		<s:if test="!(password1.equals(password2))">
 		<s:property value="errorMessagePassword"/>

@@ -80,15 +80,12 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		}
 
 
-		//パスワードと確認パスワードが入力されていて一致しなかったらエラーメッセージを出す
+		//パスワードと確認パスワードが一致しなかったらエラーメッセージを出す
 
 		if(!(password1.equals(password2))) {
 			errorMessagePassword += "入力されたパスワードが異なります。";
 			result = ERROR;
 		}
-
-//		if(!(password1.equals("") && password2.equals(""))) {
-//		}
 
 
 		if((userId != "") && (password1 != "")){

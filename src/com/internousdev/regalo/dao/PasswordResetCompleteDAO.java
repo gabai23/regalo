@@ -55,7 +55,6 @@ public class PasswordResetCompleteDAO {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,userId);
-			/*ps.setString(2, password);*/
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
