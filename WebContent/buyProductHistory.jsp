@@ -56,7 +56,7 @@
     			width: 500px;
     			height: 150px;
 /*      			border: 1px solid black; */
-     			margin-left: 300px;
+     			margin-left: 35%;
      	}
 
 
@@ -146,6 +146,9 @@
 													発売年月日：<s:property value="releaseDate" /><br>
 											</div>
 
+<div class = "clear"></div>
+
+<br>
 
 
 <!-- 											削除ボタン -->
@@ -165,9 +168,7 @@
 
 						</s:elseif>
 
-
 <div class = "clear"></div>
-
 <br>
 
 					<!-- 全件削除ボタン -->
@@ -181,6 +182,7 @@
 								</div>
 						</s:if>
 
+<br>
 
 					<!-- マイページに戻る -->
 						<s:form action="GoMyPageAction" class="button">
