@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-<title>buyProductHistory</title>
+<title>購入履歴</title>
 
 
   <style type="text/css">
@@ -151,7 +151,7 @@
 <br>
 
 
-<!-- 											削除ボタン -->
+<!-- 											個別削除ボタン -->
 <!-- 											<div class = "onedelete"> -->
 <%-- 												<s:form action="GoBuyProductHistoryAction"> --%>
 <!-- 														<input type="hidden" name="deleteFlg" value="2"> -->
