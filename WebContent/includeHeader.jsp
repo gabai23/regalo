@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,11 +10,11 @@
 <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 
 <script type="text/javascript">
-$(function(){
-  $("right-list").click(function(){
-	  $("").css("color","pink");
-  });
-  });
+   $(function(){
+   $("right-list").hover(function(){
+ 	  $("button1").css("color","pink");
+   });
+   });
 </script>
 
 
@@ -30,16 +30,15 @@ $(function(){
 			<ul>
 
 				<!-- マイページ -->
-				<s:if test="session.loginFlg == true && session.masterFlg != true">
-				<li>
-					<div id="headerMypage">
-						<s:form action="GoMyPageAction">
-							<button class="button1" type="submit">MY PAGE</button>
-						</s:form>
-					</div>
-				</li>
+				<s:if test="#session.loginFlg == false || session.loginFlg == null">
+					<li>
+						<div id="headerMypage">
+							<s:form action="GoMyPageAction">
+								<button class="button1" type="submit">MY PAGE</button>
+							</s:form>
+						</div>
+					</li>
 				</s:if>
-
 				<!-- 商品一覧 -->
                  <li>
                  <div id ="headerProductList">
@@ -58,7 +57,7 @@ $(function(){
 				</li>
 
 				<!-- ゲストユーザーのとき -->
-				<s:if test="session.loginFlg == false || session.loginFlg == null">
+				<s:if test="#session.loginFlg == false || session.loginFlg == null">
 
 					<li>
 						<div id="headerLogin">
@@ -71,7 +70,7 @@ $(function(){
 				</s:if>
 
 				<!-- ログインユーザーのとき -->
-				<s:if test="session.loginFlg == true && session.masterFlg != true">
+				<s:if test="#session.loginFlg == true && session.masterFlg != true">
 
 				<li>
 					<div id="headerLogout">

@@ -44,7 +44,7 @@
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 <div class="bgslideshow">
-<img  src="./images/haikei6.png">
+<img  src="./images/haikei6.jpg">
 <img  src="./images/sozai4.jpg" >
 <img  src="./images/sraido1.jpeg" >
 </div>

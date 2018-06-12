@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-<title>buyproductcomplete</title>
+<title>BuyProductComplete</title>
 <style type="text/css">
 
 .bbbb {
@@ -24,15 +24,13 @@ position:relative;
 <div id="main">
 <div id="top"><!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
-<%-- <span>BuyItemComplete</span> --%>
 </div>
 <div class ="bbbb">
 <span>購入手続きが完了しました。</span><br>
 <a href='<s:url action="GoMyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span><br>
 <span>Homeへ戻る場合はこちら<a href='<s:url action="GoHomeAction"/>'>こちら</a></span>
 
-<%-- <s:form action="GoHomeAction"><s:submit value = "進む"/> --%>
-<%-- </s:form> --%>
+
 </div></div>
 
 <!-- ヘッダー -->
