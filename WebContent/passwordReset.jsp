@@ -33,9 +33,9 @@ body {
 	height:auto;
 	}
 
-.main{
-	height:auto;
-	}
+/* .main{ */
+/* 	height:auto; */
+/* 	} */
 
 .button-layout{
 	margin-left: 10px;
@@ -63,7 +63,9 @@ table {
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
 
-	<div class="main">
+	<div id="main">
+
+	<div id="container"></div>
 
 	<s:form action="PasswordResetConfirmAction" theme="simple">
 

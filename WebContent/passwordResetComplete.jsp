@@ -44,7 +44,12 @@
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
 
+	<div id="main">
+
 	<s:form action="GoHomeAction">
+
+
+	<div id="container"></div>
 
 	<h3>パスワード変更が完了しました。</h3>
 
@@ -53,6 +58,7 @@
 		<s:submit value="ホーム画面へ" />
 		</div>
 	</s:form>
+</div>
 
 <!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
