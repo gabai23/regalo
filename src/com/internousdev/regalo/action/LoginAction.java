@@ -25,7 +25,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	private static final String SETTLEMENT = "settlement";
 	private static final String MASTER = "master";
 	/*private categoryId;*/
-	private String loginId;
+	private String userId;
 	private String password;
 	private LoginDTO loginDTO;
 	private String errorMessage;
@@ -61,18 +61,18 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 		System.out.println("LoginAction-----");
 		//どっちも入力
-		if((!(loginId.equals(""))) && !(password.equals(""))) {
+		if((!(userId.equals(""))) && !(password.equals(""))) {
 			System.out.println("入力されてまーす");
 
 			/*入力した情報のチェック(inputチェック)2箇所しかないから2個の代入な。
 			Listにどんどんいれていく*/
-			errorMessageList = checker.check("ID", loginId, 1, 8, true, false, false, false, true, false, false);
+			errorMessageList = checker.check("ID", userId, 1, 8, true, false, false, false, true, false, false);
 			errorMessageList = checker.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
 
 
 			//圭はtryに対して、重く見すぎや。
-			try {//loginIdがあるかないかの判断→ただそれだけな
-				flg = loginDAO.existsUserId(loginId);
+			try {//userIdがあるかないかの判断→ただそれだけな
+				flg = loginDAO.existsUserId(userId);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -81,15 +81,15 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 			if(flg){
 				//dtoにユーザーの情報が入れられただけな。
-				loginDTO = loginDAO.userInfo(loginId);//入力したIDよん。
+				loginDTO = loginDAO.userInfo(userId);//入力したIDよん。
 
 				session.put("loginDTO", loginDTO);//DTOの情報の格納
 				session.put("loginFlg", true);//ログインしているかの確認（二択）
-				session.put("userId", loginId);//userIdにloginIdの保持
-				session.put("saveLogin", loginId);//saveLoginの方が、データの指定がしやすいね。
+				session.put("userId", userId);//userIdにuserIdの保持
+				session.put("saveLogin", userId);//saveLoginの方が、データの指定がしやすいね。
 
 				/*//カート情報を格納
-				CartDtoList = cartDAO.getCartDtoList(loginId);
+				CartDtoList = cartDAO.getCartDtoList(userId);
 				System.out.println("カートの件数:"+CartDtoList.size());
 				session.put("CartDtoList", CartDtoList);
 
@@ -100,7 +100,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 				BuyProductCompleteDAO buyProductCompleteDAO = new BuyProductCompleteDAO();
 				int rank = 0;
 				try {
-					rank = buyProductCompleteDAO.getRank(loginId);
+					rank = buyProductCompleteDAO.getRank(userId);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
@@ -133,7 +133,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 					System.out.println("LoginAction.カート存在します");
 
-					cartDAO.linkToLoginId(session.get("tempUserId").toString(),loginId);
+					cartDAO.linkToLoginId(session.get("tempUserId").toString(),userId);
 
 				}
 
@@ -144,7 +144,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 				//管理者チェック
 				try {
-					if(loginDAO.masterCheck(loginId,password)){
+					if(loginDAO.masterCheck(userId,password)){
 						//カートの情報を入れている。
 						ProductInfoDAO dao = new ProductInfoDAO();
 						productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
@@ -186,7 +186,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
 		}
 		//IDが空白の場合
-		if(loginId.equals("")){
+		if(userId.equals("")){
 			errorMessageId = "IDを入力してください。";
 
 			System.out.println(errorMessageId);
@@ -216,13 +216,13 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 	}
 
 
-	public String getLoginId() {
-		return loginId;
+	public String getUserId() {
+		return userId;
 	}
 
 
-	public void setLoginId(String loginId) {
-		this.loginId = loginId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 

@@ -34,9 +34,10 @@
 	<h2 class="title">決済確認</h2>
 	<br>
 
-	<s:form action="BuyProductCompleteAction">
+
 		<p class="message">購入情報は以下になります</p>
 		<br>
+<s:form action="BuyProductCompleteAction">
 
 	<s:iterator value="cartList">
 		<div class="border">
@@ -108,6 +109,13 @@
 		</div>
 		<br>
 
+			<div class="btn_2">
+				<input type="submit" value="購入"></input>
+			</div>
+		</div>
+</s:form>
+
+
 		<!-- 宛先情報 -->
 		<s:form action="AddressDeleteAction">
 		<s:iterator value="addressInfoListDTO">
@@ -140,6 +148,7 @@
 			</div>
 		</s:iterator>
 
+
 		<!-- 宛先選択削除 -->
 		<div id="form_user_button">
 		<s:submit value="宛先選択削除" class="button-layout" id="formAction" onclick="AddressDeleteAction()"/>
@@ -160,11 +169,9 @@
 				<input type="button" value="宛先情報の新規登録"
 				onclick="location.href='<s:url action="GoAddressCreateAction" />'">
 			</div>
-			<div class="btn_2">
-				<button type="submit">購入</button>
-			</div>
-		</div>
-	</s:form>
+
+
+
 </div>
 <br>
 <br>

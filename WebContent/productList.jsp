@@ -57,8 +57,10 @@
 
 						<br>
 						<!-- 価格 -->
-						<span>&yen;</span>
-						<fmt:formatNumber value="${price}"/>
+						<div id="price">
+							<span>&yen;</span>
+							<fmt:formatNumber value="${price}"/>
+						</div>
 					</div>
 				</div>
 			</s:iterator>
