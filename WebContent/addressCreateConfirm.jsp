@@ -12,15 +12,15 @@
 <meta name="description" content="">
 <meta name="keywords" content="" />
 
-<title>AddressCreateConfirm画面</title>
+<title>宛先情報確認画面</title>
 <style type="text/css">
 
 body {
 	height:auto;
 	}
 
-.main{
-	height:auto;
+.register-name {
+	text-align: center;
 	}
 
 .button {
@@ -56,40 +56,39 @@ function goPasswordResetCompleteAction(){
 
 	<h2>以下の内容で登録します</h2>
 
-<table>
+
 	<!-- 姓 -->
 
-	<tr>
-		<th scope="row"><s:label value="姓"/></th>
-		<td><s:property value="familyName"/><s:hidden name="familyName" value="%{familyName}"/></td>
-	</tr>
+
+		<div class="register-name"><s:label value="姓:"/>
+		<s:property value="familyName"/><s:hidden name="familyName" value="%{familyName}"/></div><br>
+
 
 	<!-- 名 -->
 
-	<tr>
-		<th scope="row"><s:label value="名"/></th>
-		<td><s:property value="firstName"/><s:hidden name="firstName" value="%{firstName}"/></td>
-	</tr>
 
-	<!-- 姓ふりがな -->
+		<div class="register-name"><s:label value="名:"/>
+		<s:property value="firstName"/><s:hidden name="firstName" value="%{firstName}"/></div><br>
 
-	<tr>
-		<th scope="row"><s:label value="姓ふりがな"/></th>
-		<td><s:property value="familyNameKana"/><s:hidden name="familyNameKana" value="%{familyNameKana}"/></td>
-	</tr>
 
-	<!-- 名ふりがな -->
+	<!-- 姓仮名 -->
 
-	<tr>
-		<th scope="row"><s:label value="名ふりがな"/></th>
-		<td><s:property value="firstNameKana"/><s:hidden name="firstNameKana" value="%{firstNameKana}"/></td>
-	</tr>
+
+		<div class="register-name"><s:label value="姓仮名:"/>
+		<s:property value="familyNameKana"/><s:hidden name="familyNameKana" value="%{familyNameKana}"/></div><br>
+
+
+	<!-- 名仮名 -->
+
+
+		<div class="register-name"><s:label value="名仮名:"/>
+		<s:property value="firstNameKana"/><s:hidden name="firstNameKana" value="%{firstNameKana}"/></div><br>
+
 
 	<!-- 性別 -->
 
-	<tr>
-		<th scope="row"><s:label value="性別"/></th>
-		<td>
+
+		<div class="register-name"><s:label value="性別:"/>
 			<s:if test="sex==0">
 				男性
 			</s:if>
@@ -97,32 +96,32 @@ function goPasswordResetCompleteAction(){
 			<s:else>
 				女性
 			</s:else>
-			<s:hidden name="sex" value="%{sex}"/>
-		</td>
-	</tr>
+			<s:hidden name="sex" value="%{sex}"/></div><br>
+
+
 
 	<!-- 住所 -->
 
-	<tr>
-		<th scope="row"><s:label value="住所"/></th>
-		<td><s:property value="userAddress"/><s:hidden name="userAddress" value="%{userAddress}"/></td>
-	</tr>
+
+		<div class="register-name"><s:label value="住所:"/>
+		<s:property value="userAddress"/><s:hidden name="userAddress" value="%{userAddress}"/></div><br>
+
 
 	<!-- 電話番号 -->
 
-	<tr>
-		<th scope="row"><s:label value="電話番号"/></th>
-		<td><s:property value="telNumber"/><s:hidden name="telNumber" value="%{telNumber}"/></td>
-	</tr>
+
+		<div class="register-name"><s:label value="電話番号:"/>
+		<s:property value="telNumber"/><s:hidden name="telNumber" value="%{telNumber}"/></div><br>
+
 
 	<!-- メールアドレス -->
 
-	<tr>
-		<th scope="row"><s:label value="メールアドレス"/></th>
-		<td><s:property value="email"/><s:hidden name="email" value="%{email}"/></td>
-	</tr>
 
-	</table>
+		<div class="register-name"><s:label value="メールアドレス:"/>
+		<s:property value="email"/><s:hidden name="email" value="%{email}"/></div><br>
+
+
+
 
 
 		<div class="button">

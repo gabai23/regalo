@@ -8,10 +8,11 @@
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <link rel="stylesheet" type="text/css" href="./css/includeFooter.css">
+<link rel="stylesheet" href="./css/style.css">
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
 <meta name="keywords" content="" />
-<title>PasswordResetComplete画面</title>
+<title>パスワード再設定完了画面</title>
 <style type="text/css">
 
 	body{

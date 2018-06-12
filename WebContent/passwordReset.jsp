@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -26,7 +26,7 @@
 	}
 </script>
 
-<title>PasswordReset画面</title>
+<title>パスワード再設定画面</title>
 <style type="text/css">
 
 body {
@@ -76,7 +76,6 @@ table {
 		<div class="form-text">ユーザーID</div><br>
 		<s:textfield name="userId" size="20%"  placeholder="半角英数字"/><br><br>
 		<s:if test="!(errorId.equals(''))">
-<%-- 		<s:if test="userId==null"> --%>
 
 			<s:property value="errorId"/>
 		</s:if>

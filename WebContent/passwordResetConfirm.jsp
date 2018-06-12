@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="" />
 
-<title>PasswordResetConfirm画面</title>
+<title>パスワード再設定確認画面</title>
 
 <script>
 function gogoGoPasswordResetAction(){

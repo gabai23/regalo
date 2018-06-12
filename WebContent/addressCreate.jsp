@@ -5,46 +5,57 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="./css/style.css">
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
 <meta name="keywords" content="" />
-<title>AddressCreate画面</title>
+<title>宛先情報入力画面</title>
 <style type="text/css">
 
 body {
 	height:auto;
-	}
-
-.main{
-	height:auto;
-	}
-
-.button-layout{
-	margin-left: 10px;
-	margin-right: 10px;
-	text-align:center;
-	}
-
-.box{
-	text-align: center;
+	clear:right;
 	}
 
 .titlefont{
 	text-align: center;
 	font-size:30px;
+	clear:right;
 	}
 
-.button-center {
- 	text-align: center;
- 	margin-top: 30px;
+.box{
+	text-align: center;
+	clear:right;
 	}
+
+
+.button-center {
+  	text-align: center;
+  	margin-top: 30px;
+  	clear:right;
+ 	}
 
 .register {
 	text-align: center;
+	clear:right;
 	}
 
+/* .register-name { */
+/* 	position: absolute; */
+/* 	left: 0; */
+/* 	} */
+
+/* .button-layout{ */
+/* 	margin-left: 10px; */
+/* 	margin-right: 10px; */
+/* 	text-align:center; */
+/* 	} */
+
+.error-message {
+	float:right;
+	}
 </style>
 </head>
 
@@ -74,9 +85,11 @@ body {
 		</div>
 		</s:if>
 
+<%-- 		<div class="register-name"><s:label value="姓"/></div> --%>
+		<div class="box">
+			<s:label value="姓:"/><s:textfield name="familyName" class="txt" size="20%" placeholder="1文字以上16文字以下" />
+		</div>
 
-		<div class="name"><s:label value="姓"/></div>
-		<div class="box"><s:textfield name="familyName" class="txt" /></div>
 	</div>
 
 
@@ -91,12 +104,12 @@ body {
 		</div>
 		</s:if>
 
-			<s:label value="名"/>
-			<s:textfield name="firstName" class="txt" /><br>
+			<div class="register-name"><s:label value="名:"/></div>
+			<s:label value="名:"/><s:textfield name="firstName" class="txt" size="20%" placeholder="1文字以上16文字以下" /><br>
 
 	</div>
 
-	<!-- 姓ふりがな -->
+	<!-- 姓仮名 -->
 	<div class="register">
 		<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()"><br>
 		<div class="error">
@@ -106,12 +119,12 @@ body {
 		</div>
 		</s:if>
 
-			<s:label value="姓ふりがな"/>
-			<s:textfield name="familyNameKana" class="txt" /><br>
+			<div class="register-name"><s:label value="姓仮名:"/></div>
+			<s:textfield name="familyNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
 
 	</div>
 
-	<!-- 名ふりがな -->
+	<!-- 名仮名 -->
 	<div class="register">
 		<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()"><br>
 		<div class="error">
@@ -121,15 +134,15 @@ body {
 		</div>
 		</s:if>
 
-			<s:label value="名ふりがな"/>
-			<s:textfield name="firstNameKana" class="txt" /><br>
+			<div class="register-name"><s:label value="名仮名:"/></div>
+			<s:textfield name="firstNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
 
 	</div>
 
 	<!-- 性別 -->
 	<div class="register">
 
-		<s:label value="性別"/>
+		<div class="register-name"><s:label value="性別:"/></div>
 
 		<s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" />
 
@@ -148,8 +161,8 @@ body {
 		</s:if>
 
 
-			<s:label value="住所"/>
-			<s:textfield name="userAddress" class="txt" /><br>
+			<div class="register-name"><s:label value="住所:"/></div>
+			<s:textfield name="userAddress" class="txt" size="20%" placeholder="15文字以上50文字以下"/><br>
 
 	</div>
 
@@ -163,8 +176,8 @@ body {
 		</div>
 		</s:if>
 
-			<s:label value="電話番号"/>
-			<s:textfield name="telNumber" class="txt" /><br>
+			<div class="register-name"><s:label value="電話番号:"/></div>
+			<s:textfield name="telNumber" class="txt" size="20%" placeholder="10文字以上13文字以下"/><br>
 
 	</div>
 
@@ -179,7 +192,7 @@ body {
 		</div>
 		</s:if>
 
-			<s:label value="メールアドレス"/>
+			<div class="register-name"><s:label value="メールアドレス:"/></div>
 			<s:textfield name="email" class="txt" placeholder="半角英数字" /><br>
 
 	</div>
