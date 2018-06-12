@@ -15,39 +15,40 @@
 <style type="text/css">
 
 	body{
-	  margin:0;
-	  padding:0;
-	  line-height:1.6;
-	  letter-spacing:1px;
-	  font-size:20px;
-	  color:black;
+	margin:0;
+	padding:0;
+	line-height:1.6;
+	letter-spacing:1px;
+	font-size:20px;
+	color:black;
 	}
 
 	.button {
- 	position:relative;
- 	width:200px;
-  	 text-align:center;
- 	 margin:0 auto;
- 	 margin-top:30px;
- 	 margin-bottom:260px;
+	position:relative;
+	width:200px;
+	text-align:center;
+	margin:0 auto;
+	margin-top:30px;
+	margin-bottom:300px;
 	}
 
 	h3 {
 	text-align: center;
+	font-family:Verdana,Helvetica,sans-serif;
 	}
 
 </style>
 </head>
 <body>
 
-
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
+
+	<s:form action="GoHomeAction">
 
 	<h3>パスワード変更が完了しました。</h3>
 
 	<!-- 送信ボタン -->
-	<s:form action="GoHomeAction">
 	<div class="button">
 		<s:submit value="ホーム画面へ" />
 		</div>

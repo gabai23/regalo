@@ -7,8 +7,33 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="description" content="">
+<meta name="keywords" content="" />
 
 <title>AddressCreateConfirm画面</title>
+<style type="text/css">
+
+body {
+	height:auto;
+	}
+
+.main{
+	height:auto;
+	}
+
+.button {
+ 	position:relative;
+ 	width:200px;
+ 	text-align:center;
+ 	margin:0 auto;
+	margin-top:30px;
+	margin-bottom:280px;
+	}
+
+
+</style>
 
 <script>
 function gogoGoPasswordResetAction(){
@@ -24,6 +49,8 @@ function goPasswordResetCompleteAction(){
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
+
+	<div id="main">
 
 	<s:form action="AddressCreateCompleteAction" id="form">
 
@@ -98,7 +125,7 @@ function goPasswordResetCompleteAction(){
 	</table>
 
 
-		<div id="button">
+		<div class="button">
 			<%-- <s:submit value="訂正" onclick="GoAddressCreateAction();"/> --%>
 
 			<%-- <s:submit value="送信"  onclick="AddressCreateCompleteAction();"/> --%>
@@ -108,8 +135,8 @@ function goPasswordResetCompleteAction(){
 
 	</s:form>
 
+	</div>
 	<!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
-
 </body>
 </html>

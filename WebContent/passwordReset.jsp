@@ -7,21 +7,72 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="description" content="">
+<meta name="keywords" content="" />
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- 半角英数字入力のアラートを出す -->
+<script type="text/javascript">
+	function checkForm($this) {
+		var str = $this.value;
+		if (str.match(/[^A-Z^a-z0-9]+/)) {
+			alert('半角英数で入力してください');
+			$this.value = "";
+		}
+	}
+</script>
 
 <title>PasswordReset画面</title>
+<style type="text/css">
+
+body {
+	height:auto;
+	}
+
+.main{
+	height:auto;
+	}
+
+.button-layout{
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align:center;
+	}
+
+/* .box{ */
+/* 	text-align: center; */
+/* 	} */
+
+.button {
+	text-align: center;
+	margin-top: 120px;
+	}
+
+table {
+	text-align: center;
+	}
+
+
+</style>
 </head>
 <body>
 	<!-- ヘッダー -->
 		<jsp:include page="includeHeader.jsp"/>
 
+	<div class="main">
+
 	<s:form action="PasswordResetConfirmAction" theme="simple">
 
-	<!-- ログインID -->
-	<table>
-	<tr>
-		<th>ログインID:</th>
-		<td><s:textfield name="userId" size="8"/></td>
-		<td>
+	<div class="box">
+	<!-- ユーザーID -->
+
+
+		<div class="form-text">ユーザーID</div>
+		<s:textfield name="userId" size="8"  placeholder="半角英数字"/><br><br>
 		<s:if test="!(errorId.equals(''))">
 			<s:property value="errorId"/>
 		</s:if>
@@ -33,13 +84,11 @@
 				<s:property />
 			</s:iterator>
 		</s:if>
-		</td>
-	</tr>
 
 	<!-- パスワード -->
-	<tr>
-		<th>パスワード:</th>
-		<td><input type="text" name="password1" size="8"><td>
+
+		<div class="form-text">パスワード</div>
+		<s:textfield name="password1" size="8" placeholder="半角英数字"/><br><br>
 <%-- 		<s:if test="!(errorPass.equals(''))"> --%>
 <%-- 		<s:property value="errorPass"/> --%>
 <%-- 		</s:if> --%>
@@ -48,12 +97,12 @@
 				<s:property />
 			</s:iterator>
 		</s:if>
-	</tr>
+
 
 	<!-- 確認パスワード -->
-	<tr>
-		<th>確認パスワード:</th>
-		<td><input type="text" name="password2" size="8"><td>
+
+		<div class="form-text">確認パスワード</div>
+		<s:textfield name="password2" size="8" placeholder="半角英数字"/><br><br>
 <%-- 		<s:if test="!(errorRePass.equals(''))"> --%>
 <%-- 			<s:property value="errorRePass"/> --%>
 <%-- 		</s:if> --%>
@@ -68,14 +117,17 @@
 				<s:property />
 			</s:iterator>
 		</s:if>
-	</tr>
-	</table>
+
+
+	</div>
 
 	<!-- 送信ボタン -->
-
+	<div class="button">
 		<s:submit value="パスワード再設定画面へ"/>
-	</s:form>
+	</div>
+		</s:form>
 
+	</div>
 	<!-- フッター -->
 		<jsp:include page="includeFooter.jsp"/>
 
