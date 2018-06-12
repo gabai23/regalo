@@ -43,9 +43,9 @@ body {
 	text-align:center;
 	}
 
-/* .box{ */
-/* 	text-align: center; */
-/* 	} */
+ .box{
+ 	text-align: center;
+ 	}
 
 .button {
 	text-align: center;
@@ -67,10 +67,10 @@ table {
 
 	<s:form action="PasswordResetConfirmAction" theme="simple">
 
-	<div class="box">
+	<div class="reset">
 	<!-- ユーザーID -->
 
-
+		<div class="box">
 		<div class="form-text">ユーザーID</div>
 		<s:textfield name="userId" size="8"  placeholder="半角英数字"/><br><br>
 		<s:if test="!(errorId.equals(''))">
@@ -84,9 +84,11 @@ table {
 				<s:property />
 			</s:iterator>
 		</s:if>
+		</div>
 
 	<!-- パスワード -->
 
+		<div class="box">
 		<div class="form-text">パスワード</div>
 		<s:textfield name="password1" size="8" placeholder="半角英数字"/><br><br>
 <%-- 		<s:if test="!(errorPass.equals(''))"> --%>
@@ -97,10 +99,11 @@ table {
 				<s:property />
 			</s:iterator>
 		</s:if>
-
+		</div>
 
 	<!-- 確認パスワード -->
 
+		<div class="box">
 		<div class="form-text">確認パスワード</div>
 		<s:textfield name="password2" size="8" placeholder="半角英数字"/><br><br>
 <%-- 		<s:if test="!(errorRePass.equals(''))"> --%>
@@ -117,7 +120,7 @@ table {
 				<s:property />
 			</s:iterator>
 		</s:if>
-
+		</div>
 
 	</div>
 
@@ -126,8 +129,8 @@ table {
 		<s:submit value="パスワード再設定画面へ"/>
 	</div>
 		</s:form>
+</div>
 
-	</div>
 	<!-- フッター -->
 		<jsp:include page="includeFooter.jsp"/>
 
