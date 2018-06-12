@@ -34,18 +34,29 @@ if(!(session.getAttribute("masterId") == "admin")){
 				onclick="location.href='<s:url action="GoProductInsertAction" />'"
 				value="新商品追加" />
 			<br>
+
+			<s:if test="dMessage !=''">
+					<s:property value="dMessage" escape="false" />
+			</s:if>
 		</div>
 		<!-- 商品一覧 -->
 			<s:iterator value="productInfoDTOList">
 				<div class="product_container">
-					<img src='<s:property value="imageFilePath"/>'/> <br>
-					<b><s:property value="productName" /></b><br>
-					<s:property value="productNameKana" /><br>
-					<s:property value="price" />円<br>
-				<s:form action="ProductDeleteAction">
-						<button class="button" type='submit'
-						onclick='return confirm("削除してよろしいですか？")'>削除</button>
-				</s:form>
+					<s:form action="DeleteOrUpdateAction">
+						<s:hidden value= "%{productId}" name="productId" />
+						<img src='<s:property value="imageFilePath"/>'/> <br>
+						<b><s:property value="productName" /></b><br>
+						<s:property value="productNameKana" /><br>
+						<s:property value="price" />円<br>
+
+						<span>
+							<button class="button" type="submit" name="deleteFlg"
+								onclick='return confirm("削除してよろしいですか？")'>削除</button>
+						</span>
+						<span>
+							<button class="button" type='submit' name='changeFlg'>商品情報変更</button>
+						</span>
+					</s:form>
 				</div>
 			</s:iterator>
 	</div>

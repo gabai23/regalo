@@ -26,7 +26,7 @@ public class ProductInsertCompleteDAO {
 			preparedStatement.setString(3, productNameKana);
 			preparedStatement.setInt(4, price);
 			preparedStatement.setInt(5, 50);
-			preparedStatement.setString(6, imageFilePath);
+			preparedStatement.setString(6, "./images");
 			preparedStatement.setString(7, imageFileName);
 			preparedStatement.setString(8, "regalo");
 			preparedStatement.setString(9,productDescription);
