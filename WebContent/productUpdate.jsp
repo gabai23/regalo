@@ -1,17 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/ProductUpdate.css">
+
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-<title>Insert title here</title>
+<title>Product Update</title>
 </head>
 <body>
-	<p>
+<!-- ヘッダー -->
+<jsp:include page="includeHeader.jsp"/>
+
+
+<!-- 	<p> -->
 <%-- 		<a href='<s:url action="ItemInsertConfirmAction"/>'>追加商品確認</a>
  --%>
 <%-- 		<s:form action="ProductInsertConfirmAction" >
@@ -111,10 +117,18 @@
 
 				</s:form>
  --%>
+<!--  メイン -->
+
+<div id="main">
 
 
-<div id="contents">
-<h1>商品情報入力画面</h1>
+<div id="title">
+<h1>ProductUpdate</h1>
+</div>
+<div id="container">
+
+<div id="form-box">
+
 
 <s:if test="!#session.productIdErrorMessageList.isEmpty()">
 	<div class="error">
@@ -168,61 +182,103 @@
 
 <s:form action="ProductUpdateConfirmAction">
 
-<table class="vertical-list-table">
-<tr>
-	<th scope="row">商品ID</th>
-	<td><s:textfield name="productId" value="%{#session.productId}" label="商品ID" placeholder="商品ID" class="txt" /></td>
-</tr>
-<tr>
-	<th scope="row">商品名</th>
-	<td><s:textfield name="productName" value="%{#session.productName}" label="商品名" placeholder="商品名" class="txt" /></td>
-</tr>
-<tr>
-	<th scope="row">商品名かな</th>
-	<td><s:textfield name="productNameKana" value="%{#session.productNameKana}" label="商品名かな" placeholder="商品名かな" class="txt" /></td>
-</tr>
-<tr>
-	<th scope="row">商品詳細</th>
-	<td><s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /></td>
-</tr>
-<tr>
-	<th scope="row">商品カテゴリー</th>
-	<td>
+<!-- <table class="vertical-list-table"> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">商品ID</th> -->
+<%-- 	<td><s:textfield name="productId" value="%{#session.productId}" label="商品ID" placeholder="商品ID" class="txt" /></td> --%>
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">商品名</th> -->
+<%-- 	<td><s:textfield name="productName" value="%{#session.productName}" label="商品名" placeholder="商品名" class="txt" /></td> --%>
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">商品名かな</th> -->
+<%-- 	<td><s:textfield name="productNameKana" value="%{#session.productNameKana}" label="商品名かな" placeholder="商品名かな" class="txt" /></td> --%>
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">商品詳細</th> -->
+<%-- 	<td><s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /></td> --%>
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">商品カテゴリー</th> -->
+<!-- 	<td> -->
+<%-- 		<select name="categoryId"> --%>
+<!-- 			<option value="1" selected="selected">車</option> -->
+<!-- 			<option value="2">音楽・映画</option> -->
+<!-- 			<option value="3">家電</option> -->
+<%-- 		</select> --%>
+<!-- 	</td> -->
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">価格</th> -->
+<%-- 	<td><s:textfield name="price" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/></td> --%>
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">画像ファイル名</th> -->
+<%-- 	<td><s:textfield name="imageFileName" value="%{#session.imageFileName}" label="画像ファイル名" placeholder="画像ファイル名" class="txt" /></td> --%>
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">画像</th> -->
+<!-- 	<td><input type="file" accept='image/*' name="imageFilePath" id="file" /><td> -->
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- 	<th scope="row">販売会社</th> -->
+<%-- 	<td><s:textfield name="releaseCompany" value="%{#session.releaseCompany}" label="販売会社" placeholder="販売会社" class="txt" /></td> --%>
+<!-- </tr> -->
+
+<!-- </table> -->
+
+
+	<div id="form-title"><span>商品ID</span>
+
+	<s:textfield name="productId" value="%{#session.productId}" label="商品ID" placeholder="商品ID" class="txt" /><br><br>
+	</div>
+
+<div id="form-title"><span>商品名</span>
+	<s:textfield name="productName" value="%{#session.productName}" label="商品名" placeholder="商品名" class="txt" /><br><br>
+</div>
+<div id="form-title"><span>商品名かな</span>
+<s:textfield name="productNameKana" value="%{#session.productNameKana}" label="商品名かな" placeholder="商品名かな" class="txt" /><br><br>
+</div>
+
+<div id="form-title"><span>商品詳細</span>
+	<s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /><br><br>
+</div>
+	<div id="form-title"><span>商品カテゴリー</span>
+
 		<select name="categoryId">
 			<option value="1" selected="selected">車</option>
 			<option value="2">音楽・映画</option>
 			<option value="3">家電</option>
-		</select>
-	</td>
-</tr>
-<tr>
-	<th scope="row">価格</th>
-	<td><s:textfield name="price" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/></td>
-</tr>
-<tr>
-	<th scope="row">画像ファイル名</th>
-	<td><s:textfield name="imageFileName" value="%{#session.imageFileName}" label="画像ファイル名" placeholder="画像ファイル名" class="txt" /></td>
-</tr>
-<tr>
-	<th scope="row">画像</th>
-	<td><input type="file" accept='image/*' name="imageFilePath" id="file" /><td>
-</tr>
-<tr>
-	<th scope="row">販売会社</th>
-	<td><s:textfield name="releaseCompany" value="%{#session.releaseCompany}" label="販売会社" placeholder="販売会社" class="txt" /></td>
-</tr>
+		</select><br><br>
+</div>
+	<div id="form-title"><span>価格</span>
+	<s:textfield name="price" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/><br><br>
+</div>
+	<div id="form-title"><span>画像ファイル名</span>
+	<s:textfield name="imageFileName" value="%{#session.imageFileName}" label="画像ファイル名" placeholder="画像ファイル名" class="txt" /><br><br>
+</div>
+<div id="form-title"><span>画像</span>
+	<input type="file" accept='image/*' name="imageFilePath" id="file" /><br><br>
+</div>
+	<div id="form-title"><span>販売会社</span>
+	<s:textfield name="releaseCompany" value="%{#session.releaseCompany}" label="販売会社" placeholder="販売会社" class="txt" />
+	</div>
+</s:form>
 
-</table>
+
 <div class="submit_btn_box">
 <div id=".contents-btn-set">
 <s:submit value="登録" class="submit_btn" />
 </div>
 </div>
-</s:form>
 </div>
-<div id="footer">
-	<s:include value="footer.jsp"/>
 </div>
+
+
+</div>
+<!-- フッター -->
+<jsp:include page="includeFooter.jsp"/>
 
 
 

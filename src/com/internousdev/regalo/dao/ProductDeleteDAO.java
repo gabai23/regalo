@@ -10,7 +10,7 @@ public class ProductDeleteDAO {
 
 	//商品削除
 
-	public int productDelete(int product_id) throws SQLException{
+
 
 		DBConnector dbConnector = new DBConnector();
 
@@ -18,11 +18,12 @@ public class ProductDeleteDAO {
 
 		String sql ="DELETE FROM product_info WHERE product_id=?";
 
-		PreparedStatement preparedStatement;
+		public int productDelete(int product_id) throws SQLException{
 
 		int result = 0;
+
 		try{
-			preparedStatement =connection.prepareStatement(sql);
+			PreparedStatement preparedStatement =connection.prepareStatement(sql);
 			preparedStatement.setInt(1,product_id);
 			result = preparedStatement.executeUpdate();
 		}catch(SQLException e){

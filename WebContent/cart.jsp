@@ -13,6 +13,7 @@
  position:relative;
  width:700px;
  margin:0 auto;
+ text-align:center;
 
  }
 
@@ -51,14 +52,36 @@
 
 }
 
+table.horizontal-list-table tr,th{
+/* margin:5px; padding:10px;  */
+border:1px solid black;
+background-color:lightgray;
+}
+
+table.horizontal-list-table tr,td{
+/* margin:5px; padding:10px;  */
+border:1px solid black;
+background-color:lightgray;
+}
+
+table.horizontal-list-table {
+/* margin:5px; padding:10px;  */
+border:3px solid black;
+background-color:lightgray;
+}
+/* .top{ */
+/* margin:0 auto; */
+/* text-align:center; */
+/* } */
 
 </style>
 </head>
 <body>
 <jsp:include page="includeHeader.jsp" />
 <div id="contents">
+<div id="top">
 <h3>カート画面</h3>
-
+</div>
 <s:if test="#session.checkListErrorMessageList!=null">
 	<div class="error">
 		<div class="error-message">
