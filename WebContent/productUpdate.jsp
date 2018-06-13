@@ -166,7 +166,7 @@
 	</div>
 </s:if>
 
-<s:form action="ProductInsertConfirmAction">
+<s:form action="ProductUpdateConfirmAction">
 
 <table class="vertical-list-table">
 <tr>

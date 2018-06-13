@@ -58,7 +58,7 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 	private Date registDate;
 
 	//更新日
-	private Date updateDate;
+	private Date InsertDate;
 
 
 
@@ -262,14 +262,14 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 
 
 
-	public Date getUpdateDate() {
-		return updateDate;
+	public Date getInsertDate() {
+		return InsertDate;
 	}
 
 
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
+	public void setInsertDate(Date InsertDate) {
+		this.InsertDate = InsertDate;
 	}
 
 
