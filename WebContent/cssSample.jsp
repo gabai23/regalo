@@ -188,7 +188,7 @@
 
 			<!-- 9個並べる系 ここから -->
 
-			<!-- <div id="wrapper" class="ratio-1_1">
+			 <div id="wrapper" class="ratio-1_1">
 				<div id="product">
 					aaa
 				</div>
@@ -234,13 +234,13 @@
 				<div id="product">
 					ccc3
 				</div>
-			</div> -->
+			</div>
 
 			<!-- 9個並べる系 ここまで -->
 
 			<!-- width100%系 ここから -->
 
-			<div id="wrapper2">
+			<!-- <div id="wrapper2">
 				aaa
 			</div>
 
@@ -254,7 +254,7 @@
 
 			<div id="wrapper2">
 				ddd
-			</div>
+			</div> -->
 
 			<!-- width100%系 ここまで -->
 
