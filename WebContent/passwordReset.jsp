@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -74,9 +74,9 @@ table {
 
 			<s:property value="errorId"/>
 		</s:if>
-		<s:elseif test="!errorMessageId.isEmpty()">
-			<s:property value="errorMessageId"/>
-		</s:elseif>
+<%-- 		<s:elseif test="!errorMessageId.isEmpty()"> --%>
+<%-- 			<s:property value="errorMessageId"/> --%>
+<%-- 		</s:elseif> --%>
 		<s:if test="ErrorUserIdList.length > 0">
 			<s:iterator value="ErrorUserIdList">
 				<s:property />
@@ -84,7 +84,26 @@ table {
 		</s:if>
 		</div>
 
-	<!-- パスワード -->
+	<!-- 現在のパスワード -->
+
+		<div class="box">
+		<div class="form-text">現在のパスワード:
+		<s:textfield name="password" size="20%"  placeholder="半角英数字"/></div><br><br>
+		<s:if test="!(errorPassword.equals(''))">
+
+			<s:property value="errorPassword"/>
+		</s:if>
+		<s:elseif test="!errorMessageId.isEmpty()">
+			<s:property value="errorMessageId"/>
+		</s:elseif>
+		<s:if test="ErrorPasswordList.length > 0">
+			<s:iterator value="ErrorPasswordList">
+				<s:property />
+			</s:iterator>
+		</s:if>
+		</div>
+
+	<!-- 新しいパスワード -->
 
 		<div class="box">
 		<div class="form-text">新しいパスワード:

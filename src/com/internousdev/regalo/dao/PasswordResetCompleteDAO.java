@@ -13,7 +13,7 @@ public class PasswordResetCompleteDAO {
 
 	//パスワード再設定メソッド
 
-	public int PasswordReset(String password, String userId) throws SQLException {
+	public int PasswordReset(String password1, String userId, String password) throws SQLException {
 
 		DBConnector dbConnector = new DBConnector();
 
@@ -23,15 +23,21 @@ public class PasswordResetCompleteDAO {
 
 		int check=0;
 
-		String sql = "UPDATE user_info SET password = ?, update_date = ? WHERE user_id=?";
+		String sql = "UPDATE user_info SET password = ?, update_date = ? WHERE user_id=? and password = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, password);
+			preparedStatement.setString(1, password1);
 			preparedStatement.setString(2, dateUtil.getDate());
 			preparedStatement.setString(3, userId);
+			preparedStatement.setString(4, password);
 
 			check = preparedStatement.executeUpdate();
+
+			System.out.println("新しいパスワード"+password1);
+			System.out.println("現在のパスワード"+password);
+
+			System.out.println(check);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -43,18 +49,19 @@ public class PasswordResetCompleteDAO {
 		return check;
 	}
 
-	public boolean passwordConfirm(String userId){
+	public boolean passwordConfirm(String userId, String password){
 		boolean result = false;
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		//ユーザーIDから検索
-		String sql = "SELECT count(user_id) as count FROM user_info WHERE user_id = ?";
+		//ユーザーID、現在のパスワードから検索
+		String sql = "SELECT count(*) as count FROM user_info WHERE user_id = ? and password = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,userId);
+			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
@@ -81,8 +88,8 @@ public class PasswordResetCompleteDAO {
 
 		int check = 0;
 
-		//ユーザーIDで検索しパスワードを書き換え
-		String sql = "UPDATE user_info SET password = ? WHERE user_id = ?";
+		//ユーザーID、パスワードで検索しパスワードを書き換え
+		String sql = "UPDATE user_info SET password = ? WHERE user_id = ? and password = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

@@ -10,14 +10,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class PasswordResetConfirmAction extends ActionSupport {
 
 	private String userId = "";      //ユーザーID
-	private String password1;   //パスワード
+	private String password = "";   //現在のパスワード
+	private String password1;   //新しいパスワード
 	private String password2;   //確認パスワード
 
-	private String passCon1;    //パスワードを*で暗号化（パスワード）
-	private String passCon2;    //パスワードを*で暗号化（確認パスワード）
+	private String passCon;     //現在のパスワードを*で暗号化
+	private String passCon1;    //新しいパスワードを*で暗号化
+	private String passCon2;    //確認パスワードを*で暗号化
+
 
 	private String errorId = "";        //IDエラー
-	private String errorPass = "";      //パスワードエラー
+	private String errorPassword = "";  //現在のパスワード
+	private String errorPass = "";      //新しいパスワードエラー
 	private String errorRePass = "";    //確認用パスワードエラー
 	private String errorMessagePassword = "";   //エラーメッセージパスワード
 	private String errorMessageId = "";   //エラーメッセージID
@@ -25,6 +29,7 @@ public class PasswordResetConfirmAction extends ActionSupport {
 	int i;
 
 	public List<String> ErrorUserIdList = new ArrayList<String>();
+	public List<String> ErrorPasswordList = new ArrayList<String>();
 	public List<String> ErrorPasswordList1 = new ArrayList<String>();
 	public List<String> ErrorReconfirmPassList = new ArrayList<String>();
 
@@ -46,11 +51,13 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		 */
 
 		ErrorUserIdList = inputChecker.check("ユーザーID",userId,1,8,true,false,false,false,true,false,false);
-		ErrorPasswordList1 = inputChecker.check("パスワード",password1,1,16,true,false,false,false,true,false,false);
+		ErrorPasswordList = inputChecker.check("現在のパスワード",password,1,16,true,false,false,false,true,false,false);
+		ErrorPasswordList1 = inputChecker.check("新しいパスワード",password1,1,16,true,false,false,false,true,false,false);
 		ErrorReconfirmPassList = inputChecker.check("確認用パスワード",password2,1,16,true,false,false,false,true,false,false);
 
 		if(
 				ErrorUserIdList.size() == 0 &&
+				ErrorPasswordList.size() == 0 &&
 				ErrorReconfirmPassList.size() ==0
 
 				){
@@ -63,6 +70,10 @@ public class PasswordResetConfirmAction extends ActionSupport {
 				errorId = errorId + ErrorUserIdList.get(i);
 			}
 
+			for(i=0; i < ErrorPasswordList.size(); i++) {
+				errorPassword = errorPassword + ErrorPasswordList.get(i);
+			}
+
 			for(i=0; i < ErrorPasswordList1.size(); i++) {
 				errorPass = errorPass + ErrorPasswordList1.get(i);
 			}
@@ -71,6 +82,13 @@ public class PasswordResetConfirmAction extends ActionSupport {
 				errorRePass = errorRePass + ErrorReconfirmPassList.get(i);
 			}
 
+		}
+
+		passCon = "";
+		if(password.length() > 0) {
+			for(int i = 0; i < password.length(); i++){
+				passCon += "*";
+			}
 		}
 
 		passCon1 = "";
@@ -88,7 +106,7 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		}
 
 
-		//パスワードと確認パスワードが一致しなかったらエラーメッセージを出す
+		//新しいパスワードと確認パスワードが一致しなかったらエラーメッセージを出す
 
 		if(!(password1.equals(password2))) {
 			errorMessagePassword += "入力されたパスワードが異なります。";
@@ -99,12 +117,12 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		if((userId != "") && (password1 != "")){
 
 			PasswordResetCompleteDAO dao = new PasswordResetCompleteDAO();
-			boolean check = dao.passwordConfirm(userId);
+			boolean check = dao.passwordConfirm(userId,password);
 
 
-			//ユーザーIDが正しくなかったらエラーメッセージを出す
+			//ユーザーIDと現在のパスワードが正しくなかったらエラーメッセージを出す
 			if(!check) {
-				errorMessageId += "ログインIDが異なります。";
+				errorMessageId += "パスワードが異なります。";
 				result = ERROR;
 			}
 		}
@@ -121,6 +139,14 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		this.userId = userId;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getPassword1() {
 		return password1;
 	}
@@ -135,6 +161,30 @@ public class PasswordResetConfirmAction extends ActionSupport {
 
 	public void setPassword2(String password2) {
 		this.password2 = password2;
+	}
+
+	public String getPassCon() {
+		return passCon;
+	}
+
+	public void setPassCon(String passCon) {
+		this.passCon = passCon;
+	}
+
+	public String getErrorPassword() {
+		return errorPassword;
+	}
+
+	public void setErrorPassword(String errorPassword) {
+		this.errorPassword = errorPassword;
+	}
+
+	public List<String> getErrorPasswordList() {
+		return ErrorPasswordList;
+	}
+
+	public void setErrorPasswordList(List<String> errorPasswordList) {
+		ErrorPasswordList = errorPasswordList;
 	}
 
 	public String getPassCon1() {

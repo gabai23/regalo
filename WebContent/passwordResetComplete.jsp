@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta charset="UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <link rel="stylesheet" type="text/css" href="./css/includeFooter.css">
@@ -12,6 +12,7 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
 <meta name="keywords" content="" />
+<meta http-equiv="refresh" content="3;URL='HomeAction'">
 <title>パスワード再設定完了画面</title>
 <style type="text/css">
 
@@ -53,6 +54,8 @@
 	<div id="container"></div>
 
 	<h3>パスワード変更が完了しました。</h3>
+
+	<h4>3秒後にホーム画面に移動します。</h4>
 
 	<!-- 送信ボタン -->
 	<div class="button">

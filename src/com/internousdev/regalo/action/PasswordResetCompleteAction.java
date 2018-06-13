@@ -8,7 +8,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class PasswordResetCompleteAction extends ActionSupport {
 
 	private String userId;        //ユーザーID
-	private String password1;     //パスワード
+	private String password;      //現在のパスワード
+	private String password1;     //新しいパスワード
 	private String password2;     //確認パスワード
 	private String errorMessage;  //エラーメッセージ
 
@@ -20,7 +21,9 @@ public class PasswordResetCompleteAction extends ActionSupport {
 
 		int check = 0;
 
-		check = dao.PasswordReset(password1,userId);
+		System.out.println("passwordResetCompleteAction:password"+password);
+
+		check = dao.PasswordReset(password1,userId,password);
 
 		if(check > 0) {
 			result = SUCCESS;
@@ -36,6 +39,14 @@ public class PasswordResetCompleteAction extends ActionSupport {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getPassword1() {

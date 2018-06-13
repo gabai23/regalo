@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -61,7 +61,10 @@ body {
 		<div class="form-text">ユーザーID:
 		<s:property value="userId" escape="false" /></div><br><br>
 
-		<div class="form-text">パスワード:
+		<div class="form-text">現在のパスワード:
+		<s:property value="passCon" escape="false" /></div><br><br>
+
+		<div class="form-text">新しいパスワード:
 		<s:property value="passCon1" escape="false" /></div><br><br>
 
 
@@ -72,6 +75,7 @@ body {
 
 	<!-- 送る -->
 	<s:hidden name="userId" />
+	<s:hidden name="password" />
 	<s:hidden name="password1" />
 	<s:hidden name="password2" />
 
