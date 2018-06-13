@@ -4,7 +4,7 @@
 	/* ========TAG LAYOUT======== */
 
 		* {
-
+			font-family:'Hiragino Kaku Gothic Pro W3','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
 			text-decoration:none;
 		}
 
@@ -18,6 +18,21 @@
 			color:#333;
 			background:#fff;
 		}
+		
+		header {
+			margin:0 auto;
+			padding:0;
+			height:200px;
+			background:black;
+			text-align:center;
+			color:#fff;
+			font-size:80px;
+			line-height: 200px;
+			
+			
+		}
+		
+		
 
 		table {
 			text-align:right;
@@ -31,15 +46,19 @@
 
 	/* ========ID LAYOUT======== */
 		#top {
-			width:780px;
 			margin:30px auto;
 			border:1px solid #333;
 			text-align:center;
 		}
 
 		#main {
-			width:100%;
-			height:500px;
+			width:80%;
+			margin-top:150px;
+			margin-bottom:150px;
+			margin-left:7.5%;
+			margin-right:7.5%;
+			padding:2.5%;			
+			background:#fff;
 			text-align:center;
 		}
 
@@ -59,5 +78,10 @@
 			text-align:center;
 			margin:0 auto;
 		}
-
-
+		
+		.link{
+			font-size:15px;
+		}
+		
+	
+		
