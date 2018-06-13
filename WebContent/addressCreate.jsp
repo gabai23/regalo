@@ -27,6 +27,10 @@ body {
 	clear:right;
 	}
 
+.error {
+	font-color:red;
+	}
+
 .register {
 	margin-left: 70px;
 	}
@@ -103,13 +107,13 @@ body {
 
 	<!-- 名 -->
 <!-- 	<div class="register"> -->
-		<s:if test="!#session.firstNameErrorMessageList.isEmpty()"><br>
 		<div class="error">
+		<s:if test="!#session.firstNameErrorMessageList.isEmpty()"><br>
 			<div class="error-message">
 				<s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator>
 			</div>
-		</div>
 		</s:if>
+		</div>
 
 			<div class="box">
 			<span><s:label value="名:"/></span><s:textfield name="firstName" class="txt" size="20%" placeholder="1文字以上16文字以下" /><br>
