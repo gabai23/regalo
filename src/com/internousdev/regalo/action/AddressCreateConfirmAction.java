@@ -53,11 +53,11 @@ public class AddressCreateConfirmAction extends ActionSupport implements Session
 		 * fullSymbol：全角記号
 		 */
 
-		familyNameErrorMessageList = inputChecker.check("姓",familyName,1,16,true,true,true,false,false,false,true);
-		firstNameErrorMessageList = inputChecker.check("名",firstName,1,16,true,true,true,false,false,false,true);
+		familyNameErrorMessageList = inputChecker.check("姓",familyName,1,16,true,true,true,false,false,false,false);
+		firstNameErrorMessageList = inputChecker.check("名",firstName,1,16,true,true,true,false,false,false,false);
 		familyNameKanaErrorMessageList = inputChecker.check("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false,false);
 		firstNameKanaErrorMessageList = inputChecker.check("名ふりがな",firstNameKana,1,16,false,false,true,false,false,false,false);
-		userAddressErrorMessageList = inputChecker.check("住所",userAddress,15,50,false,true,true,true,true,true,true);
+		userAddressErrorMessageList = inputChecker.check("住所",userAddress,15,50,true,true,false,true,true,true,false);
 		telNumberErrorMessageList = inputChecker.check("電話番号",telNumber,10,13,false,false,false,false,true,false,false);
 		emailErrorMessageList = inputChecker.check("メールアドレス",email,18,32,true,false,false,false,true,true,false);
 

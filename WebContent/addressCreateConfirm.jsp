@@ -54,8 +54,8 @@ function goPasswordResetCompleteAction(){
 
 	<s:form action="AddressCreateCompleteAction" id="form">
 
-	<h2>以下の内容で登録します</h2>
-
+	<div class="reset" align="center">以下の内容でよろしいですか。</div>
+	<br><br>
 
 	<!-- 姓 -->
 

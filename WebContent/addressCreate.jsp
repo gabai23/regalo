@@ -22,7 +22,13 @@ body {
 .titlefont{
 	text-align: center;
 	font-size:30px;
+/* 	font-family: 'メイリオ', Meiryo,sans-serif; */
+/*  	font-style:oblique; */
 	clear:right;
+	}
+
+.register {
+	margin-left: 70px;
 	}
 
 .box{
@@ -30,8 +36,13 @@ body {
 	clear:right;
 	}
 
+.box1 {
+	text-align: center;
+	margin-top: 30px;
+	}
 
-.button-center {
+
+.button {
   	text-align: center;
   	margin-top: 30px;
   	clear:right;
@@ -47,14 +58,10 @@ body {
 /* 	left: 0; */
 /* 	} */
 
-/* .button-layout{ */
-/* 	margin-left: 10px; */
-/* 	margin-right: 10px; */
-/* 	text-align:center; */
-/* 	} */
 
 .error-message {
 	float:right;
+	margin-top: 20px;
 	}
 </style>
 </head>
@@ -76,7 +83,7 @@ body {
 
 
 	<!-- 姓 -->
-	<div class="register">
+<!-- 	<div class="register"> -->
 		<s:if test="!#session.familyNameErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -87,15 +94,15 @@ body {
 
 <%-- 		<div class="register-name"><s:label value="姓"/></div> --%>
 		<div class="box">
-			<s:label value="姓:"/><s:textfield name="familyName" class="txt" size="20%" placeholder="1文字以上16文字以下" />
+			<span><s:label value="姓:"/></span><s:textfield name="familyName" class="txt" size="20%" placeholder="1文字以上16文字以下" /><br>
 		</div>
 
-	</div>
+<!-- 	</div> -->
 
 
 
 	<!-- 名 -->
-	<div class="register">
+<!-- 	<div class="register"> -->
 		<s:if test="!#session.firstNameErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -104,13 +111,13 @@ body {
 		</div>
 		</s:if>
 
-			<div class="register-name"><s:label value="名:"/></div>
-			<s:label value="名:"/><s:textfield name="firstName" class="txt" size="20%" placeholder="1文字以上16文字以下" /><br>
-
-	</div>
+			<div class="box">
+			<span><s:label value="名:"/></span><s:textfield name="firstName" class="txt" size="20%" placeholder="1文字以上16文字以下" /><br>
+		</div>
+<!-- 	</div> -->
 
 	<!-- 姓仮名 -->
-	<div class="register">
+<!-- 	<div class="register"> -->
 		<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -119,13 +126,13 @@ body {
 		</div>
 		</s:if>
 
-			<div class="register-name"><s:label value="姓仮名:"/></div>
-			<s:textfield name="familyNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
-
-	</div>
+			<div class="box">
+			<span><s:label value="姓仮名:"/></span><s:textfield name="familyNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
+		</div>
+<!-- 	</div> -->
 
 	<!-- 名仮名 -->
-	<div class="register">
+<!-- 	<div class="register"> -->
 		<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -134,24 +141,24 @@ body {
 		</div>
 		</s:if>
 
-			<div class="register-name"><s:label value="名仮名:"/></div>
-			<s:textfield name="firstNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
-
-	</div>
+			<div class="box">
+			<span><s:label value="名仮名:"/></span><s:textfield name="firstNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
+		</div>
+<!-- 	</div> -->
 
 	<!-- 性別 -->
 	<div class="register">
 
-		<div class="register-name"><s:label value="性別:"/></div>
+		<div class="box1">
 
-		<s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" />
+		<span><s:label value="性別:"/></span><s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" /><br>
 
-
+		</div>
 
 	</div>
 
 	<!-- 住所 -->
-	<div class="register">
+<!-- 	<div class="register"> -->
 		<s:if test="!#session.userAddressErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -161,13 +168,13 @@ body {
 		</s:if>
 
 
-			<div class="register-name"><s:label value="住所:"/></div>
-			<s:textfield name="userAddress" class="txt" size="20%" placeholder="15文字以上50文字以下"/><br>
-
-	</div>
+			<div class="box">
+			<span><s:label value="住所:"/></span><s:textfield name="userAddress" class="txt" size="20%" placeholder="15文字以上50文字以下"/><br>
+		</div>
+<!-- 	</div> -->
 
 	<!-- 電話番号 -->
-	<div class="register">
+<!-- 	<div class="register"> -->
 		<s:if test="!#session.telNumberErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -176,14 +183,14 @@ body {
 		</div>
 		</s:if>
 
-			<div class="register-name"><s:label value="電話番号:"/></div>
-			<s:textfield name="telNumber" class="txt" size="20%" placeholder="10文字以上13文字以下"/><br>
-
-	</div>
+			<div class="box">
+			<span><s:label value="電話番号:"/></span><s:textfield name="telNumber" class="txt" size="20%" placeholder="10文字以上13文字以下"/><br>
+		</div>
+<!-- 	</div> -->
 
 
 	<!-- メールアドレス -->
-	<div class="register">
+<!-- 	<div class="register"> -->
 		<s:if test="!#session.emailErrorMessageList.isEmpty()"><br>
 		<div class="error">
 			<div class="error-message">
@@ -192,16 +199,16 @@ body {
 		</div>
 		</s:if>
 
-			<div class="register-name"><s:label value="メールアドレス:"/></div>
-			<s:textfield name="email" class="txt" placeholder="半角英数字" /><br>
-
+			<div class="box">
+			<span><s:label value="メールアドレス:"/></span><s:textfield name="email" class="txt" placeholder="半角英数字" /><br>
+		</div>
 	</div>
 
 
-	</div>
+<!-- 	</div> -->
 
 	<!-- 送信ボタン -->
-	<div class="button-center">
+	<div class="button">
 		<s:submit value="確認画面へ" class="button-layout"/>
 	</div>
 	</s:form>
