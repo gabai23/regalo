@@ -36,8 +36,16 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		InputChecker inputChecker = new InputChecker();
 
 		//フォームの入力内容をInputCheckerを使用しチェックする
+		/* halfAlphabet：半角英字
+		 * kanji：漢字
+		 * hiragana：ひらがな
+		 * katakana：カタカナ
+		 * halfNumber：半角数字
+		 * halfSymbol：半角記号
+		 * fullSymbol：全角記号
+		 */
 
-		ErrorUserIdList = inputChecker.check("ユーザーID",userId,1,8,true,false,false,true,false,false,false);
+		ErrorUserIdList = inputChecker.check("ユーザーID",userId,1,8,true,false,false,false,true,false,false);
 		ErrorPasswordList1 = inputChecker.check("パスワード",password1,1,16,true,false,false,false,true,false,false);
 		ErrorReconfirmPassList = inputChecker.check("確認用パスワード",password2,1,16,true,false,false,false,true,false,false);
 
