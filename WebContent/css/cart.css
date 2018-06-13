@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";@CHARSET "UTF-8";
+
+
+	/* ========TAG LAYOUT======== */
+
+		* {
+			font-family:'Hiragino Kaku Gothic Pro W3','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
+			text-decoration:none;
+		}
+
+		body {
+			margin:0;
+			padding:0;
+			line-height:1.6;
+			letter-spacing:1px;
+			font-family:Verdana,Helvetica,sans-serif;
+			font-size:12px;
+			color:#333;
+			background:#fff;
+		}
+
+		header {
+			margin:0 auto;
+			padding:0;
+			height:200px;
+			background:black;
+			text-align:center;
+			color:#fff;
+			font-size:80px;
+			line-height: 200px;
+
+
+		}
+
+
+
+		table {
+			text-align:right;
+			margin:0 auto;
+		}
+
+		.errorMessage {
+			color:#ff0000;
+			/* border:1px solid black; */
+		}
+
+	/* ========ID LAYOUT======== */
+		#top {
+			margin:30px auto;
+			border:1px solid #333;
+			text-align:center;
+		}
+
+		#main {
+			width:80%;
+			margin-top:150px;
+			margin-bottom:150px;
+			margin-left:7.5%;
+			margin-right:7.5%;
+			padding:2.5%;
+			background:#fff;
+			text-align:center;
+		}
+
+		#text-link {
+			display:inline-block;
+			text-align:right;
+		}
+
+		#saveId,#resetPassword {
+			display:inline-block;
+			text-align:center;
+		}
+
+		#submitButton{
+			width:100px;
+			display:inline-block;
+			text-align:center;
+			margin:0 auto;
+		}
+
+		.link{
+			font-size:15px;
+		}
+
+
