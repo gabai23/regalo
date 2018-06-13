@@ -37,12 +37,6 @@ body {
 /* 	height:auto; */
 /* 	} */
 
-.button-layout{
-	margin-left: 10px;
-	margin-right: 10px;
-	text-align:center;
-	}
-
  .box{
  	text-align: center;
  	}
@@ -50,6 +44,7 @@ body {
 .button {
 	text-align: center;
 	margin-top: 70px;
+
 	}
 
 table {
@@ -73,8 +68,8 @@ table {
 	<!-- ユーザーID -->
 
 		<div class="box">
-		<div class="form-text">ユーザーID</div><br>
-		<s:textfield name="userId" size="20%"  placeholder="半角英数字"/><br><br>
+		<div class="form-text">ユーザーID:
+		<s:textfield name="userId" size="20%"  placeholder="半角英数字"/></div><br><br>
 		<s:if test="!(errorId.equals(''))">
 
 			<s:property value="errorId"/>
@@ -92,8 +87,8 @@ table {
 	<!-- パスワード -->
 
 		<div class="box">
-		<div class="form-text">パスワード</div><br>
-		<s:textfield name="password1" size="20%" placeholder="半角英数字"/><br><br>
+		<div class="form-text">新しいパスワード:
+		<s:textfield name="password1" size="20%" placeholder="半角英数字"/></div><br><br>
 
 		<s:if test="!ErrorPasswordList1.isEmpty()">
 			<s:iterator value="ErrorPasswordList1">
@@ -105,8 +100,8 @@ table {
 	<!-- 確認パスワード -->
 
 		<div class="box">
-		<div class="form-text">確認パスワード</div><br>
-		<s:textfield name="password2" size="20%" placeholder="半角英数字"/><br><br>
+		<div class="form-text">確認パスワード:
+		<s:textfield name="password2" size="20%" placeholder="半角英数字"/></div><br><br>
 
 		<s:if test="!(password1.equals(password2))">
 		<s:property value="errorMessagePassword"/>
