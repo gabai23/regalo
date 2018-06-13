@@ -28,15 +28,43 @@
 
 <style type="text/css">
 
-/*    body { */
-/*             background-image:url("./images/haikei2.jpg"); */
-/*     	background-size:cover; */
-/*     } */
+
 
    .bgslideshow { position: fixed; left:0; top:0; z-index: -1; height: 100%; width: 100%; }
    .bgslideshow img { position: absolute; min-height: 90%; min-width: 100%; width: 100%; height: 100%;left:0; top:0; }
 
+/*メニュー*/
+ #menu  {
+ 	position:fixed;
 
+ 	top:0;
+ 	right:0;
+
+ 	width:5%;
+	height:100px;
+
+ 	padding:5px;
+
+	opacity:0;
+	color:grey;
+ }
+#menu:hover {
+	position:fixed;
+
+	top:70%;
+	right:0;
+
+	width:15%;
+	height:10%;
+
+	padding:5px;
+
+	background:white;
+
+	color:grey;
+
+	opacity:1;
+}
 </style>
 </head>
 <body>
@@ -49,8 +77,11 @@
 <img  src="./images/sraido1.jpeg" >
 </div>
 
+<div id="menu">
+			menu
+		</div>
 
-	<!-- ヘッダー -->
+	<!-- フッター -->
 <%-- 	<jsp:include page="includeFooter.jsp"/> --%>
 
 </body>
