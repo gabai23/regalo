@@ -225,7 +225,6 @@
 	</action>
 
 <!-- 商品情報変更 -->
-	
 
 	<!-- ProductUpdateConfirmAction -->
 	<action name="ProductUpdateConfirmAction" class="com.internousdev.regalo.action.ProductUpdateConfirmAction" method="execute">
