@@ -49,6 +49,12 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 
+
+
+
+
+
+
 		String ret =ERROR;
 		session.put("categoryId",categoryId);
 //		System.out.println("page:"+page);
@@ -82,6 +88,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			ret = SUCCESS;
 			return ret;
 		}
+
 
 		/*
 		 * 複数検索カテゴリーなし
@@ -147,7 +154,13 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			ret = SUCCESS;
 
-			}
+		}
+//		else if(productInfoList.size()<=0){
+//
+//					messageList.add("検索結果がありません");
+
+
+
 
 
 			/*
@@ -318,8 +331,18 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			ret = SUCCESS;
 
-		} else {
+		}
+
+
+
+
+		else{
+
+
+
 			ret = ERROR;
+
+
 			return ret;
 		}
 
@@ -391,7 +414,23 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		keyword = getSearchWord();
 		session.put("keyword", keyword);
+		messageList.add("で検索");
+
 		session.put("productInfoList", productInfoList);
+
+
+		System.out.println("productInfoList:"+productInfoList.size());
+
+		if(productInfoList.size()<=0){
+
+			messageList.add("検索結果がありません");
+
+			System.out.println(messageList.size());
+
+			ret = SUCCESS;
+
+
+		}
 
 		return ret;
 
