@@ -4,10 +4,12 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./css/login-style.css">
+<link type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
 
 
 
@@ -15,7 +17,7 @@
 </head>
 <body>
 <!-- ヘッダー -->
-<jsp:include page="includeHeader.jsp"/>
+<div id="title">LOGIN</div>
 
 
 
@@ -24,10 +26,6 @@
 
 <!-- ログイン -->
 <div id="main">
-<div id="top">
-	<p>ログイン</p>
-</div>
-
 
 
 <s:form action="LoginAction"  theme="simple">
@@ -41,38 +39,36 @@
 <table>
 		<tr>
 				<td>
-					ID:
+					<i class="fas fa-user fa-spin fa-2x icon"></i>
 				</td>
 				<td>
-					<s:textfield type="text" name="userId" value="%{#session.saveId}" autofocus="autofocus"/>
+					<s:textfield type="text" name="userId" value="%{#session.saveId}" autofocus="autofocus" placeholder="ID"/>
 				</td>
 		</tr>
+		
 		<tr>
 				<td>
-					パスワード:
+					<i class="fas fa-lock fa-spin fa-2x icon"></i>
 				</td>
 				<td>
-					<s:password name="password"/>
+					<s:password name="password" placeholder="PASSWORD"/>
 				</td>
 		</tr>
 </table>
-<br>
+
 	<!-- SaveID -->
 		<div id="saveId">
-				<span>次回からIDの入力を省略</span>
 				<s:checkbox name="saveLogin"/>
+				<span>ID保存</span>
+				
 		</div>
 <br>
-<!-- パスワード再設定 -->
-		<div id="resetPassword">
-				<span>パスワード再設定</span>
-				<a href='<s:url action="GoPasswordResetAction"/>'>こちら</a>
-		</div>
+
 		<br>
 		<br>
 <!-- ログインボタン -->
 		<div id="submitButton">
-				<s:submit value="ログイン"/>
+				<s:submit value="LOGIN"/>
 		</div>
 
 </s:form>
@@ -82,9 +78,9 @@
 
 
 　<div class="link">
-       <span>新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></span>
+       <span id="create">会員登録は<a href='<s:url action="GoUserCreateAction"/>'>こちら</a></span>
        <br>
-	   <span>パスワードを忘れた方は<a href='<s:url action="ChangePasswordAction"/>'>こちら</a></span>
+	   <span>パスワードを忘れた方は<a href='<s:url action="GoPasswordResetAction"/>'>こちら</a></span>
   </div>
 </div>
 
