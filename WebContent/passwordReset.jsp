@@ -11,6 +11,7 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
 <meta name="keywords" content="" />
+<title>パスワード再設定画面</title>
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -26,7 +27,6 @@
 	}
 </script>
 
-<title>パスワード再設定画面</title>
 <style type="text/css">
 
 body {

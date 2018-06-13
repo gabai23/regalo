@@ -12,7 +12,7 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
 <meta name="keywords" content="" />
-<title>AddressCreateComplete画面</title>
+<title>宛先情報完了画面</title>
 <style type="text/css">
 
 .button {
