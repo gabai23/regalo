@@ -19,18 +19,20 @@
 
 </head>
 <body>
-	<div id="header">
-		 GoHomeActionつけろ
-		<div id="headerLogo"><div class="aaa">
+	<div id="menu">
+		<div class="headerLogo">
 			<a class="headerA" href='<s:url action="GoHomeAction"/>'>Regalo</a></div>
-		</div>
+
 
 		<div class="right-list">
+		<ul>
+		<li>
+		<div class="title">menu</div>
+</li>
 
 
 
 
-			<ul>
 
 <!-- 				マイページ -->
 				<s:if test = "#session.loginFlg == true">
@@ -40,7 +42,7 @@
 								<button class="button1" type="submit">MY PAGE</button>
 							</s:form>
 						</div>
-					</li>
+					</li><br>
 				</s:if>
 
 <!-- 				商品一覧 -->
@@ -49,7 +51,7 @@
                  <s:form action="GoProductListAction">
 		<button class="button1" type="submit">GIFT ITEM</button>
 	</s:form>
-	</div>
+	</div><br>
 	</li>
 <!-- 				カート -->
 				<li>
@@ -57,7 +59,7 @@
 						<s:form action="GoCartAction">
 							<button class="button1" type="submit">CART</button>
 						</s:form>
-					</div>
+					</div><br>
 				</li>
 
 <!-- 				ゲストユーザーのとき -->
@@ -99,9 +101,12 @@
 					<option value=3>WINE</option>
 					<option value=4>ACCESSORIES</option>
 					<option value=5>WATCH</option>
-				</select>
+				</select><br>
 				<s:textfield name="searchWord"/>
 				<button  class="button1" type="submit">SEARCH</button>
-			</s:form></div></div>
+			</s:form></div>
+
+
+			</div>
 </body>
 </html>
