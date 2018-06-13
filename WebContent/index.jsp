@@ -39,7 +39,8 @@ html {
 
 body {
 	background:black;
-	font-family: 'Arizonia', cursive;
+	font-family: sans-serif;
+	/* font-family: 'Arizonia', cursive; */
 	width:100%;
 	height:100%;
 }
