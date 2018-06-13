@@ -13,7 +13,7 @@
 	margin-top:150px;
 	margin-bottom:150px;
 	padding:2.5%;
-	
+
 	background:grey;
 }
 
@@ -58,8 +58,6 @@
 	height:auto;
 
 	background:black;
-
-	/* background-image:url("../images/sozai7.JPG"); */
 
 	font-size:50px;
 
@@ -126,10 +124,10 @@
 }
 
 .ratio-1_1:before {
-			  content: "";
-			  display: block;
-			  padding-top: 100%; /* ratio */
-		}
+	content: "";
+	display: block;
+	padding-top: 100%; /* ratio */
+}
 
 /* for modern brouser */
 		.clearfix:after {

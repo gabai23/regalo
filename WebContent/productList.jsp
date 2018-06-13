@@ -19,8 +19,8 @@
 
 	<div id="main">
 
-		<div id="top">
-			<span>商品一覧</span>
+		<div id="title">
+			Products
 		</div>
 
 		<div id="error">
@@ -29,36 +29,40 @@
 			</s:iterator>
 		</div>
 
+
+
 		<!-- 商品一覧 -->
-		<div id="productList">
+		<div id="container"  class="clearfix">
 			<s:iterator value="productInfoList">
-				<div id="products" class="ratio-1_1">
-					<!-- 各商品のURL作成 -->
-					<s:url id="url" action="GoProductDetailAction">
-						<s:param name="productId" value="%{productId}"/>
-					</s:url>
+				<div id="wrapper" class="ratio-1_1">
+					<div id="product">
+						<!-- 各商品のURL作成 -->
+						<s:url id="url" action="GoProductDetailAction">
+							<s:param name="productId" value="%{productId}"/>
+						</s:url>
 
-					<!-- 商品画像 -->
-					<s:a id="imageContainer" href="%{url}">
-						<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/>
-					</s:a>
-
-					<br>
-					<div id="productDetail">
-						<!-- 商品名 -->
-						<s:a href="%{url}">
-							<s:property value="productName"/>
-
-							<br>
-							<!-- 商品名かな -->
-							<s:property value="productNameKana"/>
+						<!-- 商品画像 -->
+						<s:a id="imageContainer" href="%{url}">
+							<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/>
 						</s:a>
 
 						<br>
-						<!-- 価格 -->
-						<div id="price">
-							<span>&yen;</span>
-							<fmt:formatNumber value="${price}"/>
+						<div id="productDetail">
+							<!-- 商品名 -->
+							<s:a href="%{url}">
+								<s:property value="productName"/>
+
+								<br>
+								<!-- 商品名かな -->
+								<s:property value="productNameKana"/>
+							</s:a>
+
+							<br>
+							<!-- 価格 -->
+							<div id="price">
+								<span>&yen;</span>
+								<fmt:formatNumber value="${price}"/>
+							</div>
 						</div>
 					</div>
 				</div>
