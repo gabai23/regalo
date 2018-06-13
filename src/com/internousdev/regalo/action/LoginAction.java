@@ -32,7 +32,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
     private String errorMessagePassword;
     //エラーメッセージをリストにドボン！↑の3つのerrorMessageをいれる。
     private List<String> errorMessageList = new ArrayList<>();
-    //ログインしているかの判定！
+    //ログイン情報を保持しているかの判定！
     private boolean saveLogin;
 
     private Map<String,Object> session;
@@ -46,6 +46,15 @@ public class LoginAction  extends ActionSupport implements SessionAware{
     public String execute(){
 
         String result = ERROR;
+        
+    	//ID保存
+		if(saveLogin) {
+			session.put("saveId", userId);
+
+		} else {
+			session.remove("saveId");
+
+		}
 
         //セッション切れに対応
         if(!(session.containsKey("loginFlg"))){

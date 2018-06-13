@@ -7,11 +7,11 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LogoutAction extends ActionSupport implements SessionAware{
-	//Objectはいろいろ入るのよ。
+	
 	private Map<String,Object> session;
 
 	//Logoutはsessionに保存してあるuserのIdを消して、loginFlgの判定をfalseにするだけ。
-	//2018/06/07　圭一郎　完成間近。
+	
 
 	public String execute(){
 
@@ -26,7 +26,7 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 			session.put("masterFlg", false);
 		}
 
-		//home.jspに戻りまーす！
+		//home画面
 		return SUCCESS;
 	}
 

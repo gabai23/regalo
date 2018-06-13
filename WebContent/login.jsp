@@ -9,6 +9,8 @@
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./css/login-style.css">
 
+
+
 <title>ログイン画面</title>
 </head>
 <body>
@@ -55,13 +57,10 @@
 		</tr>
 </table>
 <br>
-<br>
 	<!-- SaveID -->
 		<div id="saveId">
 				<span>次回からIDの入力を省略</span>
 				<s:checkbox name="saveLogin"/>
-
-
 		</div>
 <br>
 <!-- パスワード再設定 -->
@@ -69,7 +68,7 @@
 				<span>パスワード再設定</span>
 				<a href='<s:url action="GoPasswordResetAction"/>'>こちら</a>
 		</div>
-
+		<br>
 		<br>
 <!-- ログインボタン -->
 		<div id="submitButton">
@@ -79,14 +78,14 @@
 </s:form>
 
 
+<br>
 
- <s:form action ="GoUserCreateAction">
-	<s:submit value ="ユーザー登録"/>
-</s:form>
 
- <s:form action ="GoPasswordResetAction">
-	<s:submit value ="パスワード再設定"/>
-</s:form>
+　<div class="link">
+       <span>新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></span>
+       <br>
+	   <span>パスワードを忘れた方は<a href='<s:url action="ChangePasswordAction"/>'>こちら</a></span>
+  </div>
 </div>
 
 <!-- フッター -->
