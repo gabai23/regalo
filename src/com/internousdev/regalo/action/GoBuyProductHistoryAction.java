@@ -56,12 +56,6 @@ public class GoBuyProductHistoryAction extends ActionSupport implements SessionA
 			//購入履歴表示
 			historyList = buyProductHistoryDAO.getProductHistory(userId);
 
-//			Iterator<BuyProductHistoryDTO> iterator = historyList.iterator();
-//
-//			if(!(iterator.hasNext())) {
-//				historyList = null;
-//
-//			}
 
 		} else if(deleteFlg.equals("1")) {
 

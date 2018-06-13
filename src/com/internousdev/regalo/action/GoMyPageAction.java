@@ -31,7 +31,6 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 /*---------------セッション情報取得---------------------*/
 		if (!(session.containsKey("userId"))) {
 
-			/*setMessage("ログインしてください");*/
 			result = ERROR;
 
 		}

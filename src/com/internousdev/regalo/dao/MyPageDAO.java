@@ -44,9 +44,6 @@ public class MyPageDAO {
 
 				myPageDTO.setEmail(rs.getString("email"));
 
-//				myPageDTO.setUserId(rs.getString("user_id"));
-//
-//				myPageDTO.setPassword(rs.getString("password"));
 
 
 

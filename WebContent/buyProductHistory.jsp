@@ -9,6 +9,7 @@
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<link rel="stylesheet" type="text/css" href="">
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
@@ -21,7 +22,6 @@
     #top{
     		width:780px;
     		margin:20px auto;
-/*      border:1px solid #333; */
     		text-align:center;
     		font-size:20px;
     		font-weight: 500;
@@ -64,8 +64,6 @@
     			 		float: left;
      					width: 200px;
     					height: 150px;
-/*     					padding-left: 150px */
-
      			}
 
 
@@ -150,18 +148,6 @@
 
 <br>
 
-
-<!-- 											個別削除ボタン -->
-<!-- 											<div class = "onedelete"> -->
-<%-- 												<s:form action="GoBuyProductHistoryAction"> --%>
-<!-- 														<input type="hidden" name="deleteFlg" value="2"> -->
-<%-- 														<input type="hidden" name="id" value="${id}"> --%>
-<%-- 													<s:submit id="deleteOneEach" value="削除" method="deleteOneEach"/> -->
-<!-- 														<input id = "onedelete" type= "submit" name = "submit" value="削除"> -->
-<%-- 												</s:form> --%>
-<!-- 											</div> -->
-
-
 									</s:iterator>
 
 							</div>
@@ -177,7 +163,6 @@
 										<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
 											<input type="hidden" name="deleteFlg" value="1">
 											<s:submit id="alldelete" value="履歴全削除"/>
-<!-- 										<input id = "allDel" type= "submit" name = "submit" value="全削除"> -->
 										</s:form>
 								</div>
 						</s:if>
@@ -186,7 +171,6 @@
 
 					<!-- マイページに戻る -->
 						<s:form action="GoMyPageAction" class="button">
-<%-- 							<s:submit value="マイページに戻る"/> --%>
 								<input id = "returnMyPage" type= "submit" name = "submit" value="マイページへ戻る">
 						</s:form>
 

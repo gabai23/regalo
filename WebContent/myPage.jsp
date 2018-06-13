@@ -6,14 +6,19 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
-
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 	<meta http-equiv="imagetoolbar" content="no"/>
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
-	<link rel="stylesheet" type="text/css" href="">
+
+
 	<link rel="stylesheet" href="./css/style.css">
+
+
+	<link rel="stylesheet" type="text/css" href="">
 	<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+
+
 <title>マイページ</title>
 
   <style type="text/css">
@@ -22,9 +27,8 @@
     #top{
     		width:780px;
     		margin:20px auto;
-/*      border:1px solid #333; */
     		text-align:center;
-    		font-size:20px;
+    		font-size:23px;
 
     }
 
@@ -45,18 +49,24 @@
     table.myPage{
     		text-align:center;
     		margin:0 auto;
-/*         	background-color: rgba(41,51,61,0.1); */
-			border: double 3px black;
+
     }
 
 		table.myPage th,td{
 			width: 150px;
 			height: 50px;
+			font-size: 18px;
 		}
 
 			table.myPage th{
 				text-align:left;
 				font-weight: 200;
+			}
+
+			table.myPage td{
+				text-align:left;
+				font-weight: 180;
+				padding-left: 50px;
 			}
 
 
@@ -94,18 +104,22 @@
 	<jsp:include page="includeHeader.jsp"/>
 <div class="main">
 
-	<div id = "top">
-			<p>MyPage</p>
-	</div>
+<!-- 	<div id = "top"> -->
+<%-- 			<span>MY PAGE</span> --%>
+<!-- 	</div> -->
 
 	<s:iterator value="myPageList">
 
 	<table class="myPage">
 		<tr>
-			<th>氏名</th>
+			<th>名前（姓）</th>
 			<td>
-
 					<s:property value="familyName"/>
+			</td>
+		</tr>
+		<tr>
+			<th>名前（名）</th>
+			<td>
 					<s:property value="firstName"/>
 			</td>
 		</tr>
@@ -113,9 +127,16 @@
 
 		<tr>
 
-		<th>ふりがな</th>
+		<th>ふりがな（せい）</th>
 			<td>
 					<s:property value="familyNameKana"/>
+			</td>
+		</tr>
+
+		<tr>
+
+		<th>ふりがな（めい）</th>
+			<td>
 					<s:property value="firstNameKana"/>
 			</td>
 		</tr>
@@ -131,7 +152,7 @@
 		</tr>
 
 		<tr>
-			<th>メールアドレス</th>
+			<th>メール</th>
 			<td>
 
 				<s:property value="email"/>
@@ -140,19 +161,6 @@
 		</tr>
 
 
-<!-- 		<tr> -->
-<!-- 			<th>ID</th> -->
-<!-- 			<td> -->
-<%-- 				<s:property value="userId"/> --%>
-<!-- 			</td> -->
-<!-- 		</tr> -->
-
-<!-- 		<tr> -->
-<!-- 			<th>パスワード</th> -->
-<!-- 			<td> -->
-<%-- 				<s:property value="password"/> --%>
-<!-- 			</td> -->
-<!-- 		</tr> -->
 
 	</table>
 

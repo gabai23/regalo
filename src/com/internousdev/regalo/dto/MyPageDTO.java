@@ -24,13 +24,10 @@ public class MyPageDTO {
 /*
  *  性別
  *  メールアドレス
- *  登録日
- *  更新日
  */
 	private boolean sex;
 	private String email;
-// 	private String regist_date;
-// 	private String update_date;
+
 
 
 	public String getUserId() {
