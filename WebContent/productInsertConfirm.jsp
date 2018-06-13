@@ -27,6 +27,7 @@ if(!(session.getAttribute("masterId") == "admin")){
 		<jsp:include page="includeHeader.jsp" />
 	</div>
 
+
 	<div class="main">
 		<h1>こちらの商品を追加しますか？</h1>
 		<div class="inner">

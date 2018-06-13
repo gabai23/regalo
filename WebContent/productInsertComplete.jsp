@@ -15,5 +15,6 @@
 		<a href='<s:url action="GoMasterAction"/>'>管理者ページ</a>
 	</p>
 
+
 </body>
 </html>

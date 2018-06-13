@@ -24,6 +24,7 @@ ProductUpdate</div>
 
 
 
+
 		<a href='<s:url action="GoMasterAction"/>'>管理者ページ</a>
 		</div>
 

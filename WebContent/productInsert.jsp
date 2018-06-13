@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
+
 <title>Insert title here</title>
 </head>
 <body>
