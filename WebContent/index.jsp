@@ -40,6 +40,7 @@ html {
 body {
 	background:black;
 	font-family: sans-serif;
+
 	/* font-family: 'Arizonia', cursive; */
 	width:100%;
 	height:100%;
