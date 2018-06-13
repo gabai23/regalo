@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
@@ -49,6 +49,36 @@
 		<s:property value="productDescription"/>
 
 		</s:iterator>
+
+		<br>
+
+		関連商品
+
+		<!-- 関連商品 -->
+		<div id="relation">
+
+			<s:iterator value="relationInfoList">
+
+				<!-- 各商品のURL作成 -->
+					<s:url id="url" action="GoProductDetailAction">
+						<s:param name="productId" value="%{productId}"/>
+					</s:url>
+
+					<!-- 商品画像 -->
+					<s:a id="imageContainer" href="%{url}">
+						<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/>
+					</s:a>
+
+					<br>
+					<div id="productDetail">
+						<!-- 商品名 -->
+						<s:a href="%{url}">
+							<s:property value="productName"/>
+						</s:a>
+					</div>
+
+			</s:iterator>
+		</div>
 	</div>
 
 		<button type="submit">カートへ</button>

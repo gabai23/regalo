@@ -1,6 +1,7 @@
 package com.internousdev.regalo.action;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,13 @@ public class GoProductDetailAction extends ActionSupport implements SessionAware
 
 	private List<ProductInfoDTO> productInfoList = new ArrayList<>();
 
+	private List<ProductInfoDTO> relationList = new ArrayList<>();
+
+	private List<ProductInfoDTO> relationInfoList = new ArrayList<>();
+
 	private int productId;
+
+	private int categoryId;
 
 	public String execute() {
 
@@ -24,11 +31,37 @@ public class GoProductDetailAction extends ActionSupport implements SessionAware
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 
+		//商品リスト
 		productInfoList = productInfoDAO.getProductInfoByProductId(productId);
 
 		session.put("productInfoList", productInfoList);
 
-		System.out.println(productInfoList.size());
+		//関連商品リスト
+		relationList = productInfoDAO.getProductInfoByCategoryId(productInfoList.get(0).getCategoryId());
+
+		//Iteratorの宣言
+		Iterator<ProductInfoDTO> iterator = relationList.iterator();
+
+		//関連商品3つまで表示
+		for(int i = 0; i < 3; i++) {
+
+			if(iterator.hasNext()) {
+
+				ProductInfoDTO dto = (ProductInfoDTO)iterator.next();
+
+				//表示商品と一致しないものを取得
+				if(productId != dto.getProductId()) {
+
+					//関連商品DTOに格納
+					relationInfoList.add(dto);
+
+				} else {
+					i--;
+					continue;
+
+				}
+			}
+		}
 
 		return result;
 	}
@@ -49,6 +82,22 @@ public class GoProductDetailAction extends ActionSupport implements SessionAware
 		this.productInfoList = productInfoList;
 	}
 
+	public List<ProductInfoDTO> getRelationList() {
+		return relationList;
+	}
+
+	public void setRelationList(List<ProductInfoDTO> relationList) {
+		this.relationList = relationList;
+	}
+
+	public List<ProductInfoDTO> getRelationInfoList() {
+		return relationInfoList;
+	}
+
+	public void setRelationInfoList(List<ProductInfoDTO> relationInfoList) {
+		this.relationInfoList = relationInfoList;
+	}
+
 	public int getProductId() {
 		return productId;
 	}
@@ -56,6 +105,16 @@ public class GoProductDetailAction extends ActionSupport implements SessionAware
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+
 
 
 

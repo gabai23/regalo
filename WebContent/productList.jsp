@@ -2,14 +2,13 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/productList.css">
-<link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
 <title>商品一覧</title>
