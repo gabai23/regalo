@@ -1,43 +1,71 @@
 @CHARSET "UTF-8";
 
-#wrapper {
-	position:relative;
-
-	width:21.25%;
-	height:auto;
-
-	margin-top:5%;
-	margin-bottom:5%;
-	margin-left:8.5%;
-
-	/* border:1px solid white; */
-
-	float:left;
-
+#container {
 	color:white;
-}
-
-/*ボーダーの比率*/
-.ratio-1_1:before {
-	content: "";
-	display: block;
-	padding-top: 100%; /* ratio */
-}
-
-/*商品*/
-#products {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
 }
 
 /*画像を囲う*/
 #imageContainer {
 	display:block;
-	width:100%;
+	width:95%;
 	height:100%;
+
+	margin-left:2.5%;
+}
+
+/*画像*/
+#image {
+	display:block;
+	width:100%;
+
+	margin:0 auto;
+
+}
+
+/*商品詳細*/
+#productDetail {
+	width:100%;
+
+	margin-top:25px;
+	text-align:center;
+}
+
+/*カートボタン*/
+#cartButtonWrapper{
+	width:100%;
+
+	text-align:center;
+}
+
+#cartButton{
+	/* width:100px; */
+}
+
+/*関連商品*/
+#relationTitle {
+	width:100%;
+	text-align:center;
+}
+
+#relation {
+	width: 100%;
+	height:auto;
+}
+
+/*商品*/
+#products {
+	position:relative;
+	width:21.25%;
+	height:auto;
+
+	float:left;
+
+	margin-top:25px;
+	margin-bottom:25px;
+	margin-left:8.5%;
+
+	box-sizing:border-box;
+
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	-ms-filter: grayscale(100%);
@@ -45,7 +73,11 @@
 	filter: grayscale(100%);
 }
 
-#imageContainer:hover {
+#products:hover {
+	/* border:1px solid white; */
+
+	box-sizing:border-box;
+
 	-webkit-filter: grayscale(0);
 	-moz-filter: grayscale(0);
 	-ms-filter: grayscale(0);
@@ -53,16 +85,24 @@
 	filter: grayscale(0);
 }
 
-/*モノクロフィルタ*/
-image {
-  filter: url(#grayscale);
+/*比率*/
+.ratio-1_1:before {
+	content: "";
+	display: block;
+	padding-top: 100%; /* ratio */
 }
-image:hover {
-  filter: none;
+
+#relationImageContainer {
+	position:absolute;
+	top:0;
+	left:0;
+
+	width:100%;
+	height:100%;
 }
 
 /*画像*/
-#image {
+#relationImage {
 	position: absolute;
 
 	top:50%;
@@ -80,7 +120,7 @@ image:hover {
 }
 
 /*商品詳細*/
-#productDetail {
+#relationProductDetail {
 	position:absolute;
 	top:60%;
 	left:90%;
@@ -97,39 +137,18 @@ image:hover {
 	text-align:center;
 }
 
-#productDetail:hover {
+#relationProductDetail:hover {
 	width:100px;
 	height:auto;
 }
 
 /*detail*/
-#productDetail .detail{ display:inline; }
-#productDetail:hover .detail{ display:none; }
+#relationProductDetail .detail{ display:inline; }
+#relationProductDetail:hover .detail{ display:none; }
 
 /*商品名と価格*/
-#productDetail .datailHover{ display:none; }
-#productDetail:hover .datailHover{display:inline;}
-
-/*商品名かな*/
-.productNameKana {
-	font-size:12px;
-}
-
-/*価格*/
-#price {
-	color:black;
-}
-
-#product {
-	position:absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-}
+#relationProductDetail .datailHover{ display:none; }
+#relationProductDetail:hover .datailHover{display:inline;}
 
 /* for modern brouser */
 		.clearfix:after {
