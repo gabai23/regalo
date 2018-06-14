@@ -95,16 +95,14 @@
 
 		<div id="headerSearch">
 			<s:form action="ProductSearchAction" theme="simple">
-				<select name="categoryId">
-					<option value=1>ALL  ITEM</option>
-					<option value=2>FOOD</option>
-					<option value=3>WINE</option>
-					<option value=4>ACCESSORIES</option>
-					<option value=5>WATCH</option>
-				</select><br>
-				<s:textfield name="searchWord"/>
-				<button  class="button1" type="submit">SEARCH</button>
-			</s:form></div>
+
+					<s:select name="categoryId" list="#session.categoryList" listValue="categoryName" listKey="categoryId" class="category" id="categoryId"/>
+					<br>
+					<s:textfield name="searchWord"/>
+					<button  class="button1" type="submit">SEARCH</button>
+
+			</s:form>
+		</div>
 
 
 			</div>
