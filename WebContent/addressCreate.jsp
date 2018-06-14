@@ -16,209 +16,233 @@
 
 body {
 	height:auto;
-	clear:right;
+	clear:both;
 	}
 
-.titlefont{
-	text-align: center;
-	font-size:30px;
-/* 	font-family: 'メイリオ', Meiryo,sans-serif; */
-/*  	font-style:oblique; */
-	clear:right;
+table {
+	position: absolute;
+
+	top:50%;
+	left:50%;
+
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	color:white;
+	clear:both;
+	}
+
+.member_form_title {
+	float:left;
 	}
 
 .error {
-	font-color:red;
+	float:right;
 	}
-
-.register {
-	margin-left: 70px;
-	}
-
-.box{
-	text-align: center;
-	clear:right;
-	}
-
-.box1 {
-	text-align: center;
-	margin-top: 30px;
-	}
-
-
-.button {
-  	text-align: center;
-  	margin-top: 30px;
-  	clear:right;
- 	}
-
-.register {
-	text-align: center;
-	clear:right;
-	}
-
-/* .register-name { */
-/* 	position: absolute; */
-/* 	left: 0; */
-/* 	} */
-
 
 .error-message {
 	float:right;
 	margin-top: 20px;
 	}
+
+.box{
+	text-align: center;
+	float:left;
+	}
+
+.check {
+	text-align: center;
+	margin-top: 30px;
+	clear:both;
+	}
+
+.button {
+  	text-align: center;
+  	margin-top: 480px;
+  	clear:both;
+ 	}
+
 </style>
 </head>
 
 <body>
 	<!-- ヘッダー -->
-	<jsp:include page="includeHeader.jsp"/>
+	<div id="menu">
+		<jsp:include page="includeHeader.jsp"/>
+	</div>
 
 	<div id="main">
 
-	<p class="titlefont">宛先登録</p>
 
-	<div id="container"></div>
+		<div id="title">ADDRESS</div>
+
+			<div id="container">
 
 	<s:form action="AddressCreateConfirmAction" theme="simple">
 
-
-	<div class="input">
-
+	<table>
 
 	<!-- 姓 -->
-<!-- 	<div class="register"> -->
-		<s:if test="!#session.familyNameErrorMessageList.isEmpty()"><br>
-		<div class="error">
-			<div class="error-message">
-				<s:iterator value="#session.familyNameErrorMessageList"><s:property /><br></s:iterator>
+	<tr>
+		<td><span class="member_form_title">姓</span></td>
+		<td>
+			<div class="box">
+				<s:textfield name="familyName" class="txt" size="20%" placeholder="1文字以上16文字以下" />
 			</div>
-		</div>
-		</s:if>
-
-<%-- 		<div class="register-name"><s:label value="姓"/></div> --%>
-		<div class="box">
-			<span><s:label value="姓:"/></span><s:textfield name="familyName" class="txt" size="20%" placeholder="1文字以上16文字以下" /><br>
-		</div>
-
-<!-- 	</div> -->
-
-
+		</td>
+		<td>
+			<div class="error">
+				<s:if test="!#session.familyNameErrorMessageList.isEmpty()">
+					<s:iterator value="#session.familyNameErrorMessageList">
+					<s:property />
+					</s:iterator>
+				</s:if>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 名 -->
-<!-- 	<div class="register"> -->
-		<div class="error">
-		<s:if test="!#session.firstNameErrorMessageList.isEmpty()"><br>
-			<div class="error-message">
-				<s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator>
-			</div>
-		</s:if>
-		</div>
-
+	<tr>
+		<td>
+			<span class="member_form_title">名</span></td>
+		<td>
 			<div class="box">
-			<span><s:label value="名:"/></span><s:textfield name="firstName" class="txt" size="20%" placeholder="1文字以上16文字以下" /><br>
-		</div>
-<!-- 	</div> -->
+				<s:textfield name="firstName" class="txt" size="20%" placeholder="1文字以上16文字以下"/>
+			</div>
+		</td>
+		<td>
+			<div class="error">
+				<s:if test="!#session.firstNameErrorMessageList.isEmpty()">
+					<s:iterator value="#session.firstNameErrorMessageList">
+					<s:property />
+					</s:iterator>
+				</s:if>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 姓仮名 -->
-<!-- 	<div class="register"> -->
-		<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()"><br>
-		<div class="error">
-			<div class="error-message">
-				<s:iterator value="#session.familyNameKanaErrorMessageList"><s:property /><br></s:iterator>
-			</div>
-		</div>
-		</s:if>
-
+	<tr>
+		<td><span class="member_form_title">姓仮名</span></td>
+		<td>
 			<div class="box">
-			<span><s:label value="姓仮名:"/></span><s:textfield name="familyNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
-		</div>
-<!-- 	</div> -->
+				<s:textfield name="familyNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/>
+			</div>
+		</td>
+		<td>
+			<div class="error">
+				<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
+					<s:iterator value="#session.familyNameKanaErrorMessageList">
+					<s:property />
+					</s:iterator>
+				</s:if>
+			</div>
+		</td>
+	</tr>
+
 
 	<!-- 名仮名 -->
-<!-- 	<div class="register"> -->
-		<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()"><br>
-		<div class="error">
-			<div class="error-message">
-				<s:iterator value="#session.firstNameKanaErrorMessageList"><s:property /><br></s:iterator>
-			</div>
-		</div>
-		</s:if>
-
+	<tr>
+		<td><span class="member_form_title">名仮名</span></td>
+		<td>
 			<div class="box">
-			<span><s:label value="名仮名:"/></span><s:textfield name="firstNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/><br>
-		</div>
-<!-- 	</div> -->
+				<s:textfield name="firstNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/>
+			</div>
+		</td>
+		<td>
+			<div class="error">
+				<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()">
+					<s:iterator value="#session.firstNameKanaErrorMessageList">
+					<s:property />
+					</s:iterator>
+				</s:if>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 性別 -->
-	<div class="register">
-
-		<div class="box1">
-
-		<span><s:label value="性別:"/></span><s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" /><br>
-
-		</div>
-
-	</div>
+	<tr>
+		<td><span class="member_form_title">性別</span></td>
+		<td>
+			<div class="check">
+				<s:radio name="sex" list="#{'0': '男性　　', '1': '女性'}" value="0" />
+			</div>
+		</td>
+	</tr>
 
 	<!-- 住所 -->
-<!-- 	<div class="register"> -->
-		<s:if test="!#session.userAddressErrorMessageList.isEmpty()"><br>
-		<div class="error">
-			<div class="error-message">
-				<s:iterator value="#session.userAddressErrorMessageList"><s:property /><br></s:iterator>
-			</div>
-		</div>
-		</s:if>
-
-
+	<tr>
+		<td><span class="member_form_title">住所</span></td>
+		<td>
 			<div class="box">
-			<span><s:label value="住所:"/></span><s:textfield name="userAddress" class="txt" size="20%" placeholder="15文字以上50文字以下"/><br>
-		</div>
-<!-- 	</div> -->
+				<s:textfield name="userAddress" class="txt" size="20%" placeholder="15文字以上50文字以下"/>
+			</div>
+		</td>
+		<td>
+			<div class="error">
+				<s:if test="!#session.userAddressErrorMessageList.isEmpty()">
+					<s:iterator value="#session.userAddressErrorMessageList">
+					<s:property />
+					</s:iterator>
+				</s:if>
+			</div>
+		</td>
+	</tr>
+
 
 	<!-- 電話番号 -->
-<!-- 	<div class="register"> -->
-		<s:if test="!#session.telNumberErrorMessageList.isEmpty()"><br>
-		<div class="error">
-			<div class="error-message">
-				<s:iterator value="#session.telNumberErrorMessageList"><s:property /><br></s:iterator>
-			</div>
-		</div>
-		</s:if>
-
+	<tr>
+		<td><span class="member_form_title">電話番号</span></td>
+		<td>
 			<div class="box">
-			<span><s:label value="電話番号:"/></span><s:textfield name="telNumber" class="txt" size="20%" placeholder="10文字以上13文字以下"/><br>
-		</div>
-<!-- 	</div> -->
+				<s:textfield name="telNumber" class="txt" size="20%" placeholder="10文字以上13文字以下"/>
+			</div>
+		</td>
+		<td>
+			<div class="error">
+				<s:if test="!#session.telNumberErrorMessageList.isEmpty()">
+					<s:iterator value="#session.telNumberErrorMessageList">
+					<s:property />
+					</s:iterator>
+				</s:if>
+			</div>
+		</td>
+	</tr>
+
 
 
 	<!-- メールアドレス -->
-<!-- 	<div class="register"> -->
-		<s:if test="!#session.emailErrorMessageList.isEmpty()"><br>
-		<div class="error">
-			<div class="error-message">
-				<s:iterator value="#session.emailErrorMessageList"><s:property /><br></s:iterator>
-			</div>
-		</div>
-		</s:if>
-
+	<tr>
+		<td><span class="member_form_title">メールアドレス</span></td>
+		<td>
 			<div class="box">
-			<span><s:label value="メールアドレス:"/></span><s:textfield name="email" class="txt" placeholder="半角英数字" /><br>
-		</div>
-	</div>
-
-
-<!-- 	</div> -->
+				<s:textfield name="email" class="txt" placeholder="半角英数字" />
+			</div>
+		</td>
+		<td>
+			<div class="error">
+				<s:if test="!#session.emailErrorMessageList.isEmpty()">
+					<s:iterator value="#session.emailErrorMessageList">
+					<s:property />
+					</s:iterator>
+				</s:if>
+			</div>
+		</td>
+	</tr>
+</table>
 
 	<!-- 送信ボタン -->
-	<div class="button">
-		<s:submit value="確認画面へ" class="button-layout"/>
+			<div class="button">
+				<s:submit value="確認"/>
+				<s:submit value="戻る"/>
+			</div>
+		</s:form>
 	</div>
-	</s:form>
-
-	</div>
+</div>
 	<!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
+
 </body>
 </html>

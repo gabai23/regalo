@@ -12,7 +12,7 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
 <meta name="keywords" content="" />
-<meta http-equiv="refresh" content="3;URL='HomeAction'">
+<!-- <meta http-equiv="refresh" content="3;URL='GoHomeAction'"> -->
 <title>パスワード再設定完了画面</title>
 <style type="text/css">
 
@@ -22,7 +22,8 @@
 	line-height:1.6;
 	letter-spacing:1px;
 	font-size:20px;
-	color:black;
+	color:white;
+
 	}
 
 	.button {
@@ -34,9 +35,21 @@
 	margin-bottom:300px;
 	}
 
-	h3 {
+	.text {
+	text-align: center;
+	font-size:80px;
+	}
+
+	h4 {
 	text-align: center;
 	font-family:Verdana,Helvetica,sans-serif;
+	color:white;
+	}
+
+	h5 {
+	font-color:white;
+	text-align: center;
+	color:white;
 	}
 
 </style>
@@ -44,27 +57,33 @@
 <body>
 
 	<!-- ヘッダー -->
+	<div id="menu">
 		<jsp:include page="includeHeader.jsp"/>
+	</div>
+
 
 	<div id="main">
 
-	<s:form action="GoHomeAction">
+		<s:form action="GoHomeAction">
+
+			<div id="title">PASSWORD RESET</div>
+
+			<div id="container">
+
+				<div class="text">Completed!</div>
 
 
-	<div id="container"></div>
+			<h4>パスワード変更が完了しました。</h4>
 
-	<h3>パスワード変更が完了しました。</h3>
+			<h5>3秒後にホーム画面に移動します。</h5>
 
-	<h4>3秒後にホーム画面に移動します。</h4>
+			</div>
 
-	<!-- 送信ボタン -->
-	<div class="button">
-		<s:submit value="ホーム画面へ" />
-		</div>
 	</s:form>
 </div>
 
 <!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
+
 </body>
 </html>
