@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.regalo.dao.UserCreateConfirmDAO;
 import com.internousdev.regalo.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -38,7 +37,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 //	メソッド
 	public String execute() throws SQLException {
 		String result = ERROR;
-		UserCreateConfirmDAO dao = new UserCreateConfirmDAO();
 
 
 		InputChecker i = new InputChecker();
