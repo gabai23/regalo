@@ -19,7 +19,7 @@ public class ProductInsertCompleteDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			String path = "./images/" + imageFileName;
+
 
 			preparedStatement.setInt(1,productId);
 			preparedStatement.setString(2, productName);
