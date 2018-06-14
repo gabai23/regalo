@@ -11,6 +11,8 @@ body {
 	width:100%;
 	min-height:700px;
 
+	padding-bottom:150px;
+
 	background:grey;/*背景素材に差し替え*/
 }
 
