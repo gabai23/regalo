@@ -35,7 +35,7 @@
 		<div id="container"  class="clearfix">
 			<s:iterator value="productInfoList">
 				<div id="wrapper" class="ratio-1_1">
-					<div id="product">
+					<div id="products">
 						<!-- 各商品のURL作成 -->
 						<s:url id="url" action="GoProductDetailAction">
 							<s:param name="productId" value="%{productId}"/>
@@ -69,10 +69,10 @@
 			</s:iterator>
 		</div>
 
-	</div>
-
 	<!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
+
+	</div>
 
 </body>
 </html>
