@@ -11,4 +11,10 @@
 		line-height:80px;
 		text-align:center;
 		font-family: 'Cinzel', serif;
-}
+
+	}
+
+	/*フッターの上部に空白ができるため*/
+	h6 {
+		margin:0;
+	}
