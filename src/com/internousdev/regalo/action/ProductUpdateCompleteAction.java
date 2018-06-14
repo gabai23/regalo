@@ -79,16 +79,6 @@ public class ProductUpdateCompleteAction extends ActionSupport implements Sessio
 				session.get("imageFilePath").toString(),
 				session.get("fileName").toString()
 
-//				Integer.parseInt(productId.toString()),
-//				productName,
-//				productKanaName,
-//				Integer.parseInt(price.toString()),
-//				Integer.parseInt(productStock.toString()),
-//				imageFileName,
-//				imageName,
-//				company,
-//				description,
-//				Integer.parseInt(category.toString())
 				);
 
 		if(count == 0) {

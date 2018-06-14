@@ -53,6 +53,7 @@
 	filter: grayscale(0);
 }
 
+/*モノクロフィルタ*/
 image {
   filter: url(#grayscale);
 }
