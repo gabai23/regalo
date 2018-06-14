@@ -15,6 +15,7 @@
 <body>
 
 
+
 <div id="contents">
 <h1>商品情報入力画面</h1>
 

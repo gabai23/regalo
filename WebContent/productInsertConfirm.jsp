@@ -23,6 +23,7 @@ if(!(session.getAttribute("masterId") == "admin")){
 	</head>
 	<body>
 
+
 	<div class="header">
 		<jsp:include page="includeHeader.jsp" />
 	</div>
