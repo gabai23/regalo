@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
    <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<link rel="stylesheet" type="text/css" href="">
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
@@ -29,24 +29,81 @@
      }
 
 
-    	.productHistory{
-/*     			width: 500px; */
-/*     			height: 150px; */
-     	}
+     	.productHistory{
+      			width: 500px;
+      			height: 150px;
+      	}
 
 
-     			 #image{
-     			 		float: left;
-      					width: 150px;
-     					height: 150px;
-      			}
-
+      			 #image{
+      			 		float: left;
+       					width: 200px;
+      					height: 150px;
+      					padding-right: 50px;
+       			}
 
 
    				 .alldelete{
     					text-align: center;
+    					margin-top: 50px;
 
     			}
+
+
+#wrapper2 {
+	width:100%;
+	height:150px;
+	margin-top:10px;
+	/* border-bottom:1px solid white; */
+	background:silver;
+	color:white;
+}
+#wrapper2:hover {
+	width:100%;
+	height:150px;
+	/* border-bottom:1px solid white; */
+	background:black;
+	color:white;
+}
+
+#footer {
+	width:100%;
+	height:auto;
+
+	padding:10px;
+
+
+
+	background:black;
+	color:white;
+
+	font-size:24px;
+
+	text-align:center;
+}
+
+
+/* for modern brouser */
+		.clearfix:after {
+		  content: ".";
+		  display: block;
+		  clear: both;
+		  height: 0;
+		  visibility: hidden;
+		}
+		/* IE7,MacIE5 */
+		.clearfix {
+		  display: inline-block;
+		}
+		/* WinIE6 below, Exclude MacIE5 \*/
+		* html .clearfix {
+		  height: 1%;
+		}
+		.clearfix {
+		  display: block;
+		}
+		/**/
+
 
  </style>
 </head>
@@ -57,16 +114,18 @@
 		</div>
 
 
-			<div id="main">
 
-				<div id="container">
+			<div id="main">
 
 						<div id ="title">
 								<span>HISTORY</span>
 						</div>
 
-			<div id="wrapper" class="ratio-1_1">
-				<div id="product">
+
+				<div id="container" class="clearfix">
+
+
+
 
 
 					<!--購入がない場合 -->
@@ -80,35 +139,32 @@
 
 					<!-- 購入履歴がある場合 -->
 
+
 						<s:elseif test = "historyList !=null && historyList.size() !=0">
-							<div id = "wrapper" class= "rario-1_1">
-
-							<div class="productHistory">
-
 
 									<s:form action="GoBuyProductHistoryAction"></s:form>
 
-
 									<s:iterator value = "historyList">
+									<div id = "wrapper2">
 
 
 											<!-- 画像 -->
-											<img id = "image" src="<s:property value='imageFilePath'/>"><br>
+											<img id = "image" src="<s:property value='imageFilePath'/>">
 
 <!-- 											<div class = "clear"></div> -->
 
-											<!-- 商品名 -->
-											<div class = "text">
-													<s:property value = "productName" /><br>
-											</div>
+										<div class="productHistory">
 
-											<!-- 商品名かな -->
 											<div class = "text">
-													<s:property value = "productNameKana" /><br>
+													商　品　名：<s:property value = "productName" /><br>
 											</div>
 
 											<div class = "text">
-													値　　段　：<s:property value="price" /><br>
+													ふりがな　：<s:property value = "productNameKana" /><br>
+											</div>
+
+											<div class = "text">
+													値　　　段：<s:property value="price" /><br>
 											</div>
 
 											<div class = "text">
@@ -119,15 +175,18 @@
 													発売年月日：<s:property value="releaseDate" /><br>
 											</div>
 
+											</div>
+
+										</div>
 
 									</s:iterator>
 
-							</div>
-							</div>
-
 						</s:elseif>
 
-<br>
+
+
+<div class = "clear"></div>
+
 
 					<!-- 全件削除ボタン -->
 						<s:if test = "historyList.size() !=0">
@@ -141,22 +200,28 @@
 
 <br>
 
-				</div>
+
 			</div>
 
 
+
 			</div>
+
+
+	<div id="footer">
+			Regalo.
 	</div>
 
-
-
-		<div id="footer">
-			Regalo.
-		</div>
+<%-- <jsp:include page="includeFooter.jsp"/> --%>
 
 
 
-<jsp:include page="includeFooter.jsp"/>
+
+
+
+
+
+
 
 <script>
 //全件削除確認
