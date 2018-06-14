@@ -131,57 +131,57 @@
 <div id="form-box">
 
 
-<s:if test="!#session.productIdErrorMessageList.isEmpty()">
-	<div class="error">
-	<div class="error-message">
-		<s:iterator value="#session.productIdErrorMessageList"><s:property /><br></s:iterator>
-	</div>
-	</div>
-</s:if>
-<s:if test="!#session.productNameErrorMessageList.isEmpty()">
-	<div class="error">
-	<div class="error-message">
-	<s:iterator value="#session.productNameErrorMessageList"><s:property /><br></s:iterator>
-</div>
-</div>
-</s:if>
-<s:if test="!#session.productNameKanaErrorMessageList.isEmpty()">
-	<div class="error">
-	<div class="error-message">
-	<s:iterator value="#session.productNameKanaErrorMessageList"><s:property /><br></s:iterator>
-	</div>
-	</div>
-</s:if>
-<s:if test="!#session.productDescriptionErrorMessageList.isEmpty()">
-	<div class="error">
-	<div class="error-message">
-	<s:iterator value="#session.productDescriptionErrorMessageList"><s:property /><br></s:iterator>
-	</div>
-	</div>
-</s:if>
-<s:if test="!#session.priceErrorMessageList.isEmpty()">
-	<div class="error">
-	<div class="error-message">
-	<s:iterator value="#session.priceErrorMessageList"><s:property /><br></s:iterator>
-	</div>
-	</div>
-</s:if>
-<s:if test="!session.imageFileNameErrorMessageList.isEmpty()">
-	<div class="error">
-	<div class="error-message">
-	<s:iterator value="#session.imageFileNameErrorMessageList"><s:property /><br></s:iterator>
-	</div>
-	</div>
-</s:if>
-<s:if test="!#session.releaseCompanyErrorMessageList.isEmpty()">
-	<div class="error">
-	<div class="error-message">
-	<s:iterator value="#session.releaseCompanyErrorMessageList"><s:property /><br></s:iterator>
-	</div>
-	</div>
-</s:if>
+<%-- <s:if test="!#session.productIdErrorMessageList.isEmpty()"> --%>
+<!-- 	<div class="error"> -->
+<!-- 	<div class="error-message"> -->
+<%-- 		<s:iterator value="#session.productIdErrorMessageList"><s:property /><br></s:iterator> --%>
+<!-- 	</div> -->
+<!-- 	</div> -->
+<%-- </s:if> --%>
+<%-- <s:if test="!#session.productNameErrorMessageList.isEmpty()"> --%>
+<!-- 	<div class="error"> -->
+<!-- 	<div class="error-message"> -->
+<%-- 	<s:iterator value="#session.productNameErrorMessageList"><s:property /><br></s:iterator> --%>
+<!-- </div> -->
+<!-- </div> -->
+<%-- </s:if> --%>
+<%-- <s:if test="!#session.productNameKanaErrorMessageList.isEmpty()"> --%>
+<!-- 	<div class="error"> -->
+<!-- 	<div class="error-message"> -->
+<%-- 	<s:iterator value="#session.productNameKanaErrorMessageList"><s:property /><br></s:iterator> --%>
+<!-- 	</div> -->
+<!-- 	</div> -->
+<%-- </s:if> --%>
+<%-- <s:if test="!#session.productDescriptionErrorMessageList.isEmpty()"> --%>
+<!-- 	<div class="error"> -->
+<!-- 	<div class="error-message"> -->
+<%-- 	<s:iterator value="#session.productDescriptionErrorMessageList"><s:property /><br></s:iterator> --%>
+<!-- 	</div> -->
+<!-- 	</div> -->
+<%-- </s:if> --%>
+<%-- <s:if test="!#session.priceErrorMessageList.isEmpty()"> --%>
+<!-- 	<div class="error"> -->
+<!-- 	<div class="error-message"> -->
+<%-- 	<s:iterator value="#session.priceErrorMessageList"><s:property /><br></s:iterator> --%>
+<!-- 	</div> -->
+<!-- 	</div> -->
+<%-- </s:if> --%>
+<%-- <s:if test="!session.imageFileNameErrorMessageList.isEmpty()"> --%>
+<!-- 	<div class="error"> -->
+<!-- 	<div class="error-message"> -->
+<%-- 	<s:iterator value="#session.imageFileNameErrorMessageList"><s:property /><br></s:iterator> --%>
+<!-- 	</div> -->
+<!-- 	</div> -->
+<%-- </s:if> --%>
+<%-- <s:if test="!#session.releaseCompanyErrorMessageList.isEmpty()"> --%>
+<!-- 	<div class="error"> -->
+<!-- 	<div class="error-message"> -->
+<%-- 	<s:iterator value="#session.releaseCompanyErrorMessageList"><s:property /><br></s:iterator> --%>
+<!-- 	</div> -->
+<!-- 	</div> -->
+<%-- </s:if> --%>
 
-<s:form action="ProductUpdateConfirmAction">
+<br>
 
 <!-- <table class="vertical-list-table"> -->
 <!-- <tr> -->
@@ -229,43 +229,125 @@
 
 <!-- </table> -->
 
+<s:form action="ProductUpdateConfirmAction">
 
-	<div id="form-title"><span>商品ID</span>
+<!-- 商品ID -->
 
-	<s:textfield name="productId" value="%{#session.productId}" label="商品ID" placeholder="商品ID" class="txt" /><br><br>
-	</div>
+<span class="error">
+	<s:if test="!#session.productIdErrorMessageList.isEmpty()">
+	<span class="error-message">
+		<s:iterator value="#session.productIdErrorMessageList"><s:property /><br></s:iterator>
+	</span>
+</s:if>
+</span>
+	<span id="form-title">商品ID</span>
+<span id="form-text">
+	<s:textfield name="productId" value="%{#session.productId}" label="商品ID" placeholder="商品ID" class="txt" /></span><br><br>
 
-<div id="form-title"><span>商品名</span>
-	<s:textfield name="productName" value="%{#session.productName}" label="商品名" placeholder="商品名" class="txt" /><br><br>
-</div>
-<div id="form-title"><span>商品名かな</span>
-<s:textfield name="productNameKana" value="%{#session.productNameKana}" label="商品名かな" placeholder="商品名かな" class="txt" /><br><br>
-</div>
 
-<div id="form-title"><span>商品詳細</span>
-	<s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /><br><br>
-</div>
-	<div id="form-title"><span>商品カテゴリー</span>
+
+<!-- 商品名 -->
+
+<span class="error">
+<s:if test="!#session.productNameErrorMessageList.isEmpty()">
+
+	<span class="error-message">
+	<s:iterator value="#session.productNameErrorMessageList"><s:property /><br></s:iterator>
+</span>
+</s:if>
+</span>
+
+<span id="form-title">商品名</span>
+<span id="form-text">
+	<s:textfield name="productName" value="%{#session.productName}" label="商品名" placeholder="商品名" class="txt" /></span><br><br>
+
+<!-- 商品名かな -->
+
+<span class="error">
+<s:if test="!#session.productNameKanaErrorMessageList.isEmpty()">
+	<span class="error-message">
+	<s:iterator value="#session.productNameKanaErrorMessageList"><s:property /><br></s:iterator>
+	</span>
+</s:if>
+</span>
+<span id="form-title">商品名かな</span>
+<span id="form-text">
+<s:textfield name="productNameKana" value="%{#session.productNameKana}" label="商品名かな" placeholder="商品名かな" class="txt" /></span><br><br>
+
+<!-- 商品詳細 -->
+<span class="error">
+<s:if test="!#session.productDescriptionErrorMessageList.isEmpty()">
+
+	<span class="error-message">
+	<s:iterator value="#session.productDescriptionErrorMessageList"><s:property /><br></s:iterator>
+	</span>
+
+</s:if></span>
+
+<span id="form-title">商品詳細</span>
+<span id="form-text">
+	<s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /></span><br><br>
+
+<!-- 商品カテゴリー -->
+
+	<span id="form-title"><span>商品カテゴリー</span>
 
 		<select name="categoryId">
 			<option value="1" selected="selected">車</option>
 			<option value="2">音楽・映画</option>
 			<option value="3">家電</option>
 		</select><br><br>
-</div>
-	<div id="form-title"><span>価格</span>
-	<s:textfield name="price" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/><br><br>
-</div>
-	<div id="form-title"><span>画像ファイル名</span>
+</span>
+
+<!-- 価格 -->
+<span class="error">
+<s:if test="!#session.priceErrorMessageList.isEmpty()">
+
+	<span class="error-message">
+	<s:iterator value="#session.priceErrorMessageList"><s:property /><br></s:iterator>
+	</span>
+
+</s:if>
+</span>
+	<span id="form-title">価格</span>
+	<span id="form-text">
+	<s:textfield name="price" list="%{#session.price}" value="%{#session.price}" label="価格" placeholder="価格"/></span><br><br>
+
+
+<!-- 画像ファイル名 -->
+<span class="error">
+<s:if test="!session.imageFileNameErrorMessageList.isEmpty()">
+
+	<span class="error-message">
+	<s:iterator value="#session.imageFileNameErrorMessageList"><s:property /><br></s:iterator>
+	</span>
+
+</s:if></span>
+
+	<span id="form-title">画像ファイル名</span>
 	<s:textfield name="imageFileName" value="%{#session.imageFileName}" label="画像ファイル名" placeholder="画像ファイル名" class="txt" /><br><br>
-</div>
+
+<!-- 画像 -->
+
+
 <div id="form-title"><span>画像</span>
 	<input type="file" accept='image/*' name="imageFilePath" id="file" /><br><br>
 </div>
-	<div id="form-title"><span>販売会社</span>
+
+<!-- 販売会社 -->
+<span class="error">
+<s:if test="!#session.releaseCompanyErrorMessageList.isEmpty()">
+
+	<span class="error-message">
+	<s:iterator value="#session.releaseCompanyErrorMessageList"><s:property /><br></s:iterator>
+	</span>
+
+</s:if></span>
+
+	<span id="form-title">販売会社</span>
 	<s:textfield name="releaseCompany" value="%{#session.releaseCompany}" label="販売会社" placeholder="販売会社" class="txt" />
-	</div>
-</s:form>
+
+
 
 
 <div class="submit_btn_box">
@@ -273,6 +355,8 @@
 <s:submit value="登録" class="submit_btn" />
 </div>
 </div>
+
+</s:form>
 </div>
 </div>
 
