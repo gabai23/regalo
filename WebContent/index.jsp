@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
@@ -12,25 +12,6 @@
 <title>ホーム画面に遷移</title>
 
 <style>
-/* body{
-    padding: 20px;
-    background: #eeeeee;
-}
-.animArea{
-    position: relative;
-    height: 124px;
-    margin-bottom: 5px;
-    border: 2px solid #cccccc;
-    background: #ffffff;
-}
-.animItem{
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100px;
-    height: 100px;
-    background: #ff0000;
-} */
 
 html {
 	width:100%;
@@ -103,9 +84,6 @@ text {
 </style>
 </head>
 <body>
-	<%-- <s:form action="StartAction">
-		<button type="submit">ホームへ</button>
-	</s:form> --%>
 
 <%-- 	<div class="animArea">
         <div class="animItem" id="anim"></div>
@@ -125,7 +103,7 @@ text {
 
     <svg>
 
-    <text x="36%" y="50%">Regalo</text>
+    <!-- <text x="36%" y="50%">Regalo</text> -->
 
 </svg>
 
