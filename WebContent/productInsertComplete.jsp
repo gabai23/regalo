@@ -14,7 +14,8 @@
 <body>
 
 <!-- ヘッダー -->
-<jsp:include page="includeHeader.jsp"/>
+<%-- <jsp:include page="includeHeader.jsp"/> --%>
+<!-- メイン -->
 <div id="main">
 <div id="title">
 ProductInsert</div>

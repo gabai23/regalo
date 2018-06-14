@@ -14,7 +14,7 @@
 </head>
 <body>
 <!-- ヘッダー -->
-<jsp:include page="includeHeader.jsp"/>
+<%-- <jsp:include page="includeHeader.jsp"/> --%>
 
 
 
@@ -124,7 +124,7 @@
 
 
 <div id="title">
-<h1>ProductUpdate</h1>
+ProductUpdate
 </div>
 <div id="container">
 
@@ -346,20 +346,25 @@
 
 	<span id="form-title">販売会社</span>
 	<s:textfield name="releaseCompany" value="%{#session.releaseCompany}" label="販売会社" placeholder="販売会社" class="txt" />
-
-
-
-
+<br><br>
 <div class="submit_btn_box">
-<div id=".contents-btn-set">
+<span id="contents-btn-set">
+
+<input type="button"
+	onclick="location.href='<s:url action="GoMasterAction" />'"
+	value="戻る" />
+</span>
+
+<span id="contents-btn-set">
 <s:submit value="登録" class="submit_btn" />
-</div>
+
+
+</span>
 </div>
 
 </s:form>
 </div>
 </div>
-
 
 </div>
 <!-- フッター -->

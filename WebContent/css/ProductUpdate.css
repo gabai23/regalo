@@ -2,25 +2,28 @@
 
 #form-title{
 	color:white;
-/* 		margin-left:2.5%; */
-/* 	margin-right:2.5%; */
-/* 	margin-top:50px; */
-/* 	margin-bottom:50px; */
+
 }
 
 #form-box{
 	margin-left:2.5%;
 	margin-right:2.5%;
-/* 	margin-top:50px; */
 	margin-bottom:50px;
 	padding-top:50px;
+
+
 }
 
 .submit_btn_box{
-	margin:0 auto;
+
 	text-align:center;
-	margin-top:25px;
 	padding-bottom:25px;
+
+
+}
+#contents-btn-set{
+	margin-left:10px;
+
 }
 
 .moji-box{
@@ -31,12 +34,10 @@
 	padding-bottom:25px;
 	margin-left:2.5%;
 	margin-right:2.5%;
-	margin-bottom:25px;
 	font-size:20px;
 }
 .moji{
-/* 	padding-top:50px; */
-/* 	padding-bottom:25px; */
+
 	margin-left:2.5%;
 	margin-right:2.5%;
 	margin-bottom:25px;
@@ -48,16 +49,16 @@
 }
 
 #form-text{
-	position: absolute;
+/* 	position: absolute; */
 
-	top:50%;
-	left:50%;
+/* 	top:50%; */
+/* 	left:50%; */
 
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
+/* 	-webkit-transform: translate(-50%,-50%); */
+/* 	-moz-transform: translate(-50%,-50%); */
+/* 	-ms-transform: translate(-50%,-50%); */
+/* 	-o-transform: translate(-50%,-50%); */
+/* 	transform: translate(-50%,-50%); */
 
 /* 	max-width:100%; */
 /* 	max-height:100%; */
