@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./css/ProductUpdate.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <!-- <meta http-equiv="refresh" content="3;URL='StartAction'"> -->
-<title>Insert title here</title>
+<title>商品情報入力完了</title>
 </head>
 <body>
 <!-- ヘッダー -->

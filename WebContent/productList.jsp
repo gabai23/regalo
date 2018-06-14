@@ -27,6 +27,10 @@
 			<s:iterator value="messageList">
 				<s:property/>
 			</s:iterator>
+			<br>
+			<s:iterator value="errorMessageList">
+				<s:property/>
+			</s:iterator>
 		</div>
 
 

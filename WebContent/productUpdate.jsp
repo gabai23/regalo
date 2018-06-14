@@ -10,7 +10,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-<title>Product Update</title>
+<title>商品情報更新</title>
 </head>
 <body>
 <!-- ヘッダー -->

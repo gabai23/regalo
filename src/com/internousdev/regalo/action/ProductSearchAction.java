@@ -35,6 +35,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 	private ArrayList<String> messageList = new ArrayList<String>();
 
+	private ArrayList<String> errorMessageList = new ArrayList<String>();
+
 	//ソート
 	//商品種類数
 	private int productCount;
@@ -152,6 +154,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			System.out.println("複数検索カテゴリーなし");
 			System.out.println(keyword);
 
+			session.put("keyword", keyword);
+			messageList.add("で検索");
+
 			ret = SUCCESS;
 
 		}
@@ -224,6 +229,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			System.out.println("複数検索カテゴリーあり");
 			System.out.println(keyword);
 
+			session.put("keyword", keyword);
+			messageList.add("で検索");
+
 			ret = SUCCESS;
 
 			/*
@@ -273,6 +281,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			System.out.println("カテゴリなし、検索値あり");
 			System.out.println(keyword);
 
+			session.put("keyword", keyword);
+			messageList.add("で検索");
+
 			ret = SUCCESS;
 
 		}
@@ -288,6 +299,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		setProductInfoList(productSearchDAO.ByCategoryAndSearchWord(keyword,categoryId
 //				,pages,maxProductDisplay
 						));
+
+		session.put("keyword", keyword);
+		messageList.add("で検索");
 
 
 
@@ -316,6 +330,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			System.out.println(keyword);
 
+			session.put("keyword", keyword);
+			messageList.add("で検索");
+
 			ret = SUCCESS;
 
 		}else if(categoryId > 1 && (keyword.matches("^[\\3040-\\u30FF]+$") || keyword.matches("^[||u30A0-\\u30FF]+$"))){
@@ -328,6 +345,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 			System.out.println("カテゴリーあり、ひらがな、カタカナ検索");
 			System.out.println(keyword);
+
+			session.put("keyword", keyword);
+			messageList.add("で検索");
 
 			ret = SUCCESS;
 
@@ -413,8 +433,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		//-----------------------ページングここまで------------------------------------//
 
 		keyword = getSearchWord();
-		session.put("keyword", keyword);
-		messageList.add("で検索");
+		/*session.put("keyword", keyword);
+		messageList.add("で検索");*/
 
 		session.put("productInfoList", productInfoList);
 
@@ -423,7 +443,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		if(productInfoList.size()<=0){
 
-			messageList.add("検索結果がありません");
+			errorMessageList.add("検索結果がありません");
 
 			System.out.println(messageList.size());
 
@@ -515,6 +535,14 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 	public void setProductCount(int productCount) {
 		this.productCount = productCount;
+	}
+
+	public ArrayList<String> getErrorMessageList() {
+		return errorMessageList;
+	}
+
+	public void setErrorMessageList(ArrayList<String> errorMessageList) {
+		this.errorMessageList = errorMessageList;
 	}
 
 
