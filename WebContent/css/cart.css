@@ -40,12 +40,16 @@
 			margin:0 auto;
 		}
 
+		tr {
+			padding-left:10px;
+		}
+
 		td {
 			padding-left:10px;
 		}
 
 		footer {
-
+			height:200px;
 		}
 
 		h6 {
@@ -66,8 +70,8 @@
 		}
 
 		#main {
-			/* padding-top:150px;
-			padding-bottom:150px; */
+			padding-top:150px;
+			/*padding-bottom:150px; */
 		}
 
 		#container {
@@ -79,7 +83,7 @@
 		}
 
 		#form {
-			height:200px;
+			/* height:200px; */
 			background:#fff;
 		}
 
