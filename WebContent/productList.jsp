@@ -48,21 +48,31 @@
 
 						<br>
 						<div id="productDetail">
-							<!-- 商品名 -->
-							<s:a href="%{url}">
-								<s:property value="productName"/>
+
+							<span class="detail">→</span>
+
+							<div class="datailHover">
+
+								<s:a href="%{url}">
+									<!-- 商品名かな -->
+									<span class="productNameKana">
+										<s:property value="productNameKana"/>
+									</span>
+
+									<br>
+									<!-- 商品名 -->
+									<s:property value="productName"/>
+
+								</s:a>
 
 								<br>
-								<!-- 商品名かな -->
-								<s:property value="productNameKana"/>
-							</s:a>
-
-							<br>
-							<!-- 価格 -->
-							<div id="price">
-								<span>&yen;</span>
-								<fmt:formatNumber value="${price}"/>
+								<!-- 価格 -->
+								<div id="price">
+									<span>&yen;</span>
+									<fmt:formatNumber value="${price}"/>
+								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
