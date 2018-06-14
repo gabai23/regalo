@@ -22,18 +22,18 @@ public class BuyProductHistoryDAO {
 		String sql = "SELECT"
 				+ " phi.id,"
 				+ " pi.product_name,"
+				+ " pi.product_name_kana,"
 				+ " pi.image_file_name, "
 				+ " pi.image_file_path,"
 				+ " pi.release_company,"
 				+ " pi.release_date,"
-				+ " pi.price,"
-				+ " phi.product_count,"
-				+ " phi.regist_date"
+				+ " pi.price"
 				+ " FROM purchase_history_info phi"
 				+ " LEFT JOIN product_info pi"
 				+ " ON phi.product_id = pi.product_id"
 				+ " WHERE phi.user_id = ? "
 				+ " ORDER BY phi.regist_date DESC";
+
 
 
 		try {
@@ -49,12 +49,12 @@ public class BuyProductHistoryDAO {
 
 				dto.setId(rs.getInt("id"));
 				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
 				dto.setImageFilePath(rs.getString("image_file_path") + "/" + rs.getString("image_file_name"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setPrice(rs.getInt("price"));
-				dto.setProductConut(rs.getInt("product_count"));
-				dto.setRegistDate(rs.getString("regist_date"));
+
 
 				buyProductHistoryDTOList.add(dto);
 			}

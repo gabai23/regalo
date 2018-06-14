@@ -18,82 +18,59 @@
 
   <style type="text/css">
 
+  	.textnasi{
+  		text-align: center;
+  		color: white;
+  	}
 
-    #top{
-    		width:780px;
-    		margin:20px auto;
-    		text-align:center;
-    		font-size:20px;
-    		font-weight: 500;
-
-    }
 
      .clear{
      		clear: both;
      }
 
 
-
-    body{
-    		margin:0;
-    		padding:0;
-    		line-height:1.6;
-    		letter-spacing:1px;
-    		font-size:12px;
-    		color:black;
-
-    }
-
-
-    #main{
-    		width:100%;
-    		height:auto;
-    		text-align: center;
-    }
-
-
     	.productHistory{
-    			width: 500px;
-    			height: 150px;
-/*      			border: 1px solid black; */
-     			margin-left: 35%;
+/*     			width: 500px; */
+/*     			height: 150px; */
      	}
 
 
-    			 #image{
-    			 		float: left;
-     					width: 200px;
-    					height: 150px;
-     			}
+     			 #image{
+     			 		float: left;
+      					width: 150px;
+     					height: 150px;
+      			}
 
 
 
-   				 .all delete{
-    					font-size: 35px;
+   				 .alldelete{
+    					text-align: center;
+
     			}
 
  </style>
 </head>
 <body>
 
+		<div id="menu">
+				<jsp:include page="includeHeader.jsp"/>
+		</div>
 
 
-	<!-- ヘッダー -->
-	<jsp:include page="includeHeader.jsp"/>
 			<div id="main">
-
-
 
 				<div id="container">
 
-						<div id ="top">
-								<span>BuyProductHistory</span>
+						<div id ="title">
+								<span>HISTORY</span>
 						</div>
 
+			<div id="wrapper" class="ratio-1_1">
+				<div id="product">
 
 
 					<!--購入がない場合 -->
-						<div class = "nullerror">
+						<div class = "textnasi">
 								<s:if test = "historyList.size() == 0">
 										<h2>購入情報はありません</h2>
 								</s:if>
@@ -104,57 +81,52 @@
 					<!-- 購入履歴がある場合 -->
 
 						<s:elseif test = "historyList !=null && historyList.size() !=0">
+							<div id = "wrapper" class= "rario-1_1">
 
 							<div class="productHistory">
-									<s:form action="GoBuyProductHistoryAction">
-									</s:form>
+
+
+									<s:form action="GoBuyProductHistoryAction"></s:form>
+
 
 									<s:iterator value = "historyList">
 
 
 											<!-- 画像 -->
-											<div class = "image">
-													<img id = "image" src="<s:property value='imageFilePath'/>"><br>
-											</div>
+											<img id = "image" src="<s:property value='imageFilePath'/>"><br>
 
 <!-- 											<div class = "clear"></div> -->
 
 											<!-- 商品名 -->
-											<div class = "productName">
+											<div class = "text">
 													<s:property value = "productName" /><br>
 											</div>
 
-											<div class = "productCount">
-													個数：<s:property value="productCount"/>点<br>
+											<!-- 商品名かな -->
+											<div class = "text">
+													<s:property value = "productNameKana" /><br>
 											</div>
 
-											<div class = "proce">
+											<div class = "text">
 													値　　段　：<s:property value="price" /><br>
 											</div>
 
-											<div class = "releaseCompany">
+											<div class = "text">
 													発売会社名：<s:property value="releaseCompany" /><br>
 											</div>
 
-											<div class = "regisDate">
-													購入日時　：<s:property value="registDate"/><br>
-											</div>
-
-											<div class = "releaseDate">
+											<div class = "text">
 													発売年月日：<s:property value="releaseDate" /><br>
 											</div>
 
-<div class = "clear"></div>
-
-<br>
 
 									</s:iterator>
 
 							</div>
+							</div>
 
 						</s:elseif>
 
-<div class = "clear"></div>
 <br>
 
 					<!-- 全件削除ボタン -->
@@ -162,23 +134,26 @@
 								<div class = "alldelete">
 										<s:form action="GoBuyProductHistoryAction" onSubmit="return allDel()">
 											<input type="hidden" name="deleteFlg" value="1">
-											<s:submit id="alldelete" value="履歴全削除"/>
+											<button type="submit">履歴全削除</button>
 										</s:form>
 								</div>
 						</s:if>
 
 <br>
 
-					<!-- マイページに戻る -->
-						<s:form action="GoMyPageAction" class="button">
-								<input id = "returnMyPage" type= "submit" name = "submit" value="マイページへ戻る">
-						</s:form>
-
-
+				</div>
 			</div>
 
 
 			</div>
+	</div>
+
+
+
+		<div id="footer">
+			Regalo.
+		</div>
+
 
 
 <jsp:include page="includeFooter.jsp"/>

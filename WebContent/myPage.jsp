@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 	<meta http-equiv="imagetoolbar" content="no"/>
@@ -12,7 +12,7 @@
 	<meta name="keywords" content=""/>
 
 
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
 
 	<link rel="stylesheet" type="text/css" href="">
@@ -24,31 +24,11 @@
   <style type="text/css">
 
 
-    #top{
-    		width:780px;
-    		margin:20px auto;
-    		text-align:center;
-    		font-size:23px;
-
-    }
-
-
-
-    body{
-    		margin:0;
-    		padding:0;
-    		line-height:1.6;
-    		letter-spacing:1px;
-    		font-size:12px;
-    		color:#333;
-
-    }
-
-
 /* テーブル編集 */
     table.myPage{
     		text-align:center;
     		margin:0 auto;
+    		color: white;
 
     }
 
@@ -70,30 +50,13 @@
 			}
 
 
-    #main{
-    		width:100%;
-    		height:500px;
-    		text-align: center;
-    }
-
-
-
-
 /* ボタン編集 */
-	.submit_button{
+    #goHistory{
 			text-align: center;
-	}
 
-    input#productHistory{
-
-   			dorder: ridge;
 
     }
 
-    input#goHome{
-
-			dorder: ridge;
-    }
 
 
 </style>
@@ -101,89 +64,79 @@
 
 </head>
 <body>
-	<jsp:include page="includeHeader.jsp"/>
-<div class="main">
+<!-- ヘッダー -->
+		<div id="menu">
+				<jsp:include page="includeHeader.jsp"/>
+		</div>
 
-<!-- 	<div id = "top"> -->
-<%-- 			<span>MY PAGE</span> --%>
-<!-- 	</div> -->
+	<div id="main">
 
-	<s:iterator value="myPageList">
+		<div id = "title">
+				<span>MY PAGE</span>
+		</div>
 
-	<table class="myPage">
-		<tr>
-			<th>名前（姓）</th>
-			<td>
-					<s:property value="familyName"/>
-			</td>
-		</tr>
-		<tr>
-			<th>名前（名）</th>
-			<td>
-					<s:property value="firstName"/>
-			</td>
-		</tr>
+		<div id = "container">
+
+			<s:iterator value="myPageList">
+
+					<table class="myPage">
+							<tr>
+									<th>氏名</th>
+									<td>
+											<s:property value="familyName"/>
+											<s:property value="firstName"/>
+									</td>
+							</tr>
+
+							<tr>
+									<th>ふりがな</th>
+									<td>
+											<s:property value="familyNameKana"/>
+											<s:property value="firstNameKana"/>
+									</td>
+							</tr>
+
+							<tr>
+									<th>性別</th>
+									<td>
+											<s:if test="sex==0">男性</s:if>
+											<s:else>女性</s:else>
+									</td>
+							</tr>
+
+							<tr>
+									<th>メール</th>
+									<td>
+											<s:property value="email"/>
+									</td>
+							</tr>
+					</table>
 
 
-		<tr>
-
-		<th>ふりがな（せい）</th>
-			<td>
-					<s:property value="familyNameKana"/>
-			</td>
-		</tr>
-
-		<tr>
-
-		<th>ふりがな（めい）</th>
-			<td>
-					<s:property value="firstNameKana"/>
-			</td>
-		</tr>
-
-		<tr>
-			<th>性別</th>
-			<td>
-
-					<s:if test="sex==0">男性</s:if>
-					<s:else>女性</s:else>
-
-			</td>
-		</tr>
-
-		<tr>
-			<th>メール</th>
-			<td>
-
-				<s:property value="email"/>
-
-			</td>
-		</tr>
+			</s:iterator>
 
 
 
-	</table>
 
-
-	</s:iterator>
-
-
-
- <div class = "submit_button">
-			<p><s:form action="GoBuyProductHistoryAction">
-					<input id = "productHistory" type= "submit" name = "submit" value="商品履歴">
-			</s:form></p>
+							<s:form action="GoBuyProductHistoryAction">
+							<div id = "goHistory">
+									<button type="submit">商品履歴</button>
+							</div>
+							</s:form>
 
 
 
-			<p><s:form action="GoHomeAction">
-				<input id = "goHome" type= "submit" name = "submit" value="ホーム画面へ">
-			</s:form></p>
- </div>
+		</div>
+
+	</div>
 
 
-</div>
 
+
+		<div id="footer">
+			Regalo.
+		</div>
+<!-- フッダー -->
 	<jsp:include page="includeFooter.jsp"/>
 
 </body>

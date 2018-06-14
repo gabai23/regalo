@@ -14,20 +14,11 @@ public class BuyProductHistoryDTO {
 //	商品ID
 	private int productId;
 
-//	個数
-	private int productCount;
-
 //	金額
 	private int price;
 
 //	宛先情報ID
 	private int destinationId;
-
-//	登録日
-	private String registDate;
-
-//	更新日
-	private String update;
 
 //	会社情報
 	private String releaseCompany;
@@ -43,6 +34,9 @@ public class BuyProductHistoryDTO {
 
 //	商品名
 	private String productName;
+
+//	商品名かな
+	private String productNameKana;
 
 
 
@@ -68,13 +62,6 @@ public class BuyProductHistoryDTO {
 		this.productId = productId;
 	}
 
-	public int getProductCount() {
-		return productCount;
-	}
-	public void setProductConut(int productCount) {
-		this.productCount = productCount;
-	}
-
 	public int getPrice() {
 		return price;
 	}
@@ -87,20 +74,6 @@ public class BuyProductHistoryDTO {
 	}
 	public void setDestinationId(int destinationId) {
 		this.destinationId = destinationId;
-	}
-
-	public String getRegistDate() {
-		return registDate;
-	}
-	public void setRegistDate(String registDate) {
-		this.registDate = registDate;
-	}
-
-	public String getUpdate() {
-		return update;
-	}
-	public void setUpdate(String update) {
-		this.update = update;
 	}
 
 	public String getReleaseCompany() {
@@ -123,17 +96,26 @@ public class BuyProductHistoryDTO {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public String getImageFilePath() {
 		return imageFilePath;
 	}
 	public void setImageFilePath(String imageFilePath) {
 		this.imageFilePath = imageFilePath;
 	}
+
 	public String getReleaseDate() {
 		return releaseDate;
 	}
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
+	}
+
+	public String getProductNameKana() {
+		return productNameKana;
+	}
+	public void setProductNameKana(String productNameKana) {
+		this.productNameKana = productNameKana;
 	}
 
 
