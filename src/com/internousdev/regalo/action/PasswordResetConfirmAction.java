@@ -53,7 +53,7 @@ public class PasswordResetConfirmAction extends ActionSupport {
 		ErrorUserIdList = inputChecker.check("ユーザーID",userId,1,8,true,false,false,false,true,false,false);
 		ErrorPasswordList = inputChecker.check("現在のパスワード",password,1,16,true,false,false,false,true,false,false);
 		ErrorPasswordList1 = inputChecker.check("新しいパスワード",password1,1,16,true,false,false,false,true,false,false);
-		ErrorReconfirmPassList = inputChecker.check("確認用パスワード",password2,1,16,true,false,false,false,true,false,false);
+		ErrorReconfirmPassList = inputChecker.check("確認パスワード",password2,1,16,true,false,false,false,true,false,false);
 
 		if(
 				ErrorUserIdList.size() == 0 &&
@@ -122,7 +122,7 @@ public class PasswordResetConfirmAction extends ActionSupport {
 
 			//ユーザーIDと現在のパスワードが正しくなかったらエラーメッセージを出す
 			if(!check) {
-				errorMessageId += "パスワードが異なります。";
+				errorMessageId += "ユーザーIDまたはパスワードが異なります。";
 				result = ERROR;
 			}
 		}
