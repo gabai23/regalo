@@ -96,6 +96,22 @@
 	color:white;
 }
 
+#wrapper2 {
+	width:100%;
+	height:150px;
+	margin-top:10px;
+	/* border-bottom:1px solid white; */
+	background:silver;
+	color:white;
+}
+#wrapper2:hover {
+	width:100%;
+	height:150px;
+	/* border-bottom:1px solid white; */
+	background:black;
+	color:white;
+}
+
 #product {
 	position:absolute;
 	top: 50%;
@@ -164,7 +180,8 @@
 
 		<div id="container" class="clearfix">
 
-			<div id="wrapper" class="ratio-1_1">
+			<!-- 9個並べる系 ここから -->
+			<!-- <div id="wrapper" class="ratio-1_1">
 				<div id="product">
 					aaa
 				</div>
@@ -210,7 +227,25 @@
 				<div id="product">
 					ccc3
 				</div>
+			</div> -->
+			<!-- 9個並べる系 ここまで -->
+
+			<!-- width100%系 ここから -->
+
+			<div id="wrapper2">
+				aaa
 			</div>
+			<div id="wrapper2">
+				bbb
+			</div>
+			<div id="wrapper2">
+				ccc
+			</div>
+			<div id="wrapper2">
+				ddd
+			</div>
+
+			<!-- width100%系 ここまで -->
 
 		</div>
 
