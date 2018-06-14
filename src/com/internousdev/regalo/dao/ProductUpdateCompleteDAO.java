@@ -19,7 +19,7 @@ public class ProductUpdateCompleteDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			String path = "./images/" + imageFileName;
+
 
 			preparedStatement.setString(1, productName);
 			preparedStatement.setString(2, productNameKana);

@@ -57,6 +57,7 @@
 </head>
 
 <body>
+<div id="wrapper">
 <header>
 	<div id=title>Cart</div>
 </header>
@@ -143,5 +144,6 @@
 <footer>
 	<s:include value="includeFooter.jsp"/>
 </footer>
+</div>
 </body>
 </html>
