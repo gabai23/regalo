@@ -18,7 +18,7 @@ if(!(session.getAttribute("masterId") == "admin")){
 		<link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-		<title>確認画面</title>
+		<title>商品情報確認</title>
 		<style type="text/css"></style>
 	</head>
 	<body>
