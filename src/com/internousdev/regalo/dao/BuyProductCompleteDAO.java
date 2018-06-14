@@ -10,9 +10,7 @@ import com.internousdev.regalo.dto.CartDTO;
 import com.internousdev.regalo.util.DBConnector;
 
 public class BuyProductCompleteDAO {
-	private DBConnector dbConnector = new DBConnector();
 
-	private Connection con = dbConnector.getConnection();
 
 	public ArrayList<CartDTO> cartList = new ArrayList<CartDTO>();
 
@@ -20,6 +18,10 @@ public class BuyProductCompleteDAO {
 
 	//カートの中身を購入履歴に登録する
 	public ArrayList<CartDTO> getCartList(String userId) throws SQLException {
+
+		DBConnector db = new DBConnector();
+
+		Connection con = db.getConnection();
 
 	String sql = "SELECT * FROM cart_info WHERE user_id=?";
 	try {

@@ -8,19 +8,17 @@ import java.sql.SQLException;
 import com.internousdev.regalo.util.DBConnector;
 
 public class UserCreateConfirmDAO {
-	public DBConnector db = new DBConnector();
-	public Connection con = null;
-
-
-
-
 
 
 //ConfirmActionで、同じIdが存在するかチェックするために使うメソッドです
 
 	public boolean existsUserId(String userId) throws SQLException {
-		boolean result = false;
+
+		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
+
+		boolean result = false;
+
 
 		String sql = "SELECT * FROM user_info WHERE user_id = ?";
 

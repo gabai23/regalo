@@ -85,6 +85,10 @@ text {
 </head>
 <body>
 
+Regalo
+
+<!-- 以下アニメーションを追加予定 -->
+
 <%-- 	<div class="animArea">
         <div class="animItem" id="anim"></div>
     </div>

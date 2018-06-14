@@ -11,13 +11,16 @@ import com.internousdev.regalo.util.DBConnector;
 
 public class MyPageDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
+
 
 
 	/*ユーザー情報取得*/
 
 	public ArrayList<MyPageDTO> getUserInfo(String userId) {
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
 		System.out.println();
 		MyPageDTO myPageDTO = new MyPageDTO();
 		ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
