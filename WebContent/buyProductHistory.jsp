@@ -21,6 +21,10 @@
   	.textnasi{
   		text-align: center;
   		color: white;
+		width: 85%;
+      	height: 65%;
+      	padding-top: 10%;
+      	padding-left: 10%
   	}
 
 
@@ -66,21 +70,6 @@
 	color:white;
 }
 
-#footer {
-	width:100%;
-	height:auto;
-
-	padding:10px;
-
-
-
-	background:black;
-	color:white;
-
-	font-size:24px;
-
-	text-align:center;
-}
 
 
 /* for modern brouser */
@@ -104,6 +93,34 @@
 		}
 		/**/
 
+#container2 {
+	width:50%;
+	height:10%;
+
+	background:black;
+
+	margin-left:25%;
+	margin-right:25%;
+	margin-bottom:10%;
+
+}
+
+
+#footer {
+	width:100%;
+	height:auto;
+
+	padding:10px;
+
+
+
+	background:black;
+	color:white;
+
+	font-size:24px;
+
+	text-align:center;
+}
 
  </style>
 </head>
@@ -129,15 +146,17 @@
 
 
 					<!--購入がない場合 -->
-						<div class = "textnasi">
-								<s:if test = "historyList.size() == 0">
+						<s:if test = "historyList.size() == 0">
+								<div class = "textnasi">
 										<h2>購入情報はありません</h2>
-								</s:if>
-						</div>
+								</div>
+						</s:if>
 
 
 
 					<!-- 購入履歴がある場合 -->
+
+					<div id = "container2">
 
 
 						<s:elseif test = "historyList !=null && historyList.size() !=0">
@@ -183,6 +202,14 @@
 
 						</s:elseif>
 
+<!-- 						削除後 -->
+						<s:else>
+							<div class = "textnasi">
+									<h2>購入情報はありません</h2>
+							</div>
+						</s:else>
+
+
 
 
 <div class = "clear"></div>
@@ -199,18 +226,18 @@
 						</s:if>
 
 <br>
-
-
 			</div>
 
-
-
 			</div>
-
 
 	<div id="footer">
 			Regalo.
 	</div>
+
+			</div>
+
+
+
 
 <%-- <jsp:include page="includeFooter.jsp"/> --%>
 
