@@ -23,11 +23,27 @@
 	padding-bottom:25px;
 }
 
-.moji{
+.moji-box{
 	color:white;
 		margin:0 auto;
 	text-align:center;
 	padding-top:50px;
 	padding-bottom:25px;
+	margin-left:2.5%;
+	margin-right:2.5%;
+	margin-bottom:25px;
+	font-size:20px;
+}
+.moji{
+/* 	padding-top:50px; */
+/* 	padding-bottom:25px; */
+	margin-left:2.5%;
+	margin-right:2.5%;
+	margin-bottom:25px;
+}
+
+.error-message{
+	color:red;
+	float:right;
 }
 
