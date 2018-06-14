@@ -43,4 +43,5 @@ public class UserCreateConfirmDAO {
 		}
 		return result;
 	}
+
 }
