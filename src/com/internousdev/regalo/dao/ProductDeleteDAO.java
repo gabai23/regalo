@@ -12,13 +12,15 @@ public class ProductDeleteDAO {
 
 
 
-		DBConnector dbConnector = new DBConnector();
 
-		Connection connection = dbConnector.getConnection();
 
 		String sql ="DELETE FROM product_info WHERE product_id=?";
 
 		public int productDelete(int product_id) throws SQLException{
+
+		DBConnector dbConnector = new DBConnector();
+
+		Connection connection = dbConnector.getConnection();
 
 		int result = 0;
 
