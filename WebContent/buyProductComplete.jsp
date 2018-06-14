@@ -12,36 +12,54 @@
 <title>商品購入画面</title>
 <style type="text/css">
 
-.bbbb {
-position:relative;
- width:300px;
- margin:0 auto;
+.moji-box{
+	color:white;
+		margin:0 auto;
+	text-align:center;
+	padding-top:50px;
+	padding-bottom:25px;
+	margin-left:2.5%;
+	margin-right:2.5%;
+	margin-bottom:25px;
+/* 	font-size:20px; */
 }
 
-.thankyou {
-position:relative;
-  width:200px;
-margin:0 auto;
+.moji1{
+font-size:80px;
+}
+
+
+
+.moji2{
+/* 	padding-top:50px; */
+/* 	padding-bottom:25px; */
+	margin-left:2.5%;
+	margin-right:2.5%;
+	margin-bottom:25px;
+	font-size:20px;
 }
 
 </style>
 </head>
 <body>
-<div id="main">
-<div id="top"><!-- ヘッダー -->
+<!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
+<div id="main">
+<div id=title>Purchase</div>
+<div id="container">
+
+
+
+<div class="moji-box">
+<div class ="moji1">
+<span>Thank you!</span><br></div>
+<div class="moji2"><span>購入手続きが完了しました。</span></div>
+<div class="moji2"><span>3秒後にHOME画面に移動します。</span><br></div>
 </div>
-<div class="thankyou"><img  src="./images/thankyou.JPG" ></div>
-<div class ="bbbb">
-<span>購入手続きが完了しました。</span><br>
-<span>3秒後にHOME画面に移動します。</span>
+
 </div></div>
 
-<!-- ヘッダー -->
+<!-- フッダー -->
 	<jsp:include page="includeFooter.jsp"/>
-
-<div id="pr">
-
-</div>
 </body>
 </html>
