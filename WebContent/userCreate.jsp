@@ -48,7 +48,7 @@
 						<br>
 						<div class="member_form_all">
 						<span class="member_form_title">名</span>
-						<div class="member_form_text">
+						<z class="member_form_text">
 							<s:textfield type="text" name="firstName" value="%{firstName}"
 							placeholder="名"/>
 							<br>
