@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
    <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<link rel="stylesheet" type="text/css" href="">
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
@@ -48,6 +48,27 @@
 
     			}
 
+    /* for modern brouser */
+		.clearfix:after {
+		  content: ".";
+		  display: block;
+		  clear: both;
+		  height: 0;
+		  visibility: hidden;
+		}
+		/* IE7,MacIE5 */
+		.clearfix {
+		  display: inline-block;
+		}
+		/* WinIE6 below, Exclude MacIE5 \*/
+		* html .clearfix {
+		  height: 1%;
+		}
+		.clearfix {
+		  display: block;
+		}
+		/**/
+
  </style>
 </head>
 <body>
@@ -57,13 +78,16 @@
 		</div>
 
 
-			<div id="main">
 
-				<div id="container">
+			<div id="main">
 
 						<div id ="title">
 								<span>HISTORY</span>
 						</div>
+
+
+				<div id="container">
+
 
 			<div id="wrapper" class="ratio-1_1">
 				<div id="product">
@@ -87,7 +111,6 @@
 
 
 									<s:form action="GoBuyProductHistoryAction"></s:form>
-
 
 									<s:iterator value = "historyList">
 
@@ -119,15 +142,15 @@
 													発売年月日：<s:property value="releaseDate" /><br>
 											</div>
 
-
 									</s:iterator>
+									<div class = "clear"></div>
 
 							</div>
 							</div>
 
 						</s:elseif>
+<div class = "clear"></div>
 
-<br>
 
 					<!-- 全件削除ボタン -->
 						<s:if test = "historyList.size() !=0">
