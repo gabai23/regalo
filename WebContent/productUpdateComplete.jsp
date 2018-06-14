@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/ProductUpdate.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-<meta http-equiv="refresh" content="3;URL='StartAction'">
+<!-- <meta http-equiv="refresh" content="3;URL='StartAction'"> -->
 <title>Insert title here</title>
 </head>
 <body>
@@ -18,14 +18,18 @@
 <div id="title">
 ProductUpdate</div>
 <div id="container">
+<div class="moji-box">
 <div class="moji">
-<h2>商品情報を変更しました。</h2>
-<h3>3秒後にホームへ移動します。</h3>
+<span>商品情報を変更しました。</span><br></div>
+<div class="moji">
+<a href='<s:url action="GoMasterAction"/>'>管理者ページ</a><br></div>
+<div class="moji">
+<span>3秒後にホームへ移動します。</span><br></div>
 
 
 
 
-		<a href='<s:url action="GoMasterAction"/>'>管理者ページ</a>
+
 		</div>
 
 </div></div>

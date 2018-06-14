@@ -35,17 +35,24 @@
 
 
 		table {
-			text-align:right;
+			text-align:left;
 			margin:0 auto;
 		}
 
-		.errorMessage {
-			color:#ff0000;
-			/* border:1px solid black; */
+		td {
+			padding-left:10px;
 		}
 
+		footer {
+
+		}
+
+
+
+
+
 	/* ========ID LAYOUT======== */
-		#top {
+		#title {
 			margin:30px auto;
 			border:1px solid #333;
 			text-align:center;
@@ -62,25 +69,33 @@
 			text-align:center;
 		}
 
-		#text-link {
-			display:inline-block;
-			text-align:right;
+		#container {
+			margin-bottom:150px;
 		}
 
-		#saveId,#resetPassword {
-			display:inline-block;
-			text-align:center;
+		#form {
+			height:200px;
 		}
 
-		#submitButton{
-			width:100px;
-			display:inline-block;
-			text-align:center;
-			margin:0 auto;
+	/* ========CLASS LAYOUT======== */
+
+		.errorMessage {
+			color:#ff0000;
+			/* border:1px solid black; */
 		}
 
-		.link{
-			font-size:15px;
+		.price_and_btns{
+			margin-top:25px;
+			margin-bottom:25px;
+			font-size:20px;
 		}
 
+		.submit_btn_set{
+			margin-top:10px;
 
+		}
+		.contents-btn-set{
+			display: inline-block;
+			margin-right: 10px;
+			font-size:20px;
+		}

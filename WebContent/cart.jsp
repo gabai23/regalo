@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="./css/cart.css">
 <title>カート</title>
 <style type="text/css">
@@ -16,16 +16,6 @@
  margin:0 auto;
 
  }
-ul {
- 	width:100%;
- 	list-style: none;
- 	text-align:center;
- }
-
-h2 {
-text-align:center;
-
-}
 
 .submit_btn {
 /* 文字サイズを1.emに指定 */
@@ -71,9 +61,7 @@ text-align:center;
 	<div id=title>Cart</div>
 </header>
 
-<div class="main">
-<!-- ヘッダー -->
-	<jsp:include page="includeHeader.jsp"/>
+<div id="main">
 	<div id="container">
 
 		<s:if test="#session.checkListErrorMessageList!=null">
@@ -91,24 +79,31 @@ text-align:center;
 				<s:iterator value="CartDtoList">
 					<table class="horizontal-list-table">
 						<tr>
-							<td><img src='<s:property value="imageFilePath"/>' width="50px" height="50px" /></td>
-						</tr>
-						<tr>
+							<td><img src='<s:property value="imageFilePath"/>' width="200px" height="200px" /></td>
 							<td>
-							<ul>
-								<li><s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></li>
-								<s:hidden name="productId" value="%{productId}"/>
-								<li><s:property value="productName"/></li>
-								<li><s:property value="productNameKana"/></li>
+								<table>
+									<tr><td>商品名</td><td><s:property value="productName"/></td></tr>
+									<tr><td>ふりがな</td><td><s:property value="productNameKana"/></td></tr>
+									<tr><td>値段</td><td><s:property value="price"/></td></tr>
+									<tr><td>発売会社名</td><td><s:property value="releaseCompany"/></td></tr>
+									<tr><td>発売年月</td><td><s:property value="releaseDate"/></td></tr>
+									<tr><td>個数</td><td><s:property value="productCount"/></td></tr>
+									<tr><td>小計</td><td><s:property value="subtotal"/>円</td></tr>
 
-								<li><s:property value="price"/>円</li>
-								<li><s:property value="releaseCompany"/></li>
-								<li><s:property value="releaseDate"/></li>
-								<li><s:property value="productCount"/></li>
-								<li><s:property value="subtotal"/>円</li>
-							</ul>
+								</table>
+							<%-- <ul>
+								<li>商品名　<s:property value="productName"/></li>
+								<li>ふりがな　<s:property value="productNameKana"/></li>
+								<li>値段　<s:property value="price"/>円</li>
+								<li>発売会社名　<s:property value="releaseCompany"/></li>
+								<li>発売年月　<s:property value="releaseDate"/></li>
+								<li>個数　<s:property value="productCount"/></li>
+								<li>小計　<s:property value="subtotal"/>円</li>
+							</ul> --%>
 							</td>
+							<td><s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
 						</tr>
+						<s:hidden name="productId" value="%{productId}"/>
 						<s:hidden name="productName" value="%{productName}"/>
 						<s:hidden name="productNameKana" value="%{productNameKana}"/>
 						<s:hidden name="imageFilePath" value="%{imageFilePath}"/>
@@ -121,26 +116,20 @@ text-align:center;
 					</table>
 				</s:iterator>
 
-				<h2><s:label value="カート合計金額 :"/><s:property value="totalPrice"/>円</h2><br>
+				<div class="price_and_btns">
 
-				<div class="btn">
-					<ul>
-						<li>
-							<div class="submit_btn_box">
-								<div id=".contents-btn-set">
-									<s:submit value="決済" class="submit_btn" onclick="this.form.action='BuyProductConfirmAction';"/>
-								</div>
-							</div><br>
-						</li>
+					<h2><s:label value="カート合計金額 :"/><s:property value="totalPrice"/>円</h2><br>
 
-						<li>
-							<div class="submit_btn_box">
-								<div id=".contents-btn-set">
-									<s:submit value="削除" class="submit_btn" onclick="this.form.action='CartDeleteAction';"/>
-								</div>
-							</div>
-						</li>
-					</ul>
+					<div class="submit_btn_box">
+						<div class="contents-btn-set">
+							<s:submit value="決済" class="submit_btn" onclick="this.form.action='BuyProductConfirmAction';"/>
+						</div>
+
+						<div class="contents-btn-set">
+							<s:submit value="削除" class="submit_btn" onclick="this.form.action='CartDeleteAction';"/>
+						</div>
+					</div>
+
 				</div>
 			</s:form>
 		</s:if>
