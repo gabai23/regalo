@@ -77,8 +77,9 @@
 
 		<s:if test="CartDtoList.size() > 0">
 			<s:form id="form">
-				<s:iterator value="CartDtoList">
-					<table class="horizontal-list-table">
+				<table class="horizontal-list-table">
+					<s:iterator value="CartDtoList">
+
 						<tr>
 							<td><img src='<s:property value="imageFilePath"/>' width="200px" height="200px" /></td>
 							<td>
@@ -114,8 +115,9 @@
 						<s:hidden name="releaseDate" value="%{releaseDate}"/>
 						<s:hidden name="productCount" value="%{productCount}"/>
 						<s:hidden name="subtotal" value="%{subtotal}"/>
-					</table>
-				</s:iterator>
+
+					</s:iterator>
+				</table>
 
 				<div class="price_and_btns">
 
