@@ -48,10 +48,10 @@
 						<br>
 						<div class="member_form_all">
 						<span class="member_form_title">名</span>
-						<z class="member_form_text">
+						<span class="member_form_text">
 							<s:textfield type="text" name="firstName" value="%{firstName}"
 							placeholder="名"/>
-							<br>
+							</span>
 
 					<span class="mandatory">
 					<s:if test="firstNameErorMessageList.size()>0">
@@ -61,7 +61,6 @@
 					</s:if>
 					</span>
 						</div>
-						</div>
 						<br>
 <div class="member_form_text">
 						<span class="member_form_title">姓ふりがな</span>
@@ -69,7 +68,6 @@
 							<s:textfield type="text" name="familyNameKana"
 								value="%{familyNameKana}"
 								placeholder="姓ふりがな" />
-							<br>
 
 					<span class="mandatory">
 					<s:if test="familyNameKanaErorMessageList.size()>0">
@@ -85,7 +83,6 @@
 							<s:textfield type="text" name="firstNameKana"
 								value="%{firstNameKana}"
 								placeholder="名ふりがな"/>
-							<br>
 
 					<span class="mandatory">
 					<s:if test="firstNameKanaErorMessageList.size()>0">
@@ -100,7 +97,6 @@
 						<div class="member_form_text">
 							<s:textfield type="text" name="userId" value="%{userId}"
 								placeholder="半角英数字" />
-							<br>
 						</div>
 					<span class="mandatory">
 					<s:if test="userIdErorMessageList.size()>0">
@@ -115,7 +111,6 @@
 						<div class="member_form_text">
 							<s:password name="password" value="%{password}"
 								placeholder="半角英数字" />
-							<br>
 						</div>
 					<span class="mandatory">
 					<s:if test="passwordErorMessageList.size()>0">
