@@ -221,7 +221,7 @@
 	<!-- ProductInsertCompleteAction -->
 	<action name="ProductInsertCompleteAction" class="com.internousdev.regalo.action.ProductInsertCompleteAction" method="execute">
 		<result name="success">productInsertComplete.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">productInsertConfirm.jsp</result>
 	</action>
 
 <!-- 商品情報変更 -->
@@ -235,7 +235,7 @@
 	<!-- ProductUpdateCompleteAction -->
 	<action name="ProductUpdateCompleteAction" class="com.internousdev.regalo.action.ProductUpdateCompleteAction" method="execute">
 		<result name="success">productUpdateComplete.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">productUpdateConfirm.jsp</result>
 	</action>
 
 

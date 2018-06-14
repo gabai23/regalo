@@ -12,12 +12,15 @@ import com.internousdev.regalo.util.DBConnector;
 
 
 public class UserCreateCompleteDAO {
-	public DBConnector db = new DBConnector();
-	public Connection con = null;
+
 
 
 //	メソッド
 	public boolean registerUser(LoginDTO ｌoginDTO) throws SQLException {
+
+		DBConnector db = new DBConnector();
+		Connection con = null;
+
 		boolean result = false;
 		int updateCount = 0;
 
