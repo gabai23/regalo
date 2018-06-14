@@ -64,9 +64,11 @@ public class ProductUpdateCompleteAction extends ActionSupport implements Sessio
 
 	public String execute() throws SQLException, ParseException {
 
+		String result = SUCCESS;
 
+		int count;
 
-		ProductUpdateCompleteDAO.buyProductInfo(
+		count = ProductUpdateCompleteDAO.buyProductInfo(
 
 				Integer.parseInt(session.get("productId").toString()),
 				session.get("productName").toString(),
@@ -88,7 +90,11 @@ public class ProductUpdateCompleteAction extends ActionSupport implements Sessio
 //				description,
 //				Integer.parseInt(category.toString())
 				);
-		String result = SUCCESS;
+
+		if(count == 0) {
+			result = ERROR;
+		}
+
 		return result;
 	}
 
