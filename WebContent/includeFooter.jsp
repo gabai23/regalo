@@ -10,9 +10,7 @@
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
 </head>
-<body>
 <footer>
 <h6>Copyright © Regalo All rights reserved.</h6>
 </footer>
-</body>
 </html>
