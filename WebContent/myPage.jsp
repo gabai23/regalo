@@ -29,6 +29,7 @@
     		text-align:center;
     		margin:0 auto;
     		color: white;
+    		font-family: cursive,serif;
 
     }
 
@@ -41,6 +42,7 @@
 			table.myPage th{
 				text-align:left;
 				font-weight: 200;
+				padding: 20px 0px 20px 0px;
 			}
 
 			table.myPage td{
@@ -53,9 +55,27 @@
 /* ボタン編集 */
     #goHistory{
 			text-align: center;
+			padding-top: 50px;
+			padding-bottom: 50px;
 
 
     }
+
+#footer {
+	width:100%;
+	height:auto;
+
+	padding:10px;
+
+
+
+	background:black;
+	color:white;
+
+	font-size:24px;
+
+	text-align:center;
+}
 
 
 
@@ -129,15 +149,17 @@
 		</div>
 
 	</div>
-
-
-
-
-		<div id="footer">
+			<div id="footer">
 			Regalo.
 		</div>
+
+
+
+
+
+
 <!-- フッダー -->
-	<jsp:include page="includeFooter.jsp"/>
+<%-- 	<jsp:include page="includeFooter.jsp"/> --%>
 
 </body>
 </html>
