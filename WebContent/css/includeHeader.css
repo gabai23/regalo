@@ -44,7 +44,7 @@ margin:0 auto;
 
  	width:5%;
 	height:100%;
-
+    border-left: solid 1px black;
  	padding:5px;
 
 	opacity:0;

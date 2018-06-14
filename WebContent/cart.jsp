@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./css/cart.css">
 <title>カート</title>
 <style type="text/css">
@@ -16,6 +16,16 @@
  margin:0 auto;
 
  }
+ul {
+ 	width:100%;
+ 	list-style: none;
+ 	text-align:center;
+ }
+
+h2 {
+text-align:center;
+
+}
 
 .submit_btn {
 /* 文字サイズを1.emに指定 */
@@ -62,6 +72,8 @@
 </header>
 
 <div class="main">
+<!-- ヘッダー -->
+	<jsp:include page="includeHeader.jsp"/>
 	<div id="container">
 
 		<s:if test="#session.checkListErrorMessageList!=null">
@@ -118,7 +130,7 @@
 								<div id=".contents-btn-set">
 									<s:submit value="決済" class="submit_btn" onclick="this.form.action='BuyProductConfirmAction';"/>
 								</div>
-							</div>
+							</div><br>
 						</li>
 
 						<li>

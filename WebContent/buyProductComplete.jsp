@@ -4,18 +4,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-
+<!-- <meta http-equiv="refresh" content="3;URL='StartAction'"> -->
 <title>商品購入画面</title>
 <style type="text/css">
 
 .bbbb {
 position:relative;
- width:700px;
+ width:300px;
  margin:0 auto;
+}
+
+.thankyou {
+position:relative;
+  width:200px;
+margin:0 auto;
 }
 
 </style>
@@ -25,12 +31,10 @@ position:relative;
 <div id="top"><!-- ヘッダー -->
 	<jsp:include page="includeHeader.jsp"/>
 </div>
+<div class="thankyou"><img  src="./images/thankyou.JPG" ></div>
 <div class ="bbbb">
 <span>購入手続きが完了しました。</span><br>
-<a href='<s:url action="GoMyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span><br>
-<span>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></span>
-
-
+<span>3秒後にHOME画面に移動します。</span>
 </div></div>
 
 <!-- ヘッダー -->
