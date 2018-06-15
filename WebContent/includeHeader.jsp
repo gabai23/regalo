@@ -19,6 +19,7 @@ $(function(){
 
  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
+//サイドメニュー
 $(function(){
   $('.side-menu-btn').click(function(){
     $('.side-menu').toggleClass('open');}
@@ -27,6 +28,7 @@ $(function(){
 </script>
 
 <script>
+//サイドメニュー
 $(function () {
   var $body = $('body');
   $('#js__sideMenuBtn').on('click', function () {
@@ -34,13 +36,14 @@ $(function () {
     $('#js__overlay').on('click', function () {
       $body.removeClass('side-open');
       $('.side-menu').removeClass('open');
+      $('.btn_menu').removeClass('active');
     });
   });
 });
 </script>
 
 <script>
-// jQueryは読み込み済み前提
+//ボタンのアニメーション
 $(function(){
   $('.btn_menu').click(function(){
     $(this).toggleClass('active');
