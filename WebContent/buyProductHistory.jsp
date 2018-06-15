@@ -23,11 +23,11 @@
   		color: white;
 		width: 85%;
       	height: 65%;
-      	padding-top: 10%;
+      	padding-top: 20%;
       	padding-left: 10%;
   	}
 
-  	 .textnasi2{
+  	.textnasi2{
   		text-align: center;
   		color: white;
 		width: 85%;
@@ -105,10 +105,11 @@
 
 #container2 {
 	width:50%;
-	height:10%;
+	height:auto;
 
 	background:black;
 
+	padding-top:12%;
 	margin-left:25%;
 	margin-right:25%;
 	margin-bottom:10%;
@@ -210,7 +211,7 @@
 
 						</s:elseif>
 
-<!-- 						削除後 -->
+					<!-- 購入履歴削除後 -->
 						<s:else>
 							<div class = "textnasi2">
 									<h2>購入情報はありません</h2>
@@ -243,13 +244,6 @@
 
 
 <jsp:include page="includeFooter.jsp"/>
-
-
-
-
-
-
-
 
 
 

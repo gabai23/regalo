@@ -79,6 +79,14 @@
 
 		}
 
+		.myPagEwmail{
+				text-align:inherit;
+				font-weight: 300;
+				font-size: 25px;
+				margin: 30px 20px 30px 20px;
+				font-family: Vollkorn;
+		}
+
 
 /* ボタン編集 */
     #goHistory{
@@ -126,39 +134,6 @@
 
 			<s:iterator value="myPageList">
 
-<!-- 					<table class="myPage"> -->
-<!-- 							<tr> -->
-<!-- 									<th>氏名</th> -->
-<!-- 									<td> -->
-<%-- 											<s:property value="familyName"/> --%>
-<%-- 											<s:property value="firstName"/> --%>
-<!-- 									</td> -->
-<!-- 							</tr> -->
-
-<!-- 							<tr> -->
-<!-- 									<th>ふりがな</th> -->
-<!-- 									<td> -->
-<%-- 											<s:property value="familyNameKana"/> --%>
-<%-- 											<s:property value="firstNameKana"/> --%>
-<!-- 									</td> -->
-<!-- 							</tr> -->
-
-<!-- 							<tr> -->
-<!-- 									<th>性別</th> -->
-<!-- 									<td> -->
-<%-- 											<s:if test="sex==0">男性</s:if> --%>
-<%-- 											<s:else>女性</s:else> --%>
-<!-- 									</td> -->
-<!-- 							</tr> -->
-
-<!-- 							<tr> -->
-<!-- 									<th>メール</th> -->
-<!-- 									<td> -->
-<%-- 											<s:property value="email"/> --%>
-<!-- 									</td> -->
-<!-- 							</tr> -->
-<!-- 					</table> -->
-
 
 <!-- 				<div style="display: white; text-align: center; position: relative; opacity: 0; transform: matrix(1, 0, 0, 1, 0, 50);"> -->
 					<div class="myPage">
@@ -181,7 +156,7 @@
 									</div>
 
 									<div class="text">メール</div>
-									<div class=myPageDate>
+									<div class=myPagEwmail>
 											<s:property value="email"/>
 									</div>
 
