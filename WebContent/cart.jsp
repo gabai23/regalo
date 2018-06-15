@@ -57,7 +57,8 @@
 </head>
 
 <body>
-<div id="wrapper">
+<!-- ヘッダー -->
+ 	<jsp:include page="includeHeader.jsp"/>
 <header>
 	<div id=title>Cart</div>
 </header>
@@ -146,6 +147,5 @@
 <footer>
 	<s:include value="includeFooter.jsp"/>
 </footer>
-</div>
 </body>
 </html>
