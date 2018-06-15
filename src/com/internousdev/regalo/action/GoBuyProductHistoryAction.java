@@ -62,16 +62,7 @@ public class GoBuyProductHistoryAction extends ActionSupport implements SessionA
 			//全て削除
 			delete();
 
-		} else if(deleteFlg.equals("2")) {
-
-			//個別削除
-			deleteOneEach(id);
-
-			historyList = buyProductHistoryDAO.getProductHistory(userId);
-
-
 		}
-
 
 		return result;
 	}
@@ -91,14 +82,6 @@ public class GoBuyProductHistoryAction extends ActionSupport implements SessionA
 
 	}
 
-	//個別削除
-	public void deleteOneEach(int id) throws SQLException {
-
-		id = this.id;
-
-		buyProductHistoryDAO.deleteOneEach(id);
-
-	}
 
 
 	public Map<String, Object> getSession() {

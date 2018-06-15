@@ -102,38 +102,6 @@ public class BuyProductHistoryDAO {
 	}
 
 
-
-//	購入履歴個別削除
-
-	public int deleteOneEach(int Id) throws SQLException {
-
-		DBConnector db = new DBConnector();
-
-		Connection con = db.getConnection();
-
-		String sql = "DELETE FROM purchase_history_info WHERE id = ?";
-
-		PreparedStatement ps;
-
-		int result2 = 0;
-
-		try{
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, Id);
-
-			result2 = ps.executeUpdate();
-
-			System.out.println("購入履歴削除"+result2);
-
-			con.close();
-
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		return result2;
-
-	}
-
 }
 
 

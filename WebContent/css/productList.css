@@ -38,27 +38,19 @@
 	display:block;
 	width:100%;
 	height:100%;
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-	filter: grayscale(100%);
-}
-
-#imageContainer:hover {
-	-webkit-filter: grayscale(0);
-	-moz-filter: grayscale(0);
-	-ms-filter: grayscale(0);
-	-o-filter: grayscale(0);
-	filter: grayscale(0);
 }
 
 /*モノクロフィルタ*/
-image {
-  filter: url(#grayscale);
+#imageContainer img {
+	webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
-image:hover {
-  filter: none;
+
+#imageContainer:hover img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
 }
 
 /*画像*/
@@ -81,6 +73,7 @@ image:hover {
 
 /*商品詳細*/
 #productDetail {
+	overflow: hidden;
 	position:absolute;
 	top:60%;
 	left:90%;
