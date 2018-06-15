@@ -279,7 +279,6 @@ ProductUpdate
 <span class="error">
 <s:if test="!#session.productDescriptionErrorMessageList.isEmpty()">
 
-
 	<span class="error-message">
 	<s:iterator value="#session.productDescriptionErrorMessageList"><s:property /><br></s:iterator>
 	</span>
