@@ -25,31 +25,7 @@
 
 
 /* テーブル編集 */
-    table.myPage{
-    		text-align:center;
-    		margin:0 auto;
-    		color: white;
-    		font-family: cursive,serif;
 
-    }
-
-		table.myPage th,td{
-			width: 150px;
-			height: 50px;
-			font-size: 18px;
-		}
-
-			table.myPage th{
-				text-align:left;
-				font-weight: 200;
-				padding: 20px 0px 20px 0px;
-			}
-
-			table.myPage td{
-				text-align:left;
-				font-weight: 180;
-				padding-left: 50px;
-			}
 
 
 	.myPage{
@@ -114,7 +90,6 @@
 }
 
 
-
 </style>
 
 
@@ -134,9 +109,8 @@
 
 			<s:iterator value="myPageList">
 
-
-<!-- 				<div style="display: white; text-align: center; position: relative; opacity: 0; transform: matrix(1, 0, 0, 1, 0, 50);"> -->
 					<div class="myPage">
+
 									<div class="text">氏名</div>
 									<div class=myPageDate>
 											<s:property value="familyName"/>
@@ -162,7 +136,6 @@
 
 					</div>
 
-<!-- 					</div> -->
 
 
 			</s:iterator>

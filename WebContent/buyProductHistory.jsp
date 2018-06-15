@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
    <%@ taglib prefix="s" uri="/struts-tags" %>
-
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +45,8 @@
 
      	.productHistory{
       			width: 500px;
-      			height: 150px;
+      			height: 300px;
+      			padding-top: 10px;
       	}
 
 
@@ -56,6 +57,10 @@
       					padding-right: 50px;
 
       					z-index:99;
+       			}
+
+       			.text{
+       					padding-top: px;
        			}
 
 
@@ -241,7 +246,10 @@ height:auto;
 											</div>
 
 											<div class = "text">
-													発売年月日：<s:property value="releaseDate" /><br>
+													発売年月日：
+											<fmt:parseDate var="date" value="${releaseDate}" pattern="yyyy-MM-dd HH:mm:ss.SS" />
+											<fmt:formatDate value="${date}" pattern="yyyy年M月d日"/>
+													<br>
 											</div>
 
 											</div>
