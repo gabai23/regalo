@@ -53,6 +53,7 @@ public class ProductUpdateConfirmAction extends ActionSupport implements Session
 	//更新日
 	private Date updateDate;
 
+
 	private List<String> productIdErrorMessageList = new ArrayList<String>();
 	private List<String> productNameErrorMessageList = new ArrayList<String>();
 	private List<String> productNameKanaErrorMessageList = new ArrayList<String>();
