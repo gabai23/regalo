@@ -71,19 +71,19 @@ public class ProductUpdateConfirmAction extends ActionSupport implements Session
 		String fileName = "";
 
 		if(productDescription.contains(" ")){
-			productDescription.replace(" ", "\r\n");
+			productDescription.replace(" ", "<br>");
 		}
 		System.out.println(productDescription);
 
 		if(imageFilePath.contains("image")){
 			 fileName = new File(imageFilePath).getName();
-			 newImageFileName = "/regalo/images/" + fileName;
+			 newImageFileName = "/regalo/WebContent/images/" + fileName;
 
 			System.out.println(newImageFileName);
 
 
 		} else {
-			newImageFileName = "/regalo/images/" + imageFileName;
+			newImageFileName = "/regalo/WebContent/images/" + imageFileName;
 
 			System.out.println(newImageFileName);
 		}

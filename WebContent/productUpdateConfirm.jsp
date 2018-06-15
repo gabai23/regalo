@@ -65,22 +65,22 @@ if(!(session.getAttribute("masterId") == "admin")){
 <!-- 				</div> -->
 
 
-<tr>	<td>				<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/></td>
+			<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/>
 
-<td> <table class="Product-Update">
+ <table class="Product-Update">
 					<tr><td>商品名:</td><td><s:property value="session.productName" /></td></tr>
 
 
 					<tr><td>商品かな:</td><td><s:property value="session.productNameKana" /></td></tr>
 
-					<tr><td>商品詳細:</td><td><s:property value="session.productDescription" /></td></tr>
+					<tr><td class="description">商品詳細:</td><td><s:property value="session.productDescription.replaceAll('\\n', '<br />')" escape="false" /></td></tr>
 
 					<tr><td>商品カテゴリ:</td><td><s:property value="session.categoryId" /></td></tr>
 
 					<tr><td>値段:</td><td><s:property value="session.price" />円</td></tr>
 
 					<tr><td>販売会社:</td><td><s:property value="session.releaseCompany" /></td></tr>
-</table></td></tr>
+</table>
 
 
 				<input type="hidden" name="id" value="<s:property value="id"/>" />

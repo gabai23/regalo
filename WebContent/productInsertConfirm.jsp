@@ -42,7 +42,7 @@ if(!(session.getAttribute("masterId") == "admin")){
 				<div class="character-img">
 <!-- 					<b>画像ファイル名：</b> -->
 					<s:property value="session.imageFileName"/><br/>
-					<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/><br>
+					<img src="<s:property value="session.newImageFileName"/>" width="100" height="100"/><br>
 				</div>
 				<div class="character">
 					<b>商品名:</b><s:property value="session.productName" /><br>
