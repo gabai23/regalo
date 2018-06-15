@@ -107,7 +107,7 @@ Regalo
 
     <svg>
 
-    <!-- <text x="36%" y="50%">Regalo</text> -->
+    <text x="36%" y="50%">Regalo</text>
 
 </svg>
 
