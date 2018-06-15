@@ -38,7 +38,6 @@
   	}
 
 
-
      .clear{
      		clear: both;
      }
