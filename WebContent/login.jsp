@@ -18,8 +18,9 @@
 <title>ログイン画面</title>
 </head>
 <body>
-
+ <jsp:include page="includeHeader.jsp"/>
 <!-- メイン -->
+
 
 <!-- ログイン -->
 <div id="main">
@@ -64,8 +65,7 @@
 				</div>
 
 				<br>
-				<br>
-				<br>
+
 				<!-- ログインボタン -->
 				<div id="submitButton">
 						<s:submit value="LOGIN"/>
