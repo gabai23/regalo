@@ -24,7 +24,17 @@
 		width: 85%;
       	height: 65%;
       	padding-top: 10%;
-      	padding-left: 10%
+      	padding-left: 10%;
+  	}
+
+  	 .textnasi2{
+  		text-align: center;
+  		color: white;
+		width: 85%;
+      	height: 60%;
+      	padding-top: 30%;
+      	padding-left: 10%;
+      	padding-bottom: 15%;
   	}
 
 
@@ -126,9 +136,7 @@
 </head>
 <body>
 
-		<div id="menu">
-				<jsp:include page="includeHeader.jsp"/>
-		</div>
+		<jsp:include page="includeHeader.jsp"/>
 
 
 
@@ -204,7 +212,7 @@
 
 <!-- 						削除後 -->
 						<s:else>
-							<div class = "textnasi">
+							<div class = "textnasi2">
 									<h2>購入情報はありません</h2>
 							</div>
 						</s:else>
@@ -230,16 +238,11 @@
 
 			</div>
 
-	<div id="footer">
-			Regalo.
-	</div>
-
 			</div>
 
 
 
-
-<%-- <jsp:include page="includeFooter.jsp"/> --%>
+<jsp:include page="includeFooter.jsp"/>
 
 
 

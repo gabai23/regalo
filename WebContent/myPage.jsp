@@ -52,6 +52,34 @@
 			}
 
 
+	.myPage{
+ 			text-align:center;
+    		margin:0 auto;
+    		color: white;
+    		font-family: cursive,serif;
+    		width: 50%;
+			height: 50%;
+			padding-top: 30px;
+			padding-left: 15px;
+	}
+
+		.text{
+				text-align:left;
+				font-weight: 300;
+				font-size: 18px;
+				margin: 20px 20px 20px 20px;
+
+		}
+
+		.myPageDate{
+				text-align:inherit;
+				font-weight: 300;
+				font-size: 25px;
+				margin: 30px 20px 30px 20px;
+
+		}
+
+
 /* ボタン編集 */
     #goHistory{
 			text-align: center;
@@ -85,9 +113,8 @@
 </head>
 <body>
 <!-- ヘッダー -->
-		<div id="menu">
-				<jsp:include page="includeHeader.jsp"/>
-		</div>
+		<jsp:include page="includeHeader.jsp"/>
+
 
 	<div id="main">
 
@@ -99,38 +126,68 @@
 
 			<s:iterator value="myPageList">
 
-					<table class="myPage">
-							<tr>
-									<th>氏名</th>
-									<td>
+<!-- 					<table class="myPage"> -->
+<!-- 							<tr> -->
+<!-- 									<th>氏名</th> -->
+<!-- 									<td> -->
+<%-- 											<s:property value="familyName"/> --%>
+<%-- 											<s:property value="firstName"/> --%>
+<!-- 									</td> -->
+<!-- 							</tr> -->
+
+<!-- 							<tr> -->
+<!-- 									<th>ふりがな</th> -->
+<!-- 									<td> -->
+<%-- 											<s:property value="familyNameKana"/> --%>
+<%-- 											<s:property value="firstNameKana"/> --%>
+<!-- 									</td> -->
+<!-- 							</tr> -->
+
+<!-- 							<tr> -->
+<!-- 									<th>性別</th> -->
+<!-- 									<td> -->
+<%-- 											<s:if test="sex==0">男性</s:if> --%>
+<%-- 											<s:else>女性</s:else> --%>
+<!-- 									</td> -->
+<!-- 							</tr> -->
+
+<!-- 							<tr> -->
+<!-- 									<th>メール</th> -->
+<!-- 									<td> -->
+<%-- 											<s:property value="email"/> --%>
+<!-- 									</td> -->
+<!-- 							</tr> -->
+<!-- 					</table> -->
+
+
+<!-- 				<div style="display: white; text-align: center; position: relative; opacity: 0; transform: matrix(1, 0, 0, 1, 0, 50);"> -->
+					<div class="myPage">
+									<div class="text">氏名</div>
+									<div class=myPageDate>
 											<s:property value="familyName"/>
 											<s:property value="firstName"/>
-									</td>
-							</tr>
+									</div>
 
-							<tr>
-									<th>ふりがな</th>
-									<td>
+									<div class="text">ふりがな</div>
+									<div class=myPageDate>
 											<s:property value="familyNameKana"/>
 											<s:property value="firstNameKana"/>
-									</td>
-							</tr>
+									</div>
 
-							<tr>
-									<th>性別</th>
-									<td>
+									<div class="text">性別</div>
+									<div class=myPageDate>
 											<s:if test="sex==0">男性</s:if>
 											<s:else>女性</s:else>
-									</td>
-							</tr>
+									</div>
 
-							<tr>
-									<th>メール</th>
-									<td>
+									<div class="text">メール</div>
+									<div class=myPageDate>
 											<s:property value="email"/>
-									</td>
-							</tr>
-					</table>
+									</div>
+
+					</div>
+
+<!-- 					</div> -->
 
 
 			</s:iterator>
@@ -147,9 +204,7 @@
 
 
 		</div>
-		<div id="footer">
-			Regalo.
-		</div>
+
 
 	</div>
 
@@ -159,8 +214,9 @@
 
 
 
+
 <!-- フッダー -->
-<%-- 	<jsp:include page="includeFooter.jsp"/> --%>
+	<jsp:include page="includeFooter.jsp"/>
 
 </body>
 </html>
