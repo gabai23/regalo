@@ -51,7 +51,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 		List<String> checkListErrorMessageList = new ArrayList<String>();
 
 		//チェックボックスが空なら
-		if(!(checkList.isEmpty())){
+		if(checkList==null){
 			checkListErrorMessageList.add("チェックされていません。");
 			session.put("checkListErrorMessageList", checkListErrorMessageList);
 

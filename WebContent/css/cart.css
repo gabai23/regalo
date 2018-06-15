@@ -94,6 +94,14 @@
 			/* border:1px solid black; */
 		}
 
+		.check_hover {
+			color:#fff;
+		}
+
+		.check_hover:hover {
+			color:#ff0000;
+		}
+
 		.price_and_btns{
 			margin-top:25px;
 			margin-bottom:25px;

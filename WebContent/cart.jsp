@@ -80,8 +80,8 @@
 			<s:form id="form">
 				<table class="horizontal-list-table">
 					<s:iterator value="CartDtoList">
-
 						<tr>
+							<td class="check_hover">削除<s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
 							<td><img src='<s:property value="imageFilePath"/>' width="200px" height="200px" /></td>
 							<td>
 								<table>
@@ -104,7 +104,7 @@
 								<li>小計　<s:property value="subtotal"/>円</li>
 							</ul> --%>
 							</td>
-							<td><s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
+
 						</tr>
 						<s:hidden name="productId" value="%{productId}"/>
 						<s:hidden name="productName" value="%{productName}"/>
