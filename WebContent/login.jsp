@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="./css/login-style.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-<link type="text/css" href="https://fonts.googleapis.com/css?family=Miss+Fajardose" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 
 
 
@@ -32,7 +32,10 @@
 			<s:form action="LoginAction"  theme="simple">
 
 				<div class="errorMessage">
-					<s:iterator value="errorMessageList">
+					<s:iterator value="idErrorMessageList">
+					<s:property /><br>
+					</s:iterator>
+					<s:iterator value="passwordErrorMessageList">
 					<s:property /><br>
 					</s:iterator>
 				</div>
@@ -44,7 +47,7 @@
 								<i class="fas fa-user  fa-2x fa-spin icon"></i>
 							</td>
 							<td>
-								<s:textfield type="text" name="userId" value="%{#session.saveId}" autofocus="autofocus" placeholder="ID"/>
+								<s:textfield type="text" name="userId" value="%{#session.saveId}" autofocus="autofocus" placeholder="ID" />
 							</td>
 					</tr>
 
@@ -53,7 +56,7 @@
 								<i class="fas fa-lock  fa-2x fa-spin icon"></i>
 							</td>
 							<td>
-								<s:password name="password" placeholder="PASSWORD"/>
+								<s:password name="password" placeholder="PASSWORD" />
 							</td>
 					</tr>
 				</table>
