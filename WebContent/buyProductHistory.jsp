@@ -54,6 +54,8 @@
        					width: 200px;
       					height: 150px;
       					padding-right: 50px;
+
+      					z-index:99;
        			}
 
 
@@ -72,13 +74,13 @@
 	background:silver;
 	color:white;
 }
-#wrapper2:hover {
+/* #wrapper2:hover {
 	width:100%;
 	height:150px;
 	/* border-bottom:1px solid white; */
-	background:black;
-	color:white;
-}
+	/* background:black;
+	color:white; */
+} */
 
 
 
@@ -114,6 +116,44 @@
 	margin-right:25%;
 	margin-bottom:10%;
 
+}
+
+/*アニメーション用*/
+.delay {
+	position: relative;
+	width: 100%;
+}
+
+.delay::after {
+content: "";
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index:0;
+}
+
+.delay::after {
+z-index:0;
+width: 0%;
+background-color: white;
+opacity:0.3;
+}
+#wrapper:hover .delay::after {
+width: 100%;
+transition: width 0.5s linear;
+}
+.delay::after {
+transition-delay: 0s;
+}
+
+/*アニメーション用ここまで*/
+
+#wrapper {
+width:100%;
+height:auto;
 }
 
 
@@ -173,7 +213,8 @@
 									<s:form action="GoBuyProductHistoryAction"></s:form>
 
 									<s:iterator value = "historyList">
-									<div id = "wrapper2">
+									<div id="wrapper">
+									<div id = "wrapper2"  class="delay">
 
 
 											<!-- 画像 -->
@@ -206,6 +247,8 @@
 											</div>
 
 										</div>
+
+									</div>
 
 									</s:iterator>
 
