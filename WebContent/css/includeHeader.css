@@ -189,7 +189,7 @@ button.button1:hover {
   clear: both;
 }
 
-/* サイドメニュー ※リストのスタイルは省略 */
+/* サイドメニュー*/
 .side-menu {
   position: fixed;
   top: 0;
@@ -206,26 +206,11 @@ button.button1:hover {
 
   transition: all 0.5s;
   transform: translate(312px);
-
-
 }
 
 .side-menu.open {
     transform: translate(0);
    }
-
-/* 開閉用ボタン ※ボタンの細かいスタイルは省略 */
-.side-menu-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-  background: #ccc;
-  cursor: pointer;
-  z-index: 4;
-}
 
 /* サイドオープン時にメインコンテンツを覆う部分 */
 .overlay {
@@ -274,3 +259,53 @@ button.button1:hover {
   -webkit-transform: translate3d(-250px, 0, 0);
   transform: translate3d(-250px, 0, 0);
 }
+
+/*   ボタンタグ設定   */
+   .btn_menu {
+	top: 20px;
+	right: 20px;
+	width: 40px;
+	height: 40px;
+	padding: 5px;
+	cursor: pointer;
+	z-index: 999;
+
+    display: block;
+    background: none;
+    border: none;
+    letter-spacing: 0.1em;
+    position: fixed;
+    text-align: center;
+    outline: none;
+  }
+  /*   ハンバーガーボタン3本線   */
+  .btn_menu span.bar {
+    display: block;
+    height: 2px;
+    background-color: white;
+    margin: 10px 0;
+    transition: all 0.2s;
+    transform-origin: 0 0;
+  }
+  .btn_menu .close {
+    letter-spacing: 0.08em;
+    display: none;
+  }
+  .btn_menu .menu {
+    display: block;
+  }
+  /*  メニューアクティブ時  */
+  .btn_menu.active span.bar {
+    width: 49px;
+  }
+  .btn_menu.active .bar1 {
+    transform: rotate(30deg);
+    background-color: #333;
+  }
+  .btn_menu.active .bar2 {
+    opacity: 0;
+  }
+  .btn_menu.active .bar3 {
+    transform: rotate(-30deg);
+    background-color: #333;
+  }

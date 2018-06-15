@@ -39,6 +39,15 @@ $(function () {
 });
 </script>
 
+<script>
+// jQueryは読み込み済み前提
+$(function(){
+  $('.btn_menu').click(function(){
+    $(this).toggleClass('active');
+  });
+})
+</script>
+
 
 </head>
 <body>
@@ -46,8 +55,17 @@ $(function () {
   <!-- サイドオープン時メインコンテンツを覆う -->
   <div class="overlay" id="js__overlay"></div>
 
+  <!-- 開閉用ボタン -->
+	  <button type="button" class="btn_menu side-menu-btn" id="js__sideMenuBtn">
+	  <span class="bar bar1"></span>
+	  <span class="bar bar2"></span>
+	  <span class="bar bar3"></span>
+	</button>
+
   <!-- サイドメニュー -->
   <nav class="side-menu">
+
+
 
   <div class="headerLogo">
 			<a class="headerA" href='<s:url action="GoHomeAction"/>'>Regalo</a></div>
@@ -135,8 +153,7 @@ $(function () {
 
   </nav>
 
-  <!-- 開閉用ボタン -->
-  <div class="side-menu-btn" id="js__sideMenuBtn"></div>
+
 
 <%-- 	<div id="menu">
 		<div class="headerLogo">
