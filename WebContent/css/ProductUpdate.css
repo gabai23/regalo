@@ -1,12 +1,38 @@
 @CHARSET "UTF-8";
 
-/*--------------- Confirmの確認文字---------------------- */
+/*--------------- Confirm系---------------------- */
 #top-text{
 	color:white;
 	text-align:center;
 	padding-top:50px;
 	font-size:30px;
+	padding-bottom:10px;
+}
 
+.Product-Update {
+			text-align:left;
+			margin:0 auto;
+			text-align:center;
+		}
+
+		tr {
+			color:white;
+			padding-left:10px;
+
+		}
+
+		td {
+			padding-left:10px;
+			padding-top:10px;
+		}
+.confirm-box{
+		color:white;
+		margin:0 auto;
+	text-align:center;
+	padding-bottom:25px;
+	margin-left:2.5%;
+	margin-right:2.5%;
+	font-size:20px;
 }
 /* --------------------登録フォーム系------------------- */
 #form-title{
@@ -21,6 +47,10 @@
 	padding-top:50px;
 
 
+}
+
+textarea {
+    resize: none;
 }
 
 /* ----------------エラーメッセージ------------------------- */

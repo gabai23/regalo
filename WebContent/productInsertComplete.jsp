@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/ProductInsert.css">
+<link rel="stylesheet" href="./css/ProductUpdate.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <!-- <meta http-equiv="refresh" content="3;URL='StartAction'"> -->
 <title>商品情報入力完了</title>

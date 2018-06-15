@@ -40,7 +40,8 @@ if(!(session.getAttribute("masterId") == "admin")){
 			<div class="moji-box">
 			<div class="moji">
 				<div class="character-img">
-					<b>画像ファイル名：</b><s:property value="session.imageFileName"/><br/>
+<!-- 					<b>画像ファイル名：</b> -->
+					<s:property value="session.imageFileName"/><br/>
 					<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/><br>
 				</div>
 				<div class="character">

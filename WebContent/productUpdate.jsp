@@ -287,7 +287,8 @@ ProductUpdate
 
 <span id="form-title">商品詳細</span>
 <span id="form-text">
-	<s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /></span><br><br>
+	<s:textarea name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" cols="32" rows="2" maxlength="32" minlength="14"/>
+	<%-- <s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /> --%></span><br><br>
 
 <!-- 商品カテゴリー -->
 

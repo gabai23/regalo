@@ -37,31 +37,50 @@ if(!(session.getAttribute("masterId") == "admin")){
 	<div id="top-text">
 		こちらに変更しますか？
 		</div>
-		<div class="moji-box">
+		<div class="confirm-box">
 			<div class="moji">
-				<div class="character-img">
+<!-- 				<div class="character-img"> -->
 <!-- 					<b>画像ファイル名：</b> -->
-					<s:property value="session.imageFileName"/><br/>
-					<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/><br>
-				</div>
-				<div class="character">
-					<b>商品名:</b><s:property value="session.productName" /><br><br>
-				</div>
-				<div class="character">
-					<b>商品かな:</b><s:property value="session.productNameKana" /><br><br>
-				</div>
-				<div class="character">
-					<b>商品詳細:</b><s:property value="session.productDescription" /><br><br>
-				</div>
-				<div class="character">
-					<b>商品カテゴリ:</b><s:property value="session.categoryId" /><br><br>
-				</div>
-				<div class="character">
-					<b>値段:</b><s:property value="session.price" />円<br><br>
-				</div>
-				<div class="character">
-					<b>販売会社:</b><s:property value="session.releaseCompany" /><br><br>
-				</div>
+<%-- 					<s:property value="session.imageFileName"/><br/> --%>
+
+<%-- 					<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/><br> --%>
+<!-- 				</div> -->
+<!-- 				<div class="character"> -->
+<%-- 					<b>商品名:</b><s:property value="session.productName" /><br><br> --%>
+<!-- 				</div> -->
+<!-- 				<div class="character"> -->
+<%-- 					<b>商品かな:</b><s:property value="session.productNameKana" /><br><br> --%>
+<!-- 				</div> -->
+<!-- 				<div class="character"> -->
+<%-- 					<b>商品詳細:</b><s:property value="session.productDescription" /><br><br> --%>
+<!-- 				</div> -->
+<!-- 				<div class="character"> -->
+<%-- 					<b>商品カテゴリ:</b><s:property value="session.categoryId" /><br><br> --%>
+<!-- 				</div> -->
+<!-- 				<div class="character"> -->
+<%-- 					<b>値段:</b><s:property value="session.price" />円<br><br> --%>
+<!-- 				</div> -->
+<!-- 				<div class="character"> -->
+<%-- 					<b>販売会社:</b><s:property value="session.releaseCompany" /><br><br> --%>
+<!-- 				</div> -->
+
+
+<tr>	<td>				<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/></td>
+
+<td> <table class="Product-Update">
+					<tr><td>商品名:</td><td><s:property value="session.productName" /></td></tr>
+
+
+					<tr><td>商品かな:</td><td><s:property value="session.productNameKana" /></td></tr>
+
+					<tr><td>商品詳細:</td><td><s:property value="session.productDescription" /></td></tr>
+
+					<tr><td>商品カテゴリ:</td><td><s:property value="session.categoryId" /></td></tr>
+
+					<tr><td>値段:</td><td><s:property value="session.price" />円</td></tr>
+
+					<tr><td>販売会社:</td><td><s:property value="session.releaseCompany" /></td></tr>
+</table></td></tr>
 
 
 				<input type="hidden" name="id" value="<s:property value="id"/>" />
