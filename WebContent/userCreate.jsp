@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/userCreate-style.css">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style2.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <title>新規登録画面</title>
 </head>
@@ -33,7 +33,7 @@
 <div class="member_form_all">
 						<span class="member_form_title">姓</span>
 						<span class="member_form_text">
-							<s:textfield type="text" name="familyName" value="%{familyName}"
+							<s:textfield type="text" name="familyName" value="%{#session.familyName}"
 							placeholder="姓"/>
 						</span>
 					<span class="mandatory">
@@ -49,7 +49,7 @@
 						<div class="member_form_all">
 						<span class="member_form_title">名</span>
 						<span class="member_form_text">
-							<s:textfield type="text" name="firstName" value="%{firstName}"
+							<s:textfield type="text" name="firstName" value="%{#session.firstName}"
 							placeholder="名"/>
 							</span>
 
@@ -66,7 +66,7 @@
 						<span class="member_form_title">姓ふりがな</span>
 
 							<s:textfield type="text" name="familyNameKana"
-								value="%{familyNameKana}"
+								value="%{#session.familyNameKana}"
 								placeholder="姓ふりがな" />
 
 					<span class="mandatory">
@@ -81,7 +81,7 @@
 						<span class="member_form_title">名ふりがな</span>
 						<div class="member_form_text">
 							<s:textfield type="text" name="firstNameKana"
-								value="%{firstNameKana}"
+								value="%{#session.familyName}"
 								placeholder="名ふりがな"/>
 
 					<span class="mandatory">
@@ -93,9 +93,9 @@
 					</span>
 					</div>
 						<br>
-						<span class="member_form_title">regaloID</span>
+						<span class="member_form_title">UserID</span>
 						<div class="member_form_text">
-							<s:textfield type="text" name="userId" value="%{userId}"
+							<s:textfield type="text" name="userId" value="%{#session.loginId}"
 								placeholder="半角英数字" />
 						</div>
 					<span class="mandatory">
@@ -132,7 +132,7 @@
 						<br>
 						<span class="member_form_title">メールアドレス</span>
 						<div class="member_form_text">
-							<s:textfield type="text" name="email" value="%{email}" />
+							<s:textfield type="text" name="email" value="%{#session.email}" />
 							<br>
 						</div>
 

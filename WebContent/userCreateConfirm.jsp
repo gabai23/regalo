@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/userCreateConfirm.css">
+<link rel="stylesheet" href="./css/style2.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
-
-<title>確認画面</title>
+<title>登録確認画面</title>
 </head>
 <body>
 <!-- ヘッダー -->
@@ -19,17 +19,21 @@
 	<div id="main">
 		<br>
 		<br>
-		<div class="title">登録情報確認</div>
+		<div id="title">User</div>
 		<br>
+		<div id="container">
 		<div class="register_box">
 			<div class="member">
 				<div class="touroku" align="center">以下の内容で登録します</div>
 				<br>
+
 				<div class="member_form">
+
 					<s:form action="UserCreateCompleteAction" theme="simple">
 						<div class="member-form-title">
 
-							<br>名前　　　　　　:　
+
+							<br>名前　　　　　　　
 							<s:property value="familyName" />
 							<s:hidden name="familyName" value="%{familyName}" />
 							<s:property value="firstName" />
@@ -37,7 +41,7 @@
 
 							<br>
 							<br>
-							<br>ふりがな　　　　:　
+							<br>ふりがな　　　　　
 							<s:property value="familyNameKana" />
 							<s:hidden name="familyNameKana" value="%{familyNameKana}" />
 							<s:property value="firstNameKana" />
@@ -45,19 +49,19 @@
 
 							<br>
 							<br>
-							<br>cherryID　　　　:　
+							<br>UserID　　　　　
 							<s:property value="userId" />
 							<s:hidden name="userId" value="%{userId}" />
 
 							<br>
 							<br>
-							<br> パスワード　　　:　
+							<br> パスワード　　　　
 							<s:property value="password" />
 							<s:hidden name="password" value="%{password}" />
 
 							<br>
 							<br>
-							<br> 性別　　　　　　:　
+							<br> 性別　　　　　　　
 							<s:if test="sex==0">
 								男性
 							</s:if>
@@ -78,7 +82,7 @@
 							<br>
 
 							<div class="member_btn">
-								<button type="submit" class="">登 録 情 報 を 確 定</button>
+								<button type="submit" class="">登録する</button>
 							</div>
 							<br>
 							<br>
@@ -88,8 +92,11 @@
 							</div>
 						</div>
 					</s:form>
+
 				</div>
+
 			</div>
+		</div>
 		</div>
 	</div>
 

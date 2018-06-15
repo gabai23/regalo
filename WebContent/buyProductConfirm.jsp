@@ -112,12 +112,12 @@
 			<div class="btn_2">
 				<input type="submit" value="購入"></input>
 			</div>
-		</div>
 </s:form>
+		</div>
+
 
 
 		<!-- 宛先情報 -->
-		<%-- <s:form action="AddressDeleteAction"> --%>
 			<s:iterator value="addressInfoListDTO">
 				<div class="box">
 					<div class="destination_title">
@@ -146,34 +146,7 @@
 						<br>
 					</div>
 				</div>
-
-
-
-			<!-- 宛先選択削除 -->
-			<s:form action="AddressDeleteAction">
-			<div id="form_user_button">
-
-
-				<s:submit value="宛先選択削除" method="execute"/>
-				<input type="hidden" name="deleteFlg" value="2"/>
-				<input type="hidden" name="id" value="${id}"/>
-				</div>
-			</s:form>
-
-		</s:iterator>
-
-		<br>
-
-		<!-- 宛先全削除 -->
-			<div id="form_user_button">
-			<s:form action="AddressDeleteAction">
-
-			<s:submit value="宛先全件削除" method="execute"/>
-
-				<input type="hidden" name="deleteFlg" value="1"/>
-
-		</s:form>
-		</div>
+			</s:iterator>
 
 
 

@@ -19,6 +19,11 @@
 			backgroud:#fff;
 		}
 
+table {
+/* 			text-align:center; */
+			margin:0 auto;
+		}
+
 
 	/* ========ID LAYOUT======== */
 		#top {
@@ -41,13 +46,15 @@
 		.member_form_title {
 
 			float:left;
-			padding-left:100px;
+/* 			padding-left:100px; */
 		}
 .member_form_text{
 	margin:0 auto;
 }
 
-
+/* .member_btn{ */
+/* 	padding-bottom:100px; */
+/* } */
 		.mandatory {
 			color:red;
 
