@@ -61,7 +61,7 @@
 
 
 		#saveId {
-			display:inline-block;
+		/* 	display:inline-block; */
 			text-align:center;
 			margin:0 auto;
 		}
@@ -72,7 +72,7 @@
 
 		#submitButton{
 			width:100px;
-			display:inline-block;
+			/* display:inline-block; */
 			text-align:center;
 			margin:0 auto;
 			margin-bottom:25px;
