@@ -1,5 +1,14 @@
 @CHARSET "UTF-8";
 
+/*--------------- Confirmの確認文字---------------------- */
+#top-text{
+	color:white;
+	text-align:center;
+	padding-top:50px;
+	font-size:30px;
+
+}
+/* --------------------登録フォーム系------------------- */
 #form-title{
 	color:white;
 
@@ -14,6 +23,15 @@
 
 }
 
+/* ----------------エラーメッセージ------------------------- */
+.error-message{
+	color:red;
+	float:right;
+}
+
+
+/*--------------------------- ボタン系------------------------- */
+
 .submit_btn_box{
 
 	text-align:center;
@@ -26,6 +44,8 @@
 
 
 }
+
+/* ----------------------Completeの文字--------------------- */
 
 .moji-box{
 	color:white;
@@ -44,10 +64,7 @@
 	margin-bottom:25px;
 }
 
-.error-message{
-	color:red;
-	float:right;
-}
+
 
 #form-text{
 /* 	position: absolute; */
