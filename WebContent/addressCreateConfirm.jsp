@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style2.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="imagetoolbar" content="no" />
@@ -13,28 +13,52 @@
 <meta name="keywords" content="" />
 
 <title>宛先情報確認画面</title>
+
+<script>
+function goAddressCreatetAction(){
+	document.getElementById("form").action="GoAddressCreateAction";
+}
+
+function goAddressCreateCompleteAction(){
+	document.getElementById("form").action="AddressCreateCompleteAction";
+}
+</script>
 <style type="text/css">
 
 body {
 	height:auto;
+	clear:both;
+	color:gray;
+	}
+
+.container {
+	position:relative;
+	width:40%;
+	height:600px;
+	background:black;
+	margin-left:30%;
+	margin-right:30%;
 	}
 
 table {
 	position: absolute;
-
-	top:65%;
+	top:50%;
 	left:50%;
-
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-	color:white;
+	text-align:center;
+/* 	margin-top:140px; */
 	clear:both;
+ 	-webkit-transform: translate(-50%,-50%);
+ 	-moz-transform: translate(-50%,-50%);
+ 	-ms-transform: translate(-50%,-50%);
+ 	-o-transform: translate(-50%,-50%);
+ 	transform: translate(-50%,-50%);
+	}
+.reset {
+	padding-top: 55px;
 	}
 
 .member_form_title {
+ 	margin:5px;
 	float:left;
 	}
 
@@ -48,31 +72,20 @@ table {
 
 
 </style>
-
-<script>
-function gogoGoPasswordResetAction(){
-	document.getElementById("form").action="GoAddressCreateAction";
-}
-
-function goPasswordResetCompleteAction(){
-	document.getElementById("form").action="AddressCreateCompleteAction";
-}
-
-</script>
 </head>
 <body>
 	<!-- ヘッダー -->
-	<div id="menu">
+<!-- 	<div id="menu"> -->
 		<jsp:include page="includeHeader.jsp"/>
-	</div>
+<!-- 	</div> -->
 
 	<div id="main">
 
 		<div id="title">ADDRESS</div>
 
-			<div id="container">
+			<div class="container">
 
-	<s:form action="AddressCreateCompleteAction" id="form">
+	<s:form action="GoAddressCreateAction" id="form">
 
 	<div class="reset" align="center">以下の内容でよろしいですか。</div>
 	<br><br>
@@ -174,7 +187,8 @@ function goPasswordResetCompleteAction(){
 
 	<!-- 送信ボタン -->
 			<div class="button">
-				<s:submit value="完了"/>
+				<s:submit value="訂正" onclick="goGoAddressCreateAction();"/>
+				<s:submit value="完了"  onclick="goAddressCreateCompleteAction();"/>
 			</div>
 		</s:form>
 	</div>

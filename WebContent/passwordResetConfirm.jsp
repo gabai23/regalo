@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style2.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="imagetoolbar" content="no" />
@@ -15,7 +15,7 @@
 <title>パスワード再設定確認画面</title>
 
 <script>
-function gogoGoPasswordResetAction(){
+function goGoPasswordResetAction(){
 	document.getElementById("form").action="GoPasswordResetAction";
 }
 
@@ -28,52 +28,75 @@ function goPasswordResetCompleteAction(){
 
 body {
 	height:auto;
-	color:white;
+	clear:both;
+	color:gray;
+	}
+
+.container {
+	position:relative;
+	width:40%;
+	height:600px;
+	background:black;
+	margin-left : 30%;
+	margin-right: 30%;
+/* 	padding-top: 50px; */
 	}
 
 table {
 	position: absolute;
-
 	top:50%;
 	left:50%;
-
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-	color:white;
+	text-align:center;
+/* 	color:gray; */
 	clear:both;
+
+ 	-webkit-transform: translate(-50%,-50%);
+ 	-moz-transform: translate(-50%,-50%);
+ 	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+ 	transform: translate(-50%,-50%);
+	}
+
+.reset {
+	padding-top: 160px;
 	}
 
 .member_form_title {
+	margin:20px;
 	float:left;
 	}
 
-.button1 {
-	text-align: center;
-	margin-top: 200px;
+.register {
+	margin: 20px;
+	clear:both;
 	}
 
-.button2 {
-	margin-top:10px;
+.button1 {
+	position:relative;
 	text-align: center;
+	width:200px;
+	padding-top: 185px;
 	}
+
+/* .button2 { */
+/* 	margin-top:10px; */
+/* 	text-align: center; */
+/* 	} */
 
 </style>
 
 </head>
 <body>
 	<!-- ヘッダー -->
-	<div id="menu">
+<!-- 	<div id="menu"> -->
 		<jsp:include page="includeHeader.jsp"/>
-	</div>
+<!-- 	</div> -->
 
 	<div id="main">
 
 		<div id="title">PASSWORD RESET</div>
 
-		<div id="container">
+		<div class="container">
 
 	<div class="reset" align="center">以下の内容でよろしいですか。</div>
 	<br><br>

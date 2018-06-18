@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <link rel="stylesheet" href="./css/style2.css">
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./css/includeFooter.css">
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
@@ -23,20 +24,22 @@ body{
 	letter-spacing:1px;
 	font-size:20px;
 	color:white;
+	font-family:'Cinzell',serif;
 	}
 
 .container {
-	width:85%;
+	position:relative;
+	width:40%;
 	height:400px;
 	background:black;
-	margin-left:7.5%;
-	margin-right:7.5%;
+	margin-left:30%;
+	margin-right:30%;
 	}
 
 .text {
 	text-align: center;
 	font-size:80px;
-	padding-top: 225px;
+	padding-top: 70px;
 	}
 
 /* .button { */

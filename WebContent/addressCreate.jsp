@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style2.css">
 <meta http-equiv="Content-Style-Type" content="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
@@ -22,7 +23,7 @@ body {
 .container{
 	position:relative;
 	width:40%;
-	height:600px;
+	height:750px;
 	background:black;
 	margin-left : 30%;
 	margin-right: 30%;
@@ -57,33 +58,33 @@ table {
 /* 	}  */
 
 .member_form_title {
-	margin:20px;
+/* 	margin:20px; */
 	float:left;
 	}
 
-.error {
-	float:right;
-	}
+/* .error { */
+/* 	float:right; */
+/* 	} */
 
 .error-message {
-	float:right;
-	margin-top: 20px;
+	text-align: left;
+	color:red;
 	}
 
 .box{
-	text-align: center;
-	float:left;
+	margin:20px;
 	}
 
 .check {
-	text-align: center;
-	margin-top: 30px;
+/* 	text-align: center; */
+/* 	margin-top: 30px; */
 	clear:both;
 	}
 
 .button {
   	text-align: center;
-  	margin-top: 485px;
+  	padding-top: 675px;
+  /* 	margin-top: 485px; */
 /*   	margin-top: 480px; */
 /*   	clear:both; */
  	}
@@ -113,8 +114,10 @@ table {
 					<s:textfield name="familyName" class="txt" size="20%" placeholder="1文字以上16文字以下" />
 				</div>
 			</td>
+		</tr>
+		<tr>
 			<td>
-				<div class="error">
+				<div class="error-message">
 					<s:if test="!#session.familyNameErrorMessageList.isEmpty()">
 						<s:iterator value="#session.familyNameErrorMessageList">
 						<s:property />
@@ -133,8 +136,10 @@ table {
 					<s:textfield name="firstName" class="txt" size="20%" placeholder="1文字以上16文字以下"/>
 				</div>
 			</td>
+		</tr>
+		<tr>
 			<td>
-				<div class="error">
+				<div class="error-message">
 					<s:if test="!#session.firstNameErrorMessageList.isEmpty()">
 						<s:iterator value="#session.firstNameErrorMessageList">
 						<s:property />
@@ -152,8 +157,10 @@ table {
 					<s:textfield name="familyNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/>
 				</div>
 			</td>
+		</tr>
+		<tr>
 			<td>
-				<div class="error">
+				<div class="error-message">
 					<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
 						<s:iterator value="#session.familyNameKanaErrorMessageList">
 						<s:property />
@@ -172,8 +179,10 @@ table {
 					<s:textfield name="firstNameKana" class="txt" size="20%" placeholder="1文字以上16文字以下"/>
 				</div>
 			</td>
+		</tr>
+		<tr>
 			<td>
-				<div class="error">
+				<div class="error-message">
 					<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()">
 						<s:iterator value="#session.firstNameKanaErrorMessageList">
 						<s:property />
@@ -201,8 +210,10 @@ table {
 					<s:textfield name="userAddress" class="txt" size="20%" placeholder="15文字以上50文字以下"/>
 				</div>
 			</td>
+		</tr>
+		<tr>
 			<td>
-				<div class="error">
+				<div class="error-message">
 					<s:if test="!#session.userAddressErrorMessageList.isEmpty()">
 						<s:iterator value="#session.userAddressErrorMessageList">
 						<s:property />
@@ -221,8 +232,10 @@ table {
 					<s:textfield name="telNumber" class="txt" size="20%" placeholder="10文字以上13文字以下"/>
 				</div>
 			</td>
+		</tr>
+		<tr>
 			<td>
-				<div class="error">
+				<div class="error-message">
 					<s:if test="!#session.telNumberErrorMessageList.isEmpty()">
 						<s:iterator value="#session.telNumberErrorMessageList">
 						<s:property />
@@ -240,8 +253,10 @@ table {
 					<s:textfield name="email" class="txt" placeholder="半角英数字" />
 				</div>
 			</td>
+		</tr>
+		<tr>
 			<td>
-				<div class="error">
+				<div class="error-message">
 					<s:if test="!#session.emailErrorMessageList.isEmpty()">
 						<s:iterator value="#session.emailErrorMessageList">
 						<s:property />
