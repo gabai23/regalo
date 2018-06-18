@@ -77,13 +77,15 @@ public class ProductUpdateConfirmAction extends ActionSupport implements Session
 
 		if(imageFilePath.contains("image")){
 			 fileName = new File(imageFilePath).getName();
-			 newImageFileName = "/regalo/WebContent/images/" + fileName;
+			 imageFileName = fileName;
+			 newImageFileName = "./images/" + fileName;
 
 			System.out.println(newImageFileName);
 
 
 		} else {
-			newImageFileName = "/regalo/WebContent/images/" + imageFileName;
+			//confirmの画像
+			newImageFileName = "./images/" + imageFileName;
 
 			System.out.println(newImageFileName);
 		}
@@ -98,7 +100,9 @@ public class ProductUpdateConfirmAction extends ActionSupport implements Session
 		session.put("categoryId", categoryId);
 		session.put("price", price);
 		session.put("imageFilePath", imageFilePath);
+		session.put("newImageFileName", newImageFileName);
 		session.put("fileName", fileName);
+		session.put("imageFileName", imageFileName);
 		session.put("releaseCompany", releaseCompany);
 
 
@@ -379,5 +383,25 @@ public class ProductUpdateConfirmAction extends ActionSupport implements Session
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+
+	/**
+	 * newImageFileNameを取得します。
+	 * @return newImageFileName
+	 */
+	public String getNewImageFileName() {
+	    return newImageFileName;
+	}
+
+
+
+	/**
+	 * newImageFileNameを設定します。
+	 * @param newImageFileName newImageFileName
+	 */
+	public void setNewImageFileName(String newImageFileName) {
+	    this.newImageFileName = newImageFileName;
 	}
 }

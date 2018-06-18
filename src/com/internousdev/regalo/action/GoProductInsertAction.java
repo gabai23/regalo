@@ -2,7 +2,9 @@ package com.internousdev.regalo.action;
 
 import java.sql.SQLException;
 
-public class GoProductInsertAction{
+public class GoProductInsertAction {
+
+
 
 	public String execute() throws SQLException{
 
@@ -11,5 +13,8 @@ public class GoProductInsertAction{
 		return "success";
 
 	}
+
+
+
 
 }

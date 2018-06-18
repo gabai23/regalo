@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="./css/login-style.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 
 
 
@@ -56,6 +56,7 @@
 								<i class="fas fa-lock  fa-2x fa-spin icon"></i>
 							</td>
 							<td>
+							
 								<s:password name="password" placeholder="PASSWORD" />
 							</td>
 					</tr>
@@ -79,9 +80,9 @@
 
 
 			<div class="link">
-		       <div id="space"><span class="mozi">会員登録は<a href='<s:url action="GoUserCreateAction"/>'>こちら</a></span></div>
+		       <div id="space"><span class="mozi">会員登録がまだお済みでない方は、<a href='<s:url action="GoUserCreateAction"/>'>RegaloID登録</a>をしてください。</span></div>
 
-			  <div> <span class="mozi">パスワードを忘れた方は<a href='<s:url action="GoPasswordResetAction"/>'>こちら</a></span></div>
+			  <div> <span class="mozi">パスワードを忘れた方は、<a href='<s:url action="GoPasswordResetAction"/>'>パスワードの再設定</a>をしてください。</span></div>
 		  	</div>
 
 	</div>

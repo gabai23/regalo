@@ -43,7 +43,7 @@ public class ProductUpdateCompleteAction extends ActionSupport implements Sessio
 	private String imageFilePath;
 
 	//画像ファイル名
-	private String imageFileName;
+	private String newImageFileName;
 
 	//販売年月
 	private Date releaseDate;
@@ -77,7 +77,7 @@ public class ProductUpdateCompleteAction extends ActionSupport implements Sessio
 				Integer.parseInt(session.get("categoryId").toString()),
 				Integer.parseInt(session.get("price").toString()),
 				session.get("imageFilePath").toString(),
-				session.get("fileName").toString()
+				session.get("imageFileName").toString()
 
 				);
 
@@ -198,14 +198,27 @@ public class ProductUpdateCompleteAction extends ActionSupport implements Sessio
 
 
 
-	public String getImageFileName() {
-		return imageFileName;
+//	public String getImageFileName() {
+//		return imageFileName;
+//	}
+//
+//
+//
+//	public void setImageFileName(String imageFileName) {
+//		this.imageFileName = imageFileName;
+//	}
+//
+
+
+	public String getNewImageFileName() {
+	    return newImageFileName;
 	}
 
 
 
-	public void setImageFileName(String imageFileName) {
-		this.imageFileName = imageFileName;
+
+	public void setNewImageFileName(String newImageFileName) {
+	    this.newImageFileName = newImageFileName;
 	}
 
 
