@@ -64,8 +64,8 @@ if(!(session.getAttribute("masterId") == "admin")){
 <%-- 					<b>販売会社:</b><s:property value="session.releaseCompany" /><br><br> --%>
 <!-- 				</div> -->
 
-
-			<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/>
+                         <s:property value="session.imageFileName"/><br/>
+			<img src="<s:property value="session.newImageFileName"/>" width="100" height="100"/>
 
  <table class="Product-Update">
 					<tr><td>商品名:</td><td><s:property value="session.productName" /></td></tr>

@@ -197,7 +197,7 @@ public class ProductInsertCompleteAction extends ActionSupport implements Sessio
 	}
 
 
-
+//
 //	public String getImageFileName() {
 //		return imageFileName;
 //	}
