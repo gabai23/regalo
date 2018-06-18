@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style2.css">
 <link rel="stylesheet" type="text/css" href="./css/includeFooter.css">
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="">
@@ -25,9 +25,18 @@ body{
 	color:white;
 	}
 
+.container {
+	width:85%;
+	height:400px;
+	background:black;
+	margin-left:7.5%;
+	margin-right:7.5%;
+	}
+
 .text {
 	text-align: center;
 	font-size:80px;
+	padding-top: 225px;
 	}
 
 /* .button { */
@@ -39,11 +48,12 @@ body{
 /* 	margin-bottom:280px; */
 /* 	} */
 
-	h4 {
-	text-align: center;
-	}
+/* 	h4 { */
+/* 	text-align: center; */
+/* 	} */
 
 	h5 {
+	margin-top:85px;
 	text-align: center;
 	}
 
@@ -52,9 +62,9 @@ body{
 </head>
 <body>
 	<!-- ヘッダー -->
-	<div id="menu">
+<!-- 	<div id="menu"> -->
 		<jsp:include page="includeHeader.jsp"/>
-	</div>
+<!-- 	</div> -->
 
  	<div id="main">
 
@@ -62,11 +72,11 @@ body{
 
  		<div id="title">ADDRESS</div>
 
- 		<div id="container">
+ 		<div class="container">
  			<div class="text">Completed!</div>
 
 
-			<h4>宛先情報が完了しました。</h4>
+<!-- 			<h4>宛先情報が完了しました。</h4> -->
 
 			<h5>3秒後に決済確認画面に移動します。</h5>
 
