@@ -7,82 +7,104 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
-<link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/productList.css">
+<link rel="stylesheet" type="text/css" href="./css/runkup.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-<title>商品一覧</title>
+<title>PREMIUM商品一覧</title>
+<style type="text/css">
+#title {
+background:#1955A6;
+color:#B2B2B2;
+}
+#container {
+	width:85%;
+	height:800px;
+　　text-align:center;
+	background:#0000CD;
+	margin-left:7.5%;
+	margin-right:7.5%;
+	margin-bottom:10%;
+
+}
+
+</style>
+
+
 </head>
 <body>
+<!-- ヘッダー -->
 
-	<jsp:include page="includeHeader.jsp"/>
+	 <jsp:include page="includeHeader.jsp"/>
 
 	<div id="main">
 
 		<div id="title">
-			 Premium MEMBER
+			 Premium Class
 		</div>
 
-		<div id="error">
-			<s:iterator value="messageList">
-				<s:property/>
-			</s:iterator>
-		</div>
+<!-- 		<div id="error"> -->
+<%-- 			<s:iterator value="messageList"> --%>
+<%-- 				<s:property/> --%>
+<%-- 			</s:iterator> --%>
+<!-- 		</div> -->
+
+<div id="container"></div>
+</div>
 
 
 
 		<!-- 商品一覧 -->
-		<div id="container"  class="clearfix">
-			<s:iterator value="productInfoList">
-				<div id="wrapper" class="ratio-1_1">
-					<div id="products">
+<!-- 		<div id="container" class="clearfix"> -->
+<%-- 			<s:iterator value="productInfoList"> --%>
+<!-- 				<div id="wrapper" class="ratio-1_1"> -->
+<!-- 					<div id="products"> -->
 						<!-- 各商品のURL作成 -->
-						<s:url id="url" action="GoProductDetailAction">
-							<s:param name="productId" value="%{productId}"/>
-						</s:url>
+<%-- 						<s:url id="url" action="GoProductDetailAction"> --%>
+<%-- 							<s:param name="productId" value="%{productId}"/> --%>
+<%-- 						</s:url> --%>
 
 						<!-- 商品画像 -->
-						<s:a id="imageContainer" href="%{url}">
-							<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/>
-						</s:a>
+<%-- 						<s:a id="imageContainer" href="%{url}"> --%>
+<%-- 							<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/> --%>
+<%-- 						</s:a> --%>
 
-						<br>
-						<div id="productDetail">
+<!-- 						<br> -->
+<!-- 						<div id="productDetail"> -->
 
-							<span class="detail">→</span>
+<%-- 							<span class="detail">→</span> --%>
 
-							<div class="datailHover">
+<!-- 							<div class="datailHover"> -->
 
-								<s:a href="%{url}">
+<%-- 								<s:a href="%{url}"> --%>
 									<!-- 商品名かな -->
-									<span class="productNameKana">
-										<s:property value="productNameKana"/>
-									</span>
+<%-- 									<span class="productNameKana"> --%>
+<%-- 										<s:property value="productNameKana"/> --%>
+<%-- 									</span> --%>
 
-									<br>
-									<!-- 商品名 -->
-									<s:property value="productName"/>
+<!-- 									<br> -->
+<!-- 									商品名 -->
+<%-- 									<s:property value="productName"/> --%>
 
-								</s:a>
+<%-- 								</s:a> --%>
 
-								<br>
+<!-- 								<br> -->
 								<!-- 価格 -->
-								<div id="price">
-									<span>&yen;</span>
-									<fmt:formatNumber value="${price}"/>
-								</div>
-							</div>
+<!-- 								<div id="price"> -->
+<%-- 									<span>&yen;</span> --%>
+<%-- 									<fmt:formatNumber value="${price}"/> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
 
-						</div>
-					</div>
-				</div>
-			</s:iterator>
-		</div>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<%-- 			</s:iterator> --%>
+<!-- 		</div> -->
 
 	<!-- フッター -->
-	<jsp:include page="includeFooter.jsp"/>
+<%-- 	<jsp:include page="includeFooter.jsp"/> --%>
 
-	</div>
+<!-- 	</div> -->
 
 </body>
 </html>

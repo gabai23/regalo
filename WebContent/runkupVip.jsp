@@ -7,11 +7,30 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
-<link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/productList.css">
+<link rel="stylesheet" type="text/css" href="./css/runkup.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
-<title>商品一覧</title>
+<title>VIP商品一覧</title>
+<style type="text/css">
+#title {
+/* background:#990000; */
+background-image: linear-gradient(to top left, #F7DE05, #DA8E00, #EDAC06, #F7DE05, #ECB802, #DAAF08, #B67B03);
+}
+
+color:#daa520;
+}
+#container {
+    width:85%;
+	height:800px;
+	text-align:center;
+	background:#990000;
+
+	margin-left:7.5%;
+	margin-right:7.5%;
+	margin-bottom:10%;
+
+}
+</style>
 </head>
 <body>
 
@@ -20,7 +39,7 @@
 	<div id="main">
 
 		<div id="title">
-			VIP MEMBER
+			VIP
 		</div>
 
 		<div id="error">
@@ -80,7 +99,7 @@
 		</div>
 
 	<!-- フッター -->
-	<jsp:include page="includeFooter.jsp"/>
+<%-- 	<jsp:include page="includeFooter.jsp"/> --%>
 
 	</div>
 
