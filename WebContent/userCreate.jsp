@@ -46,23 +46,23 @@
 					</span>
 </div>
 						<br>
-						<div class="member_form_all">
+			<div class="member_form_all">
 						<span class="member_form_title">名</span>
 						<span class="member_form_text">
-							<s:textfield type="text" name="firstName" value="%{#session.firstName}"
+							<s:textfield type="text" name="firstName" value="%{firstName}"
 							placeholder="名"/>
-							</span>
-
+						</span>
 					<span class="mandatory">
 					<s:if test="firstNameErorMessageList.size()>0">
-						<s:iterator value="firstNameErorMessageList">
+						<span class="mandatory"><s:iterator value="firstNameErorMessageList">
 							<s:property />
 						</s:iterator>
+						</span>
 					</s:if>
 					</span>
-						</div>
+</div>
 						<br>
-<div class="member_form_text">
+					<div class="member_form_text">
 						<span class="member_form_title">姓ふりがな</span>
 
 							<s:textfield type="text" name="familyNameKana"
@@ -81,7 +81,7 @@
 						<span class="member_form_title">名ふりがな</span>
 						<div class="member_form_text">
 							<s:textfield type="text" name="firstNameKana"
-								value="%{#session.familyName}"
+								value="%{#session.firstNameKana}"
 								placeholder="名ふりがな"/>
 
 					<span class="mandatory">

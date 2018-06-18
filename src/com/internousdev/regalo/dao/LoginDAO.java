@@ -9,7 +9,7 @@ import com.internousdev.regalo.dto.LoginDTO;
 import com.internousdev.regalo.util.DBConnector;
 
 
-	//いいか圭一郎。DAOはDB関連だけのクラスというのを忘れるな！
+
 public class LoginDAO {
 
 	private LoginDTO dto = new LoginDTO();
@@ -24,7 +24,7 @@ public class LoginDAO {
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, userId);
-		ResultSet rs = ps.executeQuery();//結果表が送られてきました！
+		ResultSet rs = ps.executeQuery();
 
 
 		//行下にいって、列が存在したら→true
@@ -82,11 +82,11 @@ public class LoginDAO {
 	public boolean existsUserId(String userId) throws SQLException {
 
 		boolean result = false;
-		
+
 		DBConnector db = new DBConnector();
 
 		Connection con = db.getConnection();
-		
+
 		String sql = "select * from user_info where user_id = ?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -94,7 +94,7 @@ public class LoginDAO {
 		ps.setString(1, userId);
 		//送信かつ、結果表の取得→この場合は１列の結果表しか取得していない。
 		ResultSet rs = ps.executeQuery();
-		
+
 		if(rs.next()) {
 			//DTOのインスタンス化な。スコープ判定あり
 			LoginDTO dto = new LoginDTO();

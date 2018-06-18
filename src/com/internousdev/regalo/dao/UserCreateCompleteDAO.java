@@ -16,12 +16,12 @@ public class UserCreateCompleteDAO {
 
 
 //	メソッド
-	public boolean registerUser(LoginDTO ｌoginDTO) throws SQLException {
+	public int registerUser(LoginDTO ｌoginDTO) throws SQLException {
 
 		DBConnector db = new DBConnector();
 		Connection con = null;
 
-		boolean result = false;
+//		boolean result = false;
 		int updateCount = 0;
 
 		String sql = "INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana, first_name_kana, sex, email, logined, regist_date, update_date) "
@@ -53,12 +53,12 @@ public class UserCreateCompleteDAO {
 
 		}
 
-		if (updateCount == 1) {
-			result = true;
+//		if (updateCount == 1) {
+//			result = true;
+//
+//		}
 
-		}
-
-		return result;
+		return updateCount;
 	}
 
 	public int update(String password, String userId) {

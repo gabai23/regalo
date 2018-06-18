@@ -9,7 +9,20 @@
 <link rel="stylesheet" href="./css/style2.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <title>登録確認画面</title>
+<script type="text/javascript">
+	function goUserCreateCompleteAction() {
+		document.getElementById("form-action").action = "UserCreateCompleteAction";
+	}
+	function goGoUserCreateAction() {
+		document.getElementById("form-action").action = "GoUserCreateAction";
+	}
+</script>
 </head>
+
+
+
+
+
 <body>
 <!-- ヘッダー -->
 <jsp:include page="includeHeader.jsp"/>
@@ -29,9 +42,9 @@
 
 				<div class="member_form">
 
-					<s:form action="UserCreateCompleteAction" theme="simple">
-						<div class="member-form-title">
 
+<s:form id="form-action">
+						<div class="member-form-title">
 
 							<br>名前　　　　　　　
 							<s:property value="familyName" />
@@ -81,24 +94,30 @@
 							<br>
 							<br>
 
-							<div class="member_btn">
-								<button type="submit" class="">登録する</button>
-							</div>
-							<br>
-							<br>
 
-							<div class="modoru" style="padding-left: 23px;">
-								<a href="/regalo/userCreate.jsp">戻 る</a>
-							</div>
-						</div>
-					</s:form>
 
+					</div>
+
+
+
+<div class="button-center">
+						<s:submit value="戻る" class="button-layout" onclick="goGoUserCreateAction()"/>
+						<s:submit value="登録" class="button-layout" onclick="goUserCreateCompleteAction()"/>
+					</div>
+
+							</s:form>
+
+
+</div>
 				</div>
 
-			</div>
-		</div>
-		</div>
-	</div>
+</div>
+
+</div>
+</div>
+
+
+
 
 
 

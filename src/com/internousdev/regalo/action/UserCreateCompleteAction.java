@@ -55,19 +55,23 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		dto.setFirstNameKana(firstNameKana);
 
 
-		if (dao.registerUser(dto)) {
+		String result = ERROR;
+		int count = dao.registerUser(dto);
+		System.out.println(count);
+		if(count > 0){
+//		if (dao.registerUser(dto)) {
 			session.put("userId", userId);
 			session.put("loginFlg", true);
 			// カーとの情報を引き継ぐ
 			CartDAO cartDAO = new CartDAO();
 			cartDAO.linkToLoginId(session.get("tempUserId").toString(), session.get("userId").toString());
-
-			return SUCCESS;
-
-		} else {
-			return SUCCESS;
+			result = SUCCESS;
+			}
+		return result;
 		}
-	}
+
+
+
 
 	public Map<String, Object> getSession() {
 		return session;
