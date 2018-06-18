@@ -71,16 +71,19 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 
 		if(imageFilePath.contains("image")){
 			 fileName = new File(imageFilePath).getName();
+			 imageFileName = fileName;
 			 newImageFileName = "./images/" + fileName;
 
 			System.out.println(newImageFileName);
 
 
 		} else {
+			//confirmの表示画像
 			newImageFileName = "./images/" + imageFileName;
 
 			System.out.println(newImageFileName);
 		}
+
 
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
@@ -94,6 +97,7 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 		session.put("imageFilePath", imageFilePath);
 		session.put("newImageFileName", newImageFileName);
 		session.put("fileName", fileName);
+		session.put("imageFileName", imageFileName);
 		session.put("releaseCompany", releaseCompany);
 
 
