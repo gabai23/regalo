@@ -56,6 +56,7 @@
 								<i class="fas fa-lock  fa-2x fa-spin icon"></i>
 							</td>
 							<td>
+							
 								<s:password name="password" placeholder="PASSWORD" />
 							</td>
 					</tr>
@@ -79,9 +80,9 @@
 
 
 			<div class="link">
-		       <div id="space"><span class="mozi">・会員登録がまだお済みでない方は、<a href='<s:url action="GoUserCreateAction"/>'>RegaloID登録</a>をしてください。</span></div>
+		       <div id="space"><span class="mozi">会員登録がまだお済みでない方は、<a href='<s:url action="GoUserCreateAction"/>'>RegaloID登録</a>をしてください。</span></div>
 
-			  <div> <span class="mozi">・パスワードを忘れた方は、<a href='<s:url action="GoPasswordResetAction"/>'>パスワードの再設定</a>をしてください。</span></div>
+			  <div> <span class="mozi">パスワードを忘れた方は、<a href='<s:url action="GoPasswordResetAction"/>'>パスワードの再設定</a>をしてください。</span></div>
 		  	</div>
 
 	</div>
