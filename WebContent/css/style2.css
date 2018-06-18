@@ -81,18 +81,17 @@ body {
 	color:white;
 
 	text-align:center;
-	font-family: 'Cinzel', serif;
 }
 
 /*mainの下*/
 #container {
-	width:85%;
+	width:40%;
 	height:auto;
 
 	background:black;
 
-	margin-left:7.5%;
-	margin-right:7.5%;
+	margin-left:30%;
+	margin-right:30%;
 	/* margin-bottom:10%; */
 
 }

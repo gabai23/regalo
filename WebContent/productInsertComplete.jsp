@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/ProductInsert.css">
+<link rel="stylesheet" href="./css/ProductUpdate.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 <!-- <meta http-equiv="refresh" content="3;URL='StartAction'"> -->
 <title>商品情報入力完了</title>
@@ -14,7 +14,8 @@
 <body>
 
 <!-- ヘッダー -->
-<jsp:include page="includeHeader.jsp"/>
+<%-- <jsp:include page="includeHeader.jsp"/> --%>
+<!-- メイン -->
 <div id="main">
 <div id="title">
 ProductInsert</div>
@@ -26,6 +27,7 @@ ProductInsert</div>
 <a href='<s:url action="GoMasterAction"/>'>管理者ページ</a><br></div>
 <div class="moji">
 <span>3秒後にホームへ移動します。</span><br></div>
+
 
 
 

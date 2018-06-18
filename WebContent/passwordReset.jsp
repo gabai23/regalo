@@ -31,115 +31,198 @@
 
 body {
 	height:auto;
+	color: white;
+
+
 	}
 
-/* .main{ */
-/* 	height:auto; */
-/* 	} */
+table.vertical-list-table {
+	width: 90%;
+	text-align: center;
+	color:white;
+	}
 
- .box{
- 	text-align: center;
+table.horizontal-list-table th {
+	width: 30%;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 0.8em;
+	text-align: center;
+	vertical-align: top;
+	}
+
+table.horizontal-list-table, th, td {
+	width : 30%;
+	}
+
+
+.member_form_title {
+	float:left;
+	}
+
+.box{
+/*  position: absolute; */
+
+/* 	top:50%; */
+/* 	left:50%; */
+
+/* 	-webkit-transform: translate(-50%,-50%); */
+/* 	-moz-transform: translate(-50%,-50%); */
+/* 	-ms-transform: translate(-50%,-50%); */
+/* 	-o-transform: translate(-50%,-50%); */
+/* 	transform: translate(-50%,-50%); */
+/* 	clear:both; */
  	}
+
+.error {
+	float:right;
+	}
+
+.error-message {
+	float:right;
+	}
 
 .button {
 	text-align: center;
-	margin-top: 70px;
+	margin-bottom:40px;
+	clear:both;
 
 	}
 
-table {
-	text-align: center;
-	}
+
 
 
 </style>
 </head>
 <body>
 	<!-- ヘッダー -->
-		<jsp:include page="includeHeader.jsp"/>
+		<div id="menu">
+			<jsp:include page="includeHeader.jsp"/>
+		</div>
 
 	<div id="main">
 
-	<div id="container"></div>
+			<s:form action="PasswordResetConfirmAction" theme="simple">
 
-	<s:form action="PasswordResetConfirmAction" theme="simple">
+			<div id="title">PASSWORD RESET</div>
 
-	<div class="reset">
-	<!-- ユーザーID -->
+		<div id="container">
 
-		<div class="box">
-		<div class="form-text">ユーザーID:
-		<s:textfield name="userId" size="20%"  placeholder="半角英数字"/></div><br><br>
-		<s:if test="!(errorId.equals(''))">
 
-			<s:property value="errorId"/>
-		</s:if>
-<%-- 		<s:elseif test="!errorMessageId.isEmpty()"> --%>
-<%-- 			<s:property value="errorMessageId"/> --%>
-<%-- 		</s:elseif> --%>
-		<s:if test="ErrorUserIdList.length > 0">
-			<s:iterator value="ErrorUserIdList">
-				<s:property />
-			</s:iterator>
-		</s:if>
+		<table>
+			<!-- ユーザーID -->
+
+			<tr>
+				<th><span class="member_form_title">ユーザーID</span></th>
+				<td>
+					<div class="box">
+						<s:textfield name="userId" size="20%"  placeholder="半角英数字"/>
+					</div>
+				</td>
+				<td>
+					<div class="error">
+						<s:if test="!(errorId.equals(''))">
+							<s:property value="errorId"/>
+						</s:if>
+						<s:elseif test="!errorMessageId.isEmpty()">
+							<s:property value="errorMessageId"/>
+						</s:elseif>
+					</div>
+				</td>
+				<td>
+					<div class="error-message">
+						<s:if test="ErrorUserIdList.length > 0">
+							<s:iterator value="ErrorUserIdList">
+							<s:property />
+							</s:iterator>
+						</s:if>
+					</div>
+				</td>
+			</tr>
+
+			<!-- 現在のパスワード -->
+
+			<tr>
+				<th><span class="member_form_title">現在のパスワード</span></th>
+				<td>
+					<div class="box">
+						<s:textfield name="password" size="20%"  placeholder="半角英数字"/>
+					</div>
+					<td>
+						<div class="error">
+							<s:if test="!(errorPassword.equals(''))">
+								<s:property value="errorPassword"/>
+							</s:if>
+						</div>
+					</td>
+					<td>
+						<div class="error-message">
+							<s:if test="ErrorPasswordList.length > 0">
+								<s:iterator value="ErrorPasswordList">
+								<s:property />
+								</s:iterator>
+							</s:if>
+						</div>
+					</td>
+			</tr>
+
+			<!-- 新しいパスワード -->
+
+			<tr>
+				<th><span class="member_form_title">新しいパスワード</span></th>
+				<td>
+					<div class="box">
+						<s:textfield name="password1" size="20%" placeholder="半角英数字"/>
+					</div>
+				<td>
+					<div class="error">
+						<s:if test="!ErrorPasswordList1.isEmpty()">
+							<s:iterator value="ErrorPasswordList1">
+							<s:property />
+							</s:iterator>
+						</s:if>
+					</div>
+				</td>
+			</tr>
+
+		<!-- 確認パスワード -->
+
+			<tr>
+				<th><span class="member_form_title">確認パスワード</span></th>
+				<td>
+					<div class="box">
+						<s:textfield name="password2" size="20%" placeholder="半角英数字"/>
+					</div>
+				</td>
+				<td>
+					<div class="error">
+						<s:if test="!(password1.equals(password2))">
+						<s:property value="errorMessagePassword"/>
+						</s:if>
+					</div>
+				</td>
+				<td>
+					<div class="error-message">
+						<s:if test="ErrorReconfirmPassList.size()>0">
+							<s:iterator value="ErrorReconfirmPassList">
+							<s:property />
+							</s:iterator>
+						</s:if>
+					</div>
+				</td>
+
+			</tr>
+
+		</table>
+		<!-- 送信ボタン -->
+				<div class="button">
+					<s:submit value="確認"/>
+				</div>
 		</div>
-
-	<!-- 現在のパスワード -->
-
-		<div class="box">
-		<div class="form-text">現在のパスワード:
-		<s:textfield name="password" size="20%"  placeholder="半角英数字"/></div><br><br>
-		<s:if test="!(errorPassword.equals(''))">
-
-			<s:property value="errorPassword"/>
-		</s:if>
-		<s:elseif test="!errorMessageId.isEmpty()">
-			<s:property value="errorMessageId"/>
-		</s:elseif>
-		<s:if test="ErrorPasswordList.length > 0">
-			<s:iterator value="ErrorPasswordList">
-				<s:property />
-			</s:iterator>
-		</s:if>
-		</div>
-
-	<!-- 新しいパスワード -->
-
-		<div class="box">
-		<div class="form-text">新しいパスワード:
-		<s:textfield name="password1" size="20%" placeholder="半角英数字"/></div><br><br>
-
-		<s:if test="!ErrorPasswordList1.isEmpty()">
-			<s:iterator value="ErrorPasswordList1">
-				<s:property />
-			</s:iterator>
-		</s:if>
-		</div>
-
-	<!-- 確認パスワード -->
-
-		<div class="box">
-		<div class="form-text">確認パスワード:
-		<s:textfield name="password2" size="20%" placeholder="半角英数字"/></div><br><br>
-
-		<s:if test="!(password1.equals(password2))">
-		<s:property value="errorMessagePassword"/>
-		</s:if>
-		<s:if test="ErrorReconfirmPassList.size()>0">
-			<s:iterator value="ErrorReconfirmPassList">
-				<s:property />
-			</s:iterator>
-		</s:if>
-		</div>
-
-	</div>
-
-	<!-- 送信ボタン -->
-	<div class="button">
-		<s:submit value="パスワード再設定画面へ"/>
-	</div>
-		</s:form>
+	</s:form>
 </div>
+
+
 
 	<!-- フッター -->
 		<jsp:include page="includeFooter.jsp"/>

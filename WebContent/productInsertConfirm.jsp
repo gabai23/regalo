@@ -14,7 +14,7 @@ if(!(session.getAttribute("masterId") == "admin")){
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" type="text/css" href="./css/masterAddConfirm.css">
+		<link rel="stylesheet" href="./css/ProductUpdate.css">
 		<link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
@@ -23,18 +23,26 @@ if(!(session.getAttribute("masterId") == "admin")){
 	</head>
 	<body>
 
-	<div class="header">
+<!-- ヘッダー -->
+
 		<jsp:include page="includeHeader.jsp" />
-	</div>
 
 
-	<div class="main">
-		<h1>こちらの商品を追加しますか？</h1>
-		<div class="inner">
-			<div class="product_info">
-				<div class="character">
-					<b>画像ファイル名：</b><s:property value="session.imageFileName"/><br/>
-					<img src="<s:property value="session.imageFilePath"/>" width="100" height="100"/><br>
+
+	<div id="main">
+		<div id="title">
+		ProductInsert
+		</div>
+		<div id="container">
+		<div id="top-text">
+		こちらの商品を追加しますか？
+		</div>
+			<div class="moji-box">
+			<div class="moji">
+				<div class="character-img">
+<!-- 					<b>画像ファイル名：</b> -->
+					<s:property value="session.imageFileName"/><br/>
+					<img src="<s:property value="session.newImageFileName"/>" width="100" height="100"/><br>
 				</div>
 				<div class="character">
 					<b>商品名:</b><s:property value="session.productName" /><br>
@@ -69,15 +77,18 @@ if(!(session.getAttribute("masterId") == "admin")){
 				<input type="hidden" name="company"value="<s:property value="company"/>" />
 
 			</div>
-			<div class="button">
-			<input type="button"
-				onclick="location.href='<s:url action="ProductInsertCompleteAction" />'"
-				value="完了" />
-			<br>
+						<div class="submit_btn_box">
+							<span id="contents-btn-set">
 				<input type="button"
 				onclick="location.href='<s:url action="GoProductInsertAction" />'"
-				value="訂正" />
-			<br>
+				value="訂正" /></span>
+				<span id="contents-btn-set">
+			<input type="button"
+				onclick="location.href='<s:url action="ProductInsertCompleteAction" />'"
+				value="完了" /></span>
+
+
+			</div>
 			</div>
 		</div>
 	</div>

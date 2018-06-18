@@ -124,7 +124,7 @@
 
 
 <div id="title">
-<h1>ProductUpdate</h1>
+ProductUpdate
 </div>
 <div id="container">
 
@@ -246,6 +246,7 @@
 
 
 
+
 <!-- 商品名 -->
 
 <span class="error">
@@ -286,7 +287,8 @@
 
 <span id="form-title">商品詳細</span>
 <span id="form-text">
-	<s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /></span><br><br>
+	<s:textarea name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" cols="32" rows="2" maxlength="32" minlength="14"/>
+	<%-- <s:textfield name="productDescription" value="%{#session.productDescription}" label="商品詳細" placeholder="商品詳細" class="txt" /> --%></span><br><br>
 
 <!-- 商品カテゴリー -->
 
@@ -346,20 +348,25 @@
 
 	<span id="form-title">販売会社</span>
 	<s:textfield name="releaseCompany" value="%{#session.releaseCompany}" label="販売会社" placeholder="販売会社" class="txt" />
-
-
-
-
+<br><br>
 <div class="submit_btn_box">
-<div id=".contents-btn-set">
+<span id="contents-btn-set">
+
+<input type="button"
+	onclick="location.href='<s:url action="GoMasterAction" />'"
+	value="戻る" />
+</span>
+
+<span id="contents-btn-set">
 <s:submit value="登録" class="submit_btn" />
-</div>
+
+
+</span>
 </div>
 
 </s:form>
 </div>
 </div>
-
 
 </div>
 <!-- フッター -->

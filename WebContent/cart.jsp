@@ -57,7 +57,8 @@
 </head>
 
 <body>
-<div id="wrapper">
+<!-- ヘッダー -->
+ 	<jsp:include page="includeHeader.jsp"/>
 <header>
 	<div id=title>Cart</div>
 </header>
@@ -77,9 +78,10 @@
 
 		<s:if test="CartDtoList.size() > 0">
 			<s:form id="form">
-				<s:iterator value="CartDtoList">
-					<table class="horizontal-list-table">
+				<table class="horizontal-list-table">
+					<s:iterator value="CartDtoList">
 						<tr>
+							<td class="check_hover">削除<s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
 							<td><img src='<s:property value="imageFilePath"/>' width="200px" height="200px" /></td>
 							<td>
 								<table>
@@ -102,7 +104,7 @@
 								<li>小計　<s:property value="subtotal"/>円</li>
 							</ul> --%>
 							</td>
-							<td><s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
+
 						</tr>
 						<s:hidden name="productId" value="%{productId}"/>
 						<s:hidden name="productName" value="%{productName}"/>
@@ -114,8 +116,9 @@
 						<s:hidden name="releaseDate" value="%{releaseDate}"/>
 						<s:hidden name="productCount" value="%{productCount}"/>
 						<s:hidden name="subtotal" value="%{subtotal}"/>
-					</table>
-				</s:iterator>
+
+					</s:iterator>
+				</table>
 
 				<div class="price_and_btns">
 
@@ -144,6 +147,5 @@
 <footer>
 	<s:include value="includeFooter.jsp"/>
 </footer>
-</div>
 </body>
 </html>

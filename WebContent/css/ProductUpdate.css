@@ -1,27 +1,89 @@
 @CHARSET "UTF-8";
 
+/*--------------- Confirm系---------------------- */
+#top-text{
+	color:white;
+	text-align:center;
+	padding-top:50px;
+	font-size:30px;
+	padding-bottom:10px;
+}
+
+.Product-Update {
+			text-align:left;
+			margin:0 auto;
+			text-align:center;
+		}
+
+		tr {
+			color:white;
+			padding-left:10px;
+
+		}
+
+		td {
+			padding-left:10px;
+			padding-top:10px;
+		}
+
+.description{
+	margin-bottom:10px;
+	padding-bottom:25px;
+
+
+}
+
+.confirm-box{
+		color:white;
+		margin:0 auto;
+	text-align:center;
+	padding-bottom:25px;
+	margin-left:2.5%;
+	margin-right:2.5%;
+	font-size:20px;
+}
+/* --------------------登録フォーム系------------------- */
 #form-title{
 	color:white;
-/* 		margin-left:2.5%; */
-/* 	margin-right:2.5%; */
-/* 	margin-top:50px; */
-/* 	margin-bottom:50px; */
+
 }
 
 #form-box{
 	margin-left:2.5%;
 	margin-right:2.5%;
-/* 	margin-top:50px; */
 	margin-bottom:50px;
 	padding-top:50px;
+
+
 }
 
-.submit_btn_box{
-	margin:0 auto;
-	text-align:center;
-	margin-top:25px;
-	padding-bottom:25px;
+textarea {
+    resize: none;
 }
+
+/* ----------------エラーメッセージ------------------------- */
+.error-message{
+	color:red;
+	float:right;
+}
+
+
+/*--------------------------- ボタン系------------------------- */
+
+.submit_btn_box{
+
+	text-align:center;
+	padding-bottom:25px;
+
+
+}
+#contents-btn-set{
+	margin-left:10px;
+
+
+}
+
+/* ----------------------Completeの文字--------------------- */
 
 .moji-box{
 	color:white;
@@ -31,33 +93,28 @@
 	padding-bottom:25px;
 	margin-left:2.5%;
 	margin-right:2.5%;
-	margin-bottom:25px;
 	font-size:20px;
 }
 .moji{
-/* 	padding-top:50px; */
-/* 	padding-bottom:25px; */
+
 	margin-left:2.5%;
 	margin-right:2.5%;
 	margin-bottom:25px;
 }
 
-.error-message{
-	color:red;
-	float:right;
-}
+
 
 #form-text{
-	position: absolute;
+/* 	position: absolute; */
 
-	top:50%;
-	left:50%;
+/* 	top:50%; */
+/* 	left:50%; */
 
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
+/* 	-webkit-transform: translate(-50%,-50%); */
+/* 	-moz-transform: translate(-50%,-50%); */
+/* 	-ms-transform: translate(-50%,-50%); */
+/* 	-o-transform: translate(-50%,-50%); */
+/* 	transform: translate(-50%,-50%); */
 
 /* 	max-width:100%; */
 /* 	max-height:100%; */

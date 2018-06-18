@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
    <%@ taglib prefix="s" uri="/struts-tags" %>
-
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +21,20 @@
   	.textnasi{
   		text-align: center;
   		color: white;
+		width: 85%;
+      	height: 65%;
+      	padding-top: 20%;
+      	padding-left: 10%;
+  	}
+
+  	.textnasi2{
+  		text-align: center;
+  		color: white;
+		width: 85%;
+      	height: 60%;
+      	padding-top: 30%;
+      	padding-left: 10%;
+      	padding-bottom: 15%;
   	}
 
 
@@ -31,7 +45,8 @@
 
      	.productHistory{
       			width: 500px;
-      			height: 150px;
+      			height: 300px;
+      			padding-top: 10px;
       	}
 
 
@@ -40,6 +55,12 @@
        					width: 200px;
       					height: 150px;
       					padding-right: 50px;
+
+      					z-index:99;
+       			}
+
+       			.text{
+       					padding-top: px;
        			}
 
 
@@ -58,29 +79,14 @@
 	background:silver;
 	color:white;
 }
-#wrapper2:hover {
+/* #wrapper2:hover {
 	width:100%;
 	height:150px;
 	/* border-bottom:1px solid white; */
-	background:black;
-	color:white;
-}
+	/* background:black;
+	color:white; */
+} */
 
-#footer {
-	width:100%;
-	height:auto;
-
-	padding:10px;
-
-
-
-	background:black;
-	color:white;
-
-	font-size:24px;
-
-	text-align:center;
-}
 
 
 /* for modern brouser */
@@ -104,14 +110,79 @@
 		}
 		/**/
 
+#container2 {
+	width:50%;
+	height:auto;
+
+	background:black;
+
+	padding-top:12%;
+	margin-left:25%;
+	margin-right:25%;
+	margin-bottom:10%;
+
+}
+
+/*アニメーション用*/
+.delay {
+	position: relative;
+	width: 100%;
+}
+
+.delay::after {
+content: "";
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index:0;
+}
+
+.delay::after {
+z-index:0;
+width: 0%;
+background-color: white;
+opacity:0.3;
+}
+#wrapper:hover .delay::after {
+width: 100%;
+transition: width 0.5s linear;
+}
+.delay::after {
+transition-delay: 0s;
+}
+
+/*アニメーション用ここまで*/
+
+#wrapper {
+width:100%;
+height:auto;
+}
+
+
+#footer {
+	width:100%;
+	height:auto;
+
+	padding:10px;
+
+
+
+	background:black;
+	color:white;
+
+	font-size:24px;
+
+	text-align:center;
+}
 
  </style>
 </head>
 <body>
 
-		<div id="menu">
-				<jsp:include page="includeHeader.jsp"/>
-		</div>
+		<jsp:include page="includeHeader.jsp"/>
 
 
 
@@ -129,15 +200,17 @@
 
 
 					<!--購入がない場合 -->
-						<div class = "textnasi">
-								<s:if test = "historyList.size() == 0">
+						<s:if test = "historyList.size() == 0">
+								<div class = "textnasi">
 										<h2>購入情報はありません</h2>
-								</s:if>
-						</div>
+								</div>
+						</s:if>
 
 
 
 					<!-- 購入履歴がある場合 -->
+
+					<div id = "container2">
 
 
 						<s:elseif test = "historyList !=null && historyList.size() !=0">
@@ -145,7 +218,8 @@
 									<s:form action="GoBuyProductHistoryAction"></s:form>
 
 									<s:iterator value = "historyList">
-									<div id = "wrapper2">
+									<div id="wrapper">
+									<div id = "wrapper2"  class="delay">
 
 
 											<!-- 画像 -->
@@ -172,16 +246,29 @@
 											</div>
 
 											<div class = "text">
-													発売年月日：<s:property value="releaseDate" /><br>
+													発売年月日：
+											<fmt:parseDate var="date" value="${releaseDate}" pattern="yyyy-MM-dd HH:mm:ss.SS" />
+											<fmt:formatDate value="${date}" pattern="yyyy年M月d日"/>
+													<br>
 											</div>
 
 											</div>
 
 										</div>
 
+									</div>
+
 									</s:iterator>
 
 						</s:elseif>
+
+					<!-- 購入履歴削除後 -->
+						<s:else>
+							<div class = "textnasi2">
+									<h2>購入情報はありません</h2>
+							</div>
+						</s:else>
+
 
 
 
@@ -199,27 +286,15 @@
 						</s:if>
 
 <br>
+			</div>
 
+			</div>
 
 			</div>
 
 
 
-			</div>
-
-
-	<div id="footer">
-			Regalo.
-	</div>
-
-<%-- <jsp:include page="includeFooter.jsp"/> --%>
-
-
-
-
-
-
-
+<jsp:include page="includeFooter.jsp"/>
 
 
 

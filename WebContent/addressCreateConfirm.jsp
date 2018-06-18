@@ -19,17 +19,31 @@ body {
 	height:auto;
 	}
 
-.register-name {
-	text-align: center;
+table {
+	position: absolute;
+
+	top:65%;
+	left:50%;
+
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	color:white;
+	clear:both;
+	}
+
+.member_form_title {
+	float:left;
 	}
 
 .button {
  	position:relative;
  	width:200px;
  	text-align:center;
- 	margin:0 auto;
-	margin-top:30px;
-	margin-bottom:280px;
+ 	margin:0 auto;;
+	margin-top:400px;
 	}
 
 
@@ -48,92 +62,125 @@ function goPasswordResetCompleteAction(){
 </head>
 <body>
 	<!-- ヘッダー -->
-	<jsp:include page="includeHeader.jsp"/>
+	<div id="menu">
+		<jsp:include page="includeHeader.jsp"/>
+	</div>
 
 	<div id="main">
+
+		<div id="title">ADDRESS</div>
+
+			<div id="container">
 
 	<s:form action="AddressCreateCompleteAction" id="form">
 
 	<div class="reset" align="center">以下の内容でよろしいですか。</div>
 	<br><br>
 
+	<table>
+
 	<!-- 姓 -->
-
-
-		<div class="register-name"><s:label value="姓:"/>
-		<s:property value="familyName"/><s:hidden name="familyName" value="%{familyName}"/></div><br>
-
+	<tr>
+		<td><span class="member_form_title">姓</span></td>
+		<td>
+			<div class="register">
+				<s:property value="familyName"/><s:hidden name="familyName" value="%{familyName}"/>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 名 -->
-
-
-		<div class="register-name"><s:label value="名:"/>
-		<s:property value="firstName"/><s:hidden name="firstName" value="%{firstName}"/></div><br>
-
+	<tr>
+		<td><span class="member_form_title">名</span></td>
+		<td>
+			<div class="register">
+				<s:property value="firstName"/><s:hidden name="firstName" value="%{firstName}"/>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 姓仮名 -->
-
-
-		<div class="register-name"><s:label value="姓仮名:"/>
-		<s:property value="familyNameKana"/><s:hidden name="familyNameKana" value="%{familyNameKana}"/></div><br>
-
+	<tr>
+		<td><span class="member_form_title">姓仮名</span></td>
+		<td>
+			<div class="register">
+				<s:property value="familyNameKana"/><s:hidden name="familyNameKana" value="%{familyNameKana}"/>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 名仮名 -->
-
-
-		<div class="register-name"><s:label value="名仮名:"/>
-		<s:property value="firstNameKana"/><s:hidden name="firstNameKana" value="%{firstNameKana}"/></div><br>
-
+	<tr>
+		<td><span class="member_form_title">名仮名</span></td>
+		<td>
+			<div class="register">
+				<s:property value="firstNameKana"/><s:hidden name="firstNameKana" value="%{firstNameKana}"/>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 性別 -->
+	<tr>
+		<td><span class="member_form_title">性別</span></td>
 
+		<td>
+			<div class="register">
+				<s:if test="sex==0">
+					男性
+				</s:if>
 
-		<div class="register-name"><s:label value="性別:"/>
-			<s:if test="sex==0">
-				男性
-			</s:if>
-
-			<s:else>
-				女性
-			</s:else>
-			<s:hidden name="sex" value="%{sex}"/></div><br>
-
-
+				<s:else>
+					女性
+				</s:else>
+			</div>
+		</td>
+		<td>
+			<div class="register">
+				<s:hidden name="sex" value="%{sex}"/>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 住所 -->
-
-
-		<div class="register-name"><s:label value="住所:"/>
-		<s:property value="userAddress"/><s:hidden name="userAddress" value="%{userAddress}"/></div><br>
-
+	<tr>
+		<td><span class="member_form_title">住所</span></td>
+		<td>
+			<div class="register">
+				<s:property value="userAddress"/><s:hidden name="userAddress" value="%{userAddress}"/>
+			</div>
+		</td>
+	</tr>
 
 	<!-- 電話番号 -->
-
-
-		<div class="register-name"><s:label value="電話番号:"/>
-		<s:property value="telNumber"/><s:hidden name="telNumber" value="%{telNumber}"/></div><br>
-
+	<tr>
+		<td><span class="member_form_title">電話番号</span></td>
+		<td>
+			<div class="register">
+				<s:property value="telNumber"/><s:hidden name="telNumber" value="%{telNumber}"/>
+			</div>
+		</td>
+	</tr>
 
 	<!-- メールアドレス -->
+	<tr>
+		<td><span class="member_form_title">メールアドレス</span></td>
+		<td>
+			<div class="register">
+				<s:property value="email"/><s:hidden name="email" value="%{email}"/>
+			</div>
+		</td>
+	</tr>
+</table>
 
-
-		<div class="register-name"><s:label value="メールアドレス:"/>
-		<s:property value="email"/><s:hidden name="email" value="%{email}"/></div><br>
-
-
-
-
-
-		<div class="button">
-
-			<s:submit value="送信"/>
-		</div>
-
-
-	</s:form>
-
+	<!-- 送信ボタン -->
+			<div class="button">
+				<s:submit value="完了"/>
+			</div>
+		</s:form>
 	</div>
+</div>
 	<!-- フッター -->
 	<jsp:include page="includeFooter.jsp"/>
+
 </body>
 </html>

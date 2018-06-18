@@ -30,8 +30,9 @@ public class LoginAction  extends ActionSupport implements SessionAware{
     private String errorMessage;
     private String errorMessageId;
     private String errorMessagePassword;
-    //エラーメッセージをリストにドボン！↑の3つのerrorMessageをいれる。
-    private List<String> errorMessageList = new ArrayList<>();
+    //エラーメッセージをリストに入れる。
+    private List<String> idErrorMessageList = new ArrayList<>();
+    private List<String> passwordErrorMessageList = new ArrayList<>();
     //ログイン情報を保持しているかの判定！
     private boolean saveLogin;
 
@@ -46,7 +47,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
     public String execute(){
 
         String result = ERROR;
-        
+
     	//ID保存
 		if(saveLogin) {
 			session.put("saveId", userId);
@@ -63,7 +64,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
 
         LoginDAO loginDAO = new LoginDAO();
         CartDAO cartDAO = new CartDAO();
-        InputChecker checker = new InputChecker();
+        InputChecker i = new InputChecker();
 
         boolean flg = false;
 
@@ -72,19 +73,17 @@ public class LoginAction  extends ActionSupport implements SessionAware{
         if((!(userId.equals(""))) && !(password.equals(""))) {
             System.out.println("入力されてまーす");
 
-            /*入力した情報のチェック(inputチェック)2箇所しかないから2個の代入な。
-            Listにどんどんいれていく*/
-            errorMessageList = checker.check("ID", userId, 1, 8, true, false, false, false, true, false, false);
-            errorMessageList = checker.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
+            idErrorMessageList = i.check("ID", userId, 1, 8, true, false, false, false, true, false, false);
+            passwordErrorMessageList = i.check("パスワード", password, 1, 16, true, false, false, false, true, false, false);
 
 
-            
+
             try {//userIdがあるかないかの判断→ただそれだけな
                 flg = loginDAO.existsUserId(userId);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            //成功したら↓
+
 
 
             if(flg){
@@ -133,7 +132,7 @@ public class LoginAction  extends ActionSupport implements SessionAware{
                     e.printStackTrace();
                 }
                 session.put("addressInfoListDTO",addressInfoListDTO);
-System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
+                System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
                 //カートのユーザー情報を書き換える
 
@@ -156,7 +155,7 @@ System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
                         //カートの情報を入れている。
                         ProductInfoDAO dao = new ProductInfoDAO();
                         productInfoDTOList = (ArrayList<ProductInfoDTO>) dao.getProductInfo();
-//                        session.put("productInfoDTOList", productInfoDTOList);
+                        //session.put("productInfoDTOList", productInfoDTOList);
                         session.put("masterId", "admin");
                         System.out.println("要素数 = " + productInfoDTOList.size());
                         System.out.println("管理者ログインしました");
@@ -173,7 +172,7 @@ System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
             } else {
                 errorMessage = "入力されたパスワードが異なります。";
 
-                errorMessageList.add(errorMessage);
+                idErrorMessageList.add(errorMessage);
 
             }
 
@@ -199,7 +198,7 @@ System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
             System.out.println(errorMessageId);
 
-            errorMessageList.add(errorMessageId);
+            idErrorMessageList.add(errorMessageId);
 
         }
         //パスが空白の場合
@@ -208,7 +207,7 @@ System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
 
             System.out.println(errorMessagePassword);
 
-            errorMessageList.add(errorMessagePassword);
+            passwordErrorMessageList.add(errorMessagePassword);
         }
 
         //ここは、ちゃんとこのファイルが実行しているかの確認のためのコード
@@ -274,15 +273,6 @@ System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
     }
 
 
-    public List<String> getErrorMessageList() {
-        return errorMessageList;
-    }
-
-
-    public void setErrorMessageList(List<String> errorMessageList) {
-        this.errorMessageList = errorMessageList;
-    }
-
 
     public String getErrorMessageId() {
         return errorMessageId;
@@ -332,6 +322,29 @@ System.out.println("addressInfoListDTO.size():"+addressInfoListDTO.size());
     public void setCartDtoList(List<CartDTO> cartDtoList) {
         CartDtoList = cartDtoList;
     }
+
+
+	public List<String> getIdErrorMessageList() {
+		return idErrorMessageList;
+	}
+
+
+	public void setIdErrorMessageList(List<String> idErrorMessageList) {
+		this.idErrorMessageList = idErrorMessageList;
+	}
+
+
+	public List<String> getPasswordErrorMessageList() {
+		return passwordErrorMessageList;
+	}
+
+
+	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList) {
+		this.passwordErrorMessageList = passwordErrorMessageList;
+	}
+
+
+
 
 
 }

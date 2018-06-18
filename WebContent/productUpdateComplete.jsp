@@ -13,7 +13,9 @@
 </head>
 <body>
 <!-- ヘッダー -->
-<jsp:include page="includeHeader.jsp"/>
+<%-- <jsp:include page="includeHeader.jsp"/> --%>
+
+<!-- メイン -->
 <div id="main">
 <div id="title">
 ProductUpdate</div>
@@ -25,6 +27,7 @@ ProductUpdate</div>
 <a href='<s:url action="GoMasterAction"/>'>管理者ページ</a><br></div>
 <div class="moji">
 <span>3秒後にホームへ移動します。</span><br></div>
+
 
 
 

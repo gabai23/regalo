@@ -1,0 +1,172 @@
+@CHARSET "UTF-8";
+
+#container {
+	color:white;
+}
+
+/*画像を囲う*/
+#imageContainer {
+	display:block;
+	width:95%;
+	height:100%;
+
+	margin-left:2.5%;
+}
+
+/*画像*/
+#image {
+	display:block;
+	width:100%;
+
+	margin:0 auto;
+
+}
+
+/*商品詳細*/
+#productDetail {
+	width:100%;
+
+	margin-top:25px;
+	text-align:center;
+}
+
+/*カートボタン*/
+#cartButtonWrapper{
+	width:100%;
+
+	text-align:center;
+}
+
+#cartButton{
+	/* width:100px; */
+}
+
+/*関連商品*/
+#relationTitle {
+	width:100%;
+	text-align:center;
+}
+
+#relation {
+	width: 100%;
+	height:auto;
+}
+
+/*商品*/
+#products {
+	position:relative;
+	width:21.25%;
+	height:auto;
+
+	float:left;
+
+	margin-top:25px;
+	margin-bottom:25px;
+	margin-left:8.5%;
+
+	box-sizing:border-box;
+
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+#products:hover {
+	/* border:1px solid white; */
+
+	box-sizing:border-box;
+
+	-webkit-filter: grayscale(0);
+	-moz-filter: grayscale(0);
+	-ms-filter: grayscale(0);
+	-o-filter: grayscale(0);
+	filter: grayscale(0);
+}
+
+/*比率*/
+.ratio-1_1:before {
+	content: "";
+	display: block;
+	padding-top: 100%; /* ratio */
+}
+
+#relationImageContainer {
+	position:absolute;
+	top:0;
+	left:0;
+
+	width:100%;
+	height:100%;
+}
+
+/*画像*/
+#relationImage {
+	position: absolute;
+
+	top:50%;
+	left:50%;
+
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+
+	max-width:100%;
+	max-height:100%;
+
+}
+
+/*商品詳細*/
+#relationProductDetail {
+	position:absolute;
+	top:60%;
+	left:90%;
+
+	width:50px;
+	height:20px;
+
+	background:white;
+	color:black;
+
+	padding:5px;
+
+	border:1px solid white;
+	text-align:center;
+}
+
+#relationProductDetail:hover {
+	width:100px;
+	height:auto;
+}
+
+/*detail*/
+#relationProductDetail .detail{ display:inline; }
+#relationProductDetail:hover .detail{ display:none; }
+
+/*商品名と価格*/
+#relationProductDetail .datailHover{ display:none; }
+#relationProductDetail:hover .datailHover{display:inline;}
+
+/* for modern brouser */
+		.clearfix:after {
+		  content: ".";
+		  display: block;
+		  clear: both;
+		  height: 0;
+		  visibility: hidden;
+		}
+		/* IE7,MacIE5 */
+		.clearfix {
+		  display: inline-block;
+		}
+		/* WinIE6 below, Exclude MacIE5 \*/
+		* html .clearfix {
+		  height: 1%;
+		}
+		.clearfix {
+		  display: block;
+		}
+/* for modern brouser */

@@ -89,17 +89,20 @@
 
 	/* ========CLASS LAYOUT======== */
 
+		.insert_box{
+			text-align:center;
+
+		}
+
+		.insert_btn{
+			margin-top:10px;
+			font-size:10px;
+
+		}
+
 		.errorMessage {
 			color:#ff0000;
 			/* border:1px solid black; */
-		}
-
-		.check_hover {
-			color:#fff;
-		}
-
-		.check_hover:hover {
-			color:#ff0000;
 		}
 
 		.price_and_btns{
@@ -109,11 +112,12 @@
 		}
 
 		.submit_btn_set{
-			margin-top:10px;
+			margin-top:5px;
+			margin-bottom:5px;
 
 		}
 		.contents-btn-set{
 			display: inline-block;
 			margin-right: 10px;
-			font-size:20px;
+			font-size:10px;
 		}

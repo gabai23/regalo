@@ -71,13 +71,13 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 
 		if(imageFilePath.contains("image")){
 			 fileName = new File(imageFilePath).getName();
-			 newImageFileName = "/ecsite-nakadate/image/" + fileName;
+			 newImageFileName = "./images/" + fileName;
 
 			System.out.println(newImageFileName);
 
 
 		} else {
-			newImageFileName = "/ecsite-nakadate/image/" + imageFileName;
+			newImageFileName = "./images/" + imageFileName;
 
 			System.out.println(newImageFileName);
 		}
@@ -92,6 +92,7 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 		session.put("categoryId", categoryId);
 		session.put("price", price);
 		session.put("imageFilePath", imageFilePath);
+		session.put("newImageFileName", newImageFileName);
 		session.put("fileName", fileName);
 		session.put("releaseCompany", releaseCompany);
 
@@ -266,6 +267,18 @@ public class ProductInsertConfirmAction extends ActionSupport implements Session
 
 	public void setRegistDate(Date registDate) {
 		this.registDate = registDate;
+	}
+
+
+
+	public String getNewImageFileName() {
+		return newImageFileName;
+	}
+
+
+
+	public void setNewImageFileName(String newImageFileName) {
+		this.newImageFileName = newImageFileName;
 	}
 
 

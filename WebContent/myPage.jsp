@@ -25,31 +25,43 @@
 
 
 /* テーブル編集 */
-    table.myPage{
-    		text-align:center;
+
+
+
+	.myPage{
+ 			text-align:center;
     		margin:0 auto;
     		color: white;
     		font-family: cursive,serif;
+    		width: 50%;
+			height: 50%;
+			padding-top: 30px;
+			padding-left: 15px;
+	}
 
-    }
+		.text{
+				text-align:left;
+				font-weight: 300;
+				font-size: 18px;
+				margin: 20px 20px 20px 20px;
 
-		table.myPage th,td{
-			width: 150px;
-			height: 50px;
-			font-size: 18px;
 		}
 
-			table.myPage th{
-				text-align:left;
-				font-weight: 200;
-				padding: 20px 0px 20px 0px;
-			}
+		.myPageDate{
+				text-align:inherit;
+				font-weight: 300;
+				font-size: 25px;
+				margin: 30px 20px 30px 20px;
 
-			table.myPage td{
-				text-align:left;
-				font-weight: 180;
-				padding-left: 50px;
-			}
+		}
+
+		.myPagEwmail{
+				text-align:inherit;
+				font-weight: 300;
+				font-size: 25px;
+				margin: 30px 20px 30px 20px;
+				font-family: Vollkorn;
+		}
 
 
 /* ボタン編集 */
@@ -78,16 +90,14 @@
 }
 
 
-
 </style>
 
 
 </head>
 <body>
 <!-- ヘッダー -->
-		<div id="menu">
-				<jsp:include page="includeHeader.jsp"/>
-		</div>
+		<jsp:include page="includeHeader.jsp"/>
+
 
 	<div id="main">
 
@@ -99,38 +109,33 @@
 
 			<s:iterator value="myPageList">
 
-					<table class="myPage">
-							<tr>
-									<th>氏名</th>
-									<td>
+					<div class="myPage">
+
+									<div class="text">氏名</div>
+									<div class=myPageDate>
 											<s:property value="familyName"/>
 											<s:property value="firstName"/>
-									</td>
-							</tr>
+									</div>
 
-							<tr>
-									<th>ふりがな</th>
-									<td>
+									<div class="text">ふりがな</div>
+									<div class=myPageDate>
 											<s:property value="familyNameKana"/>
 											<s:property value="firstNameKana"/>
-									</td>
-							</tr>
+									</div>
 
-							<tr>
-									<th>性別</th>
-									<td>
+									<div class="text">性別</div>
+									<div class=myPageDate>
 											<s:if test="sex==0">男性</s:if>
 											<s:else>女性</s:else>
-									</td>
-							</tr>
+									</div>
 
-							<tr>
-									<th>メール</th>
-									<td>
+									<div class="text">メール</div>
+									<div class=myPagEwmail>
 											<s:property value="email"/>
-									</td>
-							</tr>
-					</table>
+									</div>
+
+					</div>
+
 
 
 			</s:iterator>
@@ -148,10 +153,10 @@
 
 		</div>
 
+
 	</div>
-			<div id="footer">
-			Regalo.
-		</div>
+
+
 
 
 
@@ -159,7 +164,7 @@
 
 
 <!-- フッダー -->
-<%-- 	<jsp:include page="includeFooter.jsp"/> --%>
+	<jsp:include page="includeFooter.jsp"/>
 
 </body>
 </html>

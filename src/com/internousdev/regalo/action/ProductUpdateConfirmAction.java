@@ -53,6 +53,7 @@ public class ProductUpdateConfirmAction extends ActionSupport implements Session
 	//更新日
 	private Date updateDate;
 
+
 	private List<String> productIdErrorMessageList = new ArrayList<String>();
 	private List<String> productNameErrorMessageList = new ArrayList<String>();
 	private List<String> productNameKanaErrorMessageList = new ArrayList<String>();
@@ -69,15 +70,20 @@ public class ProductUpdateConfirmAction extends ActionSupport implements Session
 
 		String fileName = "";
 
+		if(productDescription.contains(" ")){
+			productDescription.replace(" ", "<br>");
+		}
+		System.out.println(productDescription);
+
 		if(imageFilePath.contains("image")){
 			 fileName = new File(imageFilePath).getName();
-			 newImageFileName = "/ecsite-nakadate/image/" + fileName;
+			 newImageFileName = "/regalo/WebContent/images/" + fileName;
 
 			System.out.println(newImageFileName);
 
 
 		} else {
-			newImageFileName = "/ecsite-nakadate/image/" + imageFileName;
+			newImageFileName = "/regalo/WebContent/images/" + imageFileName;
 
 			System.out.println(newImageFileName);
 		}

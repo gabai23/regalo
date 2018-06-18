@@ -54,6 +54,16 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		System.out.println(familyName);
 
+		session.put("familyName", familyName);
+		session.put("firstName", firstName);
+		session.put("familyNameKana", familyNameKana);
+		session.put("firstNameKana", firstNameKana);
+		session.put("sex", sex);
+		session.put("email", email);
+		session.put("loginId", userId);
+
+
+
 		familyNameErorMessageList = i.check("姓",familyName,1,16,true,true,true,false,false,false,false);
 		firstNameErorMessageList = i.check("名", firstName, 1, 16, true, true, true, false, false, false, false);
 		familyNameKanaErorMessageList= i.check("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false);
@@ -95,11 +105,11 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			result = SUCCESS;
 			return result;
 		}
-
-
-
 		return result;
 	}
+
+
+
 
 
 	public String getFamilyName() {

@@ -48,10 +48,36 @@
 						<!-- 商品画像 -->
 						<s:a id="imageContainer" href="%{url}">
 							<img id="image" src='<s:property value="imageFilePath"/>' alt='<s:property value="imageFileName"/>'/>
+
+							<div id="productDetail">
+
+								<div class="detailHover">
+
+									<s:a href="%{url}">
+										<!-- 商品名かな -->
+										<span class="productNameKana">
+											<s:property value="productNameKana"/>
+										</span>
+
+										<br>
+										<!-- 商品名 -->
+										<s:property value="productName"/>
+
+									</s:a>
+
+									<br>
+									<!-- 価格 -->
+									<div id="price">
+										<span>&yen;</span>
+										<fmt:formatNumber value="${price}"/>
+									</div>
+								</div>
+
+							</div>
 						</s:a>
 
 						<br>
-						<div id="productDetail">
+						<%-- <div id="productDetail">
 
 							<span class="detail">→</span>
 
@@ -77,7 +103,7 @@
 								</div>
 							</div>
 
-						</div>
+						</div> --%>
 					</div>
 				</div>
 			</s:iterator>

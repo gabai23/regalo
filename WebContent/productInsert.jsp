@@ -6,12 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+
 <link href="https://fonts.googleapis.com/css?family=Arizonia|Cinzel|Cormorant+Garamond" rel="stylesheet">
 
 
 <title>商品情報入力</title>
 </head>
 <body>
+
 
 
 <div id="contents">
@@ -115,15 +117,27 @@
 </tr>
 
 </table>
+
+
+
 <div class="submit_btn_box">
-<div id=".contents-btn-set">
+<span id=".contents-btn-set">
+
+<input type="button"
+	onclick="location.href='<s:url action="GoMasterAction" />'"
+	value="戻る" />
+</span>
+<span id=".contents-btn-set">
 <s:submit value="登録" class="submit_btn" />
+</span>
 </div>
-</div>
+
+
+
 </s:form>
 </div>
 <div id="footer">
-	<s:include value="footer.jsp"/>
+	<s:include value="includeFooter.jsp"/>
 </div>
 
 
